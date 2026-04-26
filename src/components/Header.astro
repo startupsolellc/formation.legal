@@ -1,0 +1,51 @@
+---
+/**
+ * Header.astro — Site navigation header.
+ * Semantic <header> with accessible nav.
+ */
+
+import { SITE, NAV_ITEMS } from '../lib/constants';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-[var(--color-border)] bg-white/80 backdrop-blur-md sticky top-0 z-50">
+  <nav
+    class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6"
+    aria-label="Main navigation"
+  >
+    <!-- Logo / Brand -->
+    <a
+      href="/"
+      class="text-lg font-bold tracking-tight text-[var(--color-primary-900)] hover:text-[var(--color-accent-600)] transition-colors"
+    >
+      {SITE.title}
+    </a>
+
+    <!-- Navigation Links -->
+    <ul class="flex items-center gap-6" role="list">
+      {NAV_ITEMS.map((item) => {
+        const isActive =
+          item.href === '/'
+            ? currentPath === '/'
+            : currentPath.startsWith(item.href);
+        return (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'text-sm font-medium transition-colors',
+                isActive
+                  ? 'text-[var(--color-accent-600)]'
+                  : 'text-[var(--color-muted)] hover:text-[var(--color-primary-900)]',
+              ]}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,44 @@
+---
+/**
+ * Footer.astro — Site footer with trust signals.
+ */
+
+import { SITE } from '../lib/constants';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-[var(--color-border)] bg-[var(--color-surface-alt)]">
+  <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+    <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+      <!-- Copyright -->
+      <p class="text-sm text-[var(--color-muted)]">
+        &copy; {currentYear} {SITE.title}. All rights reserved.
+      </p>
+
+      <!-- Trust & AI-friendly links -->
+      <nav class="flex items-center gap-4 text-sm" aria-label="Footer navigation">
+        <a
+          href="/llms.txt"
+          class="text-[var(--color-muted)] hover:text-[var(--color-primary-900)] transition-colors"
+        >
+          llms.txt
+        </a>
+        <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
+        <a
+          href="/robots.txt"
+          class="text-[var(--color-muted)] hover:text-[var(--color-primary-900)] transition-colors"
+        >
+          robots.txt
+        </a>
+        <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
+        <a
+          href="/sitemap-index.xml"
+          class="text-[var(--color-muted)] hover:text-[var(--color-primary-900)] transition-colors"
+        >
+          Sitemap
+        </a>
+      </nav>
+    </div>
+  </div>
+</footer>

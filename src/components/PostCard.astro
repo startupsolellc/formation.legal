@@ -1,0 +1,61 @@
+---
+/**
+ * PostCard.astro — Blog post preview card for listing pages.
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  author: string;
+  humanGenerated: boolean;
+  aiAssisted: boolean;
+  category: string;
+}
+
+const { title, description, pubDate, slug, author, humanGenerated, aiAssisted, category } =
+  Astro.props;
+
+const dateFormatted = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const trustLabel = humanGenerated
+  ? aiAssisted
+    ? 'AI-assisted'
+    : 'Human-written'
+  : 'AI-generated';
+---
+
+<article class="group rounded-lg border border-[var(--color-border)] bg-white p-5 transition-all hover:border-[var(--color-accent-400)] hover:shadow-md">
+  <a href={`/blog/${slug}`} class="block">
+    <!-- Category & Trust -->
+    <div class="mb-3 flex items-center gap-2 text-xs">
+      <span class="rounded-full bg-[var(--color-primary-50)] px-2.5 py-0.5 font-medium text-[var(--color-primary-700)]">
+        {category}
+      </span>
+      <span class="text-[var(--color-muted)]">·</span>
+      <span class="text-[var(--color-trust)] font-medium">{trustLabel}</span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-lg font-semibold leading-snug text-[var(--color-primary-950)] group-hover:text-[var(--color-accent-600)] transition-colors">
+      {title}
+    </h3>
+
+    <!-- Description -->
+    <p class="mt-2 line-clamp-2 text-sm text-[var(--color-muted)]">
+      {description}
+    </p>
+
+    <!-- Meta -->
+    <div class="mt-4 flex items-center gap-3 text-xs text-[var(--color-muted)]">
+      <time datetime={pubDate.toISOString()}>{dateFormatted}</time>
+      <span aria-hidden="true">·</span>
+      <span>{author}</span>
+    </div>
+  </a>
+</article>

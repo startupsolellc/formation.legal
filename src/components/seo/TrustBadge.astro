@@ -1,0 +1,52 @@
+---
+/**
+ * TrustBadge.astro — Visual trust signal + meta tags for content provenance.
+ * Displays originality score and human/AI attribution.
+ */
+
+interface Props {
+  originalityScore: number;
+  humanGenerated: boolean;
+  aiAssisted: boolean;
+}
+
+const { originalityScore, humanGenerated, aiAssisted } = Astro.props;
+
+const trustLabel = humanGenerated
+  ? aiAssisted
+    ? 'Human-written, AI-assisted'
+    : 'Human-written'
+  : 'AI-generated';
+
+const scoreColor =
+  originalityScore >= 90
+    ? 'text-emerald-700 bg-emerald-50 border-emerald-200'
+    : originalityScore >= 70
+      ? 'text-amber-700 bg-amber-50 border-amber-200'
+      : 'text-red-700 bg-red-50 border-red-200';
+---
+
+<!-- Trust Layer meta tags (machine-readable) -->
+<meta name="originality-score" content={String(originalityScore)} />
+<meta name="human-generated" content={String(humanGenerated)} />
+<meta name="ai-assisted" content={String(aiAssisted)} />
+
+<!-- Visual badge (human-readable) -->
+<div class={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium ${scoreColor}`}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    class="size-3.5"
+    aria-hidden="true"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+      clip-rule="evenodd"
+    />
+  </svg>
+  <span>{trustLabel}</span>
+  <span class="opacity-60">·</span>
+  <span>{originalityScore}% original</span>
+</div>
