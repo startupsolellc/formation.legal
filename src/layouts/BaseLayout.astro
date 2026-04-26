@@ -29,7 +29,14 @@ const {
   schemas = [],
 } = Astro.props;
 
-const pageTitle = title === SITE.title ? title : `${title} | ${SITE.title}`;
+const escapedSiteTitle = SITE.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const brandSuffixPattern = new RegExp(`\\s+(?:[|—-])\\s+${escapedSiteTitle}$`);
+const brandPrefixPattern = new RegExp(`^${escapedSiteTitle}\\s+(?:[|—-])\\s+`);
+const normalizedTitle = title.replace(brandSuffixPattern, '');
+const pageTitle =
+  normalizedTitle === SITE.title || brandPrefixPattern.test(normalizedTitle)
+    ? normalizedTitle
+    : `${normalizedTitle} | ${SITE.title}`;
 const canonical = canonicalUrl ?? Astro.url.href;
 
 // Always include Organization + WebSite schemas
