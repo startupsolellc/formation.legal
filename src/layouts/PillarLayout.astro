@@ -64,6 +64,23 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       </div>
     </header>
 
+    <div class="mb-10 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="text-sm font-semibold text-[var(--color-primary-950)]">Check this against your route</p>
+          <p class="mt-1 text-sm text-[var(--color-muted)]">
+            Run the planner with your country, business model, payment goal, address status, and risk tolerance.
+          </p>
+        </div>
+        <a
+          href="/tools/route-planner"
+          class="inline-flex shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-action)] border border-[var(--color-action)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-action-hover)]"
+        >
+          Start Route Planner
+        </a>
+      </div>
+    </div>
+
     <!-- Guides Grid -->
     {guides.length > 0 ? (
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

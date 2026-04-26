@@ -22,6 +22,7 @@ function assessPaymentRisk(inputs: RoutePlannerInputs): RiskLevel {
   const { paymentGoals, currentSetup, addressStatus, countryOfResidence } = inputs;
   const wantsStripe = paymentGoals.includes('stripe');
   const wantsPaypal = paymentGoals.includes('paypal');
+  const wantsMarketplace = paymentGoals.includes('amazon-shopify');
 
   if (wantsStripe && currentSetup === 'no-company') return 'high';
   if (wantsStripe && addressStatus === 'home-country') return 'high';
@@ -29,18 +30,21 @@ function assessPaymentRisk(inputs: RoutePlannerInputs): RiskLevel {
   if (wantsStripe && currentSetup === 'llc-ein-bank') return 'medium';
   if (wantsStripe && currentSetup === 'llc-ein') return 'high';
   if (wantsPaypal && currentSetup === 'no-company') return 'high';
+  if (wantsMarketplace && currentSetup === 'llc-no-ein') return 'high';
+  if (wantsMarketplace && addressStatus === 'registered-agent') return 'medium';
 
   const highRiskCountries = ['nigeria', 'pakistan', 'bangladesh'];
   if (highRiskCountries.includes(countryOfResidence ?? '') && wantsStripe) return 'high';
 
-  if (paymentGoals.includes('safest-compliant')) return 'low';
+  if (paymentGoals.includes('review-first')) return 'low';
   if (paymentGoals.length === 0) return 'needs-review';
   return 'medium';
 }
 
 function assessAddressRisk(inputs: RoutePlannerInputs): RiskLevel {
-  const { addressStatus, currentSetup } = inputs;
+  const { addressStatus, currentSetup, paymentGoals } = inputs;
   if (addressStatus === 'physical-office') return 'low';
+  if (addressStatus === 'registered-agent' && paymentGoals.includes('amazon-shopify')) return 'high';
   if (addressStatus === 'virtual-mailbox') return 'medium';
   if (addressStatus === 'registered-agent') return 'medium';
   if (addressStatus === 'home-country') return 'high';
@@ -74,7 +78,7 @@ function assessCostRisk(inputs: RoutePlannerInputs): RiskLevel {
   if (entityPreference === 'stripe-atlas') return 'medium'; // known fixed cost
   if (entityPreference === 'c-corp') return 'high'; // franchise tax, filings
   if (riskTolerance === 'cheapest') return 'medium'; // may cut corners
-  if (riskTolerance === 'safest') return 'low';
+  if (riskTolerance === 'review-first') return 'low';
   return 'medium';
 }
 
@@ -84,6 +88,11 @@ function assessCostRisk(inputs: RoutePlannerInputs): RiskLevel {
 
 function getMissingSteps(inputs: RoutePlannerInputs): MissingStep[] {
   const steps: MissingStep[] = [];
+  const hasProcessorOrBankGoal =
+    inputs.paymentGoals.includes('stripe') ||
+    inputs.paymentGoals.includes('paypal') ||
+    inputs.paymentGoals.includes('us-bank') ||
+    inputs.paymentGoals.includes('amazon-shopify');
 
   if (inputs.currentSetup === 'no-company' || inputs.currentSetup === 'unsure') {
     steps.push({
@@ -109,7 +118,12 @@ function getMissingSteps(inputs: RoutePlannerInputs): MissingStep[] {
     });
   }
 
-  if (inputs.addressStatus === 'home-country' || inputs.addressStatus === 'unsure' || inputs.currentSetup === 'need-address') {
+  if (
+    inputs.addressStatus === 'home-country' ||
+    inputs.addressStatus === 'unsure' ||
+    inputs.currentSetup === 'need-address' ||
+    (inputs.addressStatus === 'registered-agent' && hasProcessorOrBankGoal)
+  ) {
     steps.push({
       id: 'address',
       label: 'Valid business address path',
@@ -122,6 +136,14 @@ function getMissingSteps(inputs: RoutePlannerInputs): MissingStep[] {
       id: 'payment-readiness',
       label: 'Payment processor readiness',
       detail: 'Stripe and PayPal have their own verification requirements beyond entity formation. A bank account and business website are typically needed.',
+    });
+  }
+
+  if (inputs.paymentGoals.includes('amazon-shopify')) {
+    steps.push({
+      id: 'marketplace-readiness',
+      label: 'Marketplace verification readiness',
+      detail: 'Amazon and Shopify-related payment routes can require EIN, address, bank, tax, and identity checks. Verify current requirements before applying.',
     });
   }
 
@@ -152,6 +174,11 @@ function getMissingSteps(inputs: RoutePlannerInputs): MissingStep[] {
 
 function generateChecklist(inputs: RoutePlannerInputs): ChecklistItem[] {
   const items: ChecklistItem[] = [];
+  const hasProcessorOrBankGoal =
+    inputs.paymentGoals.includes('stripe') ||
+    inputs.paymentGoals.includes('paypal') ||
+    inputs.paymentGoals.includes('us-bank') ||
+    inputs.paymentGoals.includes('amazon-shopify');
 
   if (inputs.currentSetup === 'no-company' || inputs.currentSetup === 'unsure') {
     items.push({
@@ -178,10 +205,15 @@ function generateChecklist(inputs: RoutePlannerInputs): ChecklistItem[] {
     });
   }
 
-  if (inputs.addressStatus === 'home-country' || inputs.addressStatus === 'unsure' || inputs.currentSetup === 'need-address') {
+  if (
+    inputs.addressStatus === 'home-country' ||
+    inputs.addressStatus === 'unsure' ||
+    inputs.currentSetup === 'need-address' ||
+    (inputs.addressStatus === 'registered-agent' && hasProcessorOrBankGoal)
+  ) {
     items.push({
-      step: 'Set up a US business address',
-      detail: 'Virtual mailbox services can provide a US address for mail forwarding.',
+      step: 'Select a business address route',
+      detail: 'Registered-agent-only addresses may not satisfy every processor, bank, or marketplace check. Verify address requirements before applying.',
       priority: 'important',
     });
   }
@@ -206,6 +238,14 @@ function generateChecklist(inputs: RoutePlannerInputs): ChecklistItem[] {
     items.push({
       step: 'Set up PayPal Business account',
       detail: 'PayPal has separate verification from Stripe. Identity and address verification required.',
+      priority: 'important',
+    });
+  }
+
+  if (inputs.paymentGoals.includes('amazon-shopify')) {
+    items.push({
+      step: 'Prepare marketplace verification materials',
+      detail: 'Check Amazon or Shopify requirements for EIN, bank account, business address, tax interview, and identity verification.',
       priority: 'important',
     });
   }
@@ -243,6 +283,7 @@ function determineVerdict(riskPanel: RiskPanel): RouteVerdict {
 
   if (blockedCount > 0) return 'blocked';
   if (highCount >= 3) return 'risky';
+  if (riskPanel.paymentAccess === 'high' && riskPanel.bankingKyc === 'high') return 'risky';
   if (highCount >= 1) return 'incomplete';
   if (needsReviewCount >= 2) return 'needs-professional-review';
   return 'possible';
@@ -255,18 +296,28 @@ function generateSummary(inputs: RoutePlannerInputs, verdict: RouteVerdict): str
     inputs.entityPreference === 'mor' ? 'Merchant of Record' : 'US entity';
 
   const country = inputs.countryOfResidence ?? 'your country';
+  const processor = inputs.paymentGoals.includes('stripe') ? 'Stripe' :
+    inputs.paymentGoals.includes('paypal') ? 'PayPal' :
+    inputs.paymentGoals.includes('amazon-shopify') ? 'Amazon or Shopify' :
+    inputs.paymentGoals.includes('us-bank') ? 'US banking' :
+    inputs.paymentGoals.includes('privacy') && inputs.paymentGoals.includes('lowest-cost') ? 'privacy and lowest upfront cost' :
+    inputs.paymentGoals.includes('privacy') ? 'privacy-focused' :
+    inputs.paymentGoals.includes('lowest-cost') ? 'lowest upfront cost' : 'your selected payment';
+  const tradeoff = inputs.paymentGoals.includes('privacy') && inputs.paymentGoals.includes('lowest-cost')
+    ? ' Privacy and lowest upfront cost can point to different provider routes, so compare route fit, renewal cost, address handling, and support depth before choosing.'
+    : '';
 
   switch (verdict) {
     case 'possible':
-      return `Based on your inputs, a ${entity} route from ${country} appears directionally viable. You may still need to verify bank eligibility, address requirements, and payment processor policies for your specific situation.`;
+      return `Based on your inputs, a ${entity} route from ${country} appears directionally viable for ${processor}. You may still need to verify bank eligibility, address requirements, and payment processor policies for your specific situation.${tradeoff}`;
     case 'incomplete':
-      return `Your route has gaps that need attention. Key steps may be missing — such as a bank account, a valid business address, or an EIN. Review the missing steps below before proceeding.`;
+      return `Your ${processor} route from ${country} has gaps that need attention. Key steps may be missing, such as a bank account, a valid business address, marketplace or processor readiness, or an EIN. Review the missing steps below before proceeding.${tradeoff}`;
     case 'risky':
-      return `Multiple risk factors were detected in your route. This does not mean your route is impossible, but professional review from a qualified attorney or CPA familiar with non-US founder situations is recommended before spending money.`;
+      return `Multiple risk factors were detected for a ${processor} route from ${country}. Country, processor, and bank eligibility must be verified before spending money. Professional review from a qualified attorney or CPA familiar with non-US founder situations is recommended.${tradeoff}`;
     case 'blocked':
-      return `Your current setup has one or more factors that may block progress. This could be related to country-specific banking restrictions, address issues, or entity type mismatch. Review the risk panel and consider consulting a professional.`;
+      return `Your current ${processor} setup from ${country} has one or more factors that may block progress. This could be related to country-specific banking restrictions, address issues, or entity type mismatch. Review the risk panel and consider consulting a professional.${tradeoff}`;
     case 'needs-professional-review':
-      return `Your situation has factors that require professional evaluation. We recommend consulting with an attorney or CPA who specializes in non-US founder entity formation before taking action.`;
+      return `Your ${processor} route from ${country} has factors that require professional evaluation. Check country, processor, bank, and address eligibility, then consider consulting with an attorney or CPA who specializes in non-US founder entity formation before taking action.${tradeoff}`;
   }
 }
 

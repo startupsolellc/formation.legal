@@ -43,7 +43,7 @@ export const PROVIDERS: ProviderData[] = [
     reason: 'Uses their own address on public filings for privacy. Known for responsive customer support. Includes registered agent for the first year.',
     caveat: 'Higher renewal costs in subsequent years. Verify current pricing.',
     fitFor: {
-      riskTolerance: ['balanced', 'safest'],
+      riskTolerance: ['balanced', 'review-first'],
       entityPreference: ['llc', 'unsure'],
     },
   },
@@ -53,7 +53,7 @@ export const PROVIDERS: ProviderData[] = [
     reason: 'Well-known brand with add-on legal services (attorney consultations, trademark filing). May suit founders who want a one-stop platform.',
     caveat: 'Generally higher pricing than specialists. Formation-only service may not justify the premium.',
     fitFor: {
-      riskTolerance: ['balanced', 'safest'],
+      riskTolerance: ['balanced', 'review-first'],
       entityPreference: ['llc', 'c-corp', 'unsure'],
     },
   },

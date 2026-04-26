@@ -15,7 +15,7 @@ const tools = [
     title: 'US Business Route Planner',
     description: 'Find the right US business route based on your country, business model, payment goals, and risk tolerance.',
     href: '/tools/route-planner',
-    status: 'coming-soon' as const,
+    status: 'available' as const,
   },
   {
     title: '3-Year LLC Cost Calculator',
@@ -48,7 +48,7 @@ const tools = [
 
     <div class="grid gap-6 sm:grid-cols-2">
       {tools.map((tool) => (
-        <div class="rounded-lg border border-[var(--color-border)] bg-white p-6 transition-all hover:border-[var(--color-accent-400)] hover:shadow-md">
+        <a href={tool.href} class="rounded-lg border border-[var(--color-border)] bg-white p-6 transition-all hover:border-[var(--color-accent-400)] hover:shadow-md">
           <div class="mb-3 flex items-center gap-2">
             <h3 class="text-lg font-semibold text-[var(--color-primary-950)]">{tool.title}</h3>
             {tool.status === 'coming-soon' && (
@@ -58,7 +58,7 @@ const tools = [
             )}
           </div>
           <p class="text-sm text-[var(--color-muted)]">{tool.description}</p>
-        </div>
+        </a>
       ))}
     </div>
   </section>

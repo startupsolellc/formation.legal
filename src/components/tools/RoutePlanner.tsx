@@ -1,5 +1,5 @@
 /* Route Planner — Preact island component */
-import { useState, useCallback } from 'preact/hooks';
+import { useState, useCallback, useEffect } from 'preact/hooks';
 import type { RoutePlannerInputs, RouteResult, AnalyticsEvent } from '../../types/route-planner';
 import { evaluateRoute } from '../../data/route-rules';
 
@@ -54,7 +54,7 @@ const PAYMENT_OPTIONS = [
   { value: 'amazon-shopify', label: 'Amazon / Shopify' },
   { value: 'privacy', label: 'Privacy' },
   { value: 'lowest-cost', label: 'Lowest upfront cost' },
-  { value: 'safest-compliant', label: 'Safest compliant setup' },
+  { value: 'review-first', label: 'Review-first setup' },
 ] as const;
 
 const SETUP_OPTIONS = [
@@ -85,7 +85,7 @@ const ENTITY_OPTIONS = [
 const RISK_OPTIONS = [
   { value: 'cheapest', label: 'Cheapest' },
   { value: 'balanced', label: 'Balanced' },
-  { value: 'safest', label: 'Safest compliant setup' },
+  { value: 'review-first', label: 'Review-first route' },
 ] as const;
 
 /* ------------------------------------------------------------------ */
@@ -163,6 +163,12 @@ const VERDICT_MAP: Record<string, { label: string; color: string }> = {
 function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => void }) {
   const [copied, setCopied] = useState(false);
   const v = VERDICT_MAP[result.verdict] ?? VERDICT_MAP['needs-professional-review'];
+
+  useEffect(() => {
+    result.providerFit.forEach((pf) => {
+      trackEvent('provider_card_view', { provider: pf.providerName });
+    });
+  }, [result.providerFit]);
 
   const copyChecklist = useCallback(() => {
     const text = result.checklist.map((item, i) =>
@@ -268,7 +274,6 @@ function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => 
           </div>
           <div class="divide-y divide-[#e2e8f0]">
             {result.providerFit.map((pf) => {
-              trackEvent('provider_card_view', { provider: pf.providerName });
               return (
                 <div key={pf.providerName} class="p-5">
                   <div class="flex items-center justify-between mb-2">
@@ -276,7 +281,14 @@ function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => 
                     <span class="font-mono text-[10px] text-[#434656] uppercase tracking-wider">{pf.label}</span>
                   </div>
                   <p class="text-sm text-[#434656]">{pf.reason}</p>
-                  {pf.caveat && <p class="text-xs text-[#434656] mt-1 italic">⚠ {pf.caveat}</p>}
+                  {pf.caveat && <p class="text-xs text-[#434656] mt-1 italic">Note: {pf.caveat}</p>}
+                  <button
+                    type="button"
+                    onClick={() => trackEvent('provider_click_placeholder', { provider: pf.providerName })}
+                    class="mt-3 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0052ff] hover:text-[#003ec7] transition-colors"
+                  >
+                    Save route fit
+                  </button>
                 </div>
               );
             })}
@@ -331,6 +343,9 @@ export default function RoutePlanner() {
   })();
 
   const next = () => {
+    if (step === 0) {
+      trackEvent('route_start');
+    }
     trackEvent('route_step_complete', { step: STEPS[step].id });
     if (step < STEPS.length - 1) {
       setStep(step + 1);

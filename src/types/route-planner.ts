@@ -35,7 +35,7 @@ export type PaymentGoal =
   | 'amazon-shopify'
   | 'privacy'
   | 'lowest-cost'
-  | 'safest-compliant';
+  | 'review-first';
 
 export type CurrentSetup =
   | 'no-company'
@@ -62,7 +62,7 @@ export type EntityPreference =
 export type RiskTolerance =
   | 'cheapest'
   | 'balanced'
-  | 'safest';
+  | 'review-first';
 
 /* ------------------------------------------------------------------ */
 /*  Form State                                                         */
