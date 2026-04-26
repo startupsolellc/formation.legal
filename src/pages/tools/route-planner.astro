@@ -1,0 +1,38 @@
+---
+/**
+ * Route Planner — Interactive tool page.
+ * Preact island on a static Astro page. No backend.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RoutePlanner from '../../components/tools/RoutePlanner';
+---
+
+<BaseLayout
+  title="US Business Route Planner — Formation.Legal"
+  description="Get a directional route estimate based on your country, business model, payment goal, address setup, and compliance needs."
+>
+  <section class="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+    <!-- Header -->
+    <div class="mb-10 text-center">
+      <h1 class="text-3xl font-bold text-[var(--color-text-primary)] sm:text-4xl">
+        US Business Route Planner
+      </h1>
+      <p class="mt-4 text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto">
+        Get a directional route estimate based on your country, business model, payment goal, address setup, and compliance needs.
+      </p>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="brutal-card p-4 bg-[var(--color-surface-container)] mb-10">
+      <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-1">
+        Disclaimer
+      </p>
+      <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+        This tool provides a directional route estimate. It is not legal, tax, banking, payment processor, or formation advice. Requirements, provider pricing, and eligibility can change. Verify current requirements with official sources.
+      </p>
+    </div>
+
+    <!-- Preact Island -->
+    <RoutePlanner client:load />
+  </section>
+</BaseLayout>
