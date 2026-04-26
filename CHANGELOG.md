@@ -11,6 +11,30 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-04-26] - Project Documentation & Agent Onboarding
+
+### Added
+- **`AGENTS.md`** — Project intelligence file for AI agents and new developers
+  - Critical rules (static-only, Tailwind v4 paradigm, Astro 6 API changes)
+  - File map with responsibilities for every source file
+  - Step-by-step recipes for: adding posts, pages, collections, colors, nav items, schemas
+  - Build & deploy quick reference
+  - Dependency philosophy (minimal, no unnecessary frameworks)
+- **`README.md`** — Comprehensive rewrite with full technical documentation
+  - Architecture deep dive (Astro config, Content Collections, Tailwind v4, JSON-LD, AI endpoints)
+  - Content authoring guide with complete examples
+  - Component reference (BaseLayout, PostCard, TrustBadge, JsonLd, Prose)
+  - Styling guide with color system and layout conventions
+  - Cloudflare Pages deployment instructions (Dashboard + Wrangler CLI)
+  - Common tasks quick-reference table
+
+### Architecture Decisions
+- `AGENTS.md` is the primary entry point for AI agents — compact, rule-focused
+- `README.md` is the comprehensive technical reference — detailed, example-rich
+- Both files are self-contained to survive context loss between sessions
+
+---
+
 ## [2026-04-26] - Astro 6 Static Content Platform — Initial Setup
 
 ### Added
