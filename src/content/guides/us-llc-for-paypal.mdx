@@ -1,0 +1,69 @@
+---
+title: "US LLC for PayPal Business: Requirements, Risks, and What to Expect"
+description: "PayPal Business accounts for non-US LLC owners have different verification requirements than Stripe. This guide covers what PayPal actually asks for and common failure points."
+pillar: payment-access
+draft: true
+noindex: true
+pubDate: 2026-04-26
+author: "Formation.Legal Editorial"
+reviewer: "Editorial review pending"
+originalityScore: 95
+humanGenerated: true
+aiAssisted: false
+category: "Payment Access"
+tags: ["paypal", "LLC", "payment-access", "non-us-founders"]
+
+directAnswer: "PayPal Business requires a US LLC with a valid EIN, a US address (virtual addresses may work but face scrutiny), and identity verification of the account holder. Non-US founders can apply, but PayPal's verification process differs from Stripe and may require additional documentation."
+
+verdict:
+  - scenario: "Non-US founder with LLC + EIN + virtual address"
+    verdict: "PayPal may accept virtual addresses more readily than Stripe"
+    risk: "medium"
+    note: "Check current PayPal policies — they change frequently"
+  - scenario: "Founder with LLC but no US bank account"
+    verdict: "PayPal can sometimes work without a traditional bank, but limitations apply"
+    risk: "medium"
+  - scenario: "Founder with previous PayPal account closures"
+    verdict: "New entity may not resolve underlying account issues"
+    risk: "high"
+    note: "PayPal links accounts across entities via personal identity"
+  - scenario: "High-volume e-commerce seller"
+    verdict: "PayPal may impose holds and reserves on new accounts"
+    risk: "medium"
+
+aiMiss:
+  - "AI answers rarely distinguish between PayPal and Stripe requirements. They are different companies with different verification processes."
+  - "PayPal's rolling reserve and payment hold policies can trap significant revenue for new accounts — especially non-US founders."
+  - "If your personal PayPal account has been restricted in the past, opening a new Business account under a different LLC may not resolve the issue."
+  - "PayPal's dispute resolution and chargeback policies differ significantly from Stripe's, which affects cash flow planning."
+
+sources:
+  - title: "PayPal Business Account"
+    url: "https://www.paypal.com/us/business"
+    publisher: "PayPal"
+    primary: true
+  - title: "PayPal: User Agreement"
+    url: "https://www.paypal.com/us/legalhub/useragreement-full"
+    publisher: "PayPal"
+  - title: "IRS: EIN Application"
+    url: "https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online"
+    publisher: "IRS"
+
+decisionTree:
+  - question: "Do you need PayPal specifically, or just a payment processor?"
+    yes: "Continue with PayPal-specific requirements below"
+    no: "Consider Stripe or alternative processors — they may be easier for your situation"
+  - question: "Have you had any previous PayPal account issues?"
+    yes: "Consult with PayPal support before forming a new entity solely for PayPal access"
+    no: "Proceed with LLC + EIN + address setup"
+    note: "PayPal links accounts via SSN/ITIN and personal identity"
+  - question: "Do you expect high transaction volume in the first 90 days?"
+    yes: "Expect PayPal to place rolling reserves on your account"
+    no: "Standard verification process should apply"
+
+toolCta:
+  primaryLabel: "Check Your PayPal Route"
+  secondaryLabel: "Compare Stripe vs PayPal"
+---
+
+*This guide is in draft and undergoing editorial review. Content may change before publication.*

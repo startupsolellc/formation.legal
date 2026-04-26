@@ -1,0 +1,44 @@
+---
+/**
+ * ToolCta.astro — Call-to-action for Route Planner or Cost Calculator.
+ */
+
+interface Props {
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  primaryLabel = 'Check Your Route',
+  primaryHref = '/tools/route-planner',
+  secondaryLabel,
+  secondaryHref = '/tools/cost-calculator',
+} = Astro.props;
+---
+
+<div class="brutal-card p-6 mb-8 text-center bg-[var(--color-surface-container)]">
+  <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-3">
+    Your situation is unique
+  </p>
+  <p class="text-sm text-[var(--color-text-secondary)] mb-5 max-w-md mx-auto">
+    General guides can only go so far. Use our tools to get recommendations based on your country, business model, and payment goals.
+  </p>
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+    <a
+      href={primaryHref}
+      class="inline-flex items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-action)] border border-[var(--color-action)] px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-action-hover)]"
+    >
+      {primaryLabel}
+    </a>
+    {secondaryLabel && (
+      <a
+        href={secondaryHref}
+        class="inline-flex items-center justify-center rounded-[var(--radius-md)] bg-white border border-[var(--color-action)] px-6 py-2.5 text-sm font-semibold text-[var(--color-action)] transition-colors hover:bg-[var(--color-surface-container)]"
+      >
+        {secondaryLabel}
+      </a>
+    )}
+  </div>
+</div>

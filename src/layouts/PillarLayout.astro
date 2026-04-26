@@ -1,0 +1,106 @@
+---
+/**
+ * PillarLayout.astro — Hub page layout for each pillar.
+ * Shows pillar description, main question, and child guide cards.
+ */
+
+import BaseLayout from './BaseLayout.astro';
+import { buildBreadcrumbSchema } from '../lib/schema';
+
+interface GuideCard {
+  title: string;
+  description: string;
+  slug: string;
+  pubDate: Date;
+  draft?: boolean;
+}
+
+interface Props {
+  pillarLabel: string;
+  pillarDescription: string;
+  mainQuestion: string;
+  href: string;
+  guides: GuideCard[];
+}
+
+const { pillarLabel, pillarDescription, mainQuestion, href, guides } = Astro.props;
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', href: '/' },
+  { name: pillarLabel, href },
+]);
+---
+
+<BaseLayout
+  title={`${pillarLabel} — Formation.Legal`}
+  description={pillarDescription}
+  schemas={[breadcrumbSchema]}
+>
+  <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
+    <!-- Breadcrumb -->
+    <nav class="mb-8 text-sm text-[var(--color-muted)]" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-1.5">
+        <li><a href="/" class="hover:text-[var(--color-primary-900)] transition-colors">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="text-[var(--color-primary-900)] font-medium">{pillarLabel}</li>
+      </ol>
+    </nav>
+
+    <!-- Pillar Header -->
+    <header class="mb-12">
+      <h1 class="text-3xl font-bold text-[var(--color-primary-950)] sm:text-4xl">
+        {pillarLabel}
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
+        {pillarDescription}
+      </p>
+      <div class="mt-6 rounded-lg border border-[var(--color-accent-400)]/30 bg-[var(--color-primary-50)] px-5 py-4">
+        <p class="text-sm font-medium text-[var(--color-primary-700)]">
+          Main question this section answers:
+        </p>
+        <p class="mt-1 text-[var(--color-primary-900)] font-semibold">
+          {mainQuestion}
+        </p>
+      </div>
+    </header>
+
+    <!-- Guides Grid -->
+    {guides.length > 0 ? (
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {guides.map((guide) => (
+          <a
+            href={`${href}/${guide.slug}`}
+            class="group brutal-card p-5 transition-colors hover:border-[var(--color-action)]"
+          >
+            {guide.draft && (
+              <div class="mb-3">
+                <span class="inline-block rounded-[var(--radius-sm)] border border-dashed border-[var(--color-route-incomplete)] bg-[var(--color-surface-container)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-route-incomplete)]">
+                  Draft
+                </span>
+              </div>
+            )}
+            <h3 class="text-lg font-semibold leading-snug text-[var(--color-text-primary)] group-hover:text-[var(--color-action)] transition-colors">
+              {guide.title}
+            </h3>
+            <p class="mt-2 line-clamp-2 text-sm text-[var(--color-text-secondary)]">
+              {guide.description}
+            </p>
+            <time
+              datetime={guide.pubDate.toISOString()}
+              class="mt-4 block font-mono text-[11px] text-[var(--color-text-secondary)]">
+              {guide.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+            </time>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-12 text-center">
+        <p class="text-lg font-medium text-[var(--color-primary-800)]">Coming soon</p>
+        <p class="mt-1 text-sm text-[var(--color-muted)]">We're working on research-driven guides for this section.</p>
+      </div>
+    )}
+
+    <!-- Extra slot for pillar-specific content -->
+    <slot />
+  </section>
+</BaseLayout>

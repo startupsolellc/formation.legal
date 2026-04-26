@@ -1,0 +1,224 @@
+---
+/**
+ * GuideLayout.astro — Layout for pillar guide pages.
+ * Composes the 8-section GEO + EEAT + conversion template.
+ */
+
+import BaseLayout from './BaseLayout.astro';
+import DirectAnswer from '../components/guide/DirectAnswer.astro';
+import VerdictTable from '../components/guide/VerdictTable.astro';
+import AiMissBox from '../components/guide/AiMissBox.astro';
+import SourceSummary from '../components/guide/SourceSummary.astro';
+import DecisionTree from '../components/guide/DecisionTree.astro';
+import ProviderFitMatrix from '../components/guide/ProviderFitMatrix.astro';
+import ToolCta from '../components/guide/ToolCta.astro';
+import UpdateLog from '../components/guide/UpdateLog.astro';
+import AffiliateDisclosure from '../components/trust/AffiliateDisclosure.astro';
+import Disclaimer from '../components/trust/Disclaimer.astro';
+import AuthorBio from '../components/trust/AuthorBio.astro';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../lib/schema';
+import { PILLARS } from '../lib/constants';
+
+interface VerdictRow {
+  scenario: string;
+  verdict: string;
+  risk: 'low' | 'medium' | 'high' | 'blocked' | 'needs-review';
+  note?: string;
+}
+
+interface Source {
+  title: string;
+  url: string;
+  publisher?: string;
+  accessDate?: string;
+  note?: string;
+  primary?: boolean;
+}
+
+interface DecisionStep {
+  question: string;
+  yes?: string;
+  no?: string;
+  note?: string;
+}
+
+interface FitRow {
+  founderProfile: string;
+  betterFit: string;
+  why: string;
+  caveat?: string;
+}
+
+interface ChangeEntry {
+  date: string;
+  change: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  pillar: string;
+  slug: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author?: string;
+  originalityScore?: number;
+  humanGenerated?: boolean;
+  aiAssisted?: boolean;
+  noindex?: boolean;
+  /* GEO fields */
+  directAnswer?: string;
+  verdict?: VerdictRow[];
+  aiMiss?: string[];
+  sources?: Source[];
+  decisionTree?: DecisionStep[];
+  providerFit?: FitRow[];
+  toolCta?: { primaryLabel?: string; primaryHref?: string; secondaryLabel?: string; secondaryHref?: string };
+  lastReviewed?: Date | null;
+  reviewer?: string;
+  updateLog?: ChangeEntry[];
+  affiliateDisclosure?: boolean;
+}
+
+const {
+  title,
+  description,
+  pillar,
+  slug,
+  pubDate,
+  updatedDate,
+  author = 'Formation.Legal Editorial',
+  originalityScore,
+  humanGenerated,
+  aiAssisted,
+  noindex = false,
+  directAnswer,
+  verdict,
+  aiMiss,
+  sources,
+  decisionTree,
+  providerFit,
+  toolCta,
+  lastReviewed,
+  reviewer,
+  updateLog,
+  affiliateDisclosure = false,
+} = Astro.props;
+
+const pillarData = PILLARS.find((p) => p.id === pillar);
+const pillarLabel = pillarData?.shortLabel ?? pillar;
+const pillarHref = pillarData?.href ?? `/${pillar}`;
+
+const articleSchema = buildArticleSchema({
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  author,
+  slug,
+  originalityScore,
+  humanGenerated,
+  aiAssisted,
+});
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', href: '/' },
+  { name: pillarLabel, href: pillarHref },
+  { name: title, href: `${pillarHref}/${slug}` },
+]);
+
+const dateFormatted = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schemas={[articleSchema, breadcrumbSchema]}
+  noindex={noindex}
+>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <!-- Breadcrumb -->
+    <nav class="mb-8 text-sm text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-1.5 flex-wrap">
+        <li><a href="/" class="hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href={pillarHref} class="hover:text-[var(--color-text-primary)] transition-colors">{pillarLabel}</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="text-[var(--color-text-primary)] font-medium line-clamp-1">{title}</li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="mb-10">
+      <div class="mb-4 flex items-center gap-2 text-xs">
+        <a href={pillarHref} class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-container)] px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] hover:border-[var(--color-action)] transition-colors">
+          {pillarLabel}
+        </a>
+      </div>
+
+      <h1 class="text-3xl font-bold leading-tight text-[var(--color-text-primary)] sm:text-4xl">
+        {title}
+      </h1>
+
+      <p class="mt-4 text-lg text-[var(--color-text-secondary)]">
+        {description}
+      </p>
+
+      <!-- Meta row -->
+      <div class="mt-6 flex flex-wrap items-center gap-4 font-mono text-xs text-[var(--color-text-secondary)]">
+        <span>{author}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime={pubDate.toISOString()}>{dateFormatted}</time>
+      </div>
+    </header>
+
+    <!-- 1. Direct Answer -->
+    {directAnswer && <DirectAnswer answer={directAnswer} />}
+
+    <!-- Affiliate Disclosure (if applicable) -->
+    {affiliateDisclosure && <AffiliateDisclosure />}
+
+    <!-- 2. Verdict Table -->
+    {verdict && verdict.length > 0 && <VerdictTable rows={verdict} />}
+
+    <!-- 3. What AI Misses -->
+    {aiMiss && aiMiss.length > 0 && <AiMissBox items={aiMiss} />}
+
+    <!-- Article Content (MDX body) -->
+    <div class="prose prose-lg mb-8">
+      <slot />
+    </div>
+
+    <!-- 4. Decision Tree -->
+    {decisionTree && decisionTree.length > 0 && <DecisionTree steps={decisionTree} />}
+
+    <!-- 5. Provider Fit Matrix -->
+    {providerFit && providerFit.length > 0 && <ProviderFitMatrix rows={providerFit} />}
+
+    <!-- 6. Official Sources -->
+    {sources && sources.length > 0 && <SourceSummary sources={sources} />}
+
+    <!-- 7. Tool CTA -->
+    <ToolCta
+      primaryLabel={toolCta?.primaryLabel}
+      primaryHref={toolCta?.primaryHref}
+      secondaryLabel={toolCta?.secondaryLabel}
+      secondaryHref={toolCta?.secondaryHref}
+    />
+
+    <!-- 8. Update Log -->
+    <UpdateLog
+      lastReviewed={lastReviewed}
+      reviewer={reviewer}
+      changeLog={updateLog}
+    />
+
+    <!-- Trust Footer -->
+    <Disclaimer />
+    <AuthorBio author={author} date={updatedDate ?? pubDate} />
+  </article>
+</BaseLayout>

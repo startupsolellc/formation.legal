@@ -1,0 +1,55 @@
+---
+/**
+ * AuthorBio.astro — Trust component for article bylines.
+ * Emphasizes independent research and editorial standards.
+ */
+
+interface Props {
+  author?: string;
+  role?: string;
+  date?: Date;
+}
+
+const { 
+  author = 'Formation.Legal Editorial',
+  role = 'Research Team',
+  date
+} = Astro.props;
+
+const dateFormatted = date?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<div class="brutal-card p-5 mt-10">
+  <div class="flex items-start gap-4">
+    <div class="hidden sm:flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-surface-container-high)] border border-[var(--color-border)]">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6 text-[var(--color-text-secondary)]">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+      </svg>
+    </div>
+    <div class="flex-1">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div>
+          <h3 class="text-sm font-bold text-[var(--color-text-primary)]">{author}</h3>
+          <p class="text-xs text-[var(--color-text-secondary)] mt-0.5">{role}</p>
+        </div>
+        {dateFormatted && (
+          <div class="text-[10px] uppercase tracking-wider font-semibold text-[var(--color-text-secondary)] bg-[var(--color-surface-container)] px-2 py-1 rounded-[var(--radius-sm)] border border-[var(--color-border)] w-fit">
+            Updated: {dateFormatted}
+          </div>
+        )}
+      </div>
+      <p class="mt-3 text-sm text-[var(--color-text-secondary)]">
+        Content is produced by our independent research team and goes through a rigorous editorial review process. We do not accept payment to alter provider reviews or recommendations.
+      </p>
+      <div class="mt-3 text-xs">
+        <a href="/editorial-policy" class="font-semibold text-[var(--color-action)] hover:text-[var(--color-action-hover)] hover:underline underline-offset-2">
+          Read our Editorial Policy →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

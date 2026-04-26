@@ -1,107 +1,169 @@
 ---
 /**
  * Homepage — Formation.Legal
- * Hero section + latest blog posts grid.
+ * Route Engine Hub: Institutional Clarity Design
  */
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
+import { PILLARS } from '../lib/constants';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('posts'))
-  .filter((post) => !post.data.noindex)
+const guides = (await getCollection('guides'))
+  .filter((g) => !g.data.noindex && !g.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 6);
+  .slice(0, 3);
 ---
 
-<BaseLayout title="Formation.Legal — Trusted Legal Formation Guides">
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-b from-[var(--color-primary-950)] to-[var(--color-primary-800)] text-white">
-    <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
-      <h1 class="text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-        Unbiased Legal Formation
-        <span class="block text-[var(--color-accent-400)]">Research & Guides</span>
+<BaseLayout title="Formation.Legal — US Business Route Engine for Non-US Founders">
+  <!-- Manifesto Hero -->
+  <section class="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+    <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] max-w-4xl mx-auto">
+        Don't form a US LLC because a blog told you to.
+        <span class="block text-[var(--color-action)] mt-2">Build the route that actually works.</span>
       </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-        Independent, research-driven guides for LLC formation, registered agents,
-        and business compliance. No affiliate bias — just the facts you need.
+      <p class="mt-8 mx-auto max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)]">
+        Formation.Legal helps non-US founders compare payment access, banking risk, address requirements, annual compliance, 3-year costs, and formation providers before they spend money.
       </p>
-      <div class="mt-8 flex gap-4">
+      <div class="mt-10 flex justify-center gap-4">
         <a
-          href="/blog"
-          class="inline-flex items-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-[var(--color-primary-900)] shadow-sm transition-all hover:bg-white/90 hover:shadow-md"
+          href="/tools/route-planner"
+          class="inline-flex items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-action)] border border-[var(--color-action)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-action-hover)]"
         >
-          Browse Guides
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1.5 size-4">
-            <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
-          </svg>
+          Start Route Planner
+        </a>
+        <a
+          href="/research"
+          class="inline-flex items-center justify-center rounded-[var(--radius-md)] bg-white border border-[var(--color-action)] px-6 py-3 text-sm font-semibold text-[var(--color-action)] transition-colors hover:bg-[var(--color-surface-container)]"
+        >
+          View Research
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Trust Signals Bar -->
-  <section class="border-b border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-    <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-6 px-4 py-4 text-xs font-medium text-[var(--color-muted)] sm:gap-10 sm:px-6">
-      <div class="flex items-center gap-1.5">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4 text-[var(--color-trust)]">
-          <path fill-rule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
-        </svg>
-        <span>Human-written content</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4 text-[var(--color-trust)]">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z" clip-rule="evenodd" />
-        </svg>
-        <span>No affiliate bias</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4 text-[var(--color-trust)]">
-          <path d="M10 1a6 6 0 0 0-3.815 10.631C7.237 12.5 8 13.443 8 14.456v.644a.75.75 0 0 0 .75.75h2.5a.75.75 0 0 0 .75-.75v-.644c0-1.013.762-1.957 1.815-2.825A6 6 0 0 0 10 1ZM8.863 17.414a.75.75 0 0 0-.226 1.483 9.066 9.066 0 0 0 2.726 0 .75.75 0 0 0-.226-1.483 7.563 7.563 0 0 1-2.274 0Z" />
-        </svg>
-        <span>AI-friendly (llms.txt)</span>
+  <!-- Problem Grid -->
+  <section class="border-b border-[var(--color-border)] bg-white">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="brutal-card p-6">
+          <div class="mb-4 border-b border-[var(--color-border)] pb-4">
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)]">High Banking Risk</h3>
+          </div>
+          <p class="text-sm text-[var(--color-text-secondary)]">
+            Opening a US bank account without a physical presence has become increasingly difficult. We analyze account closure risks and approval rates.
+          </p>
+        </div>
+        <div class="brutal-card p-6">
+          <div class="mb-4 border-b border-[var(--color-border)] pb-4">
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)]">Hidden Compliance Costs</h3>
+          </div>
+          <p class="text-sm text-[var(--color-text-secondary)]">
+            State franchise taxes and registered agent fees can trap you. We calculate the true <span class="data-mono">3-year</span> cost of ownership.
+          </p>
+        </div>
+        <div class="brutal-card p-6">
+          <div class="mb-4 border-b border-[var(--color-border)] pb-4">
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)]">Stripe & PayPal Limits</h3>
+          </div>
+          <p class="text-sm text-[var(--color-text-secondary)]">
+            LLC formation does not guarantee payment processor access. We map out exactly which routes successfully unlock Stripe.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Latest Posts -->
-  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-    <div class="mb-8 flex items-end justify-between">
-      <div>
-        <h2 class="text-2xl font-bold text-[var(--color-primary-950)]">
-          Latest Guides
+  <!-- Trust Bar -->
+  <section class="border-b border-[var(--color-border)] bg-[var(--color-surface-container)]">
+    <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-6 px-4 py-4 text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] sm:gap-10 sm:px-6">
+      <div class="flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-[var(--color-route-safe)]"></span>
+        <span>Independent Research</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-[var(--color-route-safe)]"></span>
+        <span>No Affiliate Bias</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-[var(--color-route-safe)]"></span>
+        <span>Human Written</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillar Hubs -->
+  <section class="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+      <div class="mb-10 text-center">
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)]">
+          Choose your route
         </h2>
-        <p class="mt-1 text-sm text-[var(--color-muted)]">
-          Research-driven articles on legal formation topics
+        <p class="mt-2 text-[var(--color-text-secondary)]">
+          Explore our research pillars tailored to specific operational hurdles.
         </p>
       </div>
-      <a
-        href="/blog"
-        class="text-sm font-medium text-[var(--color-accent-600)] hover:text-[var(--color-accent-500)] transition-colors"
-      >
-        View all →
-      </a>
-    </div>
 
-    {posts.length > 0 ? (
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <PostCard
-            title={post.data.title}
-            description={post.data.description}
-            pubDate={post.data.pubDate}
-            slug={post.id}
-            author={post.data.author}
-            humanGenerated={post.data.humanGenerated}
-            aiAssisted={post.data.aiAssisted}
-            category={post.data.category}
-          />
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {PILLARS.map((pillar) => (
+          <a href={pillar.href} class="brutal-card block transition-colors hover:border-[var(--color-action)]">
+            <div class="border-b border-[var(--color-border)] p-5">
+              <h3 class="text-lg font-bold text-[var(--color-text-primary)]">{pillar.shortLabel}</h3>
+            </div>
+            <div class="p-5">
+              <p class="text-sm text-[var(--color-text-secondary)]">{pillar.description}</p>
+              <div class="mt-4 text-xs font-semibold text-[var(--color-action)] uppercase tracking-wider">
+                Explore Pillar →
+              </div>
+            </div>
+          </a>
         ))}
       </div>
-    ) : (
-      <p class="text-center text-[var(--color-muted)]">
-        No posts yet. Check back soon!
-      </p>
-    )}
+    </div>
   </section>
+
+  <!-- Featured Guides -->
+  {guides.length > 0 && (
+    <section class="bg-white">
+      <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+        <div class="mb-8 flex items-end justify-between border-b border-[var(--color-border)] pb-4">
+          <div>
+            <h2 class="text-2xl font-bold text-[var(--color-text-primary)]">
+              Latest Guides
+            </h2>
+          </div>
+          <a
+            href="/research"
+            class="text-sm font-semibold text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
+          >
+            View all →
+          </a>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {guides.map((guide) => {
+             const p = PILLARS.find(x => x.id === guide.data.pillar);
+             return (
+              <a href={`${p?.href}/${guide.id}`} class="brutal-card block transition-colors hover:border-[var(--color-action)]">
+                <div class="border-b border-[var(--color-border)] px-4 py-3 bg-[var(--color-surface-container)]">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">{p?.shortLabel}</span>
+                </div>
+                <div class="p-4">
+                  <h3 class="text-base font-bold leading-snug text-[var(--color-text-primary)]">
+                    {guide.data.title}
+                  </h3>
+                  <p class="mt-2 line-clamp-2 text-sm text-[var(--color-text-secondary)]">
+                    {guide.data.description}
+                  </p>
+                  <div class="mt-4 text-[10px] font-medium text-[var(--color-text-secondary)] uppercase">
+                    {guide.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
 </BaseLayout>

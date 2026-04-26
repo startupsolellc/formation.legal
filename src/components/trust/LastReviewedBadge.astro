@@ -1,0 +1,31 @@
+---
+/**
+ * LastReviewedBadge.astro — Displays last-reviewed date and reviewer.
+ * Shows "Review pending" if no date is provided.
+ */
+
+interface Props {
+  lastReviewed?: Date | null;
+  reviewer?: string;
+}
+
+const { lastReviewed, reviewer } = Astro.props;
+
+const dateFormatted = lastReviewed?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<div class="inline-flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-container)] px-3 py-1.5">
+  <span class="h-2 w-2 rounded-full" class:list={[lastReviewed ? 'bg-[var(--color-route-safe)]' : 'bg-[var(--color-route-incomplete)]']}></span>
+  <span class="font-mono text-xs text-[var(--color-text-secondary)]">
+    {dateFormatted ? `Reviewed: ${dateFormatted}` : 'Review pending'}
+  </span>
+  {reviewer && (
+    <span class="text-xs text-[var(--color-text-secondary)]">
+      · {reviewer}
+    </span>
+  )}
+</div>

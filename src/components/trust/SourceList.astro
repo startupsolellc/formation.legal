@@ -1,0 +1,67 @@
+---
+/**
+ * SourceList.astro — Renders a list of sources used in a guide.
+ * Sources are always visible (no JS toggle).
+ */
+
+interface Source {
+  title: string;
+  url: string;
+  publisher?: string;
+  accessDate?: string;
+  note?: string;
+  primary?: boolean;
+}
+
+interface Props {
+  sources: Source[];
+}
+
+const { sources } = Astro.props;
+
+const primarySources = sources.filter((s) => s.primary);
+const secondarySources = sources.filter((s) => !s.primary);
+const sorted = [...primarySources, ...secondarySources];
+---
+
+{sorted.length > 0 && (
+  <div class="brutal-card p-5 mt-8">
+    <h3 class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] mb-4 pb-3 border-b border-[var(--color-border)]">
+      Sources & References
+    </h3>
+    <ol class="space-y-3 list-none m-0 p-0">
+      {sorted.map((source, i) => (
+        <li class="flex items-start gap-3 text-sm">
+          <span class="font-mono text-xs text-[var(--color-text-secondary)] mt-0.5 flex-shrink-0 tabular-nums">
+            [{i + 1}]
+          </span>
+          <div>
+            <a
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-medium text-[var(--color-action)] hover:text-[var(--color-action-hover)] hover:underline underline-offset-2"
+            >
+              {source.title}
+            </a>
+            {source.primary && (
+              <span class="ml-2 inline-block rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-container)] px-1.5 py-0.5 font-mono text-[10px] uppercase text-[var(--color-text-secondary)]">
+                Primary
+              </span>
+            )}
+            {(source.publisher || source.accessDate) && (
+              <span class="block font-mono text-xs text-[var(--color-text-secondary)] mt-0.5">
+                {source.publisher}{source.publisher && source.accessDate ? ' · ' : ''}{source.accessDate ? `Accessed ${source.accessDate}` : ''}
+              </span>
+            )}
+            {source.note && (
+              <span class="block text-xs text-[var(--color-text-secondary)] mt-0.5 italic">
+                {source.note}
+              </span>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+)}

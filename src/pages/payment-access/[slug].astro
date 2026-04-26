@@ -1,0 +1,49 @@
+---
+/**
+ * Payment Access guide detail page — [slug].astro
+ * Static generation via getStaticPaths(). Passes all GEO fields to GuideLayout.
+ */
+
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides
+    .filter((g) => g.data.pillar === 'payment-access')
+    .map((guide) => ({
+      params: { slug: guide.id },
+      props: { guide },
+    }));
+}
+
+const { guide } = Astro.props;
+const { Content } = await render(guide);
+---
+
+<GuideLayout
+  title={guide.data.title}
+  description={guide.data.description}
+  pillar={guide.data.pillar}
+  slug={guide.id}
+  pubDate={guide.data.pubDate}
+  updatedDate={guide.data.updatedDate}
+  author={guide.data.author}
+  originalityScore={guide.data.originalityScore}
+  humanGenerated={guide.data.humanGenerated}
+  aiAssisted={guide.data.aiAssisted}
+  noindex={guide.data.noindex}
+  directAnswer={guide.data.directAnswer}
+  verdict={guide.data.verdict}
+  aiMiss={guide.data.aiMiss}
+  sources={guide.data.sources}
+  decisionTree={guide.data.decisionTree}
+  providerFit={guide.data.providerFit}
+  toolCta={guide.data.toolCta}
+  lastReviewed={guide.data.lastReviewed}
+  reviewer={guide.data.reviewer}
+  updateLog={guide.data.updateLog}
+  affiliateDisclosure={guide.data.affiliateDisclosure}
+>
+  <Content />
+</GuideLayout>

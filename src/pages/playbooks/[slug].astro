@@ -1,0 +1,14 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const playbooks = await getCollection('playbooks');
+  return playbooks.map((pb) => ({ params: { slug: pb.id }, props: { playbook: pb } }));
+}
+const { playbook } = Astro.props;
+const { Content } = await render(playbook);
+---
+<GuideLayout title={playbook.data.title} description={playbook.data.description} pillar="playbooks" slug={playbook.id} pubDate={playbook.data.pubDate} updatedDate={playbook.data.updatedDate} author={playbook.data.author} noindex={playbook.data.noindex}>
+  <Content />
+</GuideLayout>

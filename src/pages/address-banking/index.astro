@@ -1,0 +1,12 @@
+---
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import { getCollection } from 'astro:content';
+import { PILLARS } from '../../lib/constants';
+
+const pillar = PILLARS.find((p) => p.id === 'address-banking')!;
+const guides = (await getCollection('guides'))
+  .filter((g) => g.data.pillar === 'address-banking')
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .map((g) => ({ title: g.data.title, description: g.data.description, slug: g.id, pubDate: g.data.pubDate, draft: g.data.draft ?? false }));
+---
+<PillarLayout pillarLabel={pillar.label} pillarDescription={pillar.description} mainQuestion={pillar.mainQuestion} href={pillar.href} guides={guides} />

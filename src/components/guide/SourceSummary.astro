@@ -1,0 +1,69 @@
+---
+/**
+ * SourceSummary.astro — Renders official sources used for a guide.
+ * Primary sources are shown first. Sources are always visible (no JS).
+ */
+
+interface Source {
+  title: string;
+  url: string;
+  publisher?: string;
+  accessDate?: string;
+  note?: string;
+  primary?: boolean;
+}
+
+interface Props {
+  sources: Source[];
+}
+
+const { sources } = Astro.props;
+
+const primarySources = sources.filter((s) => s.primary);
+const secondarySources = sources.filter((s) => !s.primary);
+const sorted = [...primarySources, ...secondarySources];
+---
+
+{sorted.length > 0 && (
+  <div class="brutal-card overflow-hidden mb-8">
+    <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-container)]">
+      <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
+        Official Sources
+      </h3>
+    </div>
+    <div class="divide-y divide-[var(--color-border)]">
+      {sorted.map((source, i) => (
+        <div class="px-5 py-3 flex items-start gap-3">
+          <span class="font-mono text-xs text-[var(--color-text-secondary)] mt-0.5 flex-shrink-0 tabular-nums w-6">
+            [{i + 1}]
+          </span>
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm font-medium text-[var(--color-action)] hover:text-[var(--color-action-hover)] hover:underline underline-offset-2 truncate"
+              >
+                {source.title}
+              </a>
+              {source.primary && (
+                <span class="inline-block rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-container)] px-1.5 py-0.5 font-mono text-[10px] uppercase text-[var(--color-text-secondary)] flex-shrink-0">
+                  Primary
+                </span>
+              )}
+            </div>
+            {(source.publisher || source.accessDate) && (
+              <p class="font-mono text-[11px] text-[var(--color-text-secondary)] mt-0.5">
+                {source.publisher}{source.publisher && source.accessDate ? ' · ' : ''}{source.accessDate ? `Accessed ${source.accessDate}` : ''}
+              </p>
+            )}
+            {source.note && (
+              <p class="text-xs text-[var(--color-text-secondary)] mt-0.5 italic">{source.note}</p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+)}

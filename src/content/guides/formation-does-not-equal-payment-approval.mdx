@@ -1,0 +1,66 @@
+---
+title: "LLC Formation Does Not Equal Payment Approval: The Gap Nobody Talks About"
+description: "Forming a US LLC is step one. Getting Stripe, PayPal, or a bank account approved is an entirely separate process with its own requirements and rejection risks."
+pillar: payment-access
+draft: true
+noindex: true
+pubDate: 2026-04-26
+author: "Formation.Legal Editorial"
+reviewer: "Editorial review pending"
+originalityScore: 95
+humanGenerated: true
+aiAssisted: false
+category: "Payment Access"
+tags: ["LLC", "payment-approval", "stripe", "paypal", "banking"]
+
+directAnswer: "Forming a US LLC gives you a legal entity, but it does not automatically unlock payment processors or bank accounts. Each provider has its own KYC, address, and documentation requirements. Many non-US founders discover this gap only after spending money on formation."
+
+verdict:
+  - scenario: "Non-US founder forms LLC, applies to Stripe immediately"
+    verdict: "May be rejected if bank account and address verification fail"
+    risk: "high"
+    note: "Formation is necessary but not sufficient"
+  - scenario: "Founder forms LLC, secures bank account first, then applies"
+    verdict: "Significantly better approval odds"
+    risk: "medium"
+  - scenario: "Founder uses formation provider that bundles banking"
+    verdict: "Depends on provider and country of residence"
+    risk: "needs-review"
+    note: "Bundled services may limit your banking options"
+  - scenario: "Founder expects PayPal Business from LLC alone"
+    verdict: "PayPal has separate identity and address verification"
+    risk: "medium"
+
+aiMiss:
+  - "AI answers almost always present LLC formation as a one-step solution to payment access. In reality, formation, banking, and payment processor approval are three separate processes."
+  - "The order in which you complete these steps matters significantly. Applying to Stripe before having a verified bank account reduces your approval chances."
+  - "Many formation providers market 'Stripe-ready' packages but cannot actually guarantee processor approval."
+  - "PayPal Business has entirely different verification requirements from Stripe — what works for one may not work for the other."
+
+sources:
+  - title: "Stripe: Verification Requirements"
+    url: "https://stripe.com/docs/connect/required-verification-information"
+    publisher: "Stripe"
+    primary: true
+  - title: "PayPal: Business Account Requirements"
+    url: "https://www.paypal.com/us/business"
+    publisher: "PayPal"
+    primary: true
+  - title: "FinCEN: Beneficial Ownership Information"
+    url: "https://www.fincen.gov/boi"
+    publisher: "FinCEN"
+
+decisionTree:
+  - question: "Have you already formed your LLC?"
+    yes: "Next step is securing a bank account — not applying to payment processors"
+    no: "Evaluate whether LLC is the right entity type for your payment goals"
+  - question: "Do you understand the difference between formation and payment access?"
+    yes: "Good — plan your steps: Entity → EIN → Bank → Payment Processor"
+    no: "Read this guide before spending money on formation services"
+
+toolCta:
+  primaryLabel: "Map Your Full Route"
+  secondaryLabel: "Estimate 3-Year Cost"
+---
+
+*This guide is in draft and undergoing editorial review. Content may change before publication.*

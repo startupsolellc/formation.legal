@@ -13,10 +13,14 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.4",
+    "@astrojs/preact": "^5.1.2",
     "@astrojs/sitemap": "^3.7.2",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
+    "preact": "^10.29.1",
     "tailwindcss": "^4.2.4"
   }
 }

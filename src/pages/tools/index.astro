@@ -1,0 +1,65 @@
+---
+/**
+ * Tools hub — lists interactive tools.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildBreadcrumbSchema } from '../../lib/schema';
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', href: '/' },
+  { name: 'Tools', href: '/tools' },
+]);
+
+const tools = [
+  {
+    title: 'US Business Route Planner',
+    description: 'Find the right US business route based on your country, business model, payment goals, and risk tolerance.',
+    href: '/tools/route-planner',
+    status: 'coming-soon' as const,
+  },
+  {
+    title: '3-Year LLC Cost Calculator',
+    description: 'Compare formation providers by total 3-year cost including renewals, registered agent fees, and compliance.',
+    href: '/tools/cost-calculator',
+    status: 'coming-soon' as const,
+  },
+];
+---
+<BaseLayout
+  title="Tools — Formation.Legal"
+  description="Interactive tools for non-US founders: route planner, cost calculator, compliance calendar, and more."
+  schemas={[breadcrumbSchema]}
+>
+  <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
+    <nav class="mb-8 text-sm text-[var(--color-muted)]" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-1.5">
+        <li><a href="/" class="hover:text-[var(--color-primary-900)] transition-colors">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="text-[var(--color-primary-900)] font-medium">Tools</li>
+      </ol>
+    </nav>
+
+    <header class="mb-12">
+      <h1 class="text-3xl font-bold text-[var(--color-primary-950)] sm:text-4xl">Route Engine Tools</h1>
+      <p class="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
+        Personalized tools that AI answers can't replace — your country, your business model, your route.
+      </p>
+    </header>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {tools.map((tool) => (
+        <div class="rounded-lg border border-[var(--color-border)] bg-white p-6 transition-all hover:border-[var(--color-accent-400)] hover:shadow-md">
+          <div class="mb-3 flex items-center gap-2">
+            <h3 class="text-lg font-semibold text-[var(--color-primary-950)]">{tool.title}</h3>
+            {tool.status === 'coming-soon' && (
+              <span class="rounded-full bg-[var(--color-route-incomplete)]/15 px-2 py-0.5 text-xs font-medium text-[var(--color-route-incomplete)]">
+                Coming Soon
+              </span>
+            )}
+          </div>
+          <p class="text-sm text-[var(--color-muted)]">{tool.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

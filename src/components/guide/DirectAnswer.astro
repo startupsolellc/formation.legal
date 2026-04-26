@@ -1,0 +1,24 @@
+---
+/**
+ * DirectAnswer.astro — Renders the direct, quotable answer near the top of a guide.
+ * Intended length: 40–70 words. Should be standalone and clear.
+ */
+
+interface Props {
+  answer: string;
+  label?: string;
+}
+
+const { answer, label = 'Direct Answer' } = Astro.props;
+---
+
+<div class="brutal-card p-5 mb-8 border-l-4 border-l-[var(--color-action)]">
+  <div class="flex items-center gap-2 mb-3">
+    <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-action)]">
+      {label}
+    </span>
+  </div>
+  <p class="text-base leading-relaxed text-[var(--color-text-primary)] font-medium">
+    {answer}
+  </p>
+</div>

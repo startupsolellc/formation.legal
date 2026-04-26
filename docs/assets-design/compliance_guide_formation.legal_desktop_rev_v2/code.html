@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Formation.Legal - Compliance Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#0d1c2e",
+                    "inverse-primary": "#b7c4ff",
+                    "primary-container": "#0052ff",
+                    "inverse-surface": "#2e303a",
+                    "on-background": "#191b25",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#dde1ff",
+                    "surface-dim": "#d9d9e7",
+                    "surface-bright": "#fbf8ff",
+                    "on-secondary-container": "#57657a",
+                    "surface-container-low": "#f3f2ff",
+                    "secondary-fixed": "#d5e3fc",
+                    "surface-container-high": "#e7e7f5",
+                    "surface": "#fbf8ff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb4a1",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "background": "#fbf8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#bf3003",
+                    "surface-tint": "#004ced",
+                    "surface-container": "#ededfb",
+                    "on-surface-variant": "#434656",
+                    "on-primary-fixed-variant": "#0038b6",
+                    "on-primary-fixed": "#001452",
+                    "outline": "#737688",
+                    "on-tertiary-fixed": "#3c0800",
+                    "on-surface": "#191b25",
+                    "on-error": "#ffffff",
+                    "tertiary": "#952200",
+                    "primary-fixed-dim": "#b7c4ff",
+                    "on-primary-container": "#dfe3ff",
+                    "tertiary-fixed": "#ffdbd2",
+                    "surface-variant": "#e1e1ef",
+                    "on-tertiary-container": "#ffddd5",
+                    "on-tertiary-fixed-variant": "#891e00",
+                    "secondary": "#515f74",
+                    "on-secondary": "#ffffff",
+                    "primary": "#003ec7",
+                    "inverse-on-surface": "#f0effe",
+                    "surface-container-highest": "#e1e1ef",
+                    "outline-variant": "#c3c5d9",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "secondary-container": "#d5e3fc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "margin-page": "40px",
+                    "base": "8px",
+                    "stack-md": "24px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "stack-lg": "48px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "label-xs": ["Inter"],
+                    "body-base": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-mono": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "500"}],
+                    "label-xs": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .border-structural { border: 1px solid #E2E8F0; }
+        .border-dashed-data { border: 1px dashed #c3c5d9; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-base antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#F8FAFC] dark:bg-slate-950 font-['Inter'] antialiased tracking-tight docked full-width top-0 border-b border-b border-slate-200 dark:border-slate-800 flat no shadows flex justify-between items-center h-16 w-full max-w-[1280px] mx-auto px-8 w-full z-50">
+<div class="flex items-center gap-8 h-full">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">Formation.Legal</span>
+<nav class="hidden md:flex h-full items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors h-full flex items-center hover:bg-slate-100 dark:hover:bg-slate-900 transition-all px-2" href="#">Route Planner</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors h-full flex items-center hover:bg-slate-100 dark:hover:bg-slate-900 transition-all px-2" href="#">Payment Access</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors h-full flex items-center hover:bg-slate-100 dark:hover:bg-slate-900 transition-all px-2" href="#">Address &amp; Banking</a>
+<a class="text-[#0052FF] dark:text-blue-400 font-semibold border-b-2 border-[#0052FF] pt-1 h-full flex items-center px-2 opacity-80 transition-opacity" href="#">Compliance</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors h-full flex items-center hover:bg-slate-100 dark:hover:bg-slate-900 transition-all px-2" href="#">Providers</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors h-full flex items-center hover:bg-slate-100 dark:hover:bg-slate-900 transition-all px-2" href="#">Research</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="pl-9 pr-4 py-1.5 text-sm border border-outline-variant bg-surface rounded-DEFAULT focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all w-64" placeholder="Search guides..." type="text"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-8 py-margin-page flex flex-col md:flex-row gap-gutter">
+<!-- Main Content Area -->
+<article class="flex-grow w-full md:w-8/12 flex flex-col gap-stack-lg">
+<!-- Guide Header -->
+<header class="flex flex-col gap-stack-sm border-b border-structural pb-stack-md">
+<div class="flex items-center gap-3 mb-2">
+<span class="font-label-xs text-label-xs bg-surface-variant text-on-surface-variant px-2 py-1 rounded-sm uppercase tracking-wider">Guide</span>
+<span class="font-label-xs text-label-xs text-outline">Updated: Oct 24, 2024</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-background">US Compliance for Non-Resident Founders</h1>
+<p class="font-body-base text-body-base text-on-surface-variant mt-4 max-w-3xl">A comprehensive analysis of federal reporting requirements, focusing on BOI and Form 5472 obligations for foreign-owned entities.</p>
+<!-- Reviewer Methodology -->
+<div class="mt-6 flex items-start gap-4 p-4 bg-surface-container-low border border-structural">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<h4 class="font-label-xs text-label-xs uppercase text-on-surface mb-1">Editorial Integrity &amp; Review Methodology</h4>
+<p class="font-body-base text-sm text-on-surface-variant">This guide is maintained by our internal compliance research team and cross-referenced with primary sources from the IRS and FinCEN. Not intended as legal advice.</p>
+<a class="text-sm text-primary-container hover:underline mt-2 inline-block" href="#">View full methodology &amp; update log</a>
+</div>
+</div>
+</header>
+<!-- Direct Answer Block -->
+<section class="bg-surface-bright border-l-4 border-l-primary-container border-y border-r border-structural p-stack-md flex flex-col gap-stack-sm">
+<h2 class="font-headline-md text-headline-md text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">info</span>
+                    The Direct Answer
+                </h2>
+<div class="font-body-base text-body-base text-on-surface">
+<p>For non-US founders, US compliance depends on entity type, ownership, tax classification, and current reporting rules. Foreign-owned disregarded LLCs may have Form 5472 + pro forma 1120 obligations. BOI reporting changed after 2025 rule updates, so domestic US-formed entities and foreign reporting companies must be evaluated separately. Always verify current applicability with official sources or a qualified professional.</p>
+</div>
+</section>
+<!-- Route Verdict Table -->
+<section class="flex flex-col gap-stack-sm">
+<h3 class="font-headline-md text-headline-md border-b border-structural pb-2">Compliance Route Verdicts</h3>
+<div class="overflow-x-auto border border-structural bg-surface">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface font-label-xs text-label-xs uppercase tracking-wider">
+<th class="p-4 border-b border-structural">Entity Scenario</th>
+<th class="p-4 border-b border-structural">BOI Required?</th>
+<th class="p-4 border-b border-structural">Form 5472 Required?</th>
+<th class="p-4 border-b border-structural">Risk Level</th>
+</tr>
+</thead>
+<tbody class="font-body-base text-sm divide-y divide-structural">
+<tr>
+<td class="p-4 text-on-surface font-medium">Single-Member LLC (Foreign Owned)</td>
+<td class="p-4 text-on-surface-variant">Check current applicability</td>
+<td class="p-4 text-on-surface-variant">Depends on entity/reporting status</td>
+<td class="p-4">High (Penalties up to $25k)</td>
+</tr>
+<tr>
+<td class="p-4 text-on-surface font-medium">C-Corp (Foreign Owned)</td>
+<td class="p-4 text-on-surface-variant">May not apply to domestic US-formed entities under current post-2025 rules</td>
+<td class="p-4 text-on-surface-variant">Foreign reporting companies require separate review</td>
+<td class="p-4">High</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Detailed Breakdowns -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- BOI Card -->
+<div class="border border-structural bg-surface p-stack-md flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-structural pb-3">
+<h4 class="font-headline-md text-lg">BOI Reporting</h4>
+<span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface px-2 py-1 rounded-sm">FinCEN</span>
+</div>
+<p class="font-body-base text-sm text-on-surface-variant">
+                        BOI reporting status changed after 2025 rule updates... Always verify current applicability.
+                    </p>
+<div class="mt-auto pt-4 border-t border-dashed-data">
+<span class="font-data-mono text-data-mono text-outline block mb-1">Official Reference:</span>
+<a class="font-data-mono text-sm text-primary-container hover:underline" href="#">FinCEN BOI FAQ v.4.2</a>
+</div>
+</div>
+<!-- Form 5472 Card -->
+<div class="border border-structural bg-surface p-stack-md flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-structural pb-3">
+<h4 class="font-headline-md text-lg">Form 5472</h4>
+<span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface px-2 py-1 rounded-sm">IRS</span>
+</div>
+<p class="font-body-base text-sm text-on-surface-variant">
+                        Foreign-owned disregarded LLCs may have Form 5472 + pro forma 1120 filing obligations... Consult a qualified tax professional.
+                    </p>
+<div class="mt-auto pt-4 border-t border-dashed-data">
+<span class="font-data-mono text-data-mono text-outline block mb-1">Official Reference:</span>
+<a class="font-data-mono text-sm text-primary-container hover:underline" href="#">IRC Sec. 6038A</a>
+</div>
+</div>
+</div>
+<!-- What AI Answers Miss -->
+<section class="border border-outline-variant bg-surface-container-low p-stack-md">
+<h3 class="font-headline-md text-headline-md text-on-background flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-outline">smart_toy</span>
+                    What AI Answers Often Miss
+                </h3>
+<div class="font-body-base text-body-base text-on-surface-variant space-y-3 pl-4 border-l-2 border-outline-variant">
+<p><strong>The "Zero Tax" Trap:</strong> Generative AI often conflates "no US tax liability" with "no reporting requirements." Form 5472 is an informational return; failing to file it carries a base penalty of $25,000, regardless of tax owed.</p>
+<p><strong>Pro Forma 1120 Requirement:</strong> Many automated summaries state you only need to file 5472. In reality, a disregarded LLC must file a "pro forma" Form 1120 alongside the 5472, attaching it as a specific schedule.</p>
+</div>
+</section>
+</article>
+<!-- Sidebar / Context Panel -->
+<aside class="w-full md:w-4/12 flex flex-col gap-stack-md">
+<!-- CTA Tool -->
+<div class="border border-primary-container bg-surface-bright p-stack-md flex flex-col gap-4">
+<h3 class="font-headline-md text-lg text-on-background">Stay Compliant</h3>
+<p class="font-body-base text-sm text-on-surface-variant">Deadlines vary based on formation date and entity type. Don't risk penalties.</p>
+<button class="w-full font-label-xs text-label-xs px-4 py-3 bg-primary-container text-on-primary border border-primary-container hover:bg-on-primary-fixed-variant transition-colors rounded-DEFAULT font-bold flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                    Generate your compliance calendar
+                </button>
+</div>
+<!-- Compliance Checklist -->
+<div class="border border-structural bg-surface p-stack-md flex flex-col gap-4 inset-shadow">
+<h3 class="font-headline-md text-lg text-on-background border-b border-structural pb-2">Annual Checklist</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline text-[20px] mt-0.5">check_box_outline_blank</span>
+<div>
+<span class="font-body-base text-sm font-medium text-on-surface block">Review ownership changes</span>
+<span class="font-body-base text-xs text-on-surface-variant">For potential BOI updates (30-day window)</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline text-[20px] mt-0.5">check_box_outline_blank</span>
+<div>
+<span class="font-body-base text-sm font-medium text-on-surface block">Identify reportable transactions</span>
+<span class="font-body-base text-xs text-on-surface-variant">Money moving between you and the LLC</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline text-[20px] mt-0.5">check_box_outline_blank</span>
+<div>
+<span class="font-body-base text-sm font-medium text-on-surface block">File Form 5472 + 1120</span>
+<span class="font-body-base text-xs text-on-surface-variant">Due April 15 (typically)</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- Official Sources Summary -->
+<div class="border border-structural bg-surface p-stack-md flex flex-col gap-4">
+<h3 class="font-headline-md text-lg text-on-background">Official Sources</h3>
+<div class="flex flex-col gap-3 font-data-mono text-xs">
+<a class="flex items-center gap-2 p-2 bg-surface-container-low border border-dashed-data hover:border-primary-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">description</span>
+                        IRS: Form 5472 Instructions
+                    </a>
+<a class="flex items-center gap-2 p-2 bg-surface-container-low border border-dashed-data hover:border-primary-container transition-colors text-on-surface" href="#">
+<span class="material-symbols-outlined text-[16px] text-outline">account_balance</span>
+                        FinCEN: BOI Compliance Guide
+                    </a>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F8FAFC] dark:bg-slate-950 font-['Inter'] text-sm leading-relaxed docked full-width border-t border-t border-slate-200 dark:border-slate-800 flat no shadows w-full mt-auto">
+<div class="w-full max-w-[1280px] mx-auto py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-bold text-slate-900 dark:text-slate-50">Formation.Legal</span>
+<span class="text-slate-500 dark:text-slate-400 text-center">Independent research. Affiliate supported. Not legal or tax advice. © 2024 Formation.Legal</span>
+<div class="flex gap-4">
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#0052FF] dark:hover:text-blue-400 transition-colors focus:ring-2 focus:ring-[#0052FF]" href="#">Terms</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#0052FF] dark:hover:text-blue-400 transition-colors focus:ring-2 focus:ring-[#0052FF]" href="#">Privacy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#0052FF] dark:hover:text-blue-400 transition-colors focus:ring-2 focus:ring-[#0052FF]" href="#">Contact</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#0052FF] dark:hover:text-blue-400 transition-colors focus:ring-2 focus:ring-[#0052FF]" href="#">Disclaimer</a>
+</div>
+</div>
+</footer>
+</body></html>

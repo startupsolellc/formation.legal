@@ -1,0 +1,89 @@
+---
+title: "The Complete Payment Stack for Non-US Founders: Beyond Just Stripe"
+description: "Stripe is not the only option. This guide maps the full payment stack available to non-US founders with a US entity, including alternatives, backup processors, and risk diversification."
+pillar: payment-access
+draft: true
+noindex: true
+pubDate: 2026-04-26
+author: "Formation.Legal Editorial"
+reviewer: "Editorial review pending"
+originalityScore: 95
+humanGenerated: true
+aiAssisted: false
+category: "Payment Access"
+tags: ["payment-stack", "stripe", "paypal", "alternatives", "non-us-founders"]
+
+directAnswer: "Relying on a single payment processor is a business risk. Non-US founders with a US entity should consider building a diversified payment stack that includes a primary processor (Stripe or PayPal), a backup processor, and potentially a merchant of record service depending on their business model and risk tolerance."
+
+verdict:
+  - scenario: "SaaS founder — primary processor needed"
+    verdict: "Stripe is typically the best fit, with PayPal as backup"
+    risk: "low"
+    note: "Assumes verified US address and bank account"
+  - scenario: "E-commerce seller — multi-channel"
+    verdict: "PayPal + Stripe + Shopify Payments may all be needed"
+    risk: "medium"
+  - scenario: "Digital product seller — global audience"
+    verdict: "Consider a Merchant of Record (Paddle, Lemon Squeezy) to simplify tax"
+    risk: "low"
+    note: "MoR handles sales tax and VAT, reducing compliance burden"
+  - scenario: "High-risk or restricted business model"
+    verdict: "Mainstream processors may reject — research specialized processors"
+    risk: "high"
+    note: "CBD, crypto, adult content, and gambling face severe restrictions"
+  - scenario: "Founder wanting to avoid US entity entirely"
+    verdict: "MoR services can work without a US entity for some models"
+    risk: "needs-review"
+
+aiMiss:
+  - "AI answers almost always recommend Stripe as the default. They rarely mention Merchant of Record services (Paddle, Lemon Squeezy, FastSpring) which can be simpler for some business models."
+  - "Payment processor diversification is a risk management strategy that generic guides ignore. If Stripe freezes your account, having PayPal as a backup prevents revenue interruption."
+  - "The tax implications of each payment route differ significantly. A Merchant of Record handles sales tax collection; Stripe does not."
+  - "Some payment processors have country-specific restrictions that go beyond just having a US entity. Your country of residence may affect approval regardless of your LLC."
+
+sources:
+  - title: "Stripe: Supported Business Types"
+    url: "https://stripe.com/docs/connect/required-verification-information"
+    publisher: "Stripe"
+    primary: true
+  - title: "Paddle: Merchant of Record"
+    url: "https://www.paddle.com"
+    publisher: "Paddle"
+  - title: "Lemon Squeezy: How It Works"
+    url: "https://www.lemonsqueezy.com"
+    publisher: "Lemon Squeezy"
+  - title: "PayPal Business"
+    url: "https://www.paypal.com/us/business"
+    publisher: "PayPal"
+
+decisionTree:
+  - question: "What is your primary business model?"
+    yes: "SaaS/subscriptions → Stripe is likely your primary processor"
+    no: "E-commerce/digital products → Consider MoR services for simplicity"
+  - question: "Do you want to handle sales tax and VAT yourself?"
+    yes: "Use Stripe or PayPal directly — you manage tax compliance"
+    no: "A Merchant of Record (Paddle, Lemon Squeezy) handles tax for you"
+    note: "MoR services take a larger percentage but remove significant compliance burden"
+  - question: "Do you need a backup payment processor?"
+    yes: "Set up at least two processors before launching"
+    no: "Still recommended — account freezes can happen without warning"
+
+providerFit:
+  - founderProfile: "SaaS founder, subscriptions, global customers"
+    betterFit: "Stripe (primary) + PayPal (backup)"
+    why: "Best developer tools and subscription management"
+    caveat: "Requires verified US address and bank account for Stripe"
+  - founderProfile: "Digital product seller, wants minimal tax hassle"
+    betterFit: "Paddle or Lemon Squeezy (Merchant of Record)"
+    why: "Handles VAT, sales tax, and payment processing in one"
+    caveat: "Higher per-transaction fees; less control over checkout experience"
+  - founderProfile: "E-commerce, multi-channel (Shopify + Amazon)"
+    betterFit: "Shopify Payments + PayPal + direct Stripe"
+    why: "Each channel has its preferred processor"
+
+toolCta:
+  primaryLabel: "Build Your Payment Stack"
+  secondaryLabel: "Estimate 3-Year Cost"
+---
+
+*This guide is in draft and undergoing editorial review. Content may change before publication.*

@@ -1,0 +1,72 @@
+---
+/**
+ * VerdictTable.astro — Scenario-based verdict table with risk badges.
+ * Risk levels: low, medium, high, blocked, needs-review
+ */
+
+interface VerdictRow {
+  scenario: string;
+  verdict: string;
+  risk: 'low' | 'medium' | 'high' | 'blocked' | 'needs-review';
+  note?: string;
+}
+
+interface Props {
+  rows: VerdictRow[];
+  title?: string;
+}
+
+const { rows, title = 'Route Verdict' } = Astro.props;
+
+const riskStyles: Record<string, { bg: string; text: string; label: string }> = {
+  low: { bg: 'bg-green-50', text: 'text-[var(--color-route-safe)]', label: 'Low' },
+  medium: { bg: 'bg-amber-50', text: 'text-[var(--color-route-risky)]', label: 'Medium' },
+  high: { bg: 'bg-red-50', text: 'text-[var(--color-route-blocked)]', label: 'High' },
+  blocked: { bg: 'bg-red-100', text: 'text-[var(--color-route-blocked)]', label: 'Blocked' },
+  'needs-review': { bg: 'bg-gray-50', text: 'text-[var(--color-route-incomplete)]', label: 'Needs Review' },
+};
+---
+
+<div class="brutal-card overflow-hidden mb-8">
+  <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-container)]">
+    <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
+      {title}
+    </h3>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-[var(--color-border)]">
+          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Scenario</th>
+          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Verdict</th>
+          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => {
+          const style = riskStyles[row.risk] ?? riskStyles['needs-review'];
+          return (
+            <tr class="border-b border-[var(--color-border)] last:border-b-0">
+              <td class="px-5 py-3 font-medium text-[var(--color-text-primary)]">
+                {row.scenario}
+                {row.note && (
+                  <span class="block mt-1 text-xs text-[var(--color-text-secondary)] italic">{row.note}</span>
+                )}
+              </td>
+              <td class="px-5 py-3 text-[var(--color-text-secondary)]">{row.verdict}</td>
+              <td class="px-5 py-3">
+                <span class:list={[
+                  'inline-block rounded-[var(--radius-sm)] border px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider',
+                  style.bg,
+                  style.text,
+                ]}>
+                  {style.label}
+                </span>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+</div>

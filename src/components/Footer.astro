@@ -10,35 +10,36 @@ const currentYear = new Date().getFullYear();
 
 <footer class="border-t border-[var(--color-border)] bg-[var(--color-surface-alt)]">
   <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
-    <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-      <!-- Copyright -->
-      <p class="text-sm text-[var(--color-muted)]">
-        &copy; {currentYear} {SITE.title}. All rights reserved.
-      </p>
+    <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
+      <!-- Copyright & Legal -->
+      <div class="flex flex-col gap-2 text-center sm:text-left">
+        <p class="text-sm text-[var(--color-text-secondary)]">
+          &copy; {currentYear} {SITE.title}. All rights reserved.
+        </p>
+        <p class="text-xs text-[var(--color-text-secondary)]">
+          Not a law firm. Not tax advice. See <a href="/disclaimer" class="underline hover:text-[var(--color-action)]">Disclaimer</a>.
+        </p>
+      </div>
 
-      <!-- Trust & AI-friendly links -->
-      <nav class="flex items-center gap-4 text-sm" aria-label="Footer navigation">
-        <a
-          href="/llms.txt"
-          class="text-[var(--color-muted)] hover:text-[var(--color-primary-900)] transition-colors"
-        >
-          llms.txt
-        </a>
-        <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
-        <a
-          href="/robots.txt"
-          class="text-[var(--color-muted)] hover:text-[var(--color-primary-900)] transition-colors"
-        >
-          robots.txt
-        </a>
-        <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
-        <a
-          href="/sitemap-index.xml"
-          class="text-[var(--color-muted)] hover:text-[var(--color-primary-900)] transition-colors"
-        >
-          Sitemap
-        </a>
-      </nav>
+      <div class="flex flex-col items-center sm:items-end gap-3">
+        <!-- Trust Links -->
+        <nav class="flex items-center gap-4 text-xs font-medium" aria-label="Trust navigation">
+          <a href="/editorial-policy" class="text-[var(--color-text-secondary)] hover:text-[var(--color-action)] transition-colors">Editorial Policy</a>
+          <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
+          <a href="/affiliate-disclosure" class="text-[var(--color-text-secondary)] hover:text-[var(--color-action)] transition-colors">Affiliate Disclosure</a>
+          <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
+          <a href="/disclaimer" class="text-[var(--color-text-secondary)] hover:text-[var(--color-action)] transition-colors">Disclaimer</a>
+        </nav>
+        
+        <!-- Tech Links -->
+        <nav class="flex items-center gap-4 text-xs" aria-label="Tech navigation">
+          <a href="/llms.txt" class="text-[var(--color-text-secondary)] opacity-70 hover:opacity-100 transition-opacity">llms.txt</a>
+          <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
+          <a href="/robots.txt" class="text-[var(--color-text-secondary)] opacity-70 hover:opacity-100 transition-opacity">robots.txt</a>
+          <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
+          <a href="/sitemap-index.xml" class="text-[var(--color-text-secondary)] opacity-70 hover:opacity-100 transition-opacity">Sitemap</a>
+        </nav>
+      </div>
     </div>
   </div>
 </footer>

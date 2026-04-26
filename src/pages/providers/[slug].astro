@@ -1,0 +1,28 @@
+---
+import ProviderLayout from '../../layouts/ProviderLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const providers = await getCollection('providers');
+  return providers.map((provider) => ({ params: { slug: provider.id }, props: { provider } }));
+}
+const { provider } = Astro.props;
+const { Content } = await render(provider);
+---
+<ProviderLayout
+  title={provider.data.title}
+  description={provider.data.description}
+  providerName={provider.data.providerName}
+  slug={provider.id}
+  pubDate={provider.data.pubDate}
+  updatedDate={provider.data.updatedDate}
+  author={provider.data.author}
+  bestFor={provider.data.bestFor}
+  notFor={provider.data.notFor}
+  pricing={provider.data.pricing}
+  affiliateUrl={provider.data.affiliateUrl}
+  tested={provider.data.tested}
+  noindex={provider.data.noindex}
+>
+  <Content />
+</ProviderLayout>

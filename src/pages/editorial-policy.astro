@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Editorial Policy — Formation.Legal"
+  description="The rigorous research methodology and editorial independence standards behind Formation.Legal."
+>
+  <article class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <div class="mb-10 border-b border-[var(--color-border)] pb-8">
+      <h1 class="text-3xl font-bold text-[var(--color-text-primary)] sm:text-4xl">Editorial Policy & Methodology</h1>
+      <p class="mt-4 text-lg text-[var(--color-text-secondary)]">Last updated: April 2026</p>
+    </div>
+
+    <div class="prose prose-lg">
+      <p>
+        Formation.Legal is engineered to be the definitive decision engine for non-US founders entering the US ecosystem. To achieve this, we adhere to a strict editorial policy.
+      </p>
+
+      <h2>1. Independence First</h2>
+      <p>
+        Our research and editorial team operates entirely independently from our revenue and partnership teams.
+      </p>
+      <ul>
+        <li><strong>No Pay-to-Play:</strong> Providers cannot pay for higher ratings, better placements in the Route Planner, or removal of negative facts.</li>
+        <li><strong>Data-Driven Reality:</strong> We prioritize operational reality over marketing claims. If a provider claims "guaranteed bank accounts" but our research shows a 40% rejection rate for non-residents, we publish the 40% rejection rate.</li>
+      </ul>
+
+      <h2>2. The Route-Based Methodology</h2>
+      <p>
+        We do not believe in "Best Overall LLC Services". A service that is perfect for a US resident might be catastrophic for a non-US resident who needs an EIN without an ITIN and a physical bank account.
+      </p>
+      <p>
+        Our methodology evaluates providers, states, and entity types based on <strong>specific routes</strong> (e.g., Country + Business Model + Payment Goal).
+      </p>
+
+      <h2>3. Trust Layer & Source Logs</h2>
+      <p>
+        We believe in showing our work. Where possible, we publish the underlying source logs, state statutes, and test results that inform our guides in the <code>/research</code> section. Every guide includes metadata detailing its originality, AI-assistance level, and the specific author or researcher responsible for the content.
+      </p>
+
+      <h2>4. Updates and Corrections</h2>
+      <p>
+        US corporate compliance (like the CTA/BOI reporting rules) and banking regulations change rapidly. We actively monitor these changes. When a material change occurs that affects our recommendations, we update our guides and Route Planner logic, logging the changes clearly.
+      </p>
+      <p>
+        If you spot an inaccuracy in our research, we want to know. Please contact our editorial team.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

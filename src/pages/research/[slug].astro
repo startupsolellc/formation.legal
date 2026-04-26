@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Prose from '../../components/Prose.astro';
+import { getCollection, render } from 'astro:content';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const research = await getCollection('research');
+  return research.map((item) => ({ params: { slug: item.id }, props: { item } }));
+}
+const { item } = Astro.props;
+const { Content } = await render(item);
+
+const articleSchema = buildArticleSchema({
+  title: item.data.title, description: item.data.description,
+  pubDate: item.data.pubDate, updatedDate: item.data.updatedDate,
+  author: item.data.author, slug: item.id,
+});
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', href: '/' },
+  { name: 'Research', href: '/research' },
+  { name: item.data.title, href: `/research/${item.id}` },
+]);
+---
+<BaseLayout title={item.data.title} description={item.data.description} schemas={[articleSchema, breadcrumbSchema]} noindex={item.data.noindex}>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <nav class="mb-8 text-sm text-[var(--color-muted)]" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-1.5">
+        <li><a href="/" class="hover:text-[var(--color-primary-900)] transition-colors">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/research" class="hover:text-[var(--color-primary-900)] transition-colors">Research</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="text-[var(--color-primary-900)] font-medium line-clamp-1">{item.data.title}</li>
+      </ol>
+    </nav>
+    <header class="mb-10">
+      <h1 class="text-3xl font-bold text-[var(--color-primary-950)] sm:text-4xl">{item.data.title}</h1>
+      <p class="mt-4 text-lg text-[var(--color-muted)]">{item.data.description}</p>
+    </header>
+    <Prose><Content /></Prose>
+  </article>
+</BaseLayout>

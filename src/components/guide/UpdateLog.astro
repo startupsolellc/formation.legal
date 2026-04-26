@@ -1,0 +1,64 @@
+---
+/**
+ * UpdateLog.astro — Shows review status and change history for a guide.
+ * Shows "Review pending" if no lastReviewed date.
+ */
+
+interface ChangeEntry {
+  date: string;
+  change: string;
+}
+
+interface Props {
+  lastReviewed?: Date | null;
+  reviewer?: string;
+  changeLog?: ChangeEntry[];
+}
+
+const { lastReviewed, reviewer, changeLog = [] } = Astro.props;
+
+const dateFormatted = lastReviewed?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<div class="brutal-card overflow-hidden mb-8">
+  <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-container)] flex items-center justify-between">
+    <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
+      Update Log
+    </h3>
+    <div class="flex items-center gap-2">
+      <span class="h-2 w-2 rounded-full" class:list={[lastReviewed ? 'bg-[var(--color-route-safe)]' : 'bg-[var(--color-route-incomplete)]']}></span>
+      <span class="font-mono text-[11px] text-[var(--color-text-secondary)]">
+        {dateFormatted ? `Last reviewed: ${dateFormatted}` : 'Review pending'}
+      </span>
+    </div>
+  </div>
+
+  <div class="p-5">
+    {reviewer && (
+      <p class="text-xs text-[var(--color-text-secondary)] mb-4">
+        Reviewer: <span class="font-semibold text-[var(--color-text-primary)]">{reviewer}</span>
+      </p>
+    )}
+
+    {changeLog.length > 0 ? (
+      <div class="space-y-3">
+        {changeLog.map((entry) => (
+          <div class="flex items-start gap-3 text-sm">
+            <span class="font-mono text-[11px] text-[var(--color-text-secondary)] flex-shrink-0 tabular-nums mt-0.5 w-24">
+              {entry.date}
+            </span>
+            <span class="text-[var(--color-text-secondary)]">{entry.change}</span>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p class="text-xs text-[var(--color-text-secondary)] italic">
+        No changes recorded yet. This guide is awaiting its first editorial review.
+      </p>
+    )}
+  </div>
+</div>
