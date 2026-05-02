@@ -13,13 +13,13 @@ aiAssisted: false
 category: "Payment Access"
 tags: ["paypal", "LLC", "payment-access", "non-us-founders"]
 
-directAnswer: "PayPal Business requires a US LLC with a valid EIN, a US address (virtual addresses may work but face scrutiny), and identity verification of the account holder. Non-US founders can apply, but PayPal's verification process differs from Stripe and may require additional documentation."
+directAnswer: "For a US PayPal Business route, PayPal may request entity, tax, address, bank, and identity details. Requirements vary by account country, account history, business model, and review context."
 
 verdict:
-  - scenario: "Non-US founder with LLC + EIN + virtual address"
-    verdict: "PayPal may accept virtual addresses more readily than Stripe"
+  - scenario: "Non-US founder with LLC + EIN + mailbox-style address"
+    verdict: "Address review depends on account profile and requested documents"
     risk: "medium"
-    note: "Check current PayPal policies — they change frequently"
+    note: "Verify current PayPal requirements before applying"
   - scenario: "Founder with LLC but no US bank account"
     verdict: "PayPal can sometimes work without a traditional bank, but limitations apply"
     risk: "medium"
@@ -28,7 +28,7 @@ verdict:
     risk: "high"
     note: "PayPal links accounts across entities via personal identity"
   - scenario: "High-volume e-commerce seller"
-    verdict: "PayPal may impose holds and reserves on new accounts"
+    verdict: "PayPal may impose holds or reserves on new accounts"
     risk: "medium"
 
 aiMiss:
@@ -58,7 +58,7 @@ decisionTree:
     no: "Proceed with LLC + EIN + address setup"
     note: "PayPal links accounts via SSN/ITIN and personal identity"
   - question: "Do you expect high transaction volume in the first 90 days?"
-    yes: "Expect PayPal to place rolling reserves on your account"
+    yes: "PayPal may place holds or reserves depending on account history, risk profile, transaction volume, and policy review"
     no: "Standard verification process should apply"
 
 toolCta:

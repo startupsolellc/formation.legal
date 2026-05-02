@@ -67,10 +67,10 @@ const SETUP_OPTIONS = [
 ] as const;
 
 const ADDRESS_OPTIONS = [
-  { value: 'registered-agent', label: 'Registered agent only' },
-  { value: 'virtual-mailbox', label: 'Virtual mailbox' },
-  { value: 'physical-office', label: 'Physical office' },
-  { value: 'home-country', label: 'Home country address' },
+  { value: 'registered-agent', label: 'Registered agent only (state notices)' },
+  { value: 'virtual-mailbox', label: 'Mailbox / mail forwarding address' },
+  { value: 'physical-office', label: 'Dedicated office or leased location' },
+  { value: 'home-country', label: 'Founder residential proof outside the US' },
   { value: 'unsure', label: 'Unsure' },
 ] as const;
 
@@ -448,8 +448,8 @@ export default function RoutePlanner() {
 
         {step === 4 && (
           <div>
-            <h3 class="text-lg font-bold text-[#191b25] mb-1">What is your US address status?</h3>
-            <p class="text-sm text-[#434656] mb-5">Your address type affects payment processor and banking approval.</p>
+            <h3 class="text-lg font-bold text-[#191b25] mb-1">Which address layer is your weakest point?</h3>
+            <p class="text-sm text-[#434656] mb-5">Separate your registered-agent address for state contact from founder residential proof and the business legal or operating address banks and processors may request.</p>
             <div class="grid gap-2">
               {ADDRESS_OPTIONS.map((o) => (
                 <OptionButton key={o.value} selected={inputs.addressStatus === o.value} onClick={() => setInputs({ ...inputs, addressStatus: o.value as any })}>

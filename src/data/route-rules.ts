@@ -25,7 +25,6 @@ function assessPaymentRisk(inputs: RoutePlannerInputs): RiskLevel {
   const wantsMarketplace = paymentGoals.includes('amazon-shopify');
 
   if (wantsStripe && currentSetup === 'no-company') return 'high';
-  if (wantsStripe && addressStatus === 'home-country') return 'high';
   if (wantsStripe && currentSetup === 'llc-no-ein') return 'high';
   if (wantsStripe && currentSetup === 'llc-ein-bank') return 'medium';
   if (wantsStripe && currentSetup === 'llc-ein') return 'high';
@@ -44,10 +43,10 @@ function assessPaymentRisk(inputs: RoutePlannerInputs): RiskLevel {
 function assessAddressRisk(inputs: RoutePlannerInputs): RiskLevel {
   const { addressStatus, currentSetup, paymentGoals } = inputs;
   if (addressStatus === 'physical-office') return 'low';
-  if (addressStatus === 'registered-agent' && paymentGoals.includes('amazon-shopify')) return 'high';
+  if (addressStatus === 'registered-agent' && paymentGoals.includes('amazon-shopify')) return 'medium';
   if (addressStatus === 'virtual-mailbox') return 'medium';
   if (addressStatus === 'registered-agent') return 'medium';
-  if (addressStatus === 'home-country') return 'high';
+  if (addressStatus === 'home-country') return 'medium';
   if (currentSetup === 'need-address') return 'high';
   return 'needs-review';
 }
@@ -98,7 +97,7 @@ function getMissingSteps(inputs: RoutePlannerInputs): MissingStep[] {
     steps.push({
       id: 'entity',
       label: 'Entity formation',
-      detail: 'You may need to form a US LLC or C-Corp before accessing most payment processors and bank accounts.',
+      detail: 'Some US payment or banking routes may require a supported entity; alternatives may exist depending on country and business model.',
     });
   }
 
@@ -106,7 +105,7 @@ function getMissingSteps(inputs: RoutePlannerInputs): MissingStep[] {
     steps.push({
       id: 'ein',
       label: 'EIN (Employer Identification Number)',
-      detail: 'An EIN from the IRS is needed for banking, payment processors, and tax filings. Apply via IRS.gov or by fax.',
+      detail: 'An EIN is often needed for US entity banking, tax, and processor workflows. Apply via IRS.gov or by fax.',
     });
   }
 
@@ -119,15 +118,14 @@ function getMissingSteps(inputs: RoutePlannerInputs): MissingStep[] {
   }
 
   if (
-    inputs.addressStatus === 'home-country' ||
     inputs.addressStatus === 'unsure' ||
     inputs.currentSetup === 'need-address' ||
     (inputs.addressStatus === 'registered-agent' && hasProcessorOrBankGoal)
   ) {
     steps.push({
       id: 'address',
-      label: 'Valid business address path',
-      detail: 'Payment processors and banks may require a US address beyond a registered agent. A virtual mailbox or physical office may be needed.',
+      label: 'Address documentation path',
+      detail: 'A registered-agent address usually covers state/entity contact, not KYC. Banks and processors may separately ask for founder residential proof or an accepted business legal/principal/operating address.',
     });
   }
 
@@ -135,7 +133,7 @@ function getMissingSteps(inputs: RoutePlannerInputs): MissingStep[] {
     steps.push({
       id: 'payment-readiness',
       label: 'Payment processor readiness',
-      detail: 'Stripe and PayPal have their own verification requirements beyond entity formation. A bank account and business website are typically needed.',
+      detail: 'Stripe and PayPal have their own verification requirements beyond entity formation. A compatible payout account and review-ready website are often requested.',
     });
   }
 
@@ -150,7 +148,7 @@ function getMissingSteps(inputs: RoutePlannerInputs): MissingStep[] {
   steps.push({
     id: 'website',
     label: 'Business website / refund / terms pages',
-    detail: 'Most payment processors require a live website with refund policy, terms of service, and contact information.',
+    detail: 'Many processors review website or business-presence information, including refund policy, terms, and contact details. Requirements vary by provider and business model.',
   });
 
   steps.push({
@@ -206,14 +204,13 @@ function generateChecklist(inputs: RoutePlannerInputs): ChecklistItem[] {
   }
 
   if (
-    inputs.addressStatus === 'home-country' ||
     inputs.addressStatus === 'unsure' ||
     inputs.currentSetup === 'need-address' ||
     (inputs.addressStatus === 'registered-agent' && hasProcessorOrBankGoal)
   ) {
     items.push({
       step: 'Select a business address route',
-      detail: 'Registered-agent-only addresses may not satisfy every processor, bank, or marketplace check. Verify address requirements before applying.',
+      detail: 'Some checks may require address documentation separate from registered-agent service, such as founder residential proof or a business legal/principal/operating address.',
       priority: 'important',
     });
   }
@@ -229,7 +226,7 @@ function generateChecklist(inputs: RoutePlannerInputs): ChecklistItem[] {
   if (inputs.paymentGoals.includes('stripe')) {
     items.push({
       step: 'Prepare Stripe application',
-      detail: 'Have your EIN, bank account, US address, and business website ready before applying.',
+      detail: 'Prepare EIN/tax details, compatible payout information, address documentation, website, and business materials that match the specific Stripe route.',
       priority: 'important',
     });
   }
@@ -237,7 +234,7 @@ function generateChecklist(inputs: RoutePlannerInputs): ChecklistItem[] {
   if (inputs.paymentGoals.includes('paypal')) {
     items.push({
       step: 'Set up PayPal Business account',
-      detail: 'PayPal has separate verification from Stripe. Identity and address verification required.',
+      detail: 'PayPal has separate verification from Stripe. It may request identity and address verification depending on account setup and review.',
       priority: 'important',
     });
   }
@@ -311,7 +308,7 @@ function generateSummary(inputs: RoutePlannerInputs, verdict: RouteVerdict): str
     case 'possible':
       return `Based on your inputs, a ${entity} route from ${country} appears directionally viable for ${processor}. You may still need to verify bank eligibility, address requirements, and payment processor policies for your specific situation.${tradeoff}`;
     case 'incomplete':
-      return `Your ${processor} route from ${country} has gaps that need attention. Key steps may be missing, such as a bank account, a valid business address, marketplace or processor readiness, or an EIN. Review the missing steps below before proceeding.${tradeoff}`;
+      return `Your ${processor} route from ${country} has gaps that need attention. Key steps may be missing, such as a payout account, address documentation, marketplace or processor readiness, or an EIN. Review the missing steps below before proceeding.${tradeoff}`;
     case 'risky':
       return `Multiple risk factors were detected for a ${processor} route from ${country}. Country, processor, and bank eligibility must be verified before spending money. Professional review from a qualified attorney or CPA familiar with non-US founder situations is recommended.${tradeoff}`;
     case 'blocked':
