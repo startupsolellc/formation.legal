@@ -11,6 +11,83 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-02] - Payment Access Public Guide & Address Rules Alignment
+
+### Added
+- Published the first editorial-ready Payment Access guide:
+  - `src/content/guides/formation-does-not-equal-payment-approval.mdx`
+  - Public route: `/payment-access/formation-does-not-equal-payment-approval/`
+  - Set `draft: false` and `noindex: false`
+  - Added reviewed official source references for Stripe, PayPal, Mercury, IRS, and FinCEN
+  - Added public-facing update log copy and reviewer metadata
+- Added/expanded GEO guide fields for the public guide:
+  - Direct answer
+  - Verdict table
+  - AI-miss list
+  - Decision tree
+  - Provider fit matrix
+  - Source summary
+  - Route Planner CTA
+  - Update log
+
+### Changed
+- Reframed address guidance across Route Planner and Payment Access content around three separate address layers:
+  - Registered agent/state contact address
+  - Founder/operator residential proof for KYC
+  - Business legal/principal/operating address for banks, processors, and marketplaces
+- Updated Route Planner copy and rule text in:
+  - `src/components/tools/RoutePlanner.tsx`
+  - `src/data/route-rules.ts`
+  - `src/pages/tools/route-planner.astro`
+- Softened over-broad payment, banking, and address claims in draft guides:
+  - `src/content/guides/us-llc-for-stripe.mdx`
+  - `src/content/guides/us-llc-for-paypal.mdx`
+  - `src/content/guides/payment-stack-for-non-us-founders.mdx`
+- Updated homepage and editorial policy copy to avoid unsupported approval-rate or physical-presence claims:
+  - `src/pages/index.astro`
+  - `src/pages/editorial-policy.astro`
+- Clarified registered agent address scope in the research article:
+  - `src/content/research/what-is-llc-formation/index.mdx`
+
+### Fixed
+- Removed internal production-facing copy from the public guide update log:
+  - Replaced “Converted from skeleton draft...” with a reader-facing initial publication note
+- Removed/avoided misleading implications that:
+  - A U.S. physical office is always required for payment approval
+  - Registered agent addresses are categorically never accepted
+  - Virtual/mailbox-style addresses always trigger rejection
+
+---
+
+## [2026-04-27] - Route Engine MVP & Cloudflare Deployment Readiness
+
+### Added
+- Added Cloudflare Workers static assets config:
+  - `wrangler.jsonc`
+  - Uses static `dist/` output without adding an Astro Cloudflare adapter
+- Added Route Planner MVP as a Preact island:
+  - `src/components/tools/RoutePlanner.tsx`
+  - `src/data/route-rules.ts`
+  - `src/data/provider-fit.ts`
+  - `src/types/route-planner.ts`
+  - `src/pages/tools/route-planner.astro`
+- Added route-based QA polish for the planner:
+  - Scenario-based verdicts and risk panels
+  - Missing steps and first 90-day checklist
+  - Provider fit options without fake ratings or affiliate links
+  - Analytics placeholders only, with no external analytics integration
+
+### Changed
+- Normalized page title branding in `BaseLayout.astro` to avoid duplicated `Formation.Legal` suffixes.
+- Connected Route Planner entry points from the homepage, tools hub, and pillar hubs.
+- Refined Route Planner copy to stay trust-first and avoid approval guarantees.
+
+### Fixed
+- Fixed Cloudflare deploy failure caused by `npx wrangler deploy` auto-configuring Astro as a Worker app and rejecting `formation.legal` as a Worker name.
+- Kept the project static-only (`output: "static"`) and avoided server-side adapter/session/KV behavior.
+
+---
+
 ## [2026-04-26] - Project Documentation & Agent Onboarding
 
 ### Added
