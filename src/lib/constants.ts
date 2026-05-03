@@ -32,12 +32,29 @@ export const DEFAULT_AUTHOR = {
 /* ------------------------------------------------------------------ */
 
 export const NAV_ITEMS = [
-  { label: 'Route Planner', href: '/tools/route-planner' },
+  { label: 'Tools', href: '/tools' },
   { label: 'Payment Access', href: '/payment-access' },
   { label: 'Address & Banking', href: '/address-banking' },
   { label: 'Compliance', href: '/compliance' },
   { label: 'Providers', href: '/providers' },
   { label: 'Research', href: '/research' },
+] as const;
+
+export const TOOL_ITEMS = [
+  {
+    label: 'Route Planner',
+    title: 'US Business Route Planner',
+    description: 'Find the right US business route based on your country, business model, payment goals, and risk tolerance.',
+    href: '/tools/route-planner',
+    status: 'available',
+  },
+  {
+    label: 'Cost Calculator',
+    title: '3-Year LLC Cost Calculator',
+    description: 'Compare formation providers by total 3-year cost including renewals, registered agent fees, and compliance.',
+    href: '/tools/cost-calculator',
+    status: 'available',
+  },
 ] as const;
 
 /* ------------------------------------------------------------------ */

@@ -5,6 +5,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import RoutePlanner from '../../components/tools/RoutePlanner';
+import ToolNav from '../../components/tools/ToolNav.astro';
 ---
 
 <BaseLayout
@@ -12,6 +13,8 @@ import RoutePlanner from '../../components/tools/RoutePlanner';
   description="Get a directional route estimate based on your country, business model, payment goal, address proof, payout path, and compliance needs."
 >
   <section class="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+    <ToolNav />
+
     <!-- Header -->
     <div class="mb-10 text-center">
       <h1 class="text-3xl font-bold text-[var(--color-text-primary)] sm:text-4xl">

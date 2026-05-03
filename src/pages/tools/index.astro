@@ -4,26 +4,14 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { buildBreadcrumbSchema } from '../../lib/schema';
+import { TOOL_ITEMS } from '../../lib/constants';
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', href: '/' },
   { name: 'Tools', href: '/tools' },
 ]);
 
-const tools = [
-  {
-    title: 'US Business Route Planner',
-    description: 'Find the right US business route based on your country, business model, payment goals, and risk tolerance.',
-    href: '/tools/route-planner',
-    status: 'available' as const,
-  },
-  {
-    title: '3-Year LLC Cost Calculator',
-    description: 'Compare formation providers by total 3-year cost including renewals, registered agent fees, and compliance.',
-    href: '/tools/cost-calculator',
-    status: 'coming-soon' as const,
-  },
-];
+const tools = TOOL_ITEMS;
 ---
 <BaseLayout
   title="Tools — Formation.Legal"

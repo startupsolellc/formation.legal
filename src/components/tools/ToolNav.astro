@@ -1,0 +1,49 @@
+---
+/**
+ * ToolNav.astro — Compact navigation between interactive tools.
+ */
+import { TOOL_ITEMS } from '../../lib/constants';
+
+const normalize = (path: string) => path.replace(/\/$/, '') || '/';
+const currentPath = normalize(Astro.url.pathname);
+---
+
+<nav class="mb-8" aria-label="Tool navigation">
+  <div class="mb-2 flex items-center justify-between gap-3">
+    <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+      Tools
+    </p>
+    <a
+      href="/tools"
+      class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)]"
+    >
+      All tools
+    </a>
+  </div>
+  <ul class="grid gap-2 sm:grid-cols-2" role="list">
+    {TOOL_ITEMS.map((item) => {
+      const itemPath = normalize(item.href);
+      const isActive = currentPath === itemPath || currentPath.startsWith(`${itemPath}/`);
+
+      return (
+        <li>
+          <a
+            href={item.href}
+            class:list={[
+              'block rounded-[4px] border px-4 py-3 transition-colors',
+              isActive
+                ? 'border-[var(--color-action)] bg-[var(--color-action)]/5 text-[var(--color-text-primary)]'
+                : 'border-[var(--color-border)] bg-white text-[var(--color-text-secondary)] hover:border-[var(--color-action)] hover:text-[var(--color-text-primary)]',
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            <span class="block text-sm font-bold">{item.label}</span>
+            <span class="mt-1 block text-xs leading-relaxed text-[var(--color-text-secondary)]">
+              {item.label === 'Route Planner' ? 'Choose a route' : 'Compare setup costs'}
+            </span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>
