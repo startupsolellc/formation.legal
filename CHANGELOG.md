@@ -11,6 +11,24 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-03] - Registered Agent Address Guide (Address & Banking Pillar)
+
+### Added
+- **Registered Agent Address Guide** — First guide for the Address & Banking pillar:
+  - `src/content/guides/registered-agent-address-vs-business-address.mdx`
+  - Public route: `/address-banking/registered-agent-address-vs-business-address/`
+  - Covers: Three address layers (RA, Residential/KYC, Operating), what RA addresses can/cannot be used for, Stripe May 2025 policy change, bank account addresses, EIN addresses
+  - Includes 5-scenario verdict table, decision tree, Stripe-specific section, quick reference table
+  - GEO-optimized targeting "can i use registered agent address for stripe" queries (AI Overview absent — opportunity)
+- **Keyword Research Script** for Registered Agent:
+  - `scripts/registered-agent-keyword-research.mjs` — SERP analysis for 5 main queries
+
+### Research Findings
+- Stripe explicitly rejected RA addresses as of May 28, 2025 — many existing guides are outdated
+- "can i use registered agent address for stripe" has NO AI Overview — high LLM citation opportunity
+- Three address layers concept is unique — most guides only explain what RA is, not the three-layer system
+- AI Misses identified: virtual mailbox ≠ registered agent, RA is public record, non-US founder specific scenarios
+
 ## [2026-05-03] - BOI Reporting Guide (Compliance Pillar)
 
 ### Added

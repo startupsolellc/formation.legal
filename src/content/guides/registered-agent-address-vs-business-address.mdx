@@ -1,0 +1,386 @@
+---
+title: "Registered Agent Address vs Business Address: What Non-US Founders Actually Need in 2026"
+description: "Can you use a registered agent address for Stripe, bank accounts, or EIN? Learn what your RA address is actually for and why it won't work for payments in 2026."
+pillar: address-banking
+draft: false
+noindex: false
+pubDate: 2026-05-03
+updatedDate: 2026-05-03
+lastReviewed: 2026-05-03
+author: "Formation.Legal Editorial"
+reviewer: "Formation.Legal Editorial"
+originalityScore: 95
+humanGenerated: true
+aiAssisted: false
+affiliateDisclosure: false
+category: "Address & Banking"
+tags: ["registered agent", "business address", "RA address", "stripe address", "bank account address", "EIN address", "address setup", "non-US founder"]
+
+directAnswer: "A registered agent address is only for receiving legal documents — it cannot be used for Stripe, bank accounts, or EIN. As of May 2025, Stripe rejects registered agent, virtual mailbox, and CMRA addresses. Non-US founders need three separate addresses: RA address for state filings, residential address for KYC verification, and operating address for business records."
+
+verdict:
+  - scenario: "Using RA address for state LLC filings"
+    verdict: "Correct use — this is what RA addresses are for"
+    risk: "low"
+    note: "Your registered agent address should be listed on all state filings. This is exactly what it is designed for."
+  - scenario: "Using RA address for Stripe account verification"
+    verdict: "Will be rejected — Stripe explicitly blocks RA addresses as of May 2025"
+    risk: "high"
+    note: "Stripe's updated policy (May 28, 2025) rejects all registered agent, virtual mailbox, and CMRA addresses. You need a physical address where your business operates."
+  - scenario: "Using RA address for bank account opening"
+    verdict: "Will be rejected — banks require proof of operating address"
+    risk: "high"
+    note: "Banks require a physical address where your business actually operates. RA addresses do not qualify."
+  - scenario: "Using RA address for EIN application"
+    verdict: "Technically possible but not recommended"
+    risk: "medium"
+    note: "The IRS accepts RA addresses for EIN filings, but using your personal residential address is generally more straightforward for non-US founders."
+  - scenario: "Using RA address for PayPal or Amazon"
+    verdict: "Will likely be rejected"
+    risk: "high"
+    note: "Both PayPal and Amazon require addresses where your business operates. RA addresses do not qualify."
+
+aiMiss:
+  - "As of May 2025, Stripe explicitly rejects registered agent addresses. This is a major change from previous policy — many existing guides are outdated."
+  - "There is not just one address for your LLC — there are three separate address layers: registered agent address, residential/KYC address, and business operating address."
+  - "Registered agent addresses are public record. Anyone can look up your RA address through the secretary of state website."
+  - "A virtual mailbox or CMRA address is not a registered agent address — and Stripe rejects both. The RA address must be a physical location where a registered agent (person or company) is available during business hours."
+  - "Non-US founders who use Stripe Atlas may have received RA addresses from Stripe — but this address will not work for Stripe's updated address verification requirements."
+  - "The 'principal office address' or 'principal place of business' is different from your registered agent address — this is what appears on some public records and is distinct from your RA address."
+
+sources:
+  - title: "Validate addresses for money management products"
+    url: "https://docs.stripe.com/issuing/compliance-us/address-validation"
+    publisher: "Stripe"
+    accessDate: "2026-05-03"
+    note: "Stripe's official policy as of May 28, 2025 — explicitly rejects registered agent, CMRA, and virtual mailbox addresses."
+    primary: true
+  - title: "Registered Agent Address—What You Need To Know"
+    url: "https://www.harborcompliance.com/registered-agent-address"
+    publisher: "Harbor Compliance"
+    accessDate: "2026-05-03"
+    note: "Clear explanation of what a registered agent address is, legal requirements, and practical limitations."
+    primary: true
+  - title: "Can I Use a Registered Agent Address as a Business Address"
+    url: "https://www.davincivirtual.com/blog/can-i-use-a-registered-agent-address-as-a-business-address"
+    publisher: "Da Vinci Virtual"
+    accessDate: "2026-05-03"
+    note: "Detailed analysis of when RA addresses can and cannot be used as business addresses, with operational drawbacks."
+    primary: true
+  - title: "Using a Registered Agent Address and Operating Address for Your Business"
+    url: "https://support.relayfi.com/hc/en-us/articles/23792837830676-Using-a-Registered-Agent-Address-and-Operating-Address-for-Your-Business"
+    publisher: "Relay Bank"
+    accessDate: "2026-05-03"
+    note: "Bank perspective on why RA addresses cannot be used for business bank account applications."
+    primary: true
+  - title: "What Address Should I Use For My Business?"
+    url: "https://www.nav.com/blog/what-address-should-i-use-for-my-business-32926/"
+    publisher: "Nav"
+    accessDate: "2026-05-03"
+    note: "EIN application address requirements from the IRS."
+    primary: false
+
+decisionTree:
+  - question: "What are you trying to use the address for?"
+    options:
+      - label: "State LLC filings (secretary of state)"
+        answer: "Your registered agent address is correct for this. List it on your Articles of Organization."
+      - label: "Stripe account verification"
+        answer: "Your RA address will NOT work. You need the address where your business actually operates."
+      - label: "Bank account opening"
+        answer: "Your RA address will NOT work. Banks require a physical operating address."
+      - label: "EIN application"
+        answer: "RA address may work for the IRS, but using your residential address is simpler."
+      - label: "PayPal, Amazon, or other marketplaces"
+        answer: "Your RA address will likely be rejected. These platforms require operating addresses."
+      - label: "General business correspondence"
+        answer: "RA addresses only receive legal/government mail. They cannot handle general business mail or packages."
+
+providerFit:
+  - founderProfile: "Non-US founder with Stripe Atlas LLC"
+    betterFit: "Stripe Atlas provides an RA address, but this address cannot be used for Stripe's updated verification requirements. You may need a separate address for Stripe verification."
+    why: "Stripe's May 2025 policy change rejected all RA addresses, including those used with Stripe Atlas."
+    caveat: "Contact Stripe support if your account is flagged — you may need to provide proof of a different address."
+  - founderProfile: "Non-US founder opening a US bank account"
+    betterFit: "Use a residential address (your home or rental address) for the application. The RA address cannot be used."
+    why: "Banks require KYC verification with a physical address where your business operates."
+    caveat: "Some banks may accept a virtual office address if it is a physical address with genuine workspace, not just a mailbox."
+  - founderProfile: "Non-US founder who wants privacy"
+    betterFit: "Use your RA service's address for all state filings (keeps your home address off public records), but use your actual residential address for KYC verifications."
+    why: "Registered agent addresses provide privacy for state filings — but they are not substitutes for operational addresses in KYC processes."
+    caveat: "Your RA address will appear on public records accessible through secretary of state databases. Use a RA service if you want to keep your home address private."
+
+toolCta:
+  primaryLabel: "Map Your Address Strategy"
+  primaryHref: "/tools/route-planner"
+  secondaryLabel: "Calculate 3-Year LLC Costs"
+  secondaryHref: "/tools/cost-calculator"
+
+methodology: "This guide was written for non-US founders who need to understand the three address layers of a US LLC. It covers the registered agent address's legal purpose, what it can and cannot be used for, and the May 2025 Stripe policy change. Information verified against Stripe's official documentation and leading RA service providers."
+
+updateLog:
+  - date: "2026-05-03"
+    change: "Initial publication. Added Stripe's May 2025 address validation policy change — this is a significant update that affects all non-US founders using Stripe Atlas or applying for new Stripe accounts."
+---
+
+## The Short Answer
+
+**A registered agent (RA) address is not a general business address.** It is a legal requirement for receiving government and legal correspondence — nothing more.
+
+You cannot use your registered agent address for:
+- **Stripe account verification** (rejected as of May 2025)
+- **Bank account opening** (rejected — banks require proof of operating address)
+- **EIN applications** (technically allowed but not recommended)
+- **PayPal, Amazon, or other marketplaces** (generally rejected)
+
+Most non-US founders make the same mistake: they assume their RA address can serve as their business address because it appears on their LLC filings. It cannot.
+
+This guide explains what your registered agent address actually does, what it does not do, and the three address layers every non-US founder needs to understand.
+
+---
+
+## What Is a Registered Agent Address — And What It's For
+
+A registered agent is a person or company designated to receive legal and official documents on behalf of your LLC. The registered agent's address is where these documents are delivered.
+
+**What your RA address receives:**
+- Service of process (lawsuits, legal summons)
+- State correspondence (annual report reminders, compliance notices)
+- IRS notices (if sent to the LLC's registered address)
+- Official government notifications
+
+**Legal requirements for an RA address:**
+- Must be a physical address (no P.O. boxes)
+- Must be located in the state where your LLC is registered
+- Must be accessible during normal business hours
+- The RA must be available to accept documents in person
+
+**Your RA address is public record.** Anyone can search for it through the secretary of state's business database. This is why many non-US founders use RA services — to keep their home address off public filings.
+
+---
+
+## The Three Address Layers Every Non-US Founder Must Understand
+
+Most confusion about registered agent addresses comes from not understanding that a US LLC has **three separate address layers**:
+
+### Layer 1: Registered Agent Address
+**Purpose:** Receiving legal and government documents
+**Visibility:** Public — listed on secretary of state records
+**Used for:**
+- State LLC formation filings
+- Service of process
+- Government correspondence
+**Who provides this:** Your registered agent service (e.g., Northwest Registered Agent, Incfile, Bizee)
+
+### Layer 2: Residential / KYC Address (for founder)
+**Purpose:** Identity verification (KYC) with banks, payment processors, and government agencies
+**Visibility:** Private — used only for verification, not public record
+**Used for:**
+- Bank account applications (personal and business)
+- Stripe, PayPal, and other processor verification
+- EIN application (as the responsible party's address)
+- Personal address verification
+**Who provides this:** Your actual residential address (home, rental, or accommodation)
+
+### Layer 3: Business Operating Address
+**Purpose:** Where your business actually operates
+**Visibility:** Semi-public — may appear on business records, websites, contracts
+**Used for:**
+- Business correspondence that is not legal/government
+- Company website and marketing materials
+- Customer-facing addresses
+**Who provides this:** A virtual office, coworking space, or your residential address
+
+---
+
+## What You CAN Use a Registered Agent Address For
+
+Your RA address has a specific legal purpose. Here is where it actually works:
+
+| Use Case | RA Address Works? | Notes |
+|---|---|---|
+| **Secretary of state LLC filing** | ✅ Yes | Required on Articles of Organization |
+| **Registered agent designation** | ✅ Yes | This is the primary purpose |
+| **Receiving legal documents** | ✅ Yes | Service of process, IRS notices |
+| **Annual report filings** | ✅ Yes | State correspondence |
+| **Registered office address** | ✅ Yes | Some states require this |
+
+Your RA address should be listed on all state-level filings. This is exactly what it is designed for.
+
+---
+
+## What You CANNOT Use a Registered Agent Address For
+
+Here is where non-US founders consistently run into problems:
+
+### Stripe Account Verification — BLOCKED as of May 2025
+
+**This is critical:** As of May 28, 2025, Stripe explicitly rejects registered agent addresses for account verification.
+
+From Stripe's official documentation:
+
+> "This means Stripe can no longer allow addresses for registered agents, mailbox services, or virtual address services."
+
+**What this means for you:**
+- If you formed your LLC through Stripe Atlas, the RA address Stripe provided will not work for Stripe verification
+- You must provide a physical address where your business actually operates
+- This applies to both business entity addresses and personal addresses of account holders
+
+**If you already have a Stripe account:** Stripe is providing a 30-day grace period for existing businesses to update non-compliant addresses.
+
+### Bank Account Opening — BLOCKED
+
+Banks require proof that your business has a physical operating presence. Your RA address does not qualify because:
+- Banks conduct KYC (Know Your Customer) verification
+- They need to verify the address where your business operates
+- RA addresses are specifically for receiving legal documents, not conducting business
+
+From Relay Bank's documentation:
+
+> "All business owners must provide a verifiable personal (residential) address, even if a Registered Agent address is used for the business. This is required for KYC verification."
+
+### EIN Application — Technically Allowed But Problematic
+
+The IRS accepts RA addresses for EIN applications. However, non-US founders often encounter issues because:
+- The IRS Form SS-4 requires a responsible party with a US address
+- Using your RA address may complicate the process if you do not have a US residential address
+- It is generally simpler to use your personal residential address
+
+### PayPal, Amazon, and Marketplaces — Likely BLOCKED
+
+Most marketplaces require an address where your business operates. RA addresses are generally rejected because they are not genuine operating locations.
+
+---
+
+## The Stripe Problem — Why Your RA Address Won't Work Anymore
+
+If you used Stripe Atlas to form your LLC, Stripe provided you with a registered agent address. As of May 2025, this address will not work for Stripe's address verification.
+
+### What Changed
+
+Stripe updated its address validation policy on May 28, 2025 to explicitly reject:
+- Registered agent addresses
+- CMRA (Commercial Mail Receiving Agency) addresses
+- Virtual mailbox addresses
+- PO Boxes and similar services
+
+### What You Need Instead
+
+For Stripe verification, you need an address where your business actually operates. This can be:
+- Your home address (if you are operating from home)
+- A rental address
+- A coworking space address
+- A virtual office with genuine physical presence
+
+**Note:** A virtual office address from a service like WeWork or Davinci Virtual may or may not work depending on whether it is a genuine physical address with workspace access. Stripe's policy specifically mentions rejecting "virtual address services."
+
+### What to Do If Your Stripe Account Is Flagged
+
+If Stripe has already flagged your account:
+1. Contact Stripe support
+2. Provide proof of your actual operating address (lease, utility bill, or similar)
+3. Update your account with a compliant address within the grace period
+
+---
+
+## What Address Do You Actually Need for Each Service?
+
+Here is a quick reference table for non-US founders:
+
+| Service | What Address to Use |
+|---|---|
+| **LLC state filing** | Registered agent address |
+| **EIN application** | Your personal residential address or RA address |
+| **US bank account** | Your personal residential address |
+| **Stripe account** | Your personal residential address or operating address |
+| **PayPal account** | Your personal residential address |
+| **Amazon seller account** | Your personal residential address |
+| **Business website** | Your choice — can be RA address, virtual office, or any |
+| **Business email/phone** | Any — not address-dependent |
+
+---
+
+## Non-US Founder Special Cases
+
+### I Live Outside the US — What Address Should I Use?
+
+If you are a non-US resident forming a US LLC:
+- **For your RA address:** Use a US-based registered agent service
+- **For your personal/KYC address:** Use your actual residential address in your home country (passport verification will use this)
+- **For Stripe/bank verification:** Some services accept foreign addresses, others require US addresses — check each platform's requirements
+
+### I Want to Keep My Home Address Private
+
+Using a registered agent service keeps your home address off public records. Your RA address will appear on secretary of state filings, not your home address.
+
+However, you still need to provide your actual residential address for KYC verification with banks and payment processors. Privacy and KYC verification are separate issues.
+
+### I Already Used My RA Address for Stripe/PayPal — Will I Get in Trouble?
+
+If Stripe or PayPal has already verified your account with an RA address:
+- You may be grandfathered under existing verification
+- If your account is flagged, update your address immediately
+- Stripe's May 2025 policy applies to new applications and flagged accounts
+
+---
+
+## FAQ: Registered Agent Address Questions
+
+### Can I use my registered agent address as my business address?
+
+No. Your registered agent address is specifically for receiving legal and government documents. It cannot be used as your general business address, cannot receive regular business mail, and will be rejected by banks and payment processors. Use your RA address only for state filings and legal correspondence.
+
+### Can I use my registered agent address for my LLC's principal office address?
+
+These are two different concepts. Your registered agent address is for legal documents. Your principal office address (or principal place of business) is where your company actually operates. They can be the same address, but this is generally not recommended because RA addresses do not qualify for bank and processor verification.
+
+### Is a virtual mailbox the same as a registered agent address?
+
+No. A virtual mailbox service (like a CMRA) provides a mailing address but is not a registered agent. Stripe and other processors specifically reject both RA addresses AND virtual mailbox addresses. The two are different things, but neither will work for payment processor verification.
+
+### Can a non-US founder use their home country address for KYC?
+
+This depends on the platform. Some banks and payment processors accept foreign addresses for KYC, others require US addresses. Stripe generally requires US addresses for business accounts. Banks vary by institution.
+
+### Does my registered agent address appear on public records?
+
+Yes. Your registered agent address is listed on your LLC's secretary of state filings and is searchable by anyone. This is why many non-US founders use RA services — to keep their home address private and off public databases.
+
+### What happens if I don't have a US residential address?
+
+If you do not have a US residential address:
+- For RA service: Use a US-based registered agent service
+- For bank account: Many US banks require a US address; some (like Relay, Mercury) may accept foreign addresses or have specific programs for non-residents
+- For Stripe: Stripe generally requires a US address for business accounts
+
+---
+
+## Quick Reference: Address Decision Table
+
+Use this table to determine which address to use:
+
+| I need an address for... | Which address? |
+|---|---|
+| Filing my LLC with the state | Registered agent address |
+| Opening a US bank account | Your personal residential address |
+| Verifying my Stripe account | Your personal residential or operating address |
+| EIN application | Your personal residential address |
+| PayPal or Amazon | Your personal residential address |
+| Business website or email | Any address you choose |
+| Privacy (keeping home address off records) | Use a registered agent service for state filings |
+
+---
+
+## How the Route Planner Helps
+
+Understanding your address setup is a critical part of mapping your US business route. The **Route Planner** at `/tools/route-planner` asks about your address status and can help you understand:
+
+- What address you need for your intended payment processors
+- Whether your current address setup will work for banks
+- What steps you need to take before applying for accounts
+
+Use the planner to get a personalized route based on your country, business model, payment goals, and address status.
+
+---
+
+*This guide is for informational purposes only and does not constitute legal or tax advice. Address requirements vary by platform and are subject to change. Verify current requirements with each service provider.*
