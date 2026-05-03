@@ -11,6 +11,26 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-03] - BOI Reporting Guide (Compliance Pillar)
+
+### Added
+- **BOI Reporting Guide** — Second guide for the Compliance pillar:
+  - `src/content/guides/boi-reporting-us-llc-2026.mdx`
+  - Public route: `/compliance/boi-reporting-us-llc-2026/`
+  - Covers March 2025 rule change, who must file vs exempt, foreign entity requirements, FinCEN e-filing, penalties, and non-US founder scenarios
+  - Includes 4-scenario decision matrix, compliance checklist, and fraud warning (Form 4022 scam)
+  - GEO-optimized targeting "is boi reporting still required 2026" and related uncertainty queries
+- **Keyword Research Script** for BOI:
+  - `scripts/boi-keyword-research.mjs` — SERP analysis for 5 main queries and question research
+  - Identifies AI Overview opportunities and low-competition keywords
+
+### Research Findings
+- March 26, 2025 FinCEN rule removed ALL US entities from BOI reporting requirements — major change most guides miss
+- "Is BOI reporting still required 2026" is high-volume uncertainty query — current content is outdated
+- Foreign entities still qualify as reporting companies — non-US founders with foreign entities need to file
+- AI Overviews present for all main BOI queries — opportunity for authoritative LLM citation
+- Scam alerts: fake "Form 4022" and "US Business Regulations Dept." correspondence reported
+
 ## [2026-05-03] - Content Research, SEO Infrastructure & Form 5472 Guide
 
 ### Added
