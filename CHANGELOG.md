@@ -11,6 +11,18 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-03] - Payment Access Pillar — 3 Draft Guides Live
+
+### Changed
+- **payment-stack-for-non-us-founders.mdx**: Full rewrite, draft → live. Added full body content (~292 lines): multiple processor rationale, Stripe as primary, PayPal as backup, Merchant of Record services (Paddle/Lemon Squeezy), stack building steps, common mistakes. Added PayPal IP access note. Completed toolCta hrefs.
+- **us-llc-for-paypal.mdx**: Full rewrite, draft → live. Added ~307 lines: PayPal vs Stripe comparison table, IP address trigger problem, rolling reserve warning (30-90 day holds), account linking trap, address requirements (RA works, not virtual office). Updated verdict scenarios with IP-based risk assessment. Expanded aiMiss list.
+- **us-llc-for-stripe.mdx**: Full rewrite, draft → live. Added ~286 lines: May 2025 RA address rejection policy section with blockquote, home country address acceptance, three address layers refresher, payout account compatibility table, common failure points. Updated directAnswer with May 2025 policy clarification.
+
+### Architecture Decisions
+- All 3 guides: `draft: false`, `noindex: false`, `lastReviewed: 2026-05-03`, `updatedDate: 2026-05-03`
+- Consistent real-world corrections applied across all guides: Stripe May 2025 policy, PayPal IP trigger, home country address acceptance for Stripe/banks
+- Build verified: all 3 guides pass Zod schema validation
+
 ## [2026-05-03] - Route Planner & Cost Calculator UI Alignment
 
 ### Changed
