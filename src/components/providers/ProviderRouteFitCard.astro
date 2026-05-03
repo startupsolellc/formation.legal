@@ -1,0 +1,101 @@
+---
+/**
+ * ProviderRouteFitCard.astro — Scenario-based provider card.
+ */
+
+interface Props {
+  providerName: string;
+  routeFitLabel: string;
+  mayFit: string[];
+  notIdealFor: string[];
+  costNotes: string;
+  addressSupportNotes: string;
+  testingStatus: string;
+  pricingStatus: string;
+  lastChecked: string;
+  ctaHref: string;
+  ctaLabel: string;
+}
+
+const {
+  providerName,
+  routeFitLabel,
+  mayFit,
+  notIdealFor,
+  costNotes,
+  addressSupportNotes,
+  testingStatus,
+  pricingStatus,
+  lastChecked,
+  ctaHref,
+  ctaLabel,
+} = Astro.props;
+
+const lastCheckedFormatted = new Date(`${lastChecked}T00:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<article class="brutal-card overflow-hidden">
+  <div class="border-b border-[var(--color-border)] bg-[var(--color-surface-container)] px-5 py-4">
+    <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+      {routeFitLabel}
+    </p>
+    <h3 class="mt-1 text-lg font-bold text-[var(--color-text-primary)]">{providerName}</h3>
+  </div>
+  <div class="space-y-5 p-5">
+    <div>
+      <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">May fit</h4>
+      <ul class="mt-2 space-y-1.5">
+        {mayFit.map((item) => (
+          <li class="text-sm leading-relaxed text-[var(--color-text-secondary)]">{item}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Not ideal for</h4>
+      <ul class="mt-2 space-y-1.5">
+        {notIdealFor.map((item) => (
+          <li class="text-sm leading-relaxed text-[var(--color-text-secondary)]">{item}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="grid gap-3 border-t border-[var(--color-border)] pt-4">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Cost notes</p>
+        <p class="mt-1 text-sm leading-relaxed text-[var(--color-text-secondary)]">{costNotes}</p>
+      </div>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Address / support notes</p>
+        <p class="mt-1 text-sm leading-relaxed text-[var(--color-text-secondary)]">{addressSupportNotes}</p>
+      </div>
+    </div>
+
+    <dl class="grid gap-2 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-container)] p-3 text-xs">
+      <div class="flex items-center justify-between gap-3">
+        <dt class="font-semibold text-[var(--color-text-primary)]">Research status</dt>
+        <dd class="text-right text-[var(--color-text-secondary)]">{testingStatus}</dd>
+      </div>
+      <div class="flex items-center justify-between gap-3">
+        <dt class="font-semibold text-[var(--color-text-primary)]">Pricing status</dt>
+        <dd class="text-right text-[var(--color-text-secondary)]">{pricingStatus}</dd>
+      </div>
+      <div class="flex items-center justify-between gap-3">
+        <dt class="font-semibold text-[var(--color-text-primary)]">Last checked</dt>
+        <dd class="text-right font-mono text-[var(--color-text-secondary)]">{lastCheckedFormatted}</dd>
+      </div>
+    </dl>
+
+    <a
+      href={ctaHref}
+      class="inline-flex w-full justify-center rounded-[var(--radius-md)] border border-[var(--color-action)] px-4 py-2.5 text-sm font-semibold text-[var(--color-action)] transition-colors hover:bg-[var(--color-surface-container)]"
+    >
+      {ctaLabel}
+    </a>
+  </div>
+</article>

@@ -1,0 +1,83 @@
+---
+/**
+ * ProviderCostSnapshot.astro — Source-backed cost estimate table.
+ */
+
+import type { ProviderCostBreakdown } from '../../types/cost-calculator';
+
+interface Props {
+  breakdowns: ProviderCostBreakdown[];
+}
+
+const { breakdowns } = Astro.props;
+
+const usd = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0,
+});
+
+const formatMoney = (value: number | null) => value === null ? 'Needs verification' : usd.format(value);
+const formatDate = (value: string) => new Date(`${value}T00:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<div class="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border)] bg-white">
+  <div class="border-b border-[var(--color-border)] bg-[var(--color-surface-container)] px-5 py-4">
+    <h3 class="text-base font-bold text-[var(--color-text-primary)]">3-year cost snapshot</h3>
+    <p class="mt-1 text-xs leading-relaxed text-[var(--color-text-secondary)]">
+      This is not the provider checkout price. It is a 3-year operating cost model using default assumptions from the Cost Calculator. Adjust state filing fees, annual state costs, tax-prep assumptions, EIN handling, and renewal pricing before making a decision.
+    </p>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="min-w-[920px] w-full border-collapse text-left">
+      <caption class="sr-only">Estimated provider costs across three years</caption>
+      <thead>
+        <tr class="border-b border-[var(--color-border)]">
+          <th scope="col" class="px-5 py-3 text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Provider</th>
+          <th scope="col" class="px-4 py-3 text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Estimated Year 1</th>
+          <th scope="col" class="px-4 py-3 text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Estimated Year 2</th>
+          <th scope="col" class="px-4 py-3 text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Estimated Year 3</th>
+          <th scope="col" class="px-4 py-3 text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Registered agent renewal</th>
+          <th scope="col" class="px-4 py-3 text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Pricing status</th>
+          <th scope="col" class="px-4 py-3 text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Last checked</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-[var(--color-border)]">
+        {breakdowns.map((item) => {
+          const estimatedYear1 = item.initialSetup + item.firstTaxSeason;
+          const pricingStatus = item.registeredAgentRenewal === null
+            ? 'Source-checked; renewal needs verification'
+            : 'Estimated / source-checked';
+
+          return (
+            <tr class="align-top">
+              <th scope="row" class="px-5 py-4">
+                <span class="block text-sm font-bold text-[var(--color-text-primary)]">{item.provider.name}</span>
+                <span class="mt-1 block text-xs text-[var(--color-text-secondary)]">{item.provider.packageName}</span>
+              </th>
+              <td class="px-4 py-4 text-sm font-semibold tabular-nums text-[var(--color-text-primary)]">{formatMoney(estimatedYear1)}</td>
+              <td class="px-4 py-4 text-sm font-semibold tabular-nums text-[var(--color-text-secondary)]">{formatMoney(item.year2Operating)}</td>
+              <td class="px-4 py-4 text-sm font-semibold tabular-nums text-[var(--color-text-secondary)]">{formatMoney(item.year3Operating)}</td>
+              <td class="px-4 py-4 text-sm text-[var(--color-text-secondary)]">{formatMoney(item.registeredAgentRenewal)}</td>
+              <td class="px-4 py-4 text-xs leading-relaxed text-[var(--color-text-secondary)]">{pricingStatus}</td>
+              <td class="px-4 py-4 font-mono text-xs text-[var(--color-text-secondary)]">{formatDate(item.provider.verifiedDate)}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+  <div class="border-t border-[var(--color-border)] px-5 py-4">
+    <a
+      href="/tools/cost-calculator"
+      class="inline-flex rounded-[var(--radius-md)] bg-[var(--color-action)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-action-hover)]"
+    >
+      Estimate 3-Year Cost
+    </a>
+  </div>
+</div>

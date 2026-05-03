@@ -11,6 +11,23 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-03] - Provider Decision Lab MVP
+
+### Added
+- Rebuilt `/providers/` as a route-based Provider Decision Lab MVP instead of a coming-soon page.
+- Added provider comparison components:
+  - `src/components/providers/ProviderComparisonTable.astro`
+  - `src/components/providers/ProviderCostSnapshot.astro`
+  - `src/components/providers/ProviderMethodologyBox.astro`
+  - `src/components/providers/ProviderRouteFitCard.astro`
+- Added route-fit matrix, provider cards, internal CTAs, affiliate disclosure, source list, and legal/tax disclaimer to the provider hub.
+
+### Changed
+- Reused existing Cost Calculator data for the provider cost snapshot without adding Product, Review, AggregateRating, score, or rating schema.
+- Clarified that the provider cost snapshot is a 3-year operating cost model, not a provider checkout price.
+- Softened provider support language and marked live checkout/support testing as pending.
+- Replaced ambiguous null pricing cells in the provider snapshot with “Needs verification.”
+
 ## [2026-05-02] - Payment Access Public Guide & Address Rules Alignment
 
 ### Added

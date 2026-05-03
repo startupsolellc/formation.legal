@@ -40,7 +40,7 @@ export const PROVIDERS: ProviderData[] = [
   {
     name: 'Northwest Registered Agent',
     routeLabel: 'Privacy / support route',
-    reason: 'Uses their own address on public filings for privacy. Known for responsive customer support. Includes registered agent for the first year.',
+    reason: 'Uses their own address on public filings for privacy. Often selected for privacy/support-oriented routes; live checkout and support testing are still pending. Includes registered agent for the first year.',
     caveat: 'Higher renewal costs in subsequent years. Verify current pricing.',
     fitFor: {
       riskTolerance: ['balanced', 'review-first'],

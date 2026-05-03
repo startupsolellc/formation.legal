@@ -1,60 +1,279 @@
 ---
 /**
- * Providers hub — lists all provider reviews.
+ * Provider Decision Lab — route-based provider comparison for non-US founders.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import ProviderComparisonTable from '../../components/providers/ProviderComparisonTable.astro';
+import ProviderCostSnapshot from '../../components/providers/ProviderCostSnapshot.astro';
+import ProviderMethodologyBox from '../../components/providers/ProviderMethodologyBox.astro';
+import ProviderRouteFitCard from '../../components/providers/ProviderRouteFitCard.astro';
+import AffiliateDisclosure from '../../components/trust/AffiliateDisclosure.astro';
+import Disclaimer from '../../components/trust/Disclaimer.astro';
+import LastReviewedBadge from '../../components/trust/LastReviewedBadge.astro';
+import SourceList from '../../components/trust/SourceList.astro';
+import { calculateProviderCost, DEFAULT_COST_ASSUMPTIONS, PROVIDER_COSTS } from '../../data/provider-costs';
+import { PROVIDERS as PROVIDER_FIT_OPTIONS } from '../../data/provider-fit';
 import { buildBreadcrumbSchema } from '../../lib/schema';
-
-const providers = (await getCollection('providers'))
-  .filter((p) => !p.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', href: '/' },
   { name: 'Providers', href: '/providers' },
 ]);
+
+const costBreakdowns = PROVIDER_COSTS.map((provider) =>
+  calculateProviderCost(provider, DEFAULT_COST_ASSUMPTIONS),
+);
+
+const latestPricingCheck = PROVIDER_COSTS
+  .map((provider) => provider.verifiedDate)
+  .sort()
+  .at(-1) ?? '2026-05-02';
+
+const routeFitByName = new Map(PROVIDER_FIT_OPTIONS.map((provider) => [provider.name, provider]));
+
+const routeFitRows = [
+  {
+    scenario: 'Lowest upfront cost route',
+    betterFit: 'Bizee',
+    why: routeFitByName.get('Bizee')?.reason ?? 'Low base pricing may fit founders comparing entry packages.',
+    caveat: routeFitByName.get('Bizee')?.caveat ?? 'Check renewal and add-on pricing before checkout.',
+    nextStepLabel: 'Compare cost',
+    nextStepHref: '/tools/cost-calculator',
+  },
+  {
+    scenario: 'Privacy/support route',
+    betterFit: 'Northwest Registered Agent',
+    why: routeFitByName.get('Northwest Registered Agent')?.reason ?? 'May fit founders who care about address handling and support route.',
+    caveat: routeFitByName.get('Northwest Registered Agent')?.caveat ?? 'Verify renewal pricing and EIN handling for your path.',
+    nextStepLabel: 'Check route fit',
+    nextStepHref: '/tools/route-planner',
+  },
+  {
+    scenario: 'Free-entry / long consideration route',
+    betterFit: 'Inc Authority',
+    why: routeFitByName.get('Inc Authority')?.reason ?? 'May fit founders who want to start from a free-entry offer.',
+    caveat: routeFitByName.get('Inc Authority')?.caveat ?? 'Renewal and add-on costs need careful review.',
+    nextStepLabel: 'Compare cost',
+    nextStepHref: '/tools/cost-calculator',
+  },
+  {
+    scenario: 'Brand familiarity / broader legal services route',
+    betterFit: 'LegalZoom',
+    why: routeFitByName.get('LegalZoom')?.reason ?? 'May fit founders who want a broader legal-services platform.',
+    caveat: routeFitByName.get('LegalZoom')?.caveat ?? 'Formation-only value may depend on the add-ons you choose.',
+    nextStepLabel: 'Check route fit',
+    nextStepHref: '/tools/route-planner',
+  },
+  {
+    scenario: 'Predictable renewal cost route',
+    betterFit: 'Compare in Cost Calculator',
+    why: 'Renewals, EIN handling, state fees, and tax-prep assumptions can change the route economics after formation.',
+    caveat: 'Use the calculator before treating an advertised entry price as the full cost.',
+    nextStepLabel: 'Estimate 3-year cost',
+    nextStepHref: '/tools/cost-calculator',
+  },
+];
+
+const providerCards = [
+  {
+    providerName: 'Northwest Registered Agent',
+    routeFitLabel: 'Privacy / support route',
+    mayFit: [
+      'Founder wants clearer address handling before public filings.',
+      'Founder values support depth and registered agent workflow over the lowest entry package.',
+      'Founder wants first-year registered agent service included with formation.',
+    ],
+    notIdealFor: [
+      'Founder only wants the lowest initial setup number.',
+      'Founder wants provider-assisted EIN at the lowest listed assistance fee.',
+    ],
+    costNotes: 'LLC formation data uses $39 plus state fee, first-year registered agent included, and $125/year registered agent renewal.',
+    addressSupportNotes: 'Public pages explain principal address, mailing address, and registered agent use. Banks and processors may still ask for separate address proof.',
+    testingStatus: 'source-checked / live-test-pending',
+    pricingStatus: 'Estimated / source-checked',
+    lastChecked: latestPricingCheck,
+    ctaHref: '/tools/route-planner',
+    ctaLabel: 'Check route fit',
+  },
+  {
+    providerName: 'Bizee',
+    routeFitLabel: 'Lowest upfront cost route',
+    mayFit: [
+      'Founder is comparing low-entry formation packages.',
+      'Founder can review add-ons carefully before checkout.',
+      'Founder wants first-year registered agent service included with formation.',
+    ],
+    notIdealFor: [
+      'Founder wants fewer checkout decisions.',
+      'Founder needs deeper address workflow guidance before choosing a provider.',
+    ],
+    costNotes: 'Basic package data uses $0 plus state fee, first-year registered agent included, and $119/year standalone registered agent pricing.',
+    addressSupportNotes: 'Good for cost comparison, but founders should separately verify address, mail, and KYC fit for banks or processors.',
+    testingStatus: 'source-checked / live-test-pending',
+    pricingStatus: 'Estimated / source-checked',
+    lastChecked: latestPricingCheck,
+    ctaHref: '/tools/cost-calculator',
+    ctaLabel: 'Compare cost',
+  },
+  {
+    providerName: 'Inc Authority',
+    routeFitLabel: 'Free-entry / long consideration route',
+    mayFit: [
+      'Founder wants to compare free-entry formation offers.',
+      'Founder is still researching and wants to understand potential add-on paths.',
+      'Founder is willing to verify renewal terms before checkout.',
+    ],
+    notIdealFor: [
+      'Founder needs registered agent renewal clarity before choosing.',
+      'Founder wants all year-2 and year-3 costs visible before starting.',
+    ],
+    costNotes: 'Free LLC offer and first-year registered agent are source-checked; registered agent renewal pricing needs verification before a 3-year total is shown.',
+    addressSupportNotes: 'The route may require extra review if the founder needs address documentation beyond registered agent service.',
+    testingStatus: 'source-checked / live-test-pending',
+    pricingStatus: 'Source-checked; renewal needs verification',
+    lastChecked: latestPricingCheck,
+    ctaHref: '/tools/cost-calculator',
+    ctaLabel: 'Compare cost',
+  },
+  {
+    providerName: 'LegalZoom',
+    routeFitLabel: 'Brand familiarity / broader legal services route',
+    mayFit: [
+      'Founder wants a familiar legal-services platform.',
+      'Founder expects to consider legal document or attorney-service add-ons.',
+      'Founder is comfortable comparing higher registered agent renewal exposure.',
+    ],
+    notIdealFor: [
+      'Founder is mainly optimizing for registered agent renewal cost.',
+      'Founder wants a formation-only path with fewer add-on decisions.',
+    ],
+    costNotes: 'Basic package data uses $0 plus state fee, $249/year registered agent service, and $79 EIN service.',
+    addressSupportNotes: 'Registered agent pages emphasize privacy and official mail handling, but non-US founders should verify processor and bank address requirements separately.',
+    testingStatus: 'source-checked / live-test-pending',
+    pricingStatus: 'Estimated / source-checked',
+    lastChecked: latestPricingCheck,
+    ctaHref: '/tools/route-planner',
+    ctaLabel: 'Check route fit',
+  },
+];
+
+const sourcesByUrl = new Map<string, {
+  title: string;
+  url: string;
+  publisher: string;
+  accessDate: string;
+  note: string;
+  primary: boolean;
+}>();
+
+for (const provider of PROVIDER_COSTS) {
+  for (const source of provider.sources) {
+    sourcesByUrl.set(source.url, {
+      title: source.label,
+      url: source.url,
+      publisher: provider.name,
+      accessDate: provider.verifiedDate,
+      note: 'Public pricing or service page used for the Provider Decision Lab cost snapshot.',
+      primary: true,
+    });
+  }
+}
+
+const sources = [...sourcesByUrl.values()];
 ---
+
 <BaseLayout
   title="Provider Decision Lab — Formation.Legal"
-  description="Route-based provider comparisons for non-US founders. Not which pays the highest commission — which fits your route."
+  description="Route-based formation provider comparison for non-US founders by cost exposure, registered agent renewal, address clarity, workflow, and support route."
   schemas={[breadcrumbSchema]}
 >
-  <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-    <nav class="mb-8 text-sm text-[var(--color-muted)]" aria-label="Breadcrumb">
-      <ol class="flex items-center gap-1.5">
-        <li><a href="/" class="hover:text-[var(--color-primary-900)] transition-colors">Home</a></li>
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <nav class="mb-8 text-sm text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
+      <ol class="flex flex-wrap items-center gap-1.5">
+        <li><a href="/" class="hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
         <li aria-hidden="true">/</li>
-        <li aria-current="page" class="text-[var(--color-primary-900)] font-medium">Providers</li>
+        <li aria-current="page" class="text-[var(--color-text-primary)] font-medium">Providers</li>
       </ol>
     </nav>
 
-    <header class="mb-12">
-      <h1 class="text-3xl font-bold text-[var(--color-primary-950)] sm:text-4xl">Provider Decision Lab</h1>
-      <p class="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
-        Which provider fits your route — not which pays the highest commission.
+    <header class="mb-10 max-w-3xl">
+      <div class="mb-4">
+        <LastReviewedBadge lastReviewed={new Date('2026-05-03T00:00:00Z')} reviewer="Formation.Legal Editorial" />
+      </div>
+      <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+        Provider research
+      </p>
+      <h1 class="mt-3 text-3xl font-bold text-[var(--color-text-primary)] sm:text-4xl">
+        Provider Decision Lab
+      </h1>
+      <p class="mt-4 text-lg leading-relaxed text-[var(--color-text-secondary)]">
+        Route-based formation provider comparison for non-US founders.
+      </p>
+      <p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+        Compare providers by route fit, 3-year cost exposure, registered agent renewal, address clarity, non-US founder workflow, and support route. No star ratings. No best-overall claims.
       </p>
     </header>
 
-    {providers.length > 0 ? (
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {providers.map((provider) => (
-          <a href={`/providers/${provider.id}`} class="group rounded-lg border border-[var(--color-border)] bg-white p-5 transition-all hover:border-[var(--color-accent-400)] hover:shadow-md">
-            <div class="mb-2 flex items-center gap-2 text-xs">
-              <span class="rounded-full bg-[var(--color-primary-50)] px-2.5 py-0.5 font-medium text-[var(--color-primary-700)]">Provider Review</span>
-              {provider.data.tested && <span class="text-[var(--color-trust)] font-medium">✓ Tested</span>}
-            </div>
-            <h3 class="text-lg font-semibold text-[var(--color-primary-950)] group-hover:text-[var(--color-accent-600)] transition-colors">{provider.data.providerName}</h3>
-            <p class="mt-2 line-clamp-2 text-sm text-[var(--color-muted)]">{provider.data.description}</p>
-            <p class="mt-3 text-sm font-medium text-[var(--color-primary-800)]">From ${provider.data.pricing.year1}/yr</p>
-          </a>
-        ))}
-      </div>
-    ) : (
-      <div class="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-12 text-center">
-        <p class="text-lg font-medium text-[var(--color-primary-800)]">Coming soon</p>
-        <p class="mt-1 text-sm text-[var(--color-muted)]">We're testing and reviewing providers for non-US founders.</p>
-      </div>
-    )}
+    <AffiliateDisclosure />
+
+    <div class="space-y-12">
+      <ProviderMethodologyBox />
+
+      <section>
+        <div class="mb-5 max-w-3xl">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Route-fit matrix</p>
+          <h2 class="mt-1 text-2xl font-bold text-[var(--color-text-primary)]">Start with the scenario, then compare the provider</h2>
+          <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+            The same provider can be reasonable for one route and a poor fit for another. Use this matrix as a starting point, then verify current pricing and eligibility details.
+          </p>
+        </div>
+        <ProviderComparisonTable rows={routeFitRows} />
+      </section>
+
+      <section>
+        <ProviderCostSnapshot breakdowns={costBreakdowns} />
+      </section>
+
+      <section>
+        <div class="mb-5 max-w-3xl">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Provider cards</p>
+          <h2 class="mt-1 text-2xl font-bold text-[var(--color-text-primary)]">Route notes by provider</h2>
+          <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+            These cards summarize source-checked pricing and route-fit notes. Live checkout testing is still pending, so package contents should be verified before purchase.
+          </p>
+        </div>
+        <div class="grid gap-5 lg:grid-cols-2">
+          {providerCards.map((card) => (
+            <ProviderRouteFitCard {...card} />
+          ))}
+        </div>
+      </section>
+
+      <section class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <a href="/tools/route-planner" class="brutal-card block p-5 transition-colors hover:border-[var(--color-action)]">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Tool</p>
+          <h3 class="mt-2 text-base font-bold text-[var(--color-text-primary)]">Check Your Route</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">Match provider fit to country, business model, payment goal, and risk tolerance.</p>
+        </a>
+        <a href="/tools/cost-calculator" class="brutal-card block p-5 transition-colors hover:border-[var(--color-action)]">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Tool</p>
+          <h3 class="mt-2 text-base font-bold text-[var(--color-text-primary)]">Estimate 3-Year Cost</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">Adjust state filing, compliance, tax-prep, EIN, and renewal assumptions.</p>
+        </a>
+        <a href="/affiliate-disclosure" class="brutal-card block p-5 transition-colors hover:border-[var(--color-action)]">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Trust</p>
+          <h3 class="mt-2 text-base font-bold text-[var(--color-text-primary)]">Read Affiliate Disclosure</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">Understand how provider relationships are disclosed and separated from research.</p>
+        </a>
+        <a href="/source-methodology" class="brutal-card block p-5 transition-colors hover:border-[var(--color-action)]">
+          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Research</p>
+          <h3 class="mt-2 text-base font-bold text-[var(--color-text-primary)]">See Source Methodology</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">Review how Formation.Legal checks sources and updates decision pages.</p>
+        </a>
+      </section>
+
+      <SourceList sources={sources} />
+      <Disclaimer />
+    </div>
   </section>
 </BaseLayout>
