@@ -11,6 +11,39 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-03] - Content Research, SEO Infrastructure & Form 5472 Guide
+
+### Added
+- **Form 5472 Compliance Guide** — First guide for the Compliance pillar:
+  - `src/content/guides/form-5472-foreign-owned-llc.mdx`
+  - Public route: `/compliance/form-5472-foreign-owned-llc/`
+  - Complete guide covering: who must file, reportable transactions, $25,000 penalty structure, NRA-specific rules, pro forma 1120 process, EIN/ITIN requirements, filing deadlines
+  - Includes verdict table, decision tree, provider fit matrix, AI-miss list, FAQ section, and filing checklist
+  - GEO-optimized with direct answer, citations, and structured data (JSON-LD Article schema)
+- **DataForSEO Integration** for keyword research:
+  - `src/lib/dataforseo.ts` — API client module with authenticated fetch
+  - `scripts/test-dataforseo.mjs` — Connection test script
+  - `scripts/form-5472-keyword-research.mjs` — Keyword research for Form 5472 topic
+  - SERP analysis for `form 5472 foreign owned llc`, `form 5472 penalty irs`, `form 5472 nonresident alien`, `irs form 5472 filing requirements`
+  - Keywords Data API setup (searches/live endpoint)
+- **SEO Content Writer & Keyword Research Skills**:
+  - Installed `aaron-he-zhu/seo-geo-claude-skills@seo-content-writer` (4.6K installs)
+  - Installed `aaron-he-zhu/seo-geo-claude-skills@keyword-research` (4.1K installs)
+  - Skills for content brief generation, keyword clustering, and SEO-optimized article writing
+- **docs/dataforseo-guide.md** — Internal documentation for DataForSEO API usage including:
+  - Environment setup, authentication, location codes
+  - Code examples for SERP API and Keywords Data API
+  - Common error handling and debugging
+
+### Changed
+- Fixed `verdict.3.risk: "none"` → `"low"` in Form 5472 guide (schema enum only accepts "low|medium|high|blocked|needs-review")
+- Updated `AGENTS.md` with DataForSEO setup instructions
+
+### Research Findings
+- Form 5472 query SERPs show AI Overviews present for all main keywords — opportunity for LLM citation
+- Low competition keywords identified: `form 5472 nonresident alien`, `form 5472 foreign owned llc template`, `form 5472 instructions 2026`
+- Top competing domains: irs.gov, greenbacktaxservices.com, taxesforexpats.com — gap exists for non-US founder-focused guide
+
 ## [2026-05-03] - Provider Decision Lab MVP
 
 ### Added
@@ -26,7 +59,26 @@ All notable changes to this project will be documented in this file.
 - Reused existing Cost Calculator data for the provider cost snapshot without adding Product, Review, AggregateRating, score, or rating schema.
 - Clarified that the provider cost snapshot is a 3-year operating cost model, not a provider checkout price.
 - Softened provider support language and marked live checkout/support testing as pending.
-- Replaced ambiguous null pricing cells in the provider snapshot with “Needs verification.”
+- Replaced ambiguous null pricing cells in the provider snapshot with "Needs verification."
+- Updated providers page SEO metadata: title "LLC Formation Services for Non-Residents: Route Fit & Costs" and improved description.
+
+## [2026-05-03] - LLC Cost Calculator Tool
+
+### Added
+- Added CostCalculator Preact island component:
+  - `src/components/tools/CostCalculator.tsx`
+  - `src/types/cost-calculator.ts`
+- Added state filing fee, annual compliance, and tax prep assumption inputs with real-time 3-year cost calculation per provider.
+- Added EIN handling toggle (IRS free EIN vs. provider-assisted) with cost differential display.
+- Integrated provider cost data from `src/data/provider-costs.ts` with `calculateProviderCost()` and `DEFAULT_COST_ASSUMPTIONS`.
+- Added reset functionality and formatted currency display with null-safety ("Verify" for missing data).
+- Added CostCalculator to ToolNav with descriptive cards in `src/components/tools/ToolNav.astro`.
+- Added `src/pages/tools/cost-calculator.astro` as the tool page.
+- Connected cost calculator to Route Planner via `route-planner.astro` link and homepage CTA.
+
+### Changed
+- Updated `src/lib/constants.ts` with expanded TOOL_ITEMS including cost-calculator entry.
+- Updated `src/pages/tools/index.astro` to show cost-calculator in the tools hub grid.
 
 ## [2026-05-02] - Payment Access Public Guide & Address Rules Alignment
 
@@ -161,7 +213,7 @@ All notable changes to this project will be documented in this file.
   - `src/components/Footer.astro`: Footer with AI-friendly links
   - `src/components/PostCard.astro`: Blog preview card with trust label
   - `src/components/Prose.astro`: Tailwind Typography wrapper
-- **Example content**: `src/content/posts/what-is-llc-formation/index.mdx`
+- **Example content**: `src/content/research/what-is-llc-formation/index.mdx`
 - **Cloudflare Pages** deployment configuration documented in `README.md`
 - `.nvmrc` set to Node 22 (Astro 6 requirement)
 
@@ -169,5 +221,7 @@ All notable changes to this project will be documented in this file.
 - **No `@astrojs/cloudflare` adapter** — Static output doesn't require an adapter
 - **No Keystatic CMS** — Incompatible with Astro 6; using native Content Collections + MDX instead
 - **No FastAPI backend** — Astro's built-in data fetching handles external APIs at build-time
+- **Pillar-based content architecture** — Uses `/payment-access`, `/address-banking`, `/compliance`, `/research`, `/providers`, `/playbooks` routes instead of traditional blog structure
+- **Canonical URLs handled at page level** — `canonicalUrl` passed as prop to BaseLayout rather than as content collection field
 - **Tailwind v4 via Vite plugin** — `@astrojs/tailwind` is deprecated for v4
 - **CSS-first Tailwind config** — Using `@theme` directive instead of JS config file
