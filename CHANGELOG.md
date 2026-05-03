@@ -11,6 +11,23 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-03] - Registered Agent Guide Corrections (Real-World Experience)
+
+### Changed
+- **Registered Agent Address Guide** — Major corrections based on real-world non-US founder testing:
+  - EIN: RA addresses ARE accepted by IRS — standard practice, not "technically possible but not recommended"
+  - Stripe: Home country physical address + utility bill works (not just US address)
+  - PayPal: RA address accepted — utility bill trigger is IP-based, use US IP to avoid
+  - Amazon: Only shared RA addresses are rejected — unique virtual office with suite number works
+  - Added "Physical/KYC Address" layer to three-address system (home country address + proof)
+  - Updated decision tree and quick reference table with accurate platform-specific requirements
+
+### Research Findings
+- Most guides are overly pessimistic about RA addresses — reality is more nuanced
+- Stripe accepts non-US physical addresses for KYC with utility bill/bank statement proof
+- PayPal IP-triggered verification: US IP avoids utility bill request even with RA address
+- Amazon rejects shared RA addresses but accepts unique virtual office addresses
+
 ## [2026-05-03] - Registered Agent Address Guide (Address & Banking Pillar)
 
 ### Added
