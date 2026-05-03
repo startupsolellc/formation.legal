@@ -290,3 +290,51 @@ Bu proje kasıtlı olarak **minimal bağımlılık** ilkesiyle kurulmuştur:
 - No auth — tamamen public static site
 
 **Yeni bağımlılık eklemeden önce iki kez düşün.**
+
+---
+
+## External API Entegrasyonları
+
+### DataForSEO — Anahtar Kelime Araştırması
+
+Referans: [`docs/dataforseo-guide.md`](./docs/dataforseo-guide.md)
+
+| Öğe | Değer |
+|-----|-------|
+| Package | `dataforseo-client` |
+| Client modülü | `src/lib/dataforseo.ts` |
+| Test script | `scripts/test-dataforseo.mjs` |
+| `.env` variable'ları | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD`, `DATAFORSEO_API_URL` |
+
+**⚠️ Kritik gotcha — `keyword` formatı:**
+
+```typescript
+// ❌ SERP endpoint'lerinde YANLIŞ — "keyword" tek string olmalı
+task.keyword = ["llc formation"];  // ← Array HATASI verir!
+
+// ✅ DOĞRU — "keyword" tek string
+task.keyword = "llc formation";     // ← String olmalı
+```
+
+```typescript
+// ❌ Keywords Data endpoint'lerinde YANLIŞ — "keywords" array olmalı
+task.keywords = "llc formation";   // ← String HATASI verir!
+
+// ✅ DOĞRU — "keywords" array olmalı
+task.keywords = ["llc formation", "non-resident"];
+```
+
+**Kullanım:**
+```typescript
+import { getSerpClient, SerpGoogleOrganicLiveAdvancedRequestInfo } from '@/lib/dataforseo';
+
+const client = await getSerpClient();
+const task = new SerpGoogleOrganicLiveAdvancedRequestInfo();
+task.keyword = "llc formation non-resident";
+task.location_code = 2840;  // ABD
+task.language_code = "en";
+
+const result = await client.googleOrganicLiveAdvanced([task]);
+```
+
+**Build-time data fetching:** Bu site statik olduğundan, DataForSEO API çağrıları `npm run build` sırasında yapılır ve sonuçlar `dist/` içinde pre-render edilir.

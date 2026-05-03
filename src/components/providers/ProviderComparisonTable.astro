@@ -33,12 +33,12 @@ const { rows } = Astro.props;
         </tr>
       </thead>
       <tbody class="divide-y divide-[var(--color-border)]">
-        {rows.map((row) => (
-          <tr class="align-top">
+        {rows.map((row, i) => (
+          <tr class:list={['align-top', i % 2 === 1 ? 'bg-[var(--color-surface-alt)]' : '']}>
             <th scope="row" class="px-5 py-4 text-sm font-bold text-[var(--color-text-primary)]">
               {row.scenario}
             </th>
-            <td class="px-4 py-4 text-sm font-semibold text-[var(--color-text-primary)]">
+            <td class="px-4 py-4 text-sm font-semibold text-[var(--color-action)]">
               {row.betterFit}
             </td>
             <td class="px-4 py-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
@@ -50,9 +50,12 @@ const { rows } = Astro.props;
             <td class="px-4 py-4">
               <a
                 href={row.nextStepHref}
-                class="inline-flex rounded-[var(--radius-md)] border border-[var(--color-action)] px-3 py-2 text-xs font-semibold text-[var(--color-action)] transition-colors hover:bg-[var(--color-surface-container)]"
+                class="btn-secondary !px-3 !py-2 !text-xs gap-1"
               >
                 {row.nextStepLabel}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-3">
+                  <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                </svg>
               </a>
             </td>
           </tr>

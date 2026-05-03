@@ -18,17 +18,22 @@ interface Props {
 
 const { rows, title = 'Route Verdict' } = Astro.props;
 
-const riskStyles: Record<string, { bg: string; text: string; label: string }> = {
-  low: { bg: 'bg-green-50', text: 'text-[var(--color-route-safe)]', label: 'Low' },
-  medium: { bg: 'bg-amber-50', text: 'text-[var(--color-route-risky)]', label: 'Medium' },
-  high: { bg: 'bg-red-50', text: 'text-[var(--color-route-blocked)]', label: 'High' },
-  blocked: { bg: 'bg-red-100', text: 'text-[var(--color-route-blocked)]', label: 'Blocked' },
-  'needs-review': { bg: 'bg-gray-50', text: 'text-[var(--color-route-incomplete)]', label: 'Needs Review' },
+const riskStyles: Record<string, { bg: string; text: string; border: string; label: string }> = {
+  low: { bg: 'bg-emerald-50', text: 'text-[var(--color-route-safe)]', border: 'border-emerald-200', label: 'Low' },
+  medium: { bg: 'bg-amber-50', text: 'text-[var(--color-route-risky)]', border: 'border-amber-200', label: 'Medium' },
+  high: { bg: 'bg-red-50', text: 'text-[var(--color-route-blocked)]', border: 'border-red-200', label: 'High' },
+  blocked: { bg: 'bg-red-100', text: 'text-[var(--color-route-blocked)]', border: 'border-red-300', label: 'Blocked' },
+  'needs-review': { bg: 'bg-gray-50', text: 'text-[var(--color-route-incomplete)]', border: 'border-gray-200', label: 'Needs Review' },
 };
 ---
 
-<div class="brutal-card overflow-hidden mb-8">
-  <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-container)]">
+<div class="rounded-[var(--radius-md)] border border-[var(--color-border)] overflow-hidden mb-8">
+  <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-container)] flex items-center gap-2">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-[var(--color-action)]">
+      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+      <rect x="9" y="3" width="6" height="4" rx="1"/>
+      <path d="M9 14l2 2 4-4"/>
+    </svg>
     <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
       {title}
     </h3>
@@ -37,29 +42,31 @@ const riskStyles: Record<string, { bg: string; text: string; label: string }> = 
     <table class="w-full text-sm">
       <thead>
         <tr class="border-b border-[var(--color-border)]">
-          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Scenario</th>
-          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Verdict</th>
-          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Risk</th>
+          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)]">Scenario</th>
+          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)]">Verdict</th>
+          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)]">Risk</th>
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => {
+        {rows.map((row, i) => {
           const style = riskStyles[row.risk] ?? riskStyles['needs-review'];
           return (
-            <tr class="border-b border-[var(--color-border)] last:border-b-0">
-              <td class="px-5 py-3 font-medium text-[var(--color-text-primary)]">
+            <tr class:list={['border-b border-[var(--color-border)] last:border-b-0', i % 2 === 1 ? 'bg-[var(--color-surface-alt)]' : '']}>
+              <td class="px-5 py-3.5 font-medium text-[var(--color-text-primary)]">
                 {row.scenario}
                 {row.note && (
-                  <span class="block mt-1 text-xs text-[var(--color-text-secondary)] italic">{row.note}</span>
+                  <span class="block mt-1 text-xs text-[var(--color-muted)] italic">{row.note}</span>
                 )}
               </td>
-              <td class="px-5 py-3 text-[var(--color-text-secondary)]">{row.verdict}</td>
-              <td class="px-5 py-3">
+              <td class="px-5 py-3.5 text-[var(--color-text-secondary)]">{row.verdict}</td>
+              <td class="px-5 py-3.5">
                 <span class:list={[
-                  'inline-block rounded-[var(--radius-sm)] border px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider',
+                  'inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider',
                   style.bg,
                   style.text,
+                  style.border,
                 ]}>
+                  <span class:list={['h-1.5 w-1.5 rounded-full', style.text === 'text-[var(--color-route-safe)]' ? 'bg-[var(--color-route-safe)]' : style.text === 'text-[var(--color-route-risky)]' ? 'bg-[var(--color-route-risky)]' : style.text === 'text-[var(--color-route-blocked)]' ? 'bg-[var(--color-route-blocked)]' : 'bg-[var(--color-route-incomplete)]']}></span>
                   {style.label}
                 </span>
               </td>

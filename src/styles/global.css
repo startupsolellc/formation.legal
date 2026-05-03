@@ -9,50 +9,80 @@
 
 /*
  * Formation.Legal — Design Tokens (Tailwind CSS v4)
- * Institutional Clarity: Brutalism + Minimalism
+ * Design Language: Refined Authority
+ * Palette: Deep Indigo · Warm Stone · Amber Accents
  */
 @theme {
-  /* Surface Colors */
-  --color-surface: #fbf8ff;
-  --color-surface-dim: #d9d9e7;
-  --color-surface-container: #ededfb;
-  --color-surface-container-high: #e7e7f5;
-  --color-inverse-surface: #2e303a;
-  
-  /* Slate Grays for Text & Borders */
-  --color-text-primary: #191b25; /* on-surface */
-  --color-text-secondary: #434656; /* on-surface-variant */
-  --color-border: #e2e8f0; /* Default structural border */
-  --color-border-subtle: #f1f5f9;
-  
-  /* Primary Action Blue */
-  --color-action: #0052ff; /* primary-container in doc, used for main CTA */
-  --color-action-hover: #003ec7; /* primary in doc */
-  --color-action-text: #ffffff; /* on-primary */
-  
-  /* Semantic Colors */
-  --color-error: #ba1a1a;
-  --color-error-bg: #ffdad6;
-  --color-error-text: #93000a;
-  
-  /* Route status colors (using design system tertiary/secondary variants or specific statuses) */
-  --color-route-safe: #166534; /* Green */
-  --color-route-risky: #9a3412; /* Orange/Amber */
-  --color-route-blocked: #991b1b; /* Red */
-  --color-route-incomplete: #475569; /* Slate */
+  /* ---- Primary Brand Scale (Indigo) ---- */
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+  --color-primary-950: #1e1b4b;
 
-  /* Typography */
+  /* ---- Accent Scale (Amber / Gold) ---- */
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+
+  /* ---- Surface & Background ---- */
+  --color-surface: #fafaf9;
+  --color-surface-dim: #d6d3d1;
+  --color-surface-alt: #f5f5f4;
+  --color-surface-container: #f5f5f4;
+  --color-surface-container-high: #e7e5e4;
+  --color-inverse-surface: #1c1917;
+
+  /* ---- Text ---- */
+  --color-text-primary: #0c0a09;
+  --color-text-secondary: #57534e;
+  --color-muted: #78716c;
+
+  /* ---- Borders ---- */
+  --color-border: #d6d3d1;
+  --color-border-subtle: #e7e5e4;
+
+  /* ---- Action (CTA) — Primary Indigo ---- */
+  --color-action: #4f46e5;
+  --color-action-hover: #4338ca;
+  --color-action-text: #ffffff;
+
+  /* ---- Trust ---- */
+  --color-trust: #059669;
+
+  /* ---- Semantic ---- */
+  --color-error: #dc2626;
+  --color-error-bg: #fef2f2;
+  --color-error-text: #991b1b;
+
+  /* ---- Route Status ---- */
+  --color-route-safe: #059669;
+  --color-route-risky: #d97706;
+  --color-route-blocked: #dc2626;
+  --color-route-incomplete: #64748b;
+
+  /* ---- Typography ---- */
   --font-sans: 'Inter', 'system-ui', '-apple-system', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Geometry / Border Radius */
-  --radius-sm: 0.125rem; /* 2px */
-  --radius-md: 0.25rem; /* 4px - Main radius */
-  --radius-lg: 0.5rem; /* 8px */
+  /* ---- Geometry ---- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
   --radius-full: 9999px;
-  
-  /* Overrides for standard Tailwind tokens to enforce Institutional Clarity */
-  --radius: 0.25rem;
+  --radius: 0.5rem;
 }
 
 /* ------------------------------------------------------------------ */
@@ -77,23 +107,78 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Brutalist Components Base                                          */
+/*  Card System                                                        */
 /* ------------------------------------------------------------------ */
 
 .brutal-card {
   background-color: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
+
+.brutal-card:hover {
+  border-color: var(--color-primary-300);
+  box-shadow: 0 4px 12px rgb(79 70 229 / 0.08);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Mono data badge                                                    */
+/* ------------------------------------------------------------------ */
 
 .data-mono {
   font-family: var(--font-mono);
-  font-size: 0.875rem; /* 14px */
-  background-color: var(--color-surface-container);
-  border: 1px dashed var(--color-border);
+  font-size: 0.8125rem;
+  background-color: var(--color-primary-50);
+  border: 1px dashed var(--color-primary-200);
   padding: 0.125rem 0.375rem;
   border-radius: var(--radius-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-primary-700);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Button System                                                      */
+/* ------------------------------------------------------------------ */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background-color: var(--color-action);
+  border: 1px solid var(--color-action);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-action-hover);
+  box-shadow: 0 0 20px rgb(79 70 229 / 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background-color: white;
+  border: 1px solid var(--color-primary-200);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-action);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-50);
+  border-color: var(--color-action);
+  transform: translateY(-1px);
 }
 
 /* ------------------------------------------------------------------ */
@@ -105,14 +190,14 @@ body {
   --tw-prose-headings: var(--color-text-primary);
   --tw-prose-links: var(--color-action);
   --tw-prose-bold: var(--color-text-primary);
-  --tw-prose-code: var(--color-text-primary);
+  --tw-prose-code: var(--color-primary-700);
   max-width: 72ch;
 }
 
 .prose a {
-  text-decoration-color: var(--color-action);
+  text-decoration-color: var(--color-primary-300);
   text-underline-offset: 3px;
-  transition: color 150ms ease, text-decoration-color 150ms ease;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 .prose a:hover {
@@ -128,4 +213,78 @@ body {
   outline: 2px solid var(--color-action);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Scroll-reveal animation (CSS-only, triggered by JS class)          */
+/* ------------------------------------------------------------------ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+/* Stagger children */
+.reveal-stagger > .reveal:nth-child(1) { animation-delay: 0s; }
+.reveal-stagger > .reveal:nth-child(2) { animation-delay: 0.08s; }
+.reveal-stagger > .reveal:nth-child(3) { animation-delay: 0.16s; }
+.reveal-stagger > .reveal:nth-child(4) { animation-delay: 0.24s; }
+.reveal-stagger > .reveal:nth-child(5) { animation-delay: 0.32s; }
+.reveal-stagger > .reveal:nth-child(6) { animation-delay: 0.40s; }
+
+/* ------------------------------------------------------------------ */
+/*  Hero gradient background                                           */
+/* ------------------------------------------------------------------ */
+
+.hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgb(79 70 229 / 0.08), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgb(99 102 241 / 0.05), transparent),
+    var(--color-surface);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Glassmorphism header                                               */
+/* ------------------------------------------------------------------ */
+
+.glass-header {
+  background: rgba(250, 250, 249, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-header.scrolled {
+  background: rgba(250, 250, 249, 0.96);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.04);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Section divider gradient                                           */
+/* ------------------------------------------------------------------ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary-200) 20%,
+    var(--color-primary-300) 50%,
+    var(--color-primary-200) 80%,
+    transparent
+  );
 }

@@ -18,25 +18,27 @@ const {
 } = Astro.props;
 ---
 
-<div class="brutal-card p-6 mb-8 text-center bg-[var(--color-surface-container)]">
-  <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-3">
-    Your situation is unique
-  </p>
+<div class="rounded-[var(--radius-md)] border border-[var(--color-primary-200)] bg-gradient-to-br from-[var(--color-primary-50)] to-[var(--color-surface)] p-6 mb-8 text-center">
+  <div class="flex items-center justify-center gap-2 mb-3">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-[var(--color-action)]">
+      <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+    </svg>
+    <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-action)]">
+      Your situation is unique
+    </p>
+  </div>
   <p class="text-sm text-[var(--color-text-secondary)] mb-5 max-w-md mx-auto">
     General guides can only go so far. Use our tools to get recommendations based on your country, business model, and payment goals.
   </p>
   <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-    <a
-      href={primaryHref}
-      class="inline-flex items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-action)] border border-[var(--color-action)] px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-action-hover)]"
-    >
+    <a href={primaryHref} class="btn-primary gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+        <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+      </svg>
       {primaryLabel}
     </a>
     {secondaryLabel && (
-      <a
-        href={secondaryHref}
-        class="inline-flex items-center justify-center rounded-[var(--radius-md)] bg-white border border-[var(--color-action)] px-6 py-2.5 text-sm font-semibold text-[var(--color-action)] transition-colors hover:bg-[var(--color-surface-container)]"
-      >
+      <a href={secondaryHref} class="btn-secondary gap-2">
         {secondaryLabel}
       </a>
     )}

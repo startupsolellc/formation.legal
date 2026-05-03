@@ -11,6 +11,97 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-03] - Route Planner & Cost Calculator UI Alignment
+
+### Changed
+- **RoutePlanner.tsx**: Migrated from `#0052ff` blue to `#4f46e5` indigo palette, `#e2e8f0` → stone borders, `#ededfb` → `#eef2ff` panel headers, `rounded-[4px]` → `rounded-[6px]`, risk badges now pill-shaped with dot indicators, selected buttons get `shadow-sm`, CTA buttons with hover transitions
+- **CostCalculator.tsx**: Same color migration, zebra-striped table rows, `rounded-full` package badges, `border-l-2 border-[#c7d2fe]` for notes details, consistent `transition-all` on interactive elements
+- **route-planner.astro**: Added breadcrumb nav, breadcrumb JSON-LD schema, mono "INTERACTIVE TOOL" label, warning icon in disclaimer box
+- **cost-calculator.astro**: Added warning icon to Important disclaimer box
+- **ToolNav.astro**: Added inline SVG icons per tool, better descriptions, `rounded-[6px]`, active state with `shadow-sm` and `bg-primary-50`, "All tools →" arrow
+
+### Architecture Decisions
+- Zero functional changes — all modifications are purely visual
+- Hardcoded hex values in Preact TSX (CSS variables don't resolve reliably in Preact islands)
+- Same Indigo/Stone/Amber palette as rest of the site
+
+## [2026-05-03] - Comprehensive UI/UX Overhaul — "Refined Authority" Design System
+
+### Changed
+- **Design Token System** (`src/styles/global.css`):
+  - Replaced generic blue (#0052ff) with Deep Indigo primary scale (#eef2ff → #1e1b4b)
+  - Added Amber/Gold accent scale for trust signals and highlights
+  - Added Warm Stone surface palette (warm off-whites instead of cold grays)
+  - Fixed 11+ broken CSS variable references (`--color-muted`, `--color-primary-*`, `--color-accent-*`, `--color-surface-alt`, `--color-trust`)
+  - Added `.btn-primary` / `.btn-secondary` button system with hover glow effects
+  - Added `.hero-gradient` for radial gradient hero backgrounds
+  - Added `.glass-header` for glassmorphism header styling
+  - Added `.section-divider` gradient line separator
+  - Added scroll-reveal animation system (`@keyframes fadeUp`, `.reveal`, `.reveal-stagger`)
+  - Enhanced `.brutal-card` with `translateY(-2px)` hover, shadow elevation, and border-color transition
+  - Added `.data-mono` badge styling for inline code/data values
+  - Added prose link styling with underline offset and hover transitions
+
+- **Header** (`src/components/Header.astro`):
+  - Glassmorphism effect with `backdrop-filter: blur(12px)` and translucent background
+  - Scroll-aware: darkens background and adds shadow on scroll via IntersectionObserver
+  - Added minimal brand icon (layered diamond SVG)
+  - Active link highlighting with indigo background pill
+  - Improved mobile menu with rounded items and transitions
+
+- **Footer** (`src/components/Footer.astro`):
+  - Dark premium background (`--color-inverse-surface`)
+  - Organized link groups: Trust (Editorial Policy, Affiliate Disclosure, etc.) and Technical (llms.txt, robots.txt, Sitemap)
+  - Gradient top divider line
+  - Brand icon matching header
+
+- **Homepage** (`src/pages/index.astro`):
+  - Gradient hero background with radial mesh effect
+  - Trust badge pill ("Independent · Research-Driven · No Affiliate Bias") with shield icon
+  - Gradient text on hero subtitle (indigo → purple clip-text)
+  - CTA buttons with inline SVG icons (compass, book)
+  - Problem Grid: icon-augmented cards with colored left borders (red/amber/indigo)
+  - Trust Bar: icon-enhanced signals with gradient background and dividers
+  - Pillar Cards: per-pillar accent colors (emerald/blue/amber/violet/cyan), inline SVG icons, "Explore →" arrows
+  - Featured Guides: color-coded top borders matching pillar colors, mono dates, read arrows
+  - All sections with scroll-reveal animations
+
+- **PostCard** (`src/components/PostCard.astro`):
+  - Gradient top accent bar (indigo → purple)
+  - Trust label color-coding (green for human, amber for AI)
+  - Mono-font metadata display
+
+- **PillarLayout** (`src/layouts/PillarLayout.astro`):
+  - Mono section labels ("RESEARCH PILLAR")
+  - Colored left-border on main question box
+  - btn-primary CTA with compass icon
+  - Top-border guide cards with "Read →" arrows
+  - Improved empty state with clock icon
+
+- **Guide Components**:
+  - `DirectAnswer.astro`: Gradient background (indigo-50 → white), gradient left accent bar, info icon
+  - `AiMissBox.astro`: Gradient background (amber-50 → white), warning triangle icon, X-mark bullet icons
+  - `VerdictTable.astro`: Zebra striping, clipboard icon header, pill-style risk badges with dot indicators, rounded container
+  - `ToolCta.astro`: Gradient background, compass icon, btn-primary/secondary system
+
+- **Provider Components**:
+  - `ProviderRouteFitCard.astro`: Check/X icons for fit/not-ideal sections, btn-secondary CTA with arrow
+  - `ProviderComparisonTable.astro`: Zebra striping, accent-colored route fit text, btn-secondary CTAs
+
+- **Other Pages**:
+  - `tools/index.astro`: Icons per tool, status badges (Live/Coming Soon with green dot), top accent borders
+  - `research/index.astro`: Consistent card styling with top borders, category pills, read arrows
+
+- **BaseLayout** (`src/layouts/BaseLayout.astro`):
+  - Added lightweight IntersectionObserver script for scroll-reveal animations (~200 bytes inline)
+
+### Architecture Decisions
+- Zero new dependencies — all icons are inline SVG, animations are CSS-only
+- IntersectionObserver used for scroll-reveal (progressive enhancement, no-JS fallback)
+- Color palette designed for "Refined Authority" — Deep Indigo (trust/authority) + Amber (warmth/action)
+- Warm Stone neutrals replace cold grays for a more approachable feel
+- Per-pillar accent colors create visual identity for each research area
+
 ## [2026-05-03] - Registered Agent Guide Corrections (Real-World Experience)
 
 ### Changed

@@ -97,5 +97,22 @@ const allSchemas = [
       <slot />
     </main>
     <Footer />
+
+    <!-- Scroll-reveal: lightweight IntersectionObserver -->
+    <script is:inline>
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+      } else {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+      }
+    </script>
   </body>
 </html>

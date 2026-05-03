@@ -12,23 +12,36 @@ interface Props {
 const { items, heading = 'What AI Answers Often Miss' } = Astro.props;
 ---
 
-<div class="brutal-card p-5 mb-8 bg-[var(--color-surface-container)] border-l-4 border-l-[var(--color-route-risky)]">
-  <h3 class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-route-risky)] mb-3">
-    {heading}
-  </h3>
+<div class="relative overflow-hidden rounded-[var(--radius-md)] border border-amber-200 bg-gradient-to-br from-[var(--color-accent-50)] to-white p-5 mb-8">
+  <!-- Left accent -->
+  <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--color-route-risky)] to-[var(--color-accent-400)]"></div>
 
-  {items && items.length > 0 ? (
-    <ul class="space-y-2 text-sm text-[var(--color-text-secondary)] leading-relaxed">
-      {items.map((item) => (
-        <li class="flex items-start gap-2">
-          <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--color-route-risky)] flex-shrink-0"></span>
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <div class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-      <slot />
+  <div class="pl-3">
+    <div class="flex items-center gap-2 mb-3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-[var(--color-route-risky)]">
+        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h3 class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-route-risky)]">
+        {heading}
+      </h3>
     </div>
-  )}
+
+    {items && items.length > 0 ? (
+      <ul class="space-y-2.5 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+        {items.map((item) => (
+          <li class="flex items-start gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="size-3.5 mt-1 text-[var(--color-route-risky)] flex-shrink-0">
+              <path d="M18 6L6 18"/><path d="M6 6l12 12"/>
+            </svg>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+        <slot />
+      </div>
+    )}
+  </div>
 </div>

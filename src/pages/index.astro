@@ -1,7 +1,7 @@
 ---
 /**
  * Homepage — Formation.Legal
- * Route Engine Hub: Institutional Clarity Design
+ * Route Engine Hub: Refined Authority Design
  */
 
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -12,30 +12,55 @@ const guides = (await getCollection('guides'))
   .filter((g) => !g.data.noindex && !g.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const pillarIcons: Record<string, string> = {
+  'payment-access': '<path d="M2 7a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V7z"/><path d="M2 10h20"/><path d="M6 14h2"/><path d="M12 14h6"/>',
+  'address-banking': '<path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/>',
+  'compliance': '<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/>',
+  'providers': '<circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/><path d="M5 21v-2a4 4 0 014-4h6a4 4 0 014 4v2"/>',
+  'playbooks': '<path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15z"/><path d="M8 7h8"/><path d="M8 11h6"/>',
+};
+
+const pillarColors: Record<string, string> = {
+  'payment-access': '#059669',
+  'address-banking': '#2563eb',
+  'compliance': '#d97706',
+  'providers': '#7c3aed',
+  'playbooks': '#0891b2',
+};
 ---
 
 <BaseLayout title="Formation.Legal — US Business Route Engine for Non-US Founders">
   <!-- Manifesto Hero -->
-  <section class="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+  <section class="hero-gradient border-b border-[var(--color-border-subtle)]">
     <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] max-w-4xl mx-auto">
+      <div class="reveal is-visible">
+        <p class="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary-50)] border border-[var(--color-primary-200)] px-4 py-1.5 text-xs font-semibold text-[var(--color-action)] mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Independent · Research-Driven · No Affiliate Bias
+        </p>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight text-[var(--color-text-primary)] max-w-4xl mx-auto reveal is-visible">
         Don't form a US LLC because a blog told you to.
-        <span class="block text-[var(--color-action)] mt-2">Build the route that actually works.</span>
+        <span class="block bg-gradient-to-r from-[var(--color-action)] to-[var(--color-primary-500)] bg-clip-text text-transparent mt-2">Build the route that actually works.</span>
       </h1>
-      <p class="mt-8 mx-auto max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)]">
+      <p class="mt-8 mx-auto max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] reveal is-visible">
         Formation.Legal helps non-US founders compare payment access, banking risk, address requirements, annual compliance, 3-year costs, and formation providers before they spend money.
       </p>
-      <div class="mt-10 flex justify-center gap-4">
-        <a
-          href="/tools/route-planner"
-          class="inline-flex items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-action)] border border-[var(--color-action)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-action-hover)]"
-        >
+      <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 reveal is-visible">
+        <a href="/tools/route-planner" class="btn-primary gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+          </svg>
           Start Route Planner
         </a>
-        <a
-          href="/research"
-          class="inline-flex items-center justify-center rounded-[var(--radius-md)] bg-white border border-[var(--color-action)] px-6 py-3 text-sm font-semibold text-[var(--color-action)] transition-colors hover:bg-[var(--color-surface-container)]"
-        >
+        <a href="/research" class="btn-secondary gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+          </svg>
           View Research
         </a>
       </div>
@@ -43,30 +68,53 @@ const guides = (await getCollection('guides'))
   </section>
 
   <!-- Problem Grid -->
-  <section class="border-b border-[var(--color-border)] bg-white">
+  <section class="bg-white">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-      <div class="grid gap-8 md:grid-cols-3">
-        <div class="brutal-card p-6">
-          <div class="mb-4 border-b border-[var(--color-border)] pb-4">
+      <div class="text-center mb-10 reveal">
+        <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)] mb-2">The reality check</p>
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)]">What most guides won't tell you</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3 reveal-stagger">
+        <!-- Card 1: Banking Risk -->
+        <div class="brutal-card p-6 border-l-[3px] border-l-[var(--color-route-blocked)] reveal">
+          <div class="mb-4 flex items-center gap-3">
+            <div class="flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-red-50 text-[var(--color-route-blocked)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M12 8v4"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+              </svg>
+            </div>
             <h3 class="text-lg font-bold text-[var(--color-text-primary)]">High Banking Risk</h3>
           </div>
-          <p class="text-sm text-[var(--color-text-secondary)]">
+          <p class="text-sm leading-relaxed text-[var(--color-text-secondary)]">
             Some US banking routes are harder for founders without US operations or documentable presence. Eligibility varies by bank, country, and business profile.
           </p>
         </div>
-        <div class="brutal-card p-6">
-          <div class="mb-4 border-b border-[var(--color-border)] pb-4">
+        <!-- Card 2: Compliance Costs -->
+        <div class="brutal-card p-6 border-l-[3px] border-l-[var(--color-route-risky)] reveal">
+          <div class="mb-4 flex items-center gap-3">
+            <div class="flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-amber-50 text-[var(--color-route-risky)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5">
+                <rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 10h8"/><path d="M8 14h4"/>
+              </svg>
+            </div>
             <h3 class="text-lg font-bold text-[var(--color-text-primary)]">Hidden Compliance Costs</h3>
           </div>
-          <p class="text-sm text-[var(--color-text-secondary)]">
+          <p class="text-sm leading-relaxed text-[var(--color-text-secondary)]">
             State franchise taxes and registered agent fees can trap you. We calculate the true <span class="data-mono">3-year</span> cost of ownership.
           </p>
         </div>
-        <div class="brutal-card p-6">
-          <div class="mb-4 border-b border-[var(--color-border)] pb-4">
+        <!-- Card 3: Payment Limits -->
+        <div class="brutal-card p-6 border-l-[3px] border-l-[var(--color-action)] reveal">
+          <div class="mb-4 flex items-center gap-3">
+            <div class="flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary-50)] text-[var(--color-action)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5">
+                <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>
+              </svg>
+            </div>
             <h3 class="text-lg font-bold text-[var(--color-text-primary)]">Stripe & PayPal Limits</h3>
           </div>
-          <p class="text-sm text-[var(--color-text-secondary)]">
+          <p class="text-sm leading-relaxed text-[var(--color-text-secondary)]">
             LLC formation does not guarantee payment processor access. We map routes that may support a Stripe application or reduce common review friction.
           </p>
         </div>
@@ -75,45 +123,73 @@ const guides = (await getCollection('guides'))
   </section>
 
   <!-- Trust Bar -->
-  <section class="border-b border-[var(--color-border)] bg-[var(--color-surface-container)]">
-    <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-6 px-4 py-4 text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] sm:gap-10 sm:px-6">
-      <div class="flex items-center gap-2">
-        <span class="h-2 w-2 rounded-full bg-[var(--color-route-safe)]"></span>
+  <section class="bg-gradient-to-r from-[var(--color-primary-50)] via-[var(--color-surface)] to-[var(--color-primary-50)]">
+    <div class="section-divider"></div>
+    <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-8 px-4 py-5 sm:gap-12 sm:px-6">
+      <div class="flex items-center gap-2.5 text-sm font-medium text-[var(--color-text-secondary)]">
+        <div class="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--color-trust)]/10 text-[var(--color-trust)]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="size-3.5">
+            <circle cx="11" cy="11" r="6"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </div>
         <span>Independent Research</span>
       </div>
-      <div class="flex items-center gap-2">
-        <span class="h-2 w-2 rounded-full bg-[var(--color-route-safe)]"></span>
+      <div class="flex items-center gap-2.5 text-sm font-medium text-[var(--color-text-secondary)]">
+        <div class="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--color-trust)]/10 text-[var(--color-trust)]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="size-3.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
         <span>No Affiliate Bias</span>
       </div>
-      <div class="flex items-center gap-2">
-        <span class="h-2 w-2 rounded-full bg-[var(--color-route-safe)]"></span>
+      <div class="flex items-center gap-2.5 text-sm font-medium text-[var(--color-text-secondary)]">
+        <div class="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--color-trust)]/10 text-[var(--color-trust)]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="size-3.5">
+            <path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+          </svg>
+        </div>
         <span>Human Written</span>
       </div>
     </div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Pillar Hubs -->
-  <section class="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+  <section class="bg-[var(--color-surface)]">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-      <div class="mb-10 text-center">
+      <div class="mb-10 text-center reveal">
+        <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)] mb-2">Decision pillars</p>
         <h2 class="text-2xl font-bold text-[var(--color-text-primary)]">
           Choose your route
         </h2>
-        <p class="mt-2 text-[var(--color-text-secondary)]">
+        <p class="mt-2 text-[var(--color-text-secondary)] max-w-lg mx-auto">
           Explore our research pillars tailored to specific operational hurdles.
         </p>
       </div>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger">
         {PILLARS.map((pillar) => (
-          <a href={pillar.href} class="brutal-card block transition-colors hover:border-[var(--color-action)]">
-            <div class="border-b border-[var(--color-border)] p-5">
-              <h3 class="text-lg font-bold text-[var(--color-text-primary)]">{pillar.shortLabel}</h3>
-            </div>
+          <a
+            href={pillar.href}
+            class="brutal-card block overflow-hidden reveal"
+            style={`border-top: 3px solid ${pillarColors[pillar.id] || 'var(--color-action)'}`}
+          >
             <div class="p-5">
-              <p class="text-sm text-[var(--color-text-secondary)]">{pillar.description}</p>
-              <div class="mt-4 text-xs font-semibold text-[var(--color-action)] uppercase tracking-wider">
-                Explore Pillar →
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="flex items-center justify-center w-9 h-9 rounded-[var(--radius-md)]"
+                  style={`background: ${pillarColors[pillar.id]}10; color: ${pillarColors[pillar.id]}`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-[18px]" set:html={pillarIcons[pillar.id] || ''} />
+                </div>
+                <h3 class="text-base font-bold text-[var(--color-text-primary)]">{pillar.shortLabel}</h3>
+              </div>
+              <p class="text-sm leading-relaxed text-[var(--color-text-secondary)]">{pillar.description}</p>
+              <div class="mt-4 flex items-center gap-1 text-xs font-semibold text-[var(--color-action)]">
+                Explore
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-3.5">
+                  <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+                </svg>
               </div>
             </div>
           </a>
@@ -125,28 +201,43 @@ const guides = (await getCollection('guides'))
   <!-- Featured Guides -->
   {guides.length > 0 && (
     <section class="bg-white">
+      <div class="section-divider"></div>
       <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-        <div class="mb-8 flex items-end justify-between border-b border-[var(--color-border)] pb-4">
+        <div class="mb-8 flex items-end justify-between reveal">
           <div>
+            <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)] mb-1">Latest research</p>
             <h2 class="text-2xl font-bold text-[var(--color-text-primary)]">
               Latest Guides
             </h2>
           </div>
           <a
             href="/research"
-            class="text-sm font-semibold text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
+            class="flex items-center gap-1 text-sm font-semibold text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
           >
-            View all →
+            View all
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4">
+              <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+            </svg>
           </a>
         </div>
 
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger">
           {guides.map((guide) => {
              const p = PILLARS.find(x => x.id === guide.data.pillar);
+             const borderColor = pillarColors[guide.data.pillar] || 'var(--color-action)';
              return (
-              <a href={`${p?.href}/${guide.id}`} class="brutal-card block transition-colors hover:border-[var(--color-action)]">
-                <div class="border-b border-[var(--color-border)] px-4 py-3 bg-[var(--color-surface-container)]">
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">{p?.shortLabel}</span>
+              <a
+                href={`${p?.href}/${guide.id}`}
+                class="brutal-card block overflow-hidden reveal"
+                style={`border-top: 3px solid ${borderColor}`}
+              >
+                <div class="px-4 py-3 bg-[var(--color-surface-container)]">
+                  <span
+                    class="text-[10px] font-bold uppercase tracking-wider"
+                    style={`color: ${borderColor}`}
+                  >
+                    {p?.shortLabel}
+                  </span>
                 </div>
                 <div class="p-4">
                   <h3 class="text-base font-bold leading-snug text-[var(--color-text-primary)]">
@@ -155,7 +246,7 @@ const guides = (await getCollection('guides'))
                   <p class="mt-2 line-clamp-2 text-sm text-[var(--color-text-secondary)]">
                     {guide.data.description}
                   </p>
-                  <div class="mt-4 text-[10px] font-medium text-[var(--color-text-secondary)] uppercase">
+                  <div class="mt-4 text-[10px] font-medium text-[var(--color-muted)] font-mono">
                     {guide.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
                   </div>
                 </div>

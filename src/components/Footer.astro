@@ -1,6 +1,6 @@
 ---
 /**
- * Footer.astro — Site footer with trust signals.
+ * Footer.astro — Premium dark footer with trust signals.
  */
 
 import { SITE } from '../lib/constants';
@@ -8,38 +8,58 @@ import { SITE } from '../lib/constants';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-  <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
-    <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-      <!-- Copyright & Legal -->
-      <div class="flex flex-col gap-2 text-center sm:text-left">
-        <p class="text-sm text-[var(--color-text-secondary)]">
-          &copy; {currentYear} {SITE.title}. All rights reserved.
+<footer class="bg-[var(--color-inverse-surface)] text-stone-300">
+  <!-- Gradient divider -->
+  <div class="section-divider"></div>
+
+  <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <div class="flex flex-col gap-8 md:flex-row md:justify-between">
+      <!-- Brand & Copyright -->
+      <div class="flex flex-col gap-3">
+        <a href="/" class="flex items-center gap-2 text-white font-bold text-lg tracking-tight">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 text-[var(--color-primary-400)]">
+            <path d="M12 2 L2 7 L12 12 L22 7 Z" />
+            <path d="M2 17 L12 22 L22 17" />
+            <path d="M2 12 L12 17 L22 12" />
+          </svg>
+          {SITE.title}
+        </a>
+        <p class="text-sm text-stone-400 max-w-xs">
+          Independent research platform for non-US founders navigating US business formation.
         </p>
-        <p class="text-xs text-[var(--color-text-secondary)]">
-          Not a law firm. Not tax advice. See <a href="/disclaimer" class="underline hover:text-[var(--color-action)]">Disclaimer</a>.
+        <p class="text-xs text-stone-500">
+          &copy; {currentYear} {SITE.title}. All rights reserved.
         </p>
       </div>
 
-      <div class="flex flex-col items-center sm:items-end gap-3">
+      <!-- Link Groups -->
+      <div class="flex flex-wrap gap-12 text-sm">
         <!-- Trust Links -->
-        <nav class="flex items-center gap-4 text-xs font-medium" aria-label="Trust navigation">
-          <a href="/editorial-policy" class="text-[var(--color-text-secondary)] hover:text-[var(--color-action)] transition-colors">Editorial Policy</a>
-          <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
-          <a href="/affiliate-disclosure" class="text-[var(--color-text-secondary)] hover:text-[var(--color-action)] transition-colors">Affiliate Disclosure</a>
-          <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
-          <a href="/disclaimer" class="text-[var(--color-text-secondary)] hover:text-[var(--color-action)] transition-colors">Disclaimer</a>
-        </nav>
-        
+        <div class="flex flex-col gap-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-stone-500">Trust</h4>
+          <nav class="flex flex-col gap-2" aria-label="Trust navigation">
+            <a href="/editorial-policy" class="text-stone-400 hover:text-white transition-colors">Editorial Policy</a>
+            <a href="/affiliate-disclosure" class="text-stone-400 hover:text-white transition-colors">Affiliate Disclosure</a>
+            <a href="/disclaimer" class="text-stone-400 hover:text-white transition-colors">Disclaimer</a>
+            <a href="/source-methodology" class="text-stone-400 hover:text-white transition-colors">Source Methodology</a>
+          </nav>
+        </div>
+
         <!-- Tech Links -->
-        <nav class="flex items-center gap-4 text-xs" aria-label="Tech navigation">
-          <a href="/llms.txt" class="text-[var(--color-text-secondary)] opacity-70 hover:opacity-100 transition-opacity">llms.txt</a>
-          <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
-          <a href="/robots.txt" class="text-[var(--color-text-secondary)] opacity-70 hover:opacity-100 transition-opacity">robots.txt</a>
-          <span class="text-[var(--color-border)]" aria-hidden="true">·</span>
-          <a href="/sitemap-index.xml" class="text-[var(--color-text-secondary)] opacity-70 hover:opacity-100 transition-opacity">Sitemap</a>
-        </nav>
+        <div class="flex flex-col gap-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-stone-500">Technical</h4>
+          <nav class="flex flex-col gap-2" aria-label="Technical navigation">
+            <a href="/llms.txt" class="text-stone-400 hover:text-white transition-colors">llms.txt</a>
+            <a href="/robots.txt" class="text-stone-400 hover:text-white transition-colors">robots.txt</a>
+            <a href="/sitemap-index.xml" class="text-stone-400 hover:text-white transition-colors">Sitemap</a>
+          </nav>
+        </div>
       </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-8 pt-6 border-t border-stone-800 text-xs text-stone-500">
+      Not a law firm. Not tax advice. See <a href="/disclaimer" class="underline hover:text-stone-300 transition-colors">Disclaimer</a>.
     </div>
   </div>
 </footer>
