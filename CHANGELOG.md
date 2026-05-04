@@ -11,6 +11,21 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-04] - Internal Link Dictionary Validation & Cleanup
+
+### Fixed
+- **Link Dictionary Audit (`src/lib/link-dictionary.ts`)**:
+  - Removed AI-generated hallucinated keywords (e.g., "bizee", "inc authority", "nigeria", "pakistan") that do not exist in the current content base by commenting them out.
+  - Fixed broken `target` URLs that were incorrectly pointing to non-existent `/guides/` paths.
+  - Updated link targets to match the correct pillar-based routing architecture (`/payment-access/`, `/compliance/`, `/address-banking/`).
+  - Validated all remaining active keywords against the actual content in `src/content/**/*.mdx`.
+
+### Architecture Decisions
+- The `link-dictionary.ts` file now strictly reflects the existing `pillarEnum` structure defined in `src/content.config.ts`.
+- Instead of deleting potential future keywords, they are commented out (`//`) to serve as a to-do list for future content expansion.
+
+---
+
 ## [2026-05-04] - Typography & Readability Upgrade
 
 ### Changed

@@ -24,15 +24,15 @@ import type { LinkEntry } from './rehype/types';
 export const LINK_DICTIONARY: LinkEntry[] = [
   // ============ COMPOUND KEYWORDS (önce listelenmeli - longer first) ============
 
-  {
-    keyword: "stripe connect account",
-    target: "/guides/us-llc-for-stripe",
-    priority: 100,
-    maxOccurrences: 2,
-  },
+//   {
+//     keyword: "stripe connect account",
+//     target: "/payment-access/us-llc-for-stripe",
+//     priority: 100,
+//     maxOccurrences: 2,
+//   },
   {
     keyword: "registered agent service",
-    target: "/guides/registered-agent-address-vs-business-address",
+    target: "/address-banking/registered-agent-address-vs-business-address",
     priority: 90,
   },
   // NO EIN PAGE EXISTS - EIN is covered in BOI reporting guide
@@ -45,17 +45,17 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "boi report",
-    target: "/guides/boi-reporting-us-llc-2026",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 95,
   },
   {
     keyword: "beneficial ownership information",
-    target: "/guides/boi-reporting-us-llc-2026",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 90,
   },
   {
     keyword: "nonresident alien",
-    target: "/guides/form-5472-foreign-owned-llc",
+    target: "/compliance/form-5472-foreign-owned-llc",
     priority: 85,
     maxOccurrences: 2,
   },
@@ -63,45 +63,45 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   // Stripe Atlas is Stripe's own LLC formation service
   {
     keyword: "stripe atlas",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 60,
   },
   {
     keyword: "merchant of record",
-    target: "/guides/payment-stack-for-non-us-founders",
+    target: "/payment-access/payment-stack-for-non-us-founders",
     priority: 75,
   },
   {
     keyword: "pro forma 1120",
-    target: "/guides/form-5472-foreign-owned-llc",
+    target: "/compliance/form-5472-foreign-owned-llc",
     priority: 80,
   },
   {
     keyword: "registered agent address",
-    target: "/guides/registered-agent-address-vs-business-address",
+    target: "/address-banking/registered-agent-address-vs-business-address",
     priority: 70,
   },
   {
     keyword: "home country address",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 65,
   },
-  {
-    keyword: "stripe connect",
-    target: "/guides/us-llc-for-stripe",
-    priority: 55,
-  },
-  {
-    keyword: "formation service",
-    target: "/providers",
-    priority: 60,
-    excludePillars: ["providers"],
-  },
-  {
-    keyword: "formation fee",
-    target: "/providers",
-    priority: 50,
-  },
+//   {
+//     keyword: "stripe connect",
+//     target: "/payment-access/us-llc-for-stripe",
+//     priority: 55,
+//   },
+//   {
+//     keyword: "formation service",
+//     target: "/providers",
+//     priority: 60,
+//     excludePillars: ["providers"],
+//   },
+//   {
+//     keyword: "formation fee",
+//     target: "/providers",
+//     priority: 50,
+//   },
   {
     keyword: "state filing fee",
     target: "/providers",
@@ -114,22 +114,22 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "rolling reserve",
-    target: "/guides/us-llc-for-paypal",
+    target: "/payment-access/us-llc-for-paypal",
     priority: 60,
   },
   {
     keyword: "virtual mailbox",
-    target: "/guides/registered-agent-address-vs-business-address",
+    target: "/address-banking/registered-agent-address-vs-business-address",
     priority: 55,
   },
   {
     keyword: "virtual office",
-    target: "/guides/registered-agent-address-vs-business-address",
+    target: "/address-banking/registered-agent-address-vs-business-address",
     priority: 50,
   },
   {
     keyword: "us ip address",
-    target: "/guides/us-llc-for-paypal",
+    target: "/payment-access/us-llc-for-paypal",
     priority: 55,
   },
 
@@ -137,13 +137,13 @@ export const LINK_DICTIONARY: LinkEntry[] = [
 
   {
     keyword: "stripe",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 50,
     maxOccurrences: 3,
   },
   {
     keyword: "paypal",
-    target: "/guides/us-llc-for-paypal",
+    target: "/payment-access/us-llc-for-paypal",
     priority: 50,
     maxOccurrences: 2,
   },
@@ -155,7 +155,7 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "registered agent",
-    target: "/guides/registered-agent-address-vs-business-address",
+    target: "/address-banking/registered-agent-address-vs-business-address",
     priority: 75,
     maxOccurrences: 3,
   },
@@ -167,12 +167,12 @@ export const LINK_DICTIONARY: LinkEntry[] = [
     maxOccurrences: 3,
   },
   // NO dedicated EIN page - EIN is covered in BOI reporting guide
-  {
-    keyword: "fein",
-    target: "/compliance/boi-reporting-us-llc-2026",
-    priority: 65,
-    maxOccurrences: 2,
-  },
+//   {
+//     keyword: "fein",
+//     target: "/compliance/boi-reporting-us-llc-2026",
+//     priority: 65,
+//     maxOccurrences: 2,
+//   },
   // NO dedicated EIN page - EIN is covered in BOI reporting guide
   {
     keyword: "employer identification number",
@@ -199,23 +199,23 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "kyc",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 70,
     maxOccurrences: 3,
   },
   {
     keyword: "boi",
-    target: "/guides/boi-reporting-us-llc-2026",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 80,
   },
   {
     keyword: "fincen",
-    target: "/guides/boi-reporting-us-llc-2026",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 80,
   },
   {
     keyword: "corporate transparency act",
-    target: "/guides/boi-reporting-us-llc-2026",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 75,
   },
   {
@@ -236,39 +236,39 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "form 5472",
-    target: "/guides/form-5472-foreign-owned-llc",
+    target: "/compliance/form-5472-foreign-owned-llc",
     priority: 85,
   },
   {
     keyword: "disregarded entity",
-    target: "/guides/form-5472-foreign-owned-llc",
+    target: "/compliance/form-5472-foreign-owned-llc",
     priority: 70,
   },
-  {
-    keyword: "foreign owned us llc",
-    target: "/guides/form-5472-foreign-owned-llc",
-    priority: 75,
-    maxOccurrences: 2,
-  },
-  {
-    keyword: "foreign owned",
-    target: "/guides/form-5472-foreign-owned-llc",
-    priority: 60,
-  },
+//   {
+//     keyword: "foreign owned us llc",
+//     target: "/compliance/form-5472-foreign-owned-llc",
+//     priority: 75,
+//     maxOccurrences: 2,
+//   },
+//   {
+//     keyword: "foreign owned",
+//     target: "/compliance/form-5472-foreign-owned-llc",
+//     priority: 60,
+//   },
   {
     keyword: "non-us founder",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 70,
     maxOccurrences: 2,
   },
-  {
-    keyword: "international founder",
-    target: "/guides/us-llc-for-stripe",
-    priority: 55,
-  },
+//   {
+//     keyword: "international founder",
+//     target: "/payment-access/us-llc-for-stripe",
+//     priority: 55,
+//   },
   {
     keyword: "non-us founders",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 65,
     maxOccurrences: 2,
   },
@@ -283,11 +283,11 @@ export const LINK_DICTIONARY: LinkEntry[] = [
     target: "/research/what-is-llc-formation",
     priority: 50,
   },
-  {
-    keyword: "new mexico",
-    target: "/research/what-is-llc-formation",
-    priority: 45,
-  },
+//   {
+//     keyword: "new mexico",
+//     target: "/research/what-is-llc-formation",
+//     priority: 45,
+//   },
   {
     keyword: "c-corp",
     target: "/research/what-is-llc-formation",
@@ -300,12 +300,12 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "paddle",
-    target: "/guides/payment-stack-for-non-us-founders",
+    target: "/payment-access/payment-stack-for-non-us-founders",
     priority: 60,
   },
   {
     keyword: "lemon squeezy",
-    target: "/guides/payment-stack-for-non-us-founders",
+    target: "/payment-access/payment-stack-for-non-us-founders",
     priority: 55,
   },
 
@@ -313,18 +313,18 @@ export const LINK_DICTIONARY: LinkEntry[] = [
 
   {
     keyword: "mercury",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 55,
     maxOccurrences: 2,
   },
   {
     keyword: "relay",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 50,
   },
   {
     keyword: "wise",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 45,
   },
 
@@ -332,70 +332,70 @@ export const LINK_DICTIONARY: LinkEntry[] = [
 
   // Provider hub exists at /providers but no individual provider pages
   // These will link to the provider hub for now
-  {
-    keyword: "bizee",
-    target: "/providers",
-    priority: 45,
-  },
-  {
-    keyword: "inc authority",
-    target: "/providers",
-    priority: 45,
-  },
-  {
-    keyword: "docketed",
-    target: "/providers",
-    priority: 40,
-  },
-  {
-    keyword: "legalzoom",
-    target: "/providers",
-    priority: 40,
-  },
-  {
-    keyword: "incfile",
-    target: "/providers",
-    priority: 40,
-  },
-  {
-    keyword: "northwest registered agent",
-    target: "/providers",
-    priority: 45,
-  },
+//   {
+//     keyword: "bizee",
+//     target: "/providers",
+//     priority: 45,
+//   },
+//   {
+//     keyword: "inc authority",
+//     target: "/providers",
+//     priority: 45,
+//   },
+//   {
+//     keyword: "docketed",
+//     target: "/providers",
+//     priority: 40,
+//   },
+//   {
+//     keyword: "legalzoom",
+//     target: "/providers",
+//     priority: 40,
+//   },
+//   {
+//     keyword: "incfile",
+//     target: "/providers",
+//     priority: 40,
+//   },
+//   {
+//     keyword: "northwest registered agent",
+//     target: "/providers",
+//     priority: 45,
+//   },
 
   // ============ GEOGRAPHIC / HIGH-RISK ============
 
-  {
-    keyword: "nigeria",
-    target: "/guides/us-llc-for-stripe",
-    priority: 50,
-  },
-  {
-    keyword: "pakistan",
-    target: "/guides/us-llc-for-stripe",
-    priority: 50,
-  },
-  {
-    keyword: "bangladesh",
-    target: "/guides/us-llc-for-stripe",
-    priority: 50,
-  },
+//   {
+//     keyword: "nigeria",
+//     target: "/payment-access/us-llc-for-stripe",
+//     priority: 50,
+//   },
+//   {
+//     keyword: "pakistan",
+//     target: "/payment-access/us-llc-for-stripe",
+//     priority: 50,
+//   },
+//   {
+//     keyword: "bangladesh",
+//     target: "/payment-access/us-llc-for-stripe",
+//     priority: 50,
+//   },
 
   // ============ DOCUMENT/PROOF TERMS ============
 
   {
     keyword: "utility bill",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 50,
   },
   {
     keyword: "bank statement",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 45,
   },
   {
     keyword: "proof of address",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 50,
   },
 
@@ -408,22 +408,22 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "digital product",
-    target: "/guides/payment-stack-for-non-us-founders",
+    target: "/payment-access/payment-stack-for-non-us-founders",
     priority: 45,
   },
   {
     keyword: "ecommerce",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 45,
   },
   {
     keyword: "amazon",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 50,
   },
   {
     keyword: "shopify",
-    target: "/guides/us-llc-for-stripe",
+    target: "/payment-access/us-llc-for-stripe",
     priority: 45,
   },
 ];
