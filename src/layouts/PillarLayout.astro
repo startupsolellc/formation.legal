@@ -18,12 +18,14 @@ interface GuideCard {
 interface Props {
   pillarLabel: string;
   pillarDescription: string;
+  seoTitle?: string;
+  seoDescription?: string;
   mainQuestion: string;
   href: string;
   guides: GuideCard[];
 }
 
-const { pillarLabel, pillarDescription, mainQuestion, href, guides } = Astro.props;
+const { pillarLabel, pillarDescription, seoTitle, seoDescription, mainQuestion, href, guides } = Astro.props;
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', href: '/' },
@@ -32,8 +34,8 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ---
 
 <BaseLayout
-  title={`${pillarLabel} — Formation.Legal`}
-  description={pillarDescription}
+  title={seoTitle ?? pillarLabel}
+  description={seoDescription ?? pillarDescription}
   schemas={[breadcrumbSchema]}
 >
   <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6">

@@ -24,6 +24,8 @@ const { Content } = await render(guide);
 <GuideLayout
   title={guide.data.title}
   description={guide.data.description}
+  seoTitle={guide.data.seoTitle}
+  seoDescription={guide.data.seoDescription}
   pillar={guide.data.pillar}
   slug={guide.id}
   pubDate={guide.data.pubDate}

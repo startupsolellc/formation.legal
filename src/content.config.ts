@@ -79,6 +79,8 @@ const guides = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    seoTitle: z.string().max(60).optional(),
+    seoDescription: z.string().max(160).optional(),
     pillar: pillarEnum,
 
     /* GEO template fields */
@@ -125,6 +127,8 @@ const providers = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    seoTitle: z.string().max(60).optional(),
+    seoDescription: z.string().max(160).optional(),
     providerName: z.string(),
     pricing: pricingSchema,
     bestFor: z.array(z.string()),
@@ -153,6 +157,8 @@ const playbooks = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    seoTitle: z.string().max(60).optional(),
+    seoDescription: z.string().max(160).optional(),
     country: z.string().optional(),
     useCase: z.string().optional(),
     directAnswer: z.string().max(500).optional(),
@@ -175,6 +181,8 @@ const research = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    seoTitle: z.string().max(60).optional(),
+    seoDescription: z.string().max(160).optional(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     author: z.string().default('Formation.Legal Editorial'),

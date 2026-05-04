@@ -9,4 +9,12 @@ const guides = (await getCollection('guides'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .map((g) => ({ title: g.data.title, description: g.data.description, slug: g.id, pubDate: g.data.pubDate, draft: g.data.draft ?? false }));
 ---
-<PillarLayout pillarLabel={pillar.label} pillarDescription={pillar.description} mainQuestion={pillar.mainQuestion} href={pillar.href} guides={guides} />
+<PillarLayout
+  pillarLabel={pillar.label}
+  pillarDescription={pillar.description}
+  seoTitle="US LLC Compliance for Non-Residents: Full Guide"
+  seoDescription="What happens after formation: Form 5472 penalties, BOI reporting, EIN requirements, and annual compliance calendar for non-US LLC owners."
+  mainQuestion={pillar.mainQuestion}
+  href={pillar.href}
+  guides={guides}
+/>
