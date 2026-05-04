@@ -19,11 +19,11 @@ interface Props {
 const { rows, title = 'Route Verdict' } = Astro.props;
 
 const riskStyles: Record<string, { bg: string; text: string; border: string; label: string }> = {
-  low: { bg: 'bg-emerald-50', text: 'text-[var(--color-route-safe)]', border: 'border-emerald-200', label: 'Low' },
-  medium: { bg: 'bg-amber-50', text: 'text-[var(--color-route-risky)]', border: 'border-amber-200', label: 'Medium' },
-  high: { bg: 'bg-red-50', text: 'text-[var(--color-route-blocked)]', border: 'border-red-200', label: 'High' },
-  blocked: { bg: 'bg-red-100', text: 'text-[var(--color-route-blocked)]', border: 'border-red-300', label: 'Blocked' },
-  'needs-review': { bg: 'bg-gray-50', text: 'text-[var(--color-route-incomplete)]', border: 'border-gray-200', label: 'Needs Review' },
+  low: { bg: 'bg-route-safe/10', text: 'text-route-safe', border: 'border-route-safe/20', label: 'Low' },
+  medium: { bg: 'bg-route-risky/10', text: 'text-route-risky', border: 'border-route-risky/20', label: 'Medium' },
+  high: { bg: 'bg-route-blocked/10', text: 'text-route-blocked', border: 'border-route-blocked/20', label: 'High' },
+  blocked: { bg: 'bg-route-blocked/20', text: 'text-route-blocked', border: 'border-route-blocked/30', label: 'Blocked' },
+  'needs-review': { bg: 'bg-surface-dim', text: 'text-muted', border: 'border-border-subtle', label: 'Needs Review' },
 };
 ---
 
@@ -66,7 +66,7 @@ const riskStyles: Record<string, { bg: string; text: string; border: string; lab
                   style.text,
                   style.border,
                 ]}>
-                  <span class:list={['h-1.5 w-1.5 rounded-full', style.text === 'text-[var(--color-route-safe)]' ? 'bg-[var(--color-route-safe)]' : style.text === 'text-[var(--color-route-risky)]' ? 'bg-[var(--color-route-risky)]' : style.text === 'text-[var(--color-route-blocked)]' ? 'bg-[var(--color-route-blocked)]' : 'bg-[var(--color-route-incomplete)]']}></span>
+                  <span class:list={['h-1.5 w-1.5 rounded-full', style.text === 'text-route-safe' ? 'bg-route-safe' : style.text === 'text-route-risky' ? 'bg-route-risky' : style.text === 'text-route-blocked' ? 'bg-route-blocked' : 'bg-muted']}></span>
                   {style.label}
                 </span>
               </td>

@@ -99,8 +99,8 @@ function OptionButton({ selected, onClick, children }: { selected: boolean; onCl
       onClick={onClick}
       class={`w-full text-left px-4 py-3 text-base border transition-all rounded-[6px] ${
         selected
-          ? 'border-[#4f46e5] bg-[#eef2ff] text-[#0c0a09] font-semibold shadow-sm'
-          : 'border-[#d6d3d1] bg-white text-[#57534e] hover:border-[#a5b4fc]'
+          ? 'border-[var(--color-action)] bg-[var(--color-surface-dim)] text-[var(--color-text-primary)] font-semibold shadow-sm'
+          : 'border-[var(--color-border)] bg-[var(--color-surface-container)] text-[var(--color-text-secondary)] hover:border-[var(--color-action-hover)]'
       }`}
     >
       {children}
@@ -115,11 +115,11 @@ function CheckboxButton({ selected, onClick, children }: { selected: boolean; on
       onClick={onClick}
       class={`w-full text-left px-4 py-3 text-base border transition-all rounded-[6px] flex items-center gap-3 ${
         selected
-          ? 'border-[#4f46e5] bg-[#eef2ff] text-[#0c0a09] font-semibold shadow-sm'
-          : 'border-[#d6d3d1] bg-white text-[#57534e] hover:border-[#a5b4fc]'
+          ? 'border-[var(--color-action)] bg-[var(--color-surface-dim)] text-[var(--color-text-primary)] font-semibold shadow-sm'
+          : 'border-[var(--color-border)] bg-[var(--color-surface-container)] text-[var(--color-text-secondary)] hover:border-[var(--color-action-hover)]'
       }`}
     >
-      <span class={`flex-shrink-0 w-4 h-4 border rounded-[3px] flex items-center justify-center ${selected ? 'border-[#4f46e5] bg-[#4f46e5]' : 'border-[#d6d3d1]'}`}>
+      <span class={`flex-shrink-0 w-4 h-4 border rounded-[3px] flex items-center justify-center ${selected ? 'border-[var(--color-action)] bg-[var(--color-action)]' : 'border-[var(--color-border)]'}`}>
         {selected && <span class="text-white text-xs">✓</span>}
       </span>
       {children}
@@ -135,7 +135,7 @@ const RISK_COLORS: Record<string, { bg: string; text: string }> = {
   low: { bg: 'bg-green-50 border-green-200', text: 'text-[#166534]' },
   medium: { bg: 'bg-amber-50 border-amber-200', text: 'text-[#9a3412]' },
   high: { bg: 'bg-red-50 border-red-200', text: 'text-[#991b1b]' },
-  'needs-review': { bg: 'bg-gray-50 border-gray-200', text: 'text-[#475569]' },
+  'needs-review': { bg: 'bg-[var(--color-surface-dim)] border-[var(--color-border)]', text: 'text-[var(--color-text-secondary)]' },
   blocked: { bg: 'bg-red-100 border-red-300', text: 'text-[#991b1b]' },
 };
 
@@ -154,7 +154,7 @@ const VERDICT_MAP: Record<string, { label: string; color: string }> = {
   incomplete: { label: 'Incomplete', color: 'text-[#9a3412] border-amber-300 bg-amber-50' },
   risky: { label: 'Risky', color: 'text-[#991b1b] border-red-300 bg-red-50' },
   blocked: { label: 'Blocked', color: 'text-[#991b1b] border-red-400 bg-red-100' },
-  'needs-professional-review': { label: 'Needs Professional Review', color: 'text-[#475569] border-gray-300 bg-gray-50' },
+  'needs-professional-review': { label: 'Needs Professional Review', color: 'text-[var(--color-text-secondary)] border-[var(--color-border-subtle)] bg-[var(--color-surface-dim)]' },
 };
 
 /* ------------------------------------------------------------------ */
@@ -190,15 +190,15 @@ function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => 
       </div>
 
       {/* Summary */}
-      <div class="border border-[#d6d3d1] rounded-[6px] p-5 bg-white">
-        <p class="font-mono text-xs font-bold uppercase tracking-wider text-[#57534e] mb-2">Route Summary</p>
-        <p class="text-base text-[#57534e] leading-relaxed">{result.summary}</p>
+      <div class="border border-[var(--color-border)] rounded-[6px] p-5 bg-[var(--color-surface-container)]">
+        <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-2">Route Summary</p>
+        <p class="text-base text-[var(--color-text-secondary)] leading-relaxed">{result.summary}</p>
       </div>
 
       {/* Risk Panel */}
-      <div class="border border-[#d6d3d1] rounded-[6px] overflow-hidden bg-white">
-        <div class="px-5 py-3 border-b border-[#d6d3d1] bg-[#eef2ff]">
-          <p class="font-mono text-sm font-bold uppercase tracking-wider text-[#0c0a09]">Risk Panel</p>
+      <div class="border border-[var(--color-border)] rounded-[6px] overflow-hidden bg-[var(--color-surface-container)]">
+        <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-dim)]">
+          <p class="font-mono text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Risk Panel</p>
         </div>
         <div class="divide-y divide-[#d6d3d1]">
           {[
@@ -209,7 +209,7 @@ function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => 
             ['Cost', result.riskPanel.cost],
           ].map(([label, level]) => (
             <div class="px-5 py-3 flex items-center justify-between">
-              <span class="text-base text-[#0c0a09] font-medium">{label as string}</span>
+              <span class="text-base text-[var(--color-text-primary)] font-medium">{label as string}</span>
               <RiskBadge level={level as string} />
             </div>
           ))}
@@ -218,17 +218,17 @@ function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => 
 
       {/* Missing Steps */}
       {result.missingSteps.length > 0 && (
-        <div class="border border-[#d6d3d1] rounded-[6px] overflow-hidden bg-white">
-          <div class="px-5 py-3 border-b border-[#d6d3d1] bg-[#eef2ff]">
-            <p class="font-mono text-sm font-bold uppercase tracking-wider text-[#0c0a09]">Missing Steps</p>
+        <div class="border border-[var(--color-border)] rounded-[6px] overflow-hidden bg-[var(--color-surface-container)]">
+          <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-dim)]">
+            <p class="font-mono text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Missing Steps</p>
           </div>
           <div class="p-5 space-y-3">
             {result.missingSteps.map((s) => (
               <div key={s.id} class="flex items-start gap-3">
                 <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#d97706] flex-shrink-0" />
                 <div>
-                  <p class="text-base font-semibold text-[#0c0a09]">{s.label}</p>
-                  <p class="text-sm text-[#57534e] mt-0.5">{s.detail}</p>
+                  <p class="text-base font-semibold text-[var(--color-text-primary)]">{s.label}</p>
+                  <p class="text-sm text-[var(--color-text-secondary)] mt-0.5">{s.detail}</p>
                 </div>
               </div>
             ))}
@@ -237,10 +237,10 @@ function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => 
       )}
 
       {/* 90-Day Checklist */}
-      <div class="border border-[#d6d3d1] rounded-[6px] overflow-hidden bg-white">
-        <div class="px-5 py-3 border-b border-[#d6d3d1] bg-[#eef2ff] flex items-center justify-between">
-          <p class="font-mono text-sm font-bold uppercase tracking-wider text-[#0c0a09]">First 90-Day Checklist</p>
-          <button onClick={copyChecklist} class="font-mono text-xs font-bold uppercase tracking-wider text-[#4f46e5] hover:text-[#4338ca] transition-colors">
+      <div class="border border-[var(--color-border)] rounded-[6px] overflow-hidden bg-[var(--color-surface-container)]">
+        <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-dim)] flex items-center justify-between">
+          <p class="font-mono text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">First 90-Day Checklist</p>
+          <button onClick={copyChecklist} class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors">
             {copied ? '✓ Copied' : 'Copy'}
           </button>
         </div>
@@ -248,18 +248,18 @@ function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => 
           {result.checklist.map((item, i) => {
             const pColor = item.priority === 'critical' ? 'text-[#991b1b] border-red-200 bg-red-50' :
               item.priority === 'important' ? 'text-[#9a3412] border-amber-200 bg-amber-50' :
-              'text-[#475569] border-gray-200 bg-gray-50';
+              'text-[var(--color-text-secondary)] border-[var(--color-border)] bg-[var(--color-surface-dim)]';
             return (
               <div key={i} class="flex items-start gap-3">
-                <span class="font-mono text-sm text-[#57534e] mt-0.5 flex-shrink-0 w-5 tabular-nums">{i + 1}.</span>
+                <span class="font-mono text-sm text-[var(--color-text-secondary)] mt-0.5 flex-shrink-0 w-5 tabular-nums">{i + 1}.</span>
                 <div class="flex-1">
                   <div class="flex items-center gap-2 flex-wrap">
-                    <p class="text-base font-medium text-[#0c0a09]">{item.step}</p>
+                    <p class="text-base font-medium text-[var(--color-text-primary)]">{item.step}</p>
                     <span class={`px-1.5 py-0.5 border rounded-full font-mono text-[9px] font-bold uppercase ${pColor}`}>
                       {item.priority}
                     </span>
                   </div>
-                  {item.detail && <p class="text-sm text-[#57534e] mt-0.5">{item.detail}</p>}
+                  {item.detail && <p class="text-sm text-[var(--color-text-secondary)] mt-0.5">{item.detail}</p>}
                 </div>
               </div>
             );
@@ -269,24 +269,24 @@ function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => 
 
       {/* Provider Fit */}
       {result.providerFit.length > 0 && (
-        <div class="border border-[#d6d3d1] rounded-[6px] overflow-hidden bg-white">
-          <div class="px-5 py-3 border-b border-[#d6d3d1] bg-[#eef2ff]">
-            <p class="font-mono text-sm font-bold uppercase tracking-wider text-[#0c0a09]">Provider Route Fit</p>
+        <div class="border border-[var(--color-border)] rounded-[6px] overflow-hidden bg-[var(--color-surface-container)]">
+          <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-dim)]">
+            <p class="font-mono text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Provider Route Fit</p>
           </div>
           <div class="divide-y divide-[#d6d3d1]">
             {result.providerFit.map((pf) => {
               return (
                 <div key={pf.providerName} class="p-5">
                   <div class="flex items-center justify-between mb-2">
-                    <span class="text-base font-bold text-[#0c0a09]">{pf.providerName}</span>
-                    <span class="font-mono text-xs text-[#57534e] uppercase tracking-wider">{pf.label}</span>
+                    <span class="text-base font-bold text-[var(--color-text-primary)]">{pf.providerName}</span>
+                    <span class="font-mono text-xs text-[var(--color-text-secondary)] uppercase tracking-wider">{pf.label}</span>
                   </div>
-                  <p class="text-base text-[#57534e]">{pf.reason}</p>
-                  {pf.caveat && <p class="text-sm text-[#57534e] mt-1 italic">Note: {pf.caveat}</p>}
+                  <p class="text-base text-[var(--color-text-secondary)]">{pf.reason}</p>
+                  {pf.caveat && <p class="text-sm text-[var(--color-text-secondary)] mt-1 italic">Note: {pf.caveat}</p>}
                   <button
                     type="button"
                     onClick={() => trackEvent('provider_click_placeholder', { provider: pf.providerName })}
-                    class="mt-3 font-mono text-xs font-bold uppercase tracking-wider text-[#4f46e5] hover:text-[#4338ca] transition-colors"
+                    class="mt-3 font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
                   >
                     Save route fit
                   </button>
@@ -299,10 +299,10 @@ function ResultPanel({ result, onReset }: { result: RouteResult; onReset: () => 
 
       {/* CTAs */}
       <div class="flex flex-col sm:flex-row gap-3">
-        <a href="/payment-access/formation-does-not-equal-payment-approval" class="flex-1 text-center px-4 py-2.5 border border-[#c7d2fe] rounded-[6px] text-base font-semibold text-[#4f46e5] hover:border-[#4f46e5] hover:bg-[#eef2ff] transition-all">
+        <a href="/payment-access/formation-does-not-equal-payment-approval" class="flex-1 text-center px-4 py-2.5 border border-[var(--color-primary-200)] rounded-[6px] text-base font-semibold text-[var(--color-action)] hover:border-[var(--color-action)] hover:bg-[var(--color-surface-dim)] transition-all">
           Read: Formation ≠ Payment Approval
         </a>
-        <button onClick={onReset} class="flex-1 px-4 py-2.5 border border-[#d6d3d1] rounded-[6px] text-base font-semibold text-[#57534e] hover:border-[#4f46e5] hover:text-[#4f46e5] transition-all">
+        <button onClick={onReset} class="flex-1 px-4 py-2.5 border border-[var(--color-border)] rounded-[6px] text-base font-semibold text-[var(--color-text-secondary)] hover:border-[var(--color-action)] hover:text-[var(--color-action)] transition-all">
           Start Over
         </button>
       </div>
@@ -383,8 +383,8 @@ export default function RoutePlanner() {
       <div class="flex items-center gap-1 mb-8">
         {STEPS.map((s, i) => (
           <div key={s.id} class="flex-1 flex flex-col items-center gap-1">
-            <div class={`h-1 w-full rounded-full transition-colors ${i <= step ? 'bg-[#4f46e5]' : 'bg-[#e7e5e4]'}`} />
-            <span class={`font-mono text-[9px] uppercase tracking-wider hidden sm:block transition-colors ${i <= step ? 'text-[#4f46e5]' : 'text-[#78716c]'}`}>{s.label}</span>
+            <div class={`h-1 w-full rounded-full transition-colors ${i <= step ? 'bg-[var(--color-action)]' : 'bg-[#e7e5e4]'}`} />
+            <span class={`font-mono text-[9px] uppercase tracking-wider hidden sm:block transition-colors ${i <= step ? 'text-[var(--color-action)]' : 'text-[var(--color-text-muted)]'}`}>{s.label}</span>
           </div>
         ))}
       </div>
@@ -393,8 +393,8 @@ export default function RoutePlanner() {
       <div class="mb-8">
         {step === 0 && (
           <div>
-            <h3 class="text-lg font-bold text-[#0c0a09] mb-1">Where are you based?</h3>
-            <p class="text-base text-[#57534e] mb-5">Your country of residence affects banking eligibility, payment processor approval, and compliance requirements.</p>
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Where are you based?</h3>
+            <p class="text-base text-[var(--color-text-secondary)] mb-5">Your country of residence affects banking eligibility, payment processor approval, and compliance requirements.</p>
             <div class="grid gap-2 sm:grid-cols-2">
               {COUNTRY_OPTIONS.map((o) => (
                 <OptionButton key={o.value} selected={inputs.countryOfResidence === o.value} onClick={() => setInputs({ ...inputs, countryOfResidence: o.value as any })}>
@@ -407,8 +407,8 @@ export default function RoutePlanner() {
 
         {step === 1 && (
           <div>
-            <h3 class="text-lg font-bold text-[#0c0a09] mb-1">What is your business model?</h3>
-            <p class="text-base text-[#57534e] mb-5">Different business models have different payment, compliance, and entity requirements.</p>
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">What is your business model?</h3>
+            <p class="text-base text-[var(--color-text-secondary)] mb-5">Different business models have different payment, compliance, and entity requirements.</p>
             <div class="grid gap-2 sm:grid-cols-2">
               {BUSINESS_OPTIONS.map((o) => (
                 <OptionButton key={o.value} selected={inputs.businessModel === o.value} onClick={() => setInputs({ ...inputs, businessModel: o.value as any })}>
@@ -421,8 +421,8 @@ export default function RoutePlanner() {
 
         {step === 2 && (
           <div>
-            <h3 class="text-lg font-bold text-[#0c0a09] mb-1">What are your payment goals?</h3>
-            <p class="text-base text-[#57534e] mb-5">Select all that apply. Your payment goals determine the requirements for your route.</p>
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">What are your payment goals?</h3>
+            <p class="text-base text-[var(--color-text-secondary)] mb-5">Select all that apply. Your payment goals determine the requirements for your route.</p>
             <div class="grid gap-2 sm:grid-cols-2">
               {PAYMENT_OPTIONS.map((o) => (
                 <CheckboxButton key={o.value} selected={inputs.paymentGoals.includes(o.value as any)} onClick={() => togglePayment(o.value)}>
@@ -435,8 +435,8 @@ export default function RoutePlanner() {
 
         {step === 3 && (
           <div>
-            <h3 class="text-lg font-bold text-[#0c0a09] mb-1">What is your current setup?</h3>
-            <p class="text-base text-[#57534e] mb-5">Tell us where you are in the process.</p>
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">What is your current setup?</h3>
+            <p class="text-base text-[var(--color-text-secondary)] mb-5">Tell us where you are in the process.</p>
             <div class="grid gap-2">
               {SETUP_OPTIONS.map((o) => (
                 <OptionButton key={o.value} selected={inputs.currentSetup === o.value} onClick={() => setInputs({ ...inputs, currentSetup: o.value as any })}>
@@ -449,8 +449,8 @@ export default function RoutePlanner() {
 
         {step === 4 && (
           <div>
-            <h3 class="text-lg font-bold text-[#0c0a09] mb-1">Which address layer is your weakest point?</h3>
-            <p class="text-base text-[#57534e] mb-5">Separate your registered-agent address for state contact from founder residential proof and the business legal or operating address banks and processors may request.</p>
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Which address layer is your weakest point?</h3>
+            <p class="text-base text-[var(--color-text-secondary)] mb-5">Separate your registered-agent address for state contact from founder residential proof and the business legal or operating address banks and processors may request.</p>
             <div class="grid gap-2">
               {ADDRESS_OPTIONS.map((o) => (
                 <OptionButton key={o.value} selected={inputs.addressStatus === o.value} onClick={() => setInputs({ ...inputs, addressStatus: o.value as any })}>
@@ -463,8 +463,8 @@ export default function RoutePlanner() {
 
         {step === 5 && (
           <div>
-            <h3 class="text-lg font-bold text-[#0c0a09] mb-1">Entity preference?</h3>
-            <p class="text-base text-[#57534e] mb-5">Which entity type are you considering? Select "Unsure" if you need guidance.</p>
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Entity preference?</h3>
+            <p class="text-base text-[var(--color-text-secondary)] mb-5">Which entity type are you considering? Select "Unsure" if you need guidance.</p>
             <div class="grid gap-2 sm:grid-cols-2">
               {ENTITY_OPTIONS.map((o) => (
                 <OptionButton key={o.value} selected={inputs.entityPreference === o.value} onClick={() => setInputs({ ...inputs, entityPreference: o.value as any })}>
@@ -477,8 +477,8 @@ export default function RoutePlanner() {
 
         {step === 6 && (
           <div>
-            <h3 class="text-lg font-bold text-[#0c0a09] mb-1">Risk tolerance?</h3>
-            <p class="text-base text-[#57534e] mb-5">This helps us match you with the right provider route and setup approach.</p>
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Risk tolerance?</h3>
+            <p class="text-base text-[var(--color-text-secondary)] mb-5">This helps us match you with the right provider route and setup approach.</p>
             <div class="grid gap-2">
               {RISK_OPTIONS.map((o) => (
                 <OptionButton key={o.value} selected={inputs.riskTolerance === o.value} onClick={() => setInputs({ ...inputs, riskTolerance: o.value as any })}>
@@ -493,12 +493,12 @@ export default function RoutePlanner() {
       {/* Navigation */}
       <div class="flex items-center justify-between">
         <button onClick={back} disabled={step === 0}
-          class={`px-5 py-2.5 text-base font-semibold rounded-[6px] border transition-all ${step === 0 ? 'border-[#e7e5e4] text-[#e7e5e4] cursor-not-allowed' : 'border-[#d6d3d1] text-[#57534e] hover:border-[#4f46e5] hover:text-[#4f46e5]'}`}>
+          class={`px-5 py-2.5 text-base font-semibold rounded-[6px] border transition-all ${step === 0 ? 'border-[var(--color-border-subtle)] text-[#e7e5e4] cursor-not-allowed' : 'border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-action)] hover:text-[var(--color-action)]'}`}>
           Back
         </button>
-        <span class="font-mono text-[11px] text-[#78716c]">{step + 1} / {STEPS.length}</span>
+        <span class="font-mono text-[11px] text-[var(--color-text-muted)]">{step + 1} / {STEPS.length}</span>
         <button onClick={next} disabled={!canAdvance}
-          class={`px-5 py-2.5 text-base font-semibold rounded-[6px] border transition-all ${canAdvance ? 'bg-[#4f46e5] border-[#4f46e5] text-white hover:bg-[#4338ca] hover:shadow-md' : 'bg-[#e7e5e4] border-[#e7e5e4] text-[#78716c] cursor-not-allowed'}`}>
+          class={`px-5 py-2.5 text-base font-semibold rounded-[6px] border transition-all ${canAdvance ? 'bg-[var(--color-action)] border-[var(--color-action)] text-white hover:bg-[var(--color-action-hover)] hover:shadow-md' : 'bg-[#e7e5e4] border-[var(--color-border-subtle)] text-[var(--color-text-muted)] cursor-not-allowed'}`}>
           {step === STEPS.length - 1 ? 'Get Route' : 'Next'}
         </button>
       </div>
