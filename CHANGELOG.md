@@ -11,6 +11,16 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-04] - Dark Mode Contrast Optimization & Semantic Token Refactor
+
+### Changed
+- **Mass Refactor of Hardcoded Colors**: Automated a sweep across `CostCalculator.tsx`, `RoutePlanner.tsx`, `ProviderCostSnapshot.astro`, and other components to replace non-adaptive utility classes (e.g., `bg-white`, `text-[#0c0a09]`, `bg-gray-50`) with semantic theme variables (`bg-[var(--color-surface-container)]`, `text-[var(--color-text-primary)]`, `bg-[var(--color-surface-dim)]`) for full dark mode compatibility.
+
+### Fixed
+- **DirectAnswer Contrast Bug**: Refactored the `DirectAnswer.astro` gradient background from static light colors to `from-[var(--color-surface-dim)] to-[var(--color-surface-container)]`, ensuring text remains readable in dark mode.
+- **PillarLayout Hub Contrast Bug**: Updated the "Main question" alert box background in `PillarLayout.astro` from `--color-primary-50` to `--color-surface-dim`.
+- **ToolNav Active State Contrast Bug**: Adjusted `ToolNav.astro` active tab background to `--color-surface-dim` instead of a static light blue, fixing contrast issues for tool navigation elements in dark mode.
+
 ## [2026-05-04] - 2026 UI Redesign & Premium Dark Mode
 
 ### Added
