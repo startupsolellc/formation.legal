@@ -11,6 +11,80 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-04] - Auto-Linking System (Central Static Dictionary)
+
+### Added
+- **Automatic Internal Linking System** — Rehype plugin-based auto-linking for all MDX content:
+  - **`src/lib/rehype/index.ts`** — Plugin entry point, factory function for Astro's `markdown.rehypePlugins`
+  - **`src/lib/rehype/auto-links.ts`** — Core HAST transform logic with word boundary detection, compound keyword handling (longest-match-first), Set-based deduplication
+  - **`src/lib/rehype/types.ts`** — TypeScript interfaces: `LinkEntry`, `LinkMatch`, `AutoLinkOptions`, `DedupState`
+  - **`src/lib/link-dictionary.ts`** — ★ **Central Static Dictionary** (editöryal kontrol noktası):
+    - 27 initial link entries covering: Stripe, PayPal, LLC, registered agent, EIN, BOI, compliance, providers, pillars
+    - Compound keywords prioritized (e.g., "stripe connect account" before "stripe")
+    - `priority` field for conflict resolution (higher = preferred)
+    - `maxOccurrences` per keyword per article
+    - `excludePillars` / `excludePages` for fine-grained control
+
+### Changed
+- **`astro.config.mjs`** — Added `markdown.rehypePlugins` configuration with `autoLinkPlugin`:
+  - Dictionary injected via `LINK_DICTIONARY` import
+  - Debug mode enabled in DEV (`import.meta.env.DEV`)
+  - Max 10 links per article default
+
+### Architecture Decisions
+- **No MDX editing required** — New links added to `link-dictionary.ts` only; all content auto-linked at build time
+- **Spam prevention** — Set-based dedup ensures each keyword links only once per article
+- **Word boundary detection** — Unicode-aware regex (`/[\p{L}]/u`) prevents partial matches ("strip" won't match "stripe")
+- **Compound keyword priority** — Longer phrases matched first via sorted keyword length in regex pattern
+- **Fail-safe design** — `failQuietly: true` by default; empty dictionary skips processing without errors
+- **Build-time processing** — Rehype plugin runs during Astro's content compilation phase, zero runtime overhead
+
+### Key Files
+| File | Purpose |
+|------|---------|
+| `src/lib/link-dictionary.ts` | **Editöryal kontrol noktası** — Link eklemek/silmek için tek dosya |
+| `src/lib/rehype/index.ts` | Astro'ya register edilir (`markdown.rehypePlugins`) |
+| `src/lib/rehype/auto-links.ts` | Core transform — HAST tree traversal, text→link conversion |
+| `src/lib/rehype/types.ts` | TypeScript types — bağımlılık azaltıcı |
+
+### Usage
+```typescript
+// Yeni link eklemek için src/lib/link-dictionary.ts:
+{
+  keyword: "stripe connect",
+  target: "/payment-access/stripe-connect",
+  priority: 100,
+  maxOccurrences: 2,
+}
+// MDX dosyaları DEĞİŞMEZ — build-time'da otomatik linklenir
+```
+
+---
+
+## [2026-05-04] - Content Workflow Standards + SEO Meta Audit
+
+### Added
+- **`docs/content-workflow-standards.md`** — Zorunlu içerik üretim standardı:
+  - 5-adımlı workflow: Konsept → DataForSEO → Araştırma → Yazım → QC
+  - DataForSEO SERP analizi zorunlu (AI Overview durumu, rekabet, fırsat)
+  - SEO meta kuralları: `seoTitle` ≤60 char, `seoDescription` ≤160 char
+  - GEO template zorunlu alanları: directAnswer, verdict, aiMiss, decisionTree, providerFit
+  - Trust Layer: originalityScore, humanGenerated, aiAssisted
+  - Quick reference checklist
+  - "Yapılmaması gerekenler" listesi
+- **`docs/seo-meta-audit-report.md`** — Tam sayfa envanteri + DataForSEO SERP analizi raporu
+- **`docs/gsc-analysis-report.md`** — GSC analizi raporu (user created)
+
+### Changed
+- **`AGENTS.md`** — İçerik üretim standartları bölümü eklendi (content-workflow-standards.md referansı)
+
+### Architecture Decisions
+- Content workflow standardizasyonu: Her yeni içerik için DataForSEO araştırması zorunlu
+- SEO meta ayrımı: H1 title'dan bağımsız `seoTitle` ile SERP-optimized başlık
+- Route Engine konseptine uygun: LLM-citation-optimized directAnswer formatı
+
+---
+
 ## [2026-05-04] - SEO Meta Optimization for 13 Pages
 
 ### Added

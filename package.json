@@ -22,6 +22,9 @@
     "astro": "^6.1.9",
     "dataforseo-client": "^2.0.24",
     "preact": "^10.29.1",
-    "tailwindcss": "^4.2.4"
+    "rehype": "^13.0.2",
+    "tailwindcss": "^4.2.4",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.1.0"
   }
 }

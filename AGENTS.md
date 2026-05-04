@@ -293,6 +293,19 @@ Bu proje kasıtlı olarak **minimal bağımlılık** ilkesiyle kurulmuştur:
 
 ---
 
+## İçerik Üretim Standartları
+
+**Zorunlu workflow:** [`docs/content-workflow-standards.md`](./docs/content-workflow-standards.md)
+
+Her yeni içerik oluşturmada uygulanacak:
+1. DataForSEO SERP analizi (keyword araştırması)
+2. 2026 güncel araştırma + kaynak doğrulama
+3. SEO meta optimizasyonu (`seoTitle` ≤60 char, `seoDescription` ≤160 char)
+4. GEO template alanları (directAnswer, verdict, aiMiss, decisionTree, providerFit)
+5. Trust Layer (originalityScore, humanGenerated, aiAssisted)
+
+---
+
 ## External API Entegrasyonları
 
 ### DataForSEO — Anahtar Kelime Araştırması
