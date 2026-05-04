@@ -34,17 +34,17 @@ const riskStyles: Record<string, { bg: string; text: string; border: string; lab
       <rect x="9" y="3" width="6" height="4" rx="1"/>
       <path d="M9 14l2 2 4-4"/>
     </svg>
-    <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
+    <h3 class="font-mono text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
       {title}
     </h3>
   </div>
   <div class="overflow-x-auto">
-    <table class="w-full text-sm">
+    <table class="w-full text-base">
       <thead>
         <tr class="border-b border-[var(--color-border)]">
-          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)]">Scenario</th>
-          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)]">Verdict</th>
-          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)]">Risk</th>
+          <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-muted)]">Scenario</th>
+          <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-muted)]">Verdict</th>
+          <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-muted)]">Risk</th>
         </tr>
       </thead>
       <tbody>
@@ -55,13 +55,13 @@ const riskStyles: Record<string, { bg: string; text: string; border: string; lab
               <td class="px-5 py-3.5 font-medium text-[var(--color-text-primary)]">
                 {row.scenario}
                 {row.note && (
-                  <span class="block mt-1 text-xs text-[var(--color-muted)] italic">{row.note}</span>
+                  <span class="block mt-1 text-sm text-[var(--color-muted)] italic">{row.note}</span>
                 )}
               </td>
               <td class="px-5 py-3.5 text-[var(--color-text-secondary)]">{row.verdict}</td>
               <td class="px-5 py-3.5">
                 <span class:list={[
-                  'inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider',
+                  'inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 font-mono text-xs font-bold uppercase tracking-wider',
                   style.bg,
                   style.text,
                   style.border,

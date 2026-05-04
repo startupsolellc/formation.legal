@@ -24,7 +24,7 @@ const toolIcons: Record<string, string> = {
   schemas={[breadcrumbSchema]}
 >
   <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-    <nav class="mb-8 text-sm text-[var(--color-muted)]" aria-label="Breadcrumb">
+    <nav class="mb-8 text-base text-[var(--color-muted)]" aria-label="Breadcrumb">
       <ol class="flex items-center gap-1.5">
         <li><a href="/" class="hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
         <li aria-hidden="true">/</li>
@@ -33,7 +33,7 @@ const toolIcons: Record<string, string> = {
     </nav>
 
     <header class="mb-12 reveal">
-      <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)] mb-2">Interactive tools</p>
+      <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-muted)] mb-2">Interactive tools</p>
       <h1 class="text-3xl font-bold text-[var(--color-text-primary)] sm:text-4xl">Route Engine Tools</h1>
       <p class="mt-4 max-w-2xl text-lg text-[var(--color-text-secondary)]">
         Personalized tools that AI answers can't replace — your country, your business model, your route.
@@ -54,20 +54,20 @@ const toolIcons: Record<string, string> = {
               <div class="flex items-center gap-2">
                 <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">{tool.title}</h3>
                 {tool.status === 'available' && (
-                  <span class="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--color-trust)]">
+                  <span class="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-[var(--color-trust)]">
                     <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-trust)]"></span>
                     Live
                   </span>
                 )}
                 {tool.status === 'coming-soon' && (
-                  <span class="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--color-route-incomplete)]">
+                  <span class="rounded-full bg-stone-100 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-[var(--color-route-incomplete)]">
                     Coming Soon
                   </span>
                 )}
               </div>
             </div>
-            <p class="text-sm leading-relaxed text-[var(--color-text-secondary)]">{tool.description}</p>
-            <div class="mt-4 flex items-center gap-1 text-xs font-semibold text-[var(--color-action)]">
+            <p class="text-base leading-relaxed text-[var(--color-text-secondary)]">{tool.description}</p>
+            <div class="mt-4 flex items-center gap-1 text-sm font-semibold text-[var(--color-action)]">
               Open tool
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-3.5">
                 <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>

@@ -20,11 +20,11 @@ const dateFormatted = lastReviewed?.toLocaleDateString('en-US', {
 
 <div class="inline-flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-container)] px-3 py-1.5">
   <span class="h-2 w-2 rounded-full" class:list={[lastReviewed ? 'bg-[var(--color-route-safe)]' : 'bg-[var(--color-route-incomplete)]']}></span>
-  <span class="font-mono text-xs text-[var(--color-text-secondary)]">
+  <span class="font-mono text-sm text-[var(--color-text-secondary)]">
     {dateFormatted ? `Reviewed: ${dateFormatted}` : 'Review pending'}
   </span>
   {reviewer && (
-    <span class="text-xs text-[var(--color-text-secondary)]">
+    <span class="text-sm text-[var(--color-text-secondary)]">
       · {reviewer}
     </span>
   )}

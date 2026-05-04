@@ -11,6 +11,21 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-04] - Typography & Readability Upgrade
+
+### Changed
+- **Global Typography Scale**: Systematically bumped up all text sizes across the project to meet WCAG readability standards and improve the mobile experience.
+  - Replaced all non-standard `text-[10px]` with `text-xs` (12px) for eyebrows, dates, and micro-labels.
+  - Upgraded secondary UI text and meta labels from `text-xs` to `text-sm` (14px).
+  - Upgraded main UI paragraphs, card descriptions, and component text from `text-sm` to `text-base` (16px) for standard web readability.
+- **Components Updated**: `index.astro`, `PostCard.astro`, Guide components (`AiMissBox.astro`, `DecisionTree.astro`, etc.), Trust Layer components (`AuthorBio.astro`, `Disclaimer.astro`, etc.).
+
+### Architecture Decisions
+- Minimum readable text size is now 12px (`text-xs`), eliminating inaccessible 10px fonts.
+- Main UI content now uses 16px (`text-base`) to match standard mobile-first accessibility.
+
+---
+
 ## [2026-05-04] - Auto-Linking System (Central Static Dictionary)
 
 ### Added

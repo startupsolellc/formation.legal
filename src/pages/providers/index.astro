@@ -188,7 +188,7 @@ const sources = [...sourcesByUrl.values()];
   schemas={[breadcrumbSchema]}
 >
   <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-    <nav class="mb-8 text-sm text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
+    <nav class="mb-8 text-base text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
       <ol class="flex flex-wrap items-center gap-1.5">
         <li><a href="/" class="hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
         <li aria-hidden="true">/</li>
@@ -200,7 +200,7 @@ const sources = [...sourcesByUrl.values()];
       <div class="mb-4">
         <LastReviewedBadge lastReviewed={new Date('2026-05-03T00:00:00Z')} reviewer="Formation.Legal Editorial" />
       </div>
-      <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+      <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
         Provider research
       </p>
       <h1 class="mt-3 text-3xl font-bold text-[var(--color-text-primary)] sm:text-4xl">
@@ -209,7 +209,7 @@ const sources = [...sourcesByUrl.values()];
       <p class="mt-4 text-lg leading-relaxed text-[var(--color-text-secondary)]">
         Route-based formation provider comparison for non-US founders.
       </p>
-      <p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+      <p class="mt-4 text-base leading-relaxed text-[var(--color-text-secondary)]">
         Compare providers by route fit, 3-year cost exposure, registered agent renewal, address clarity, non-US founder workflow, and support route. No star ratings. No best-overall claims.
       </p>
     </header>
@@ -221,9 +221,9 @@ const sources = [...sourcesByUrl.values()];
 
       <section>
         <div class="mb-5 max-w-3xl">
-          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Route-fit matrix</p>
+          <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Route-fit matrix</p>
           <h2 class="mt-1 text-2xl font-bold text-[var(--color-text-primary)]">Start with the scenario, then compare the provider</h2>
-          <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+          <p class="mt-3 text-base leading-relaxed text-[var(--color-text-secondary)]">
             The same provider can be reasonable for one route and a poor fit for another. Use this matrix as a starting point, then verify current pricing and eligibility details.
           </p>
         </div>
@@ -236,9 +236,9 @@ const sources = [...sourcesByUrl.values()];
 
       <section>
         <div class="mb-5 max-w-3xl">
-          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Provider cards</p>
+          <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Provider cards</p>
           <h2 class="mt-1 text-2xl font-bold text-[var(--color-text-primary)]">Route notes by provider</h2>
-          <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+          <p class="mt-3 text-base leading-relaxed text-[var(--color-text-secondary)]">
             These cards summarize source-checked pricing and route-fit notes. Live checkout testing is still pending, so package contents should be verified before purchase.
           </p>
         </div>
@@ -251,24 +251,24 @@ const sources = [...sourcesByUrl.values()];
 
       <section class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <a href="/tools/route-planner" class="brutal-card block p-5 transition-colors hover:border-[var(--color-action)]">
-          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Tool</p>
+          <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Tool</p>
           <h3 class="mt-2 text-base font-bold text-[var(--color-text-primary)]">Check Your Route</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">Match provider fit to country, business model, payment goal, and risk tolerance.</p>
+          <p class="mt-2 text-base leading-relaxed text-[var(--color-text-secondary)]">Match provider fit to country, business model, payment goal, and risk tolerance.</p>
         </a>
         <a href="/tools/cost-calculator" class="brutal-card block p-5 transition-colors hover:border-[var(--color-action)]">
-          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Tool</p>
+          <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Tool</p>
           <h3 class="mt-2 text-base font-bold text-[var(--color-text-primary)]">Estimate 3-Year Cost</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">Adjust state filing, compliance, tax-prep, EIN, and renewal assumptions.</p>
+          <p class="mt-2 text-base leading-relaxed text-[var(--color-text-secondary)]">Adjust state filing, compliance, tax-prep, EIN, and renewal assumptions.</p>
         </a>
         <a href="/affiliate-disclosure" class="brutal-card block p-5 transition-colors hover:border-[var(--color-action)]">
-          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Trust</p>
+          <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Trust</p>
           <h3 class="mt-2 text-base font-bold text-[var(--color-text-primary)]">Read Affiliate Disclosure</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">Understand how provider relationships are disclosed and separated from research.</p>
+          <p class="mt-2 text-base leading-relaxed text-[var(--color-text-secondary)]">Understand how provider relationships are disclosed and separated from research.</p>
         </a>
         <a href="/source-methodology" class="brutal-card block p-5 transition-colors hover:border-[var(--color-action)]">
-          <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Research</p>
+          <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Research</p>
           <h3 class="mt-2 text-base font-bold text-[var(--color-text-primary)]">See Source Methodology</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">Review how Formation.Legal checks sources and updates decision pages.</p>
+          <p class="mt-2 text-base leading-relaxed text-[var(--color-text-secondary)]">Review how Formation.Legal checks sources and updates decision pages.</p>
         </a>
       </section>
 

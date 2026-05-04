@@ -146,7 +146,7 @@ const dateFormatted = pubDate.toLocaleDateString('en-US', {
 >
   <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
     <!-- Breadcrumb -->
-    <nav class="mb-8 text-sm text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
+    <nav class="mb-8 text-base text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
       <ol class="flex items-center gap-1.5 flex-wrap">
         <li><a href="/" class="hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
         <li aria-hidden="true">/</li>
@@ -158,8 +158,8 @@ const dateFormatted = pubDate.toLocaleDateString('en-US', {
 
     <!-- Article Header -->
     <header class="mb-10">
-      <div class="mb-4 flex items-center gap-2 text-xs">
-        <a href={pillarHref} class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-container)] px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] hover:border-[var(--color-action)] transition-colors">
+      <div class="mb-4 flex items-center gap-2 text-sm">
+        <a href={pillarHref} class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-container)] px-2.5 py-0.5 font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)] hover:border-[var(--color-action)] transition-colors">
           {pillarLabel}
         </a>
       </div>
@@ -173,7 +173,7 @@ const dateFormatted = pubDate.toLocaleDateString('en-US', {
       </p>
 
       <!-- Meta row -->
-      <div class="mt-6 flex flex-wrap items-center gap-4 font-mono text-xs text-[var(--color-text-secondary)]">
+      <div class="mt-6 flex flex-wrap items-center gap-4 font-mono text-sm text-[var(--color-text-secondary)]">
         <span>{author}</span>
         <span aria-hidden="true">·</span>
         <time datetime={pubDate.toISOString()}>{dateFormatted}</time>

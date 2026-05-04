@@ -27,14 +27,14 @@ const sorted = [...primarySources, ...secondarySources];
 {sorted.length > 0 && (
   <div class="brutal-card overflow-hidden mb-8">
     <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-container)]">
-      <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
+      <h3 class="font-mono text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
         Official Sources
       </h3>
     </div>
     <div class="divide-y divide-[var(--color-border)]">
       {sorted.map((source, i) => (
         <div class="px-5 py-3 flex items-start gap-3">
-          <span class="font-mono text-xs text-[var(--color-text-secondary)] mt-0.5 flex-shrink-0 tabular-nums w-6">
+          <span class="font-mono text-sm text-[var(--color-text-secondary)] mt-0.5 flex-shrink-0 tabular-nums w-6">
             [{i + 1}]
           </span>
           <div class="min-w-0">
@@ -43,12 +43,12 @@ const sorted = [...primarySources, ...secondarySources];
                 href={source.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-sm font-medium text-[var(--color-action)] hover:text-[var(--color-action-hover)] hover:underline underline-offset-2 truncate"
+                class="text-base font-medium text-[var(--color-action)] hover:text-[var(--color-action-hover)] hover:underline underline-offset-2 truncate"
               >
                 {source.title}
               </a>
               {source.primary && (
-                <span class="inline-block rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-container)] px-1.5 py-0.5 font-mono text-[10px] uppercase text-[var(--color-text-secondary)] flex-shrink-0">
+                <span class="inline-block rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-container)] px-1.5 py-0.5 font-mono text-xs uppercase text-[var(--color-text-secondary)] flex-shrink-0">
                   Primary
                 </span>
               )}
@@ -59,7 +59,7 @@ const sorted = [...primarySources, ...secondarySources];
               </p>
             )}
             {source.note && (
-              <p class="text-xs text-[var(--color-text-secondary)] mt-0.5 italic">{source.note}</p>
+              <p class="text-sm text-[var(--color-text-secondary)] mt-0.5 italic">{source.note}</p>
             )}
           </div>
         </div>

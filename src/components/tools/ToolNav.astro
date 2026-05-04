@@ -20,12 +20,12 @@ const TOOL_DESCRIPTIONS: Record<string, string> = {
 
 <nav class="mb-8" aria-label="Tool navigation">
   <div class="mb-2 flex items-center justify-between gap-3">
-    <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
+    <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
       Tools
     </p>
     <a
       href="/tools"
-      class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
+      class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
     >
       All tools →
     </a>
@@ -52,8 +52,8 @@ const TOOL_DESCRIPTIONS: Record<string, string> = {
             <div class="flex items-center gap-2.5">
               <span class:list={[isActive ? 'text-[var(--color-action)]' : 'text-[var(--color-text-secondary)]']} set:html={icon} />
               <div>
-                <span class="block text-sm font-bold">{item.label}</span>
-                <span class="mt-0.5 block text-xs leading-relaxed text-[var(--color-text-secondary)]">
+                <span class="block text-base font-bold">{item.label}</span>
+                <span class="mt-0.5 block text-sm leading-relaxed text-[var(--color-text-secondary)]">
                   {desc}
                 </span>
               </div>

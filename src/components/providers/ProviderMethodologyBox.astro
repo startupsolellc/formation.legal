@@ -19,16 +19,16 @@ const criteria = [
 
 <div class="brutal-card p-5">
   <div class="mb-4 border-b border-[var(--color-border)] pb-3">
-    <p class="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Methodology</p>
+    <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Methodology</p>
     <h2 class="mt-1 text-xl font-bold text-[var(--color-text-primary)]">How we compare providers</h2>
   </div>
-  <p class="max-w-3xl text-sm leading-relaxed text-[var(--color-text-secondary)]">
+  <p class="max-w-3xl text-base leading-relaxed text-[var(--color-text-secondary)]">
     We compare formation providers by route fit, not by a single universal provider label. The goal is to show which tradeoffs may matter for a non-US founder before checkout.
   </p>
   <div class="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
     {criteria.map((criterion) => (
       <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-white px-3 py-2">
-        <span class="text-sm font-medium text-[var(--color-text-primary)]">{criterion}</span>
+        <span class="text-base font-medium text-[var(--color-text-primary)]">{criterion}</span>
       </div>
     ))}
   </div>

@@ -30,4 +30,38 @@ const guides = (await getCollection('guides'))
   mainQuestion={pillar.mainQuestion}
   href={pillar.href}
   guides={guides}
-/>
+>
+  <!-- External Resource: EIN Guide -->
+  <div class="mt-12 brutal-card border-l-[3px] border-l-[var(--color-primary-500)] p-6 reveal">
+    <div class="flex items-start gap-4">
+      <div class="flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary-50)] text-[var(--color-primary-600)] shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+          <polyline points="14,2 14,8 20,8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+      </div>
+      <div class="flex-1">
+        <p class="text-xs font-bold uppercase tracking-wider text-[var(--color-muted)] mb-1">External Resource</p>
+        <h3 class="text-base font-bold text-[var(--color-text-primary)] mb-2">EIN Application Guide for Foreign LLCs</h3>
+        <p class="text-base text-[var(--color-text-secondary)] mb-4">
+          How non-US residents can apply for an EIN by phone, fax, or mail. Includes Form SS-4 instructions and common mistakes to avoid.
+        </p>
+        <a
+          href="https://startupsolellc.github.io/startupguides"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
+        >
+          Read the guide
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+            <polyline points="15,3 21,3 21,9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</PillarLayout>

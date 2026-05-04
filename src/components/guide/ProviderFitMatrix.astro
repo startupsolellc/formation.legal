@@ -21,17 +21,17 @@ const { rows, title = 'Provider Fit by Founder Profile' } = Astro.props;
 
 <div class="brutal-card overflow-hidden mb-8">
   <div class="px-5 py-3 border-b border-[var(--color-border)] bg-[var(--color-surface-container)]">
-    <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
+    <h3 class="font-mono text-sm font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
       {title}
     </h3>
   </div>
   <div class="overflow-x-auto">
-    <table class="w-full text-sm">
+    <table class="w-full text-base">
       <thead>
         <tr class="border-b border-[var(--color-border)]">
-          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Founder Profile</th>
-          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Better Fit</th>
-          <th class="px-5 py-3 text-left font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Why</th>
+          <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Founder Profile</th>
+          <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Better Fit</th>
+          <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Why</th>
         </tr>
       </thead>
       <tbody>
@@ -39,12 +39,12 @@ const { rows, title = 'Provider Fit by Founder Profile' } = Astro.props;
           <tr class="border-b border-[var(--color-border)] last:border-b-0">
             <td class="px-5 py-3 font-medium text-[var(--color-text-primary)]">{row.founderProfile}</td>
             <td class="px-5 py-3">
-              <span class="font-mono text-xs font-semibold text-[var(--color-action)]">{row.betterFit}</span>
+              <span class="font-mono text-sm font-semibold text-[var(--color-action)]">{row.betterFit}</span>
             </td>
             <td class="px-5 py-3 text-[var(--color-text-secondary)]">
               {row.why}
               {row.caveat && (
-                <span class="block mt-1 text-xs italic text-[var(--color-text-secondary)]">
+                <span class="block mt-1 text-sm italic text-[var(--color-text-secondary)]">
                   ⚠ {row.caveat}
                 </span>
               )}
