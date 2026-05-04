@@ -11,6 +11,28 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-04] - 2026 UI Redesign & Premium Dark Mode
+
+### Added
+- **Premium Dark Mode (`#1E2029`)**: Implemented a "Crisp Authority" design language featuring a default light mode with an optional slate-navy dark mode.
+- **FOIT Protection (`BaseLayout.astro`)**: Added an inline JavaScript theme initializer to prevent the Flash of Incorrect Theme during page load.
+
+### Changed
+- **Tailwind v4 Theme Tokens (`global.css`)**: 
+  - Refactored all color tokens to support dynamic light and dark mode mappings via CSS variables.
+  - Implemented `.glass-header` and `.brutal-card` improvements for hover-glow effects and elevated aesthetics.
+- **Component Alignments**:
+  - `Header.astro`: Converted arbitrary var() class names to native Tailwind v4 tokens (e.g., `text-primary`, `bg-action/10`).
+  - `Footer.astro`: Changed the background to a premium solid dark slate (`#0f111a`) which acts as a great anchor in both light and dark modes.
+  - `Prose.astro`: Added `dark:prose-invert` ensuring all MDX content adapts perfectly to dark mode via the typography plugin.
+- **Homepage (`index.astro`)**: Refactored the core layout into a Bento Grid 2.0 structure for decision pillars, with a story-driven abstract hero section.
+
+### Architecture Decisions
+- Handled dark mode exclusively with native CSS variables defined under `:root` and `.dark` inside the Tailwind v4 `@theme` block. This is the most performant way to support dark mode on a purely static Astro site without JavaScript hydration delays.
+- Removed hardcoded values and replaced them with robust semantic tokens (`bg-surface-dim`, `text-action`).
+
+---
+
 ## [2026-05-04] - Internal Link Dictionary Validation & Cleanup
 
 ### Fixed
