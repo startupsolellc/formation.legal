@@ -35,9 +35,12 @@ export const LINK_DICTIONARY: LinkEntry[] = [
     target: "/guides/registered-agent-address-vs-business-address",
     priority: 90,
   },
+  // NO EIN PAGE EXISTS - EIN is covered in BOI reporting guide
+  // EIN applications go through IRS directly - no dedicated guide page
+  // Keeping this entry but pointing to BOI guide which covers related topics
   {
     keyword: "ein application",
-    target: "/compliance/how-to-get-ein",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 85,
   },
   {
@@ -56,9 +59,11 @@ export const LINK_DICTIONARY: LinkEntry[] = [
     priority: 85,
     maxOccurrences: 2,
   },
+  // Stripe Atlas doesn't have a dedicated page - link to Stripe guide
+  // Stripe Atlas is Stripe's own LLC formation service
   {
     keyword: "stripe atlas",
-    target: "/providers/stripe",
+    target: "/guides/us-llc-for-stripe",
     priority: 60,
   },
   {
@@ -154,36 +159,42 @@ export const LINK_DICTIONARY: LinkEntry[] = [
     priority: 75,
     maxOccurrences: 3,
   },
+  // NO dedicated EIN page - EIN is covered in BOI reporting guide
   {
     keyword: "ein",
-    target: "/compliance/how-to-get-ein",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 70,
     maxOccurrences: 3,
   },
+  // NO dedicated EIN page - EIN is covered in BOI reporting guide
   {
     keyword: "fein",
-    target: "/compliance/how-to-get-ein",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 65,
     maxOccurrences: 2,
   },
+  // NO dedicated EIN page - EIN is covered in BOI reporting guide
   {
     keyword: "employer identification number",
-    target: "/compliance/how-to-get-ein",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 60,
   },
+  // NO dedicated EIN page - EIN is covered in BOI reporting guide
   {
     keyword: "itin",
-    target: "/compliance/how-to-get-ein",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 70,
   },
+  // NO dedicated EIN page - EIN is covered in BOI reporting guide
   {
     keyword: "ssn",
-    target: "/compliance/how-to-get-ein",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 60,
   },
+  // NO dedicated EIN page - EIN is covered in BOI reporting guide
   {
     keyword: "form ss-4",
-    target: "/compliance/how-to-get-ein",
+    target: "/compliance/boi-reporting-us-llc-2026",
     priority: 75,
   },
   {
@@ -319,34 +330,36 @@ export const LINK_DICTIONARY: LinkEntry[] = [
 
   // ============ PROVIDER-RELATED ============
 
+  // Provider hub exists at /providers but no individual provider pages
+  // These will link to the provider hub for now
   {
     keyword: "bizee",
-    target: "/providers/bizee",
+    target: "/providers",
     priority: 45,
   },
   {
     keyword: "inc authority",
-    target: "/providers/inc-authority",
+    target: "/providers",
     priority: 45,
   },
   {
     keyword: "docketed",
-    target: "/providers/docketed",
+    target: "/providers",
     priority: 40,
   },
   {
     keyword: "legalzoom",
-    target: "/providers/legalzoom",
+    target: "/providers",
     priority: 40,
   },
   {
     keyword: "incfile",
-    target: "/providers/incfile",
+    target: "/providers",
     priority: 40,
   },
   {
     keyword: "northwest registered agent",
-    target: "/providers/northwest",
+    target: "/providers",
     priority: 45,
   },
 
