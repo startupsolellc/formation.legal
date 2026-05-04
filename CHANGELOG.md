@@ -11,6 +11,39 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-04] - SEO Meta Optimization for 13 Pages
+
+### Added
+- **seoTitle/seoDescription schema fields** in `src/content.config.ts` for all content collections (guides, providers, playbooks, research):
+  - `seoTitle`: max 60 chars, optimized for SERP display
+  - `seoDescription`: max 160 chars, keyword-targeted meta descriptions
+- **SEO override logic** in `GuideLayout.astro` and `PillarLayout.astro`: `seoTitle ?? title` fallback ensures SERP-optimized title tags while keeping original H1 tags unchanged
+- **SERP analysis scripts**: `scripts/serp-analysis.mjs`, `scripts/address-banking-serp-analysis.mjs`, `src/lib/serp-analysis.ts`
+- **Audit reports**: `docs/seo-meta-audit-report.md`, `docs/gsc-analysis-report.md`
+
+### Changed
+- **7 Guide frontmatters** updated with SERP-optimized seoTitle/seoDescription:
+  - `us-llc-for-stripe`: "Non-US Founder Stripe With US LLC? Real Route (2026)"
+  - `us-llc-for-paypal`: "US LLC for PayPal: Non-Resident Requirements (2026)"
+  - `formation-does-not-equal-payment-approval`: "Why LLC Formation Doesn't Equal Payment Access"
+  - `payment-stack-for-non-us-founders`: "Payment Stack for Non-US Founders: Alternatives Guide"
+  - `registered-agent-address-vs-business-address`: "RA Address for Stripe, Banks, or EIN? (2026 Guide)"
+  - `form-5472-foreign-owned-llc`: "Form 5472 for Foreign-Owned LLCs: Filing Guide"
+  - `boi-reporting-us-llc-2026`: "BOI Reporting 2026: Who Must Still File?"
+- **4 Hub pages** updated with seoTitle/seoDescription props:
+  - Payment Access, Address & Banking, Compliance, Providers
+- **2 Tool pages** updated with SERP-optimized title/description:
+  - Route Planner: "US Business Route Planner for Non-US Founders"
+  - Cost Calculator: "3-Year LLC Cost Calculator for Non-Residents"
+- **3 dynamic route files** (`[slug].astro`) updated to pass seoTitle/seoDescription from frontmatter
+
+### Architecture Decisions
+- SEO title is separate from H1 title — allows SERP-aggressive keyword targeting without breaking on-page content hierarchy
+- All seoTitles ≤ 60 chars, seoDescriptions ≤ 160 chars to avoid truncation in search results
+- Based on DataForSEO SERP analysis identifying AI Overview gaps and low-competition keyword opportunities
+
+---
+
 ## [2026-05-03] - Payment Access Pillar — 3 Draft Guides Live
 
 ### Changed
