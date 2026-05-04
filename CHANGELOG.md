@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 ## [2026-05-04] - 2026 UI Redesign & Premium Dark Mode
 
 ### Added
+- **Theme Switcher (`ThemeToggle.astro`)**: Created and integrated a client-side dark/light mode toggle with Sun/Moon icons into both desktop and mobile headers.
 - **Premium Dark Mode (`#1E2029`)**: Implemented a "Crisp Authority" design language featuring a default light mode with an optional slate-navy dark mode.
 - **FOIT Protection (`BaseLayout.astro`)**: Added an inline JavaScript theme initializer to prevent the Flash of Incorrect Theme during page load.
 

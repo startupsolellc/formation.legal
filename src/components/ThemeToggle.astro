@@ -1,0 +1,92 @@
+---
+/**
+ * ThemeToggle.astro — Client-side dark mode switcher.
+ */
+---
+
+<button
+  type="button"
+  class="theme-toggle flex h-10 w-10 items-center justify-center rounded-md text-muted hover:bg-surface-dim hover:text-text-primary transition-all"
+  aria-label="Toggle Dark Mode"
+>
+  <!-- Sun Icon (shown in dark mode to switch to light) -->
+  <svg
+    class="theme-toggle-light-icon hidden size-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2" />
+    <path d="M12 20v2" />
+    <path d="M4.93 4.93l1.41 1.41" />
+    <path d="M17.66 17.66l1.41 1.41" />
+    <path d="M2 12h2" />
+    <path d="M20 12h2" />
+    <path d="M4.93 19.07l1.41-1.41" />
+    <path d="M17.66 6.34l1.41-1.41" />
+  </svg>
+  
+  <!-- Moon Icon (shown in light mode to switch to dark) -->
+  <svg
+    class="theme-toggle-dark-icon hidden size-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+  </svg>
+</button>
+
+<script is:inline>
+  // Wrap in an IIFE to avoid polluting global scope and ensure it runs immediately
+  (function() {
+    const getTheme = () => {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        return localStorage.getItem('theme');
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+
+    const updateIcons = (theme) => {
+      document.querySelectorAll('.theme-toggle-light-icon').forEach(el => {
+        theme === 'dark' ? el.classList.remove('hidden') : el.classList.add('hidden');
+      });
+      document.querySelectorAll('.theme-toggle-dark-icon').forEach(el => {
+        theme === 'dark' ? el.classList.add('hidden') : el.classList.remove('hidden');
+      });
+    };
+
+    // Initialize icons based on current theme without flashing
+    updateIcons(getTheme());
+
+    // Wait for DOM to attach click handlers
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggles = document.querySelectorAll('.theme-toggle');
+      
+      themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const currentTheme = getTheme();
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          
+          if (newTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+          
+          window.localStorage.setItem('theme', newTheme);
+          updateIcons(newTheme);
+        });
+      });
+    });
+  })();
+</script>
