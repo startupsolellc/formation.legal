@@ -78,7 +78,7 @@ Stripe’ın kendi destek dokümanı, başka bir ülkede Stripe hesabı açmak i
 4. Ana içerik omurgası: 5 pillar
 Pillar 1 — Payment Access Reality
 
-Bu sitenin ilk ve en güçlü wedge’i bu olmalı.
+Bu sitenin ilk ve en güçlü wedge'i bu olmalı.
 
 Ana soru:
 
@@ -86,12 +86,18 @@ Does a US company actually unlock Stripe, PayPal, and global payments for my sit
 
 İçerik fikirleri:
 
-Does a US LLC Actually Help Non‑US Founders Get Stripe?
-US LLC for Stripe: What Works, What Fails, and What Gets Accounts Rejected
-Stripe Country Support vs US Entity Support: The Difference Non‑US Founders Miss
-Can You Open PayPal Business With a US LLC as a Non‑Resident?
-Formation Does Not Equal Payment Approval
-The Payment Stack for Non‑US Founders: Entity, EIN, Bank, Address, KYC
+✅ [partial] Does a US LLC Actually Help Non‑US Founders Get Stripe?
+   └─ File: us-llc-for-stripe.mdx (exists, title differs, missing affiliate CTA)
+⚠️ [partial] US LLC for Stripe: What Works, What Fails, and What Gets Accounts Rejected
+   └─ Covered in us-llc-for-stripe.mdx but not standalone article
+⚠️ [partial] Stripe Country Support vs US Entity Support: The Difference Non‑US Founders Miss
+   └─ Covered in formation-does-not-equal-payment-approval.mdx but not standalone
+⚠️ [partial] Can You Open PayPal Business With a US LLC as a Non‑Resident?
+   └─ File: us-llc-for-paypal.mdx (exists, title differs, missing affiliate CTA)
+✅ Does Not Equal Payment Approval
+   └─ File: formation-does-not-equal-payment-approval.mdx
+✅ The Payment Stack for Non‑US Founders: Entity, EIN, Bank, Address, KYC
+   └─ File: payment-stack-for-non-us-founders.mdx
 
 Bu cluster’ın amacı doğrudan para kazanmak değil; güven kurmak ve kullanıcıyı route engine’e taşımak.
 
@@ -107,12 +113,18 @@ Which address can I use where — state filing, IRS, bank, Stripe, PayPal, Amazo
 
 İçerik fikirleri:
 
-Registered Agent Address vs Business Address vs Mailing Address
-Can You Use a Registered Agent Address for Stripe?
-Can You Use a Registered Agent Address for a US Bank Account?
-Why Non‑US Founders Get Rejected by Mercury, Wise, or Relay
-US Business Address Requirements for Non‑Resident Founders
-The Address Matrix: State, IRS, Bank, Stripe, PayPal, Amazon
+✅ Registered Agent Address vs Business Address vs Mailing Address
+   └─ File: registered-agent-address-vs-business-address.mdx (excellent coverage)
+⚠️ [partial] Can You Use a Registered Agent Address for Stripe?
+   └─ Mentioned in RA guide but no dedicated article
+⚠️ [partial] Can You Use a Registered Agent Address for a US Bank Account?
+   └─ Mentioned in RA guide but no dedicated article
+❌ Why Non‑US Founders Get Rejected by Mercury, Wise, or Relay
+   └─ No content — high priority gap
+❌ US Business Address Requirements for Non‑Resident Founders
+   └─ Scattered content, no dedicated article
+❌ The Address Matrix: State, IRS, Bank, Stripe, PayPal, Amazon
+   └─ Quick reference table in RA guide but no dedicated article
 
 Bu içerik cluster’ı çok güçlü çünkü “registered agent adresi” ile “business operating address” arasındaki fark çoğu founder tarafından yanlış anlaşılıyor. Gemini raporu da Mercury/Wise/Brex gibi bankacılık tarafındaki proof‑of‑address sıkılaşmasını önemli bir boşluk olarak vurguluyor.
 
@@ -128,13 +140,20 @@ What happens after I form the LLC?
 
 İçerik fikirleri:
 
-Form 5472 for Foreign‑Owned Single‑Member LLCs
-Pro Forma Form 1120 for Non‑Resident LLC Owners
-BOI Reporting for US LLCs After the 2025 Rule Change
-EIN for Non‑US Founders: What It Does and Does Not Solve
-US LLC Compliance Calendar for Non‑Resident Founders
-What to Do in the First 30 Days After Forming a US LLC
-Zero Revenue LLC: Do You Still Have Filing Requirements?
+✅ Form 5472 for Foreign‑Owned Single‑Member LLCs
+   └─ File: form-5472-foreign-owned-llc.mdx (excellent, missing expert author/reviewer)
+⚠️ [partial] Pro Forma Form 1120 for Non‑Resident LLC Owners
+   └─ Mentioned in Form 5472 guide (lines 256-264) but not standalone
+✅ BOI Reporting for US LLCs After the 2025 Rule Change
+   └─ File: boi-reporting-us-llc-2026.mdx (good but missing expert author/reviewer)
+❌ EIN for Non‑US Founders: What It Does and Does Not Solve
+   └─ No content — critical gap (EIN misunderstanding is widespread)
+❌ US LLC Compliance Calendar for Non‑Resident Founders
+   └─ No content — timeline-based compliance guide needed
+❌ What to Do in the First 30 Days After Forming a US LLC
+   └─ No content — post-formation checklist needed
+❌ Zero Revenue LLC: Do You Still Have Filing Requirements?
+   └─ No content — state-level + tax return distinctions needed
 
 Bu alan YMYL niteliği taşıdığı için güven sinyalleri olmadan girilmemeli: kaynak defteri, uzman reviewer, güncelleme tarihi, “not legal/tax advice” uyarısı, resmi kaynak linkleri ve değişiklik kayıtları şart.
 
@@ -152,14 +171,14 @@ Which provider fits my route, not which provider pays the highest commission?
 
 İçerik fikirleri:
 
-Best LLC Formation Services for Non‑US Founders
-Northwest Registered Agent for Non‑Resident Founders: Tested Review
-Bizee for Non‑US Founders: Tested Review
-Inc Authority for Non‑Resident Founders: Tested Review
-LegalZoom for Non‑US Founders: When It Makes Sense
-Cheapest Valid Setup vs Safest Compliant Setup
-LLC Formation Provider Hidden Cost Index
-Year‑2 Renewal Cost Comparison
+⚠️ [partial] Best LLC Formation Services for Non‑US Founders — Hub exists, needs decision-guide format
+❌ Northwest Registered Agent for Non‑Resident Founders — Infrastructure ready, MDX missing
+❌ Bizee for Non‑US Founders — Infrastructure ready, MDX missing
+❌ Inc Authority for Non‑Resident Founders — Infrastructure ready, MDX missing
+❌ LegalZoom for Non‑Resident Founders — Infrastructure ready, MDX missing
+❌ Cheapest Valid Setup vs Safest Compliant Setup — No content
+❌ LLC Formation Provider Hidden Cost Index — No content
+❌ Year‑2 Renewal Cost Comparison — No content
 
 Para sayfalarının yapısı şöyle olmalı:
 
@@ -187,15 +206,18 @@ Yani “Turkey LLC guide”, “Pakistan LLC guide”, “Nigeria LLC guide” d
 
 Doğru yapı:
 
-US LLC Route for SaaS Founders Outside Stripe‑Supported Countries
-US LLC Route for Pakistani Freelancers Who Need Global Payments
-US LLC Route for Nigerian Digital Product Sellers
-US LLC Route for Turkish SaaS Founders
-US LLC Route for Bangladesh Agency Owners
-US LLC Route for Amazon Sellers Outside the US
-US LLC Route for AI Tool Founders
-US LLC Route for Digital Product Creators Selling Globally
-US LLC vs C‑Corp vs Merchant of Record for Non‑US Founders
+❌ US LLC Route for SaaS Founders Outside Stripe‑Supported Countries — Missing (country+use case combo)
+❌ US LLC Route for Pakistani Freelancers Who Need Global Payments — Missing
+❌ US LLC Route for Nigerian Digital Product Sellers — Missing
+❌ US LLC Route for Turkish SaaS Founders — Missing (note: Turkey pilot market)
+❌ US LLC Route for Bangladesh Agency Owners — Missing
+❌ US LLC Route for Amazon Sellers Outside the US — Missing
+❌ US LLC Route for AI Tool Founders — Missing
+❌ US LLC Route for Digital Product Creators Selling Globally — Missing
+❌ US LLC vs C‑Corp vs Merchant of Record for Non‑US Founders — Missing
+
+NOTE: Playbooks infrastructure ready (routing + layout exist). All 9 playbooks need creation.
+Content collection is EMPTY (/src/content/playbooks/).
 
 PDF raporundaki en önemli uyarılardan biri de bu: büyüme ekseni “yeni eyalet” değil, yeni karar problemi olmalı. Ülke veya use‑case sayfaları ancak gerçek fark ve veri varsa açılmalı.
 
@@ -205,12 +227,12 @@ Bunu İngilizce site için şöyle kurgulardım:
 
 /
   /route-engine/
-    us-business-route-planner
-    stripe-route-checker
-    payment-readiness-score
-    address-eligibility-checker
-    llc-cost-calculator
-    compliance-calendar
+    ⚠️ us-business-route-planner — Partial (7/10 inputs, missing citizenship, revenue, 3-year cost output)
+    ❌ stripe-route-checker — Not built (standalone tool, could merge into Route Planner)
+    ❌ payment-readiness-score — Not built
+    ❌ address-eligibility-checker — Not built (Route Planner has addressStatus input)
+    ⚠️ llc-cost-calculator — Functional but missing state selector
+    ❌ compliance-calendar — Not built (Route Planner outputs checklist)
 
   /payment-access/
     us-llc-for-stripe
@@ -389,21 +411,22 @@ Payment Access Reality for Non‑US Founders
 Çünkü bu hem global hem yüksek niyetli hem de affiliate’e yakın.
 
 İlk 90 günde çıkması gereken 12 ana sayfa
-Does a US LLC Actually Help Non‑US Founders Get Stripe?
-Formation Does Not Equal Payment Approval
-US LLC for PayPal Business: What Non‑US Founders Need to Know
-Registered Agent Address vs Business Address vs Mailing Address
-Can You Use a Registered Agent Address for Stripe or Banks?
-US LLC Compliance Calendar for Non‑Resident Founders
-Form 5472 for Foreign‑Owned LLCs
-BOI Reporting for US LLCs After the 2025 Rule Change
-The Real 3‑Year Cost of a US LLC for Non‑Residents
-Best LLC Formation Services for Non‑US Founders
-Northwest vs Bizee vs Inc Authority vs LegalZoom for Non‑Residents
-LLC vs C‑Corp vs Stripe Atlas vs Merchant of Record
+✅ Does a US LLC Actually Help Non‑US Founders Get Stripe? — us-llc-for-stripe.mdx (partial)
+✅ Formation Does Not Equal Payment Approval — formation-does-not-equal-payment-approval.mdx
+⚠️ US LLC for PayPal Business: What Non‑US Founders Need to Know — us-llc-for-paypal.mdx (partial)
+✅ Registered Agent Address vs Business Address vs Mailing Address — registered-agent-address-vs-business-address.mdx
+❌ Can You Use a Registered Agent Address for Stripe or Banks? — Missing (covered in RA guide)
+❌ US LLC Compliance Calendar for Non‑Resident Founders — Missing
+✅ Form 5472 for Foreign‑Owned LLCs — form-5472-foreign-owned-llc.mdx
+✅ BOI Reporting for US LLCs After the 2025 Rule Change — boi-reporting-us-llc-2026.mdx
+⚠️ The Real 3‑Year Cost of a US LLC for Non‑Residents — Cost Calculator exists, content page missing
+⚠️ Best LLC Formation Services for Non‑US Founders — Hub page exists, needs full guide format
+❌ Northwest vs Bizee vs Inc Authority vs LegalZoom for Non‑Residents — Missing comparison
+❌ LLC vs C‑Corp vs Stripe Atlas vs Merchant of Record — Missing
+
 İlk 90 günde yapılacak 2 araç
-US Business Route Planner
-3‑Year US LLC Cost Calculator
+⚠️ US Business Route Planner — Partially built (7/10 inputs, 6/10 outputs)
+⚠️ 3‑Year US LLC Cost Calculator — Functional but missing state selector
 
 Grok raporunun “ilk 6 ayda 10–15 evergreen içerik + 1 interaktif araç” önerisi burada doğru ama ben bunu biraz daha netleştiririm: ilk araç “LLC Survival Simulator” değil, daha doğrudan affiliate’e bağlanan Route Planner olmalı. Survival / compliance simulator ikinci ürün olabilir.
 

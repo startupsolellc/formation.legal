@@ -3,6 +3,7 @@
 > **Bu dosya, projeye ilk kez giren AI agent'lar ve geliştiriciler için birincil referanstır.**
 > Projenin teknik altyapısını, kurallarını ve iş akışlarını özetler.
 > Detaylı teknik bilgi için → [README.md](./README.md)
+> Proje içerik konsepti için → [new concept.md] (@docs/new concept.md)
 
 ---
 
