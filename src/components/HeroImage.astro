@@ -1,0 +1,67 @@
+---
+/**
+ * HeroImage.astro — SEO-optimized hero image component for guide pages.
+ * Uses native HTML img with lazy loading for Cloudflare Pages compatibility.
+ * Supports both public/ and src/assets/ paths.
+ */
+
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  caption,
+  loading = 'lazy',
+  decoding = 'async',
+  class: className = '',
+} = Astro.props;
+
+// Determine if it's a public asset (starts with /)
+const isPublicAsset = src.startsWith('/');
+
+// For public assets, we use direct path
+// For src/assets, Astro handles optimization automatically in MDX
+---
+
+<figure class={`hero-image ${className}`}>
+  <div class="hero-image-wrapper rounded-[var(--radius-md)] overflow-hidden border border-[var(--color-border)]">
+    <img
+      src={src}
+      alt={alt}
+      loading={loading}
+      decoding={decoding}
+      class="w-full h-auto object-cover"
+    />
+  </div>
+  {caption && (
+    <figcaption class="mt-2 text-sm text-[var(--color-muted)] text-center italic">
+      {caption}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  .hero-image {
+    margin-block: 0;
+  }
+
+  .hero-image-wrapper {
+    background: var(--color-surface-container);
+  }
+
+  .hero-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+  }
+</style>

@@ -16,6 +16,7 @@ import UpdateLog from '../components/guide/UpdateLog.astro';
 import AffiliateDisclosure from '../components/trust/AffiliateDisclosure.astro';
 import Disclaimer from '../components/trust/Disclaimer.astro';
 import AuthorBio from '../components/trust/AuthorBio.astro';
+import HeroImage from '../components/HeroImage.astro';
 import { buildArticleSchema, buildBreadcrumbSchema } from '../lib/schema';
 import { PILLARS } from '../lib/constants';
 
@@ -54,6 +55,12 @@ interface ChangeEntry {
   change: string;
 }
 
+interface HeroImageProps {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -80,6 +87,7 @@ interface Props {
   reviewer?: string;
   updateLog?: ChangeEntry[];
   affiliateDisclosure?: boolean;
+  heroImage?: HeroImageProps;
 }
 
 const {
@@ -107,6 +115,7 @@ const {
   reviewer,
   updateLog,
   affiliateDisclosure = false,
+  heroImage,
 } = Astro.props;
 
 const pillarData = PILLARS.find((p) => p.id === pillar);
@@ -179,6 +188,9 @@ const dateFormatted = pubDate.toLocaleDateString('en-US', {
         <time datetime={pubDate.toISOString()}>{dateFormatted}</time>
       </div>
     </header>
+
+    <!-- Hero Image -->
+    {heroImage && <HeroImage src={heroImage.src} alt={heroImage.alt} caption={heroImage.caption} />}
 
     <!-- 1. Direct Answer -->
     {directAnswer && <DirectAnswer answer={directAnswer} />}

@@ -9,6 +9,6 @@ export async function getStaticPaths() {
 const { playbook } = Astro.props;
 const { Content } = await render(playbook);
 ---
-<GuideLayout title={playbook.data.title} description={playbook.data.description} pillar="playbooks" slug={playbook.id} pubDate={playbook.data.pubDate} updatedDate={playbook.data.updatedDate} author={playbook.data.author} noindex={playbook.data.noindex}>
+<GuideLayout title={playbook.data.title} description={playbook.data.description} pillar="playbooks" slug={playbook.id} pubDate={playbook.data.pubDate} updatedDate={playbook.data.updatedDate} author={playbook.data.author} noindex={playbook.data.noindex} heroImage={playbook.data.heroImage}>
   <Content />
 </GuideLayout>
