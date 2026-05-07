@@ -304,6 +304,7 @@ Her yeni içerik oluşturmada uygulanacak:
 3. SEO meta optimizasyonu (`seoTitle` ≤60 char, `seoDescription` ≤160 char)
 4. GEO template alanları (directAnswer, verdict, aiMiss, decisionTree, providerFit)
 5. Trust Layer (originalityScore, humanGenerated, aiAssisted)
+6. Görsel optimizasyonu — [`docs/content-image-workflow.md`](./docs/content-image-workflow.md)
 
 ---
 
