@@ -84,11 +84,7 @@ const guides = defineCollection({
     pillar: pillarEnum,
 
     /* Image fields */
-    heroImage: z.object({
-      src: z.string(),
-      alt: z.string(),
-      caption: z.string().optional(),
-    }).optional(),
+    heroImage: z.string().optional(),
 
     /* GEO template fields */
     directAnswer: z.string().max(500).optional(),
@@ -176,11 +172,7 @@ const playbooks = defineCollection({
     noindex: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
     /* Image fields */
-    heroImage: z.object({
-      src: z.string(),
-      alt: z.string(),
-      caption: z.string().optional(),
-    }).optional(),
+    heroImage: z.string().optional(),
     ...trustFields,
   }),
 });

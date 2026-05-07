@@ -16,9 +16,12 @@ import UpdateLog from '../components/guide/UpdateLog.astro';
 import AffiliateDisclosure from '../components/trust/AffiliateDisclosure.astro';
 import Disclaimer from '../components/trust/Disclaimer.astro';
 import AuthorBio from '../components/trust/AuthorBio.astro';
-import HeroImage from '../components/HeroImage.astro';
+import { Image } from 'astro:assets';
 import { buildArticleSchema, buildBreadcrumbSchema } from '../lib/schema';
 import { PILLARS } from '../lib/constants';
+
+// Preload hero images for optimization
+const heroImages = import.meta.glob('../assets/images/guides/*.{png,jpg,jpeg,webp,avif}');
 
 interface VerdictRow {
   scenario: string;
@@ -55,12 +58,6 @@ interface ChangeEntry {
   change: string;
 }
 
-interface HeroImageProps {
-  src: string;
-  alt: string;
-  caption?: string;
-}
-
 interface Props {
   title: string;
   description: string;
@@ -87,7 +84,7 @@ interface Props {
   reviewer?: string;
   updateLog?: ChangeEntry[];
   affiliateDisclosure?: boolean;
-  heroImage?: HeroImageProps;
+  heroImage?: string;
 }
 
 const {
@@ -189,8 +186,26 @@ const dateFormatted = pubDate.toLocaleDateString('en-US', {
       </div>
     </header>
 
-    <!-- Hero Image -->
-    {heroImage && <HeroImage src={heroImage.src} alt={heroImage.alt} caption={heroImage.caption} />}
+    <!-- Hero Image with Astro optimization -->
+    {heroImage && (() => {
+      const imagePath = `../assets/images/guides/${heroImage}`;
+      const imageLoader = heroImages[imagePath];
+      return imageLoader ? (
+        <figure class="hero-image mb-8">
+          <div class="hero-image-wrapper rounded-[var(--radius-md)] overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-container)]">
+            <Image
+              src={imageLoader()}
+              alt=""
+              width={1200}
+              height={630}
+              loading="eager"
+              decoding="auto"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        </figure>
+      ) : null;
+    })()}
 
     <!-- 1. Direct Answer -->
     {directAnswer && <DirectAnswer answer={directAnswer} />}
