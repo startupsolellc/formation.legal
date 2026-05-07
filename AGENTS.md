@@ -305,6 +305,8 @@ Her yeni içerik oluşturmada uygulanacak:
 4. GEO template alanları (directAnswer, verdict, aiMiss, decisionTree, providerFit)
 5. Trust Layer (originalityScore, humanGenerated, aiAssisted)
 6. Görsel optimizasyonu — [`docs/content-image-workflow.md`](./docs/content-image-workflow.md)
+   - **Hero images:** `heroImage` frontmatter + `src/assets/images/guides/`
+   - **Inline diagrams:** `public/images/guides/` + markdown syntax (`/images/guides/...`)
 
 ---
 

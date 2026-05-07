@@ -17,6 +17,7 @@ aiAssisted: true
 affiliateDisclosure: true
 category: "Payment Access"
 tags: ["bank-account", "non-resident", "ITIN", "EIN", "Mercury", "Relay", "Wise", "Payoneer", "Airwallex", "neo-bank", "payment-access"]
+heroImage: "open-us-business-bank-account-without-itin-2026-guide.jpg.png"
 
 directAnswer: "Non-US founders can open a US business bank account without an ITIN using an EIN (Employer Identification Number) instead. Since the June 2025 CIP exemption by OCC, FDIC, and NCUA, banks can verify identity using third-party digital systems. You need: an EIN,Articles of Organization, and a valid foreign passport. Neo-banks like Mercury, Relay, and Wise accept non-residents remotely. Critical: avoid P.O. Box and Registered Agent addresses as your physical address."
 
@@ -152,6 +153,13 @@ updateLog:
     change: "Initial publication. Added CIP exemption context, 6 neo-bank profiles, approval matrix, and technical protocol for beating AI compliance filters."
 ---
 
+import { Image } from 'astro:assets';
+import decisionTree from '../../assets/images/guides/us-llc-banking-decision-tree-2026.png';
+import approvalMatrix from '../../assets/images/guides/non-resident-bank-approval-matrix-2026.png';
+import addressRejection from '../../assets/images/guides/us-bank-address-verification-rejection-example.png';
+import costComparison from '../../assets/images/guides/hidden-costs-us-business-banking-comparison.png';
+import documentsChecklist from '../../assets/images/guides/documents-required-open-us-bank-account-remotely.png';
+
 ## The Short Answer
 
 Non-US founders can open a US business bank account without an ITIN. You only need an **EIN (Employer Identification Number)** and a **valid foreign passport**.
@@ -164,6 +172,16 @@ In June 2025, the OCC, FDIC, and NCUA introduced a critical exemption to the Cus
 - Valid foreign passport
 - A functional business website (for most neo-banks)
 - A physical address that is NOT a registered agent or P.O. Box
+
+<Image
+  src={documentsChecklist}
+  alt="Hero image showing the required documents for opening a US business bank account without ITIN: Passport, EIN, and functional website."
+  width={1000}
+  formats={['avif', 'webp']}
+  class="rounded-lg"
+/>
+
+*Checklist of Documents for Non-Resident US Bank Account Opening: Passport, EIN Confirmation (CP575), and a live website with US phone number verification*
 
 ---
 
@@ -298,7 +316,27 @@ Slash offers seamless crypto-to-fiat integration for modern digital businesses.
 
 ---
 
+<Image
+  src={decisionTree}
+  alt="Flowchart showing how non-resident founders choose between Mercury, Relay, and Wise based on compliance requirements"
+  width={1000}
+  formats={['avif', 'webp']}
+  class="rounded-lg"
+/>
+
+*The Banking Decision Tree: How non-resident founders navigate bank selection based on OFAC compliance, EIN verification, and website requirements (2026)*
+
 ## The 2026 Non-Resident Approval Matrix
+
+<Image
+  src={approvalMatrix}
+  alt="Comparison matrix of Mercury, Relay, Lili, and Slash highlighting prohibited countries and industry restrictions for LLC owners."
+  width={1000}
+  formats={['avif', 'webp']}
+  class="rounded-lg"
+/>
+
+*2026 Comparison of US Neo-Banks for International Founders: Platform requirements, prohibited countries, and key restrictions at a glance*
 
 | Platform | Best For | Prohibited Regions | Key Requirement | Hidden Rule |
 | :--- | :--- | :--- | :--- | :--- |
@@ -329,6 +367,16 @@ When you scan your passport, the bank's AI checks the metadata of your photo and
 **Fix:** Apply from your actual residence. Honesty about your non-resident status is better than a "Suspicious Activity" flag.
 
 ### 3. Verification of Physical Presence
+
+<Image
+  src={addressRejection}
+  alt="Visual explanation of how US banks use Google Street View to identify and reject registered agent or P.O. Box addresses."
+  width={1000}
+  formats={['avif', 'webp']}
+  class="rounded-lg"
+/>
+
+*Why Registered Agent Addresses Cause Bank Rejections: The real vs. digital address verification process that flags RA and P.O. Box locations*
 
 Relay and Mercury use databases like **Google Maps Street View** to verify your business address. If your address resolves to a UPS Store or a mailbox center, they will know.
 
@@ -361,6 +409,16 @@ An ITIN is an Individual Taxpayer Identification Number used for personal tax re
 The most common reason for a Mercury rejection in 2026 is using a P.O. Box or a Registered Agent address as your "Physical Operating Presence." Banks now require proof of a legitimate physical workspace, which can be an office lease or a foreign home address if you work remotely.
 
 ---
+
+<Image
+  src={costComparison}
+  alt="Bar chart illustrating the cumulative impact of FX markups and SWIFT fees on US business accounts over 3 years."
+  width={1000}
+  formats={['avif', 'webp']}
+  class="rounded-lg"
+/>
+
+*3-Year Total Cost Comparison: Neo-Banks vs. EMIs — Cumulative FX markups and SWIFT fees that competitors never disclose*
 
 ## Conclusion: Build a Fintech Stack
 

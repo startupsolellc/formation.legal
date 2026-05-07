@@ -8,11 +8,10 @@
 
 | Konu | Standart |
 |------|----------|
-| Görsel depolama | `src/assets/images/` |
-| Frontmatter hero | `heroImage: "dosya-adi.png"` |
-| Inline MDX | `![alt text](/_astro/gorsel.webp)` |
-| Format | Astro build'de WebP/AVIF otomatik |
-| Lazy loading | Astro otomatik ekler |
+| Hero image (frontmatter) | `heroImage: "dosya-adi.png"` → `src/assets/images/guides/` |
+| Inline görsel | `<Image>` component → `src/assets/images/guides/` |
+| Format | WebP/AVIF otomatik (build-time) |
+| Lazy loading | Astro otomatik |
 | CLS koruması | width/height otomatik |
 
 ---
@@ -73,18 +72,50 @@ src/assets/images/guides/stripe-three-address-layers.png
 
 ## 3. Inline Görseller (MDX İçinde)
 
-### Standart Markdown Syntax
+> ⚠️ **ÖNEMLİ:** Inline görseller için iki yaklaşım var. Her ikisini de anla:
+
+### Yaklaşım A: `<Image>` Component (Önerilen — Proper Optimization)
+
+Astro'nun optimize ettiği ve WebP/AVIF'e dönüştürdüğü görseller için:
 
 ```mdx
-![Alt text describing the image](/_astro/image-name.webp)
+---
+import { Image } from 'astro:assets';
+import myImage from '../../assets/images/guides/diagram.png';
+---
+
+<Image
+  src={myImage}
+  alt="Diagram showing X, Y, Z relationships"
+  width={800}
+  formats={['avif', 'webp']}
+  class="rounded-lg"
+/>
 ```
 
-### Doğru Kullanım Örneği
+Bu yaklaşım:
+- ✅ WebP/AVIF otomatik dönüşüm
+- ✅ Responsive srcset
+- ✅ CLS koruması
+- ⚠️ Her görsel için import + component gerekli
+
+### Doğru Kullanım Örneği (Yaklaşım A)
 
 ```mdx
-![Three address layers: Registered Agent, Residential, Business Operating](/_astro/stripe-address-diagram.webp)
+---
+import { Image } from 'astro:assets';
+import decisionTree from '../../assets/images/guides/banking-decision-tree.png';
+---
 
-*Caption: The three address layers Stripe evaluates during verification*
+<Image
+  src={decisionTree}
+  alt="Flowchart showing how non-resident founders choose between Mercury, Relay, and Wise"
+  width={1000}
+  formats={['avif', 'webp']}
+  class="rounded-lg"
+/>
+
+*The Banking Decision Tree: How non-resident founders navigate bank selection*
 ```
 
 ### Alt Text Kuralları
@@ -98,10 +129,15 @@ src/assets/images/guides/stripe-three-address-layers.png
 
 ### Caption Kullanımı
 
-MDX'te caption için italik text kullan:
+MDX'te caption için italik text kullan (Image component'ten sonra):
 
 ```mdx
-![Address verification flow](/_astro/address-flow.webp)
+<Image
+  src={addressFlow}
+  alt="Address verification flow"
+  width={800}
+  formats={['avif', 'webp']}
+/>
 
 *Görsel 1: Address verification adımları Stripe'da*
 ```
@@ -144,7 +180,7 @@ MDX'te caption için italik text kullan:
 ```astro
 ---
 import { Image } from 'astro:assets';
-import myImage from '../assets/images/guides/diagram.png';
+import myImage from '../../assets/images/guides/diagram.png';
 ---
 
 <Image
@@ -189,33 +225,46 @@ Makale içinde görsel açıklaması:
 
 ### Yeni Görsel Ekleme
 
-1. **Görseli optimize et:**
-   - Kaynaktan export: 1200px genişlik, PNG/JPG
-   - Photoshop/tasarım aracı: sıkıştır, boyutu küçült
-   - Hedef: < 500KB (raw), Astro build'de ~50-100KB WebP
+**İki tür görsel var — hangisini ekleyeceğini belirle:**
 
-2. **Dosyayı koy:**
-   ```
-   src/assets/images/guides/[guide-slug]-[description].png
-   ```
+#### A) Hero Image (Frontmatter)
+Makalenin üstündeki büyük görsel.
 
-3. **Frontmatter'da ata:**
+1. **Görseli koy:** `src/assets/images/guides/[guide-slug]-[description].png`
+2. **Frontmatter'da ata:**
    ```yaml
    heroImage: "guide-slug-description.png"
    ```
+3. **Build test et:** `npm run build`
 
-4. **Build test et:**
-   ```bash
-   npm run build
-   # dist/_astro/ içinde .webp oluştuğunu kontrol et
-   ```
+#### B) Inline Diagram/Infographic (İçerik İçi)
 
-5. **Commit & push:**
-   ```bash
-   git add src/assets/images/...
-   git commit -m "docs: add hero image to [guide]"
-   git push
+1. **Görseli koy:** `src/assets/images/guides/[name].png`
+2. **MDX'te import + component ekle:**
+   ```mdx
+   ---
+   import { Image } from 'astro:assets';
+   import myImage from '../assets/images/guides/name.png';
+   ---
+
+   <Image
+     src={myImage}
+     alt="Açıklayıcı alt text"
+     width={1000}
+     formats={['avif', 'webp']}
+     class="rounded-lg"
+   />
+
+   *Caption buraya*
    ```
+3. **Build test et:** `npm run build`
+
+#### Commit
+```bash
+git add src/assets/images/guides/...
+git commit -m "docs: add inline image to [guide]"
+git push
+```
 
 ---
 
@@ -224,6 +273,7 @@ Makale içinde görsel açıklaması:
 | Görsel | Konum | Kullanım |
 |--------|-------|----------|
 | `stripe-three-address-layers.png` | `src/assets/images/guides/` | `us-llc-for-stripe.mdx` hero |
+| `us-llc-banking-decision-tree-2026.png` | `src/assets/images/guides/` | Inline diagram |
 
 ---
 
@@ -255,11 +305,21 @@ Astro `<Image />` sadece `src/assets/` içindekileri işler. `public/` görselle
 
 ```mdx
 ---
-# Hero image ekle
+# Hero image ekle (frontmatter)
 heroImage: "guide-slug-image-name.png"
 
-# MDX'te inline görsel
-![Açıklayıcı alt text](/_astro/generated-webp.webp)
+# MDX'te inline görsel (<Image> component)
+import { Image } from 'astro:assets';
+import myImage from '../assets/images/guides/image-name.png';
+
+<Image
+  src={myImage}
+  alt="Açıklayıcı alt text"
+  width={1000}
+  formats={['avif', 'webp']}
+  class="rounded-lg"
+/>
 
 *Caption buraya*
+```
 ```
