@@ -16,17 +16,10 @@ const currentPath = Astro.url.pathname;
     aria-label="Main navigation"
   >
     <!-- Logo / Brand -->
-    <a
-      href="/"
-      class="flex items-center gap-2 text-lg font-bold tracking-tight text-text-primary hover:text-action transition-colors"
-    >
-      <!-- Minimal brand icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 text-action">
-        <path d="M12 2 L2 7 L12 12 L22 7 Z" />
-        <path d="M2 17 L12 22 L22 17" />
-        <path d="M2 12 L12 17 L22 12" />
-      </svg>
-      {SITE.title}
+    <a href="/" class="flex items-center gap-2 text-lg font-bold tracking-tight text-text-primary hover:text-action transition-colors" aria-label="Formation.Legal Home">
+      <img src="/logo.svg" alt="" class="block dark:hidden h-9 w-auto" aria-hidden="true" />
+      <img src="/logo-dark.svg" alt="" class="hidden dark:block h-9 w-auto" aria-hidden="true" />
+      <span class="sr-only">Formation.Legal</span>
     </a>
 
     <!-- Desktop Navigation -->

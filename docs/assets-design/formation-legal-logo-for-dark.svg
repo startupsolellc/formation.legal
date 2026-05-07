@@ -1,0 +1,44 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 446 86" width="446" height="86">
+	<defs>
+		<linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(14,80,-26.547,4.646,4,4)">
+			<stop offset="0" stop-color="#f8fafc"/>
+			<stop offset="1" stop-color="#94a3b8"/>
+		</linearGradient>
+		<linearGradient id="g2" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(45,14,-7.742,24.884,26,4)">
+			<stop offset="0" stop-color="#f8fafc"/>
+			<stop offset="1" stop-color="#94a3b8"/>
+		</linearGradient>
+		<linearGradient id="g3" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(26,14,-11.509,21.373,26,36)">
+			<stop offset="0" stop-color="#60a5fa"/>
+			<stop offset="1" stop-color="#2dd4bf"/>
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: url(#g1) } 
+		.s1 { fill: url(#g2) } 
+		.s2 { fill: url(#g3) } 
+		.s3 { fill: #2dd4bf } 
+		.t4 { font-size: 46px;fill: #f8fafc;font-family: "' Inter'" } 
+		.t5 { font-size: 46px;fill: #60a5fa;font-family: "' Inter'" } 
+		.t6 { font-size: 11px;fill: #cbd5e1;font-family: "' Inter'" } 
+	</style>
+	<g>
+		<path fill-rule="evenodd" class="s0" d="m7 4h8c1.66 0 3 1.34 3 3v74c0 1.66-1.34 3-3 3h-8c-1.66 0-3-1.34-3-3v-74c0-1.66 1.34-3 3-3z"/>
+		<path fill-rule="evenodd" class="s1" d="m29 4h39c1.66 0 3 1.34 3 3v8c0 1.66-1.34 3-3 3h-39c-1.66 0-3-1.34-3-3v-8c0-1.66 1.34-3 3-3z"/>
+		<path fill-rule="evenodd" class="s2" d="m29 36h20c1.66 0 3 1.34 3 3v8c0 1.66-1.34 3-3 3h-20c-1.66 0-3-1.34-3-3v-8c0-1.66 1.34-3 3-3z"/>
+		<path fill-rule="evenodd" class="s3" d="m82 49c-3.32 0-6-2.68-6-6 0-3.32 2.68-6 6-6 3.32 0 6 2.68 6 6 0 3.32-2.68 6-6 6z"/>
+	</g>
+	<text id="formation" transform="translate(104,61)">
+		<tspan x="0" y="0" class="t4">formation
+</tspan>
+	</text>
+	<text id=".legal" transform="translate(319,61)">
+		<tspan x="0" y="0" class="t5">.legal
+</tspan>
+	</text>
+	<text id="MODERN CORPORATE ARCHITECTURE" transform="translate(108,87)">
+		<tspan x="0" y="0" class="t6">MODERN CORPORATE ARCHITECTURE
+</tspan>
+	</text>
+</svg>
