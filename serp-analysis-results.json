@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-03T20:58:31.007Z",
+  "timestamp": "2026-05-07T09:16:03.692Z",
   "location": {
     "code": 2840,
     "name": "United States"
@@ -24,15 +24,7 @@
       "totalOrganic": 9,
       "topOrganic": [
         {
-          "rank": 2,
-          "domain": "www.reddit.com",
-          "title": "Non-US founder here, what's the easiest way to open a US ...",
-          "url": "https://www.reddit.com/r/llc_life/comments/1ru2ah3/nonus_founder_here_whats_the_easiest_way_to_open/",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 4,
+          "rank": 3,
           "domain": "www.taxesforexpats.com",
           "title": "How Foreigners Can Open a US LLC: Best States, Banking ...",
           "url": "https://www.taxesforexpats.com/articles/foreign-business/how-to-form-an-llc-in-the-us-as-a-non-resident.html",
@@ -40,23 +32,15 @@
           "snippet": ""
         },
         {
+          "rank": 4,
+          "domain": "www.reddit.com",
+          "title": "Non-US founder here, the US entity setup is way harder ...",
+          "url": "https://www.reddit.com/r/Entrepreneurs/comments/1qh6o90/nonus_founder_here_the_us_entity_setup_is_way/",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
           "rank": 5,
-          "domain": "clemta.com",
-          "title": "Best LLC Formation Services for Non-US Residents (2026)",
-          "url": "https://clemta.com/blog/top-llc-formation-services-non-us-residents/",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 7,
-          "domain": "stripe.com",
-          "title": "How to start an LLC from the UK",
-          "url": "https://stripe.com/resources/more/how-to-start-an-llc-from-the-uk-what-uk-entrepreneurs-need-to-know-about-us-company-formation",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 8,
           "domain": "www.incorp.com",
           "title": "Explore the US LLC Benefits for International Founders",
           "url": "https://www.incorp.com/resources/knowledge-base/llc-benefits",
@@ -64,10 +48,26 @@
           "snippet": ""
         },
         {
+          "rank": 7,
+          "domain": "clemta.com",
+          "title": "Best LLC Formation Services for Non-US Residents (2026)",
+          "url": "https://clemta.com/blog/top-llc-formation-services-non-us-residents/",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 8,
+          "domain": "hurupay.com",
+          "title": "Can I Open an LLC as a Non-US Resident? A Complete ...",
+          "url": "https://hurupay.com/blog/can-i-open-an-llc-as-a-non-us-resident",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
           "rank": 9,
-          "domain": "brighttax.com",
-          "title": "Starting an LLC as a Foreigner: What Non-US Residents ...",
-          "url": "https://brighttax.com/blog/starting-an-llc-as-a-foreigner/",
+          "domain": "www.tailorbrands.com",
+          "title": "Starting an LLC as a Non-US Citizen",
+          "url": "https://www.tailorbrands.com/blog/starting-an-llc-non-us-citizen",
           "isNiche": false,
           "snippet": ""
         },
@@ -81,17 +81,17 @@
         },
         {
           "rank": 11,
-          "domain": "hurupay.com",
-          "title": "Can I Open an LLC as a Non-US Resident? A Complete ...",
-          "url": "https://hurupay.com/blog/can-i-open-an-llc-as-a-non-us-resident",
+          "domain": "brighttax.com",
+          "title": "Starting an LLC as a Foreigner: What Non-US Residents ...",
+          "url": "https://brighttax.com/blog/starting-an-llc-as-a-foreigner/",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 12,
-          "domain": "formllc.us",
-          "title": "FormLLC® | Form a U.S. LLC for Non-Residents – EIN Without ...",
-          "url": "https://formllc.us/",
+          "domain": "rocketwave.co",
+          "title": "US LLC for Non-Residents: Complete 2026 Formation Guide",
+          "url": "https://rocketwave.co/us-llc-for-non-residents-complete-2026-guide/",
           "isNiche": false,
           "snippet": ""
         }
@@ -115,23 +115,31 @@
           "rank": 3,
           "domain": "route4me.com",
           "title": "Best Route Planning And Route Optimization Software",
-          "url": "https://route4me.com/?srsltid=AfmBOor_BjVhWFhygr8ZNuFyiEROK-k8-EFTdAOxXgqsYEIBJRWD0sUu",
+          "url": "https://route4me.com/?srsltid=AfmBOooeZveX4amKcpaI5OedMz_wKlvhhpSGq7WwvygcVHLBx-WYvWHA",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 4,
+          "domain": "www.routesavvy.com",
+          "title": "RouteSavvy Resources & Information Center",
+          "url": "https://www.routesavvy.com/resources/",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 5,
-          "domain": "route-planner.com",
-          "title": "Contact | Route Planner",
-          "url": "https://route-planner.com/contact",
+          "domain": "www.thebusinessroute.com",
+          "title": "The Business Route™ - We Know Talent",
+          "url": "https://www.thebusinessroute.com/",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 7,
-          "domain": "www.routesavvy.com",
-          "title": "RouteSavvy Resources & Information Center",
-          "url": "https://www.routesavvy.com/resources/",
+          "domain": "support.route4me.com",
+          "title": "Route Optimization for Last Mile and Field Service Businesses",
+          "url": "https://support.route4me.com/faq/route-optimization/",
           "isNiche": false,
           "snippet": ""
         },
@@ -145,6 +153,14 @@
         },
         {
           "rank": 9,
+          "domain": "mwm.ai",
+          "title": "Badger Maps: #1 Route Planner - Business App",
+          "url": "https://mwm.ai/apps/badger-maps-1-route-planner/789934914",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 10,
           "domain": "natlawreview.com",
           "title": "AI Route Planning and Optimization Is Quietly ...",
           "url": "https://natlawreview.com/press-releases/ai-route-planning-and-optimization-quietly-revolutionizing-american-doorstep",
@@ -152,18 +168,10 @@
           "snippet": ""
         },
         {
-          "rank": 10,
-          "domain": "www.dispatchtrack.com",
-          "title": "DispatchTrack: Home",
-          "url": "https://www.dispatchtrack.com/",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
           "rank": 11,
-          "domain": "apps.apple.com",
-          "title": "RoadWarrior Route Planner - App Store - Apple",
-          "url": "https://apps.apple.com/us/app/roadwarrior-route-planner/id959621658",
+          "domain": "locus.sh",
+          "title": "10 Best Delivery Route planners for Delivery Drivers [2025]",
+          "url": "https://locus.sh/blogs/best-delivery-route-planner/",
           "isNiche": false,
           "snippet": ""
         },
@@ -172,14 +180,6 @@
           "domain": "www.mapquest.com",
           "title": "Multi-Stop Route Planning and Optimization Tools",
           "url": "https://www.mapquest.com/routeplanner",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 13,
-          "domain": "www.youtube.com",
-          "title": "Route4Me Tutorial for Newbies | Route Planner Software ...",
-          "url": "https://www.youtube.com/watch?v=WdoRPQ1L4ig",
           "isNiche": false,
           "snippet": ""
         }
@@ -192,7 +192,7 @@
       "totalOrganic": 10,
       "topOrganic": [
         {
-          "rank": 1,
+          "rank": 2,
           "domain": "llcformationcost.com",
           "title": "LLC Cost Calculator by State (2026): Year 1 + 5-Year",
           "url": "https://llcformationcost.com/",
@@ -216,15 +216,15 @@
           "snippet": ""
         },
         {
-          "rank": 5,
-          "domain": "bizbuddy.com",
-          "title": "LLC Cost Calculator: How Much Does it Cost to Start an LLC?",
-          "url": "https://bizbuddy.com/llc-cost/",
+          "rank": 6,
+          "domain": "flyfin.tax",
+          "title": "LLC Tax Calculator",
+          "url": "https://flyfin.tax/business/llc/llc-tax-calculator",
           "isNiche": false,
           "snippet": ""
         },
         {
-          "rank": 6,
+          "rank": 7,
           "domain": "jupid.com",
           "title": "LLC Tax Calculator by State 2025-2026",
           "url": "https://jupid.com/llc-tax-calculator",
@@ -232,31 +232,31 @@
           "snippet": ""
         },
         {
-          "rank": 7,
-          "domain": "toranaccounting.com",
-          "title": "LLC Tax Calculator - Estimate Business Taxes",
-          "url": "https://toranaccounting.com/llc-tax-calculator/",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
           "rank": 8,
-          "domain": "www.soccash.com",
-          "title": "US LLC Calculator 2026: Compare State Fees & Annual Taxes",
-          "url": "https://www.soccash.com/llc-cost-calculator/",
+          "domain": "bizbuddy.com",
+          "title": "LLC Cost Calculator: How Much Does it Cost to Start an LLC?",
+          "url": "https://bizbuddy.com/llc-cost/",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 9,
-          "domain": "www.bizreport.com",
-          "title": "Free LLC Cost Calculator – Estimate Formation Fees By State",
-          "url": "https://www.bizreport.com/llc-cost-calculator",
+          "domain": "wyomingllc.co",
+          "title": "Florida LLC Cost Calculator | Free Wyoming LLC Tool",
+          "url": "https://wyomingllc.co/tools/florida-llc-cost-calculator/",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 10,
+          "domain": "www.embroker.com",
+          "title": "Free LLC Tax Calculator + How to File LLC Taxes",
+          "url": "https://www.embroker.com/blog/llc-tax-calculator/",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 11,
           "domain": "www.reddit.com",
           "title": "The real annual cost of an LLC as non-resident",
           "url": "https://www.reddit.com/r/digitalnomad/comments/18eb9ev/the_real_annual_cost_of_an_llc_as_nonresident/",
@@ -264,20 +264,20 @@
           "snippet": ""
         },
         {
-          "rank": 11,
-          "domain": "flyfin.tax",
-          "title": "LLC Tax Calculator",
-          "url": "https://flyfin.tax/business/llc/llc-tax-calculator",
+          "rank": 12,
+          "domain": "www.globalsolo.global",
+          "title": "Non-Resident LLC Cost Index 2026 - Global Solo",
+          "url": "https://www.globalsolo.global/data",
           "isNiche": false,
           "snippet": ""
         }
       ],
-      "aiOverviewPresent": false,
-      "aiOverviewStatus": "not_found",
+      "aiOverviewPresent": true,
+      "aiOverviewStatus": "present",
       "relatedQuestions": []
     },
     "best llc service non us founders": {
-      "totalOrganic": 8,
+      "totalOrganic": 9,
       "topOrganic": [
         {
           "rank": 2,
@@ -288,15 +288,15 @@
           "snippet": ""
         },
         {
-          "rank": 3,
+          "rank": 4,
           "domain": "www.reddit.com",
-          "title": "Best registered agent service for non-US founders, or are ...",
-          "url": "https://www.reddit.com/r/llc_life/comments/1s1tpdx/best_registered_agent_service_for_nonus_founders/",
+          "title": "Non-US citizen — Best service to form an LLC online?",
+          "url": "https://www.reddit.com/r/smallbusiness/comments/1nmit6l/nonus_citizen_best_service_to_form_an_llc_online/",
           "isNiche": false,
           "snippet": ""
         },
         {
-          "rank": 6,
+          "rank": 5,
           "domain": "ecommerceparadise.com",
           "title": "10 Best LLC Services for Non-US Residents 2026 (Form ...",
           "url": "https://ecommerceparadise.com/best-llc-services-for-non-us-residents-in-2026-form-your-us-business-from-anywhere/",
@@ -304,15 +304,7 @@
           "snippet": ""
         },
         {
-          "rank": 7,
-          "domain": "www.northwestregisteredagent.com",
-          "title": "LLCs for Non-US Citizens",
-          "url": "https://www.northwestregisteredagent.com/llc/non-citizen",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 8,
+          "rank": 6,
           "domain": "startupowl.com",
           "title": "Best LLC Formation Services (2026) - StartupOwl",
           "url": "https://startupowl.com/start/best-llc-services",
@@ -320,15 +312,15 @@
           "snippet": ""
         },
         {
-          "rank": 9,
-          "domain": "www.linkedin.com",
+          "rank": 7,
+          "domain": "easyfiling.com",
           "title": "Top 5 LLC Formation Services for Non-Residents in the US",
-          "url": "https://www.linkedin.com/pulse/top-5-llc-formation-services-non-residents-us-easyfilingus-dausc",
+          "url": "https://easyfiling.com/blog/llc-formation-services-for-non-residents/",
           "isNiche": false,
           "snippet": ""
         },
         {
-          "rank": 10,
+          "rank": 8,
           "domain": "nanoglobals.com",
           "title": "Best US States To Form an LLC for Non-Citizens",
           "url": "https://nanoglobals.com/best-us-state-for-noncitizen-llc/",
@@ -336,10 +328,26 @@
           "snippet": ""
         },
         {
-          "rank": 12,
+          "rank": 9,
+          "domain": "www.northwestregisteredagent.com",
+          "title": "LLCs for Non-US Citizens",
+          "url": "https://www.northwestregisteredagent.com/llc/non-citizen",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 11,
           "domain": "www.forbes.com",
           "title": "Best LLC And Formation Services Of 2026",
           "url": "https://www.forbes.com/advisor/business/best-llc-service/",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 12,
+          "domain": "formllc.us",
+          "title": "FormLLC vs Alternatives – Best Choice for Non–U.S. Founders?",
+          "url": "https://formllc.us/formllc-vs-alternatives",
           "isNiche": false,
           "snippet": ""
         }
@@ -361,38 +369,6 @@
         },
         {
           "rank": 3,
-          "domain": "www.reddit.com",
-          "title": "Opening an LLC in the US as an international",
-          "url": "https://www.reddit.com/r/digitalnomad/comments/1najtzr/opening_an_llc_in_the_us_as_an_international_how/",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 4,
-          "domain": "www.incorp.com",
-          "title": "Explore the US LLC Benefits for International Founders",
-          "url": "https://www.incorp.com/resources/knowledge-base/llc-benefits",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 5,
-          "domain": "www.forbes.com",
-          "title": "Where U.S. Tax Exposure Actually Begins For International ...",
-          "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2026/03/03/where-us-tax-exposure-actually-begins-for-international-founders/",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 6,
-          "domain": "startglobal.co",
-          "title": "US LLC for International Founders",
-          "url": "https://startglobal.co/us/international/",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 7,
           "domain": "www.taxesforexpats.com",
           "title": "How Foreigners Can Open a US LLC: Best States, Banking ...",
           "url": "https://www.taxesforexpats.com/articles/foreign-business/how-to-form-an-llc-in-the-us-as-a-non-resident.html",
@@ -400,7 +376,23 @@
           "snippet": ""
         },
         {
-          "rank": 8,
+          "rank": 4,
+          "domain": "www.reddit.com",
+          "title": "Opening an LLC in the US as an international",
+          "url": "https://www.reddit.com/r/digitalnomad/comments/1najtzr/opening_an_llc_in_the_us_as_an_international_how/",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 5,
+          "domain": "www.linkedin.com",
+          "title": "US LLC Benefits for International Founders - An Essential ...",
+          "url": "https://www.linkedin.com/pulse/us-llc-benefits-international-founders-essential-6fpoc",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 7,
           "domain": "www.lazo.us",
           "title": "How to Incorporate as a Foreign Founder in the U.S.",
           "url": "https://www.lazo.us/blog/how-to-incorporate-as-a-foreign-founder-in-the-us",
@@ -408,7 +400,7 @@
           "snippet": ""
         },
         {
-          "rank": 10,
+          "rank": 8,
           "domain": "globalfy.com",
           "title": "LLC for Foreigners: How to Start a U.S. Company as a Non ...",
           "url": "https://globalfy.com/blog/llc-for-foreigners/",
@@ -416,10 +408,26 @@
           "snippet": ""
         },
         {
-          "rank": 11,
-          "domain": "www.uscis.gov",
-          "title": "International Entrepreneur Rule",
-          "url": "https://www.uscis.gov/working-in-the-united-states/international-entrepreneur-rule",
+          "rank": 9,
+          "domain": "www.forbes.com",
+          "title": "A Guide To Starting A US Business For International ...",
+          "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/05/30/a-guide-to-starting-a-business-in-the-us-for-international-entrepreneurs/",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 10,
+          "domain": "www.globalgo.fast",
+          "title": "US LLC for International Founders",
+          "url": "https://www.globalgo.fast/solutions/international-founders",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 12,
+          "domain": "startglobal.co",
+          "title": "US LLC for International Founders",
+          "url": "https://startglobal.co/us/international/",
           "isNiche": false,
           "snippet": ""
         }
@@ -429,7 +437,7 @@
       "relatedQuestions": []
     },
     "what does a us llc actually help non us founders get": {
-      "totalOrganic": 9,
+      "totalOrganic": 8,
       "topOrganic": [
         {
           "rank": 2,
@@ -441,17 +449,17 @@
         },
         {
           "rank": 4,
-          "domain": "www.incorp.com",
-          "title": "Explore the US LLC Benefits for International Founders",
-          "url": "https://www.incorp.com/resources/knowledge-base/llc-benefits",
+          "domain": "www.forbes.com",
+          "title": "Where U.S. Tax Exposure Actually Begins For International ...",
+          "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2026/03/03/where-us-tax-exposure-actually-begins-for-international-founders/",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 6,
-          "domain": "www.forbes.com",
-          "title": "Where U.S. Tax Exposure Actually Begins For International ...",
-          "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2026/03/03/where-us-tax-exposure-actually-begins-for-international-founders/",
+          "domain": "www.linkedin.com",
+          "title": "LLC for Non-US Founders: Pros and Cons",
+          "url": "https://www.linkedin.com/posts/kloboiko_llc-or-c-corporation-the-first-decision-activity-7407538023061659648-x9M-",
           "isNiche": false,
           "snippet": ""
         },
@@ -465,14 +473,6 @@
         },
         {
           "rank": 8,
-          "domain": "rocketwave.co",
-          "title": "US LLC for Non-Residents: Complete 2026 Formation Guide",
-          "url": "https://rocketwave.co/us-llc-for-non-residents-complete-2026-guide/",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 9,
           "domain": "erb-us.com",
           "title": "Choosing the Right Legal Entity for Your U.S. Startup - ERB",
           "url": "https://erb-us.com/choosing-the-right-legal-entity-for-your-u-s-startup-financial-and-tax-considerations-for-foreign-founders/",
@@ -480,10 +480,18 @@
           "snippet": ""
         },
         {
-          "rank": 10,
+          "rank": 9,
           "domain": "brighttax.com",
           "title": "Starting an LLC as a Foreigner: What Non-US Residents ...",
           "url": "https://brighttax.com/blog/starting-an-llc-as-a-foreigner/",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 10,
+          "domain": "rocketwave.co",
+          "title": "US LLC for Non-Residents: Complete 2026 Formation Guide",
+          "url": "https://rocketwave.co/us-llc-for-non-residents-complete-2026-guide/",
           "isNiche": false,
           "snippet": ""
         },
@@ -494,25 +502,17 @@
           "url": "https://www.youtube.com/watch?v=jr-qKilDTLg",
           "isNiche": false,
           "snippet": ""
-        },
-        {
-          "rank": 12,
-          "domain": "www.lazo.us",
-          "title": "How to Incorporate as a Foreign Founder in the U.S.",
-          "url": "https://www.lazo.us/blog/how-to-incorporate-as-a-foreign-founder-in-the-us",
-          "isNiche": false,
-          "snippet": ""
         }
       ],
-      "aiOverviewPresent": true,
-      "aiOverviewStatus": "present",
+      "aiOverviewPresent": false,
+      "aiOverviewStatus": "not_found",
       "relatedQuestions": []
     },
     "will a us llc guarantee payment access": {
-      "totalOrganic": 8,
+      "totalOrganic": 9,
       "topOrganic": [
         {
-          "rank": 4,
+          "rank": 2,
           "domain": "www.thetaxadviser.com",
           "title": "Payments to LLC members for services",
           "url": "https://www.thetaxadviser.com/issues/2022/jun/payments-llc-members-services/",
@@ -521,9 +521,9 @@
         },
         {
           "rank": 5,
-          "domain": "www.varnumlaw.com",
-          "title": "Guaranteed Payments: the Equivalent of a Salary for LLC ...",
-          "url": "https://www.varnumlaw.com/insights/guaranteed-payments-the-equivalent-of-a-salary-for-llc-members-and-partners/",
+          "domain": "beancount.io",
+          "title": "Guaranteed Payments in LLCs: A Complete Guide for ...",
+          "url": "https://beancount.io/blog/2026/01/18/guaranteed-payments-llc-complete-guide",
           "isNiche": false,
           "snippet": ""
         },
@@ -537,17 +537,17 @@
         },
         {
           "rank": 7,
-          "domain": "beancount.io",
-          "title": "Guaranteed Payments in LLCs: A Complete Guide for ...",
-          "url": "https://beancount.io/blog/2026/01/18/guaranteed-payments-llc-complete-guide",
+          "domain": "www.varnumlaw.com",
+          "title": "Guaranteed Payments: the Equivalent of a Salary for LLC ...",
+          "url": "https://www.varnumlaw.com/insights/guaranteed-payments-the-equivalent-of-a-salary-for-llc-members-and-partners/",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 8,
-          "domain": "wise.com",
-          "title": "How do LLC owners get paid? Tips and FAQ",
-          "url": "https://wise.com/us/blog/how-do-llc-owners-get-paid",
+          "domain": "www.legalzoom.com",
+          "title": "The Basics of LLC Guaranteed Payments",
+          "url": "https://www.legalzoom.com/articles/the-basics-of-llc-guaranteed-payments",
           "isNiche": false,
           "snippet": ""
         },
@@ -561,27 +561,35 @@
         },
         {
           "rank": 10,
-          "domain": "www.justanswer.com",
-          "title": "LLC Guaranteed Payments With Multiple LLC Owners ...",
-          "url": "https://www.justanswer.com/finance/nn0o4-gino-g-cpa-i-ve-attempted-organize-question.html",
+          "domain": "wise.com",
+          "title": "How do LLC owners get paid? Tips and FAQ",
+          "url": "https://wise.com/us/blog/how-do-llc-owners-get-paid",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 11,
-          "domain": "mordfin.com",
-          "title": "Help ensure your partnership or LLC complies with tax law",
-          "url": "https://mordfin.com/blog/help-ensure-your-partnership-or-llc-complies-with-tax-law/",
+          "domain": "www.yeoandyeo.com",
+          "title": "Help Ensure Your Partnership or LLC Complies With Tax ...",
+          "url": "https://www.yeoandyeo.com/resource/help-ensure-your-partnership-or-llc-complies-with-tax-law",
+          "isNiche": false,
+          "snippet": ""
+        },
+        {
+          "rank": 12,
+          "domain": "www.thebalancemoney.com",
+          "title": "LLC Guaranteed Payments: What Are They?",
+          "url": "https://www.thebalancemoney.com/what-are-llc-guaranteed-payments-4163089",
           "isNiche": false,
           "snippet": ""
         }
       ],
-      "aiOverviewPresent": false,
-      "aiOverviewStatus": "not_found",
+      "aiOverviewPresent": true,
+      "aiOverviewStatus": "present",
       "relatedQuestions": []
     },
     "non resident llc payment banking compliance guide": {
-      "totalOrganic": 10,
+      "totalOrganic": 9,
       "topOrganic": [
         {
           "rank": 2,
@@ -592,18 +600,10 @@
           "snippet": ""
         },
         {
-          "rank": 3,
+          "rank": 4,
           "domain": "www.llcuniversity.com",
           "title": "Non-US residents open LLC bank account [2026 Guide]",
           "url": "https://www.llcuniversity.com/foreigners/open-us-bank-account-llc-non-resident/",
-          "isNiche": false,
-          "snippet": ""
-        },
-        {
-          "rank": 4,
-          "domain": "gurkhatech.com",
-          "title": "Non-Resident US Business Banking: Compliance Guide ...",
-          "url": "https://gurkhatech.com/non-resident-us-business-banking-guide-compliance-2026/?srsltid=AfmBOopuwroE36bGnW-wnXBiXL4gSp7C4MyxV1Y0rBXymManKpQDn1mJ",
           "isNiche": false,
           "snippet": ""
         },
@@ -617,49 +617,49 @@
         },
         {
           "rank": 6,
-          "domain": "nonresident.tax",
-          "title": "US Bank Account for Non-Resident LLC: Complete 2025 Guide",
-          "url": "https://nonresident.tax/blog/us-bank-account-non-resident-llc-guide",
+          "domain": "www.xpezia.com.pk",
+          "title": "US Bank Account for Non-Resident LLC - 2026 Guide - Xpezia",
+          "url": "https://www.xpezia.com.pk/blog/can-non-residents-open-a-us-bank-account-without-visiting-the-us-2026-reality/",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 7,
-          "domain": "www.reddit.com",
-          "title": "I can guide complete steps to make US LLC ( non resident )",
-          "url": "https://www.reddit.com/r/SaaS/comments/1s9f8q5/i_can_guide_complete_steps_to_make_us_llc_non/",
+          "domain": "www.privacy-solutions.com",
+          "title": "Non-Resident Bank Account Guide (2025): Open Online",
+          "url": "https://www.privacy-solutions.com/bank-accounts/non-resident-bank-account/",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 8,
-          "domain": "www.youtube.com",
-          "title": "How to Set Up a US LLC (as a non-US resident)",
-          "url": "https://www.youtube.com/watch?v=8M2hxQ36CGw",
+          "domain": "gurkhatech.com",
+          "title": "Non-Resident US Business Banking: Compliance Guide ...",
+          "url": "https://gurkhatech.com/non-resident-us-business-banking-guide-compliance-2026/?srsltid=AfmBOooMU_ZmxdR4GKkFJIaM0dYVDPr0TromwXUqbb9EyvTiKQKcG4YM",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 9,
-          "domain": "borderless-strategy.com",
-          "title": "US LLC for Non-Residents: Complete Guide",
-          "url": "https://borderless-strategy.com/blog/us-llc-for-non-residents-complete-guide",
+          "domain": "www.irs.gov",
+          "title": "Publication 515 (2026), Withholding of Tax on Nonresident ...",
+          "url": "https://www.irs.gov/publications/p515",
           "isNiche": false,
           "snippet": ""
         },
         {
           "rank": 10,
-          "domain": "dev.to",
-          "title": "How to Form a US LLC as a Non-Resident (2026 Complete ...",
-          "url": "https://dev.to/jettfu/how-to-form-a-us-llc-as-a-non-resident-2026-complete-guide-1ka2",
+          "domain": "businessanywhere.io",
+          "title": "Non-Resident LLC Formation Guide in the USA",
+          "url": "https://businessanywhere.io/non-resident-llc-formation-guide-in-the-usa/",
           "isNiche": false,
           "snippet": ""
         },
         {
-          "rank": 12,
-          "domain": "www.irs.gov",
-          "title": "Publication 515 (2026), Withholding of Tax on Nonresident ...",
-          "url": "https://www.irs.gov/publications/p515",
+          "rank": 11,
+          "domain": "ebizfiling.com",
+          "title": "EIN Guide for Non-Resident Business Owners 2026",
+          "url": "https://ebizfiling.com/blog/ein-guide-for-non-resident-business-owners-2026/",
           "isNiche": false,
           "snippet": ""
         }

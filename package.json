@@ -19,7 +19,7 @@
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.4",
-    "astro": "^6.1.9",
+    "astro": "^6.3.1",
     "dataforseo-client": "^2.0.24",
     "preact": "^10.29.1",
     "rehype": "^13.0.2",
