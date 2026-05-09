@@ -1,0 +1,80 @@
+---
+title: "PayPal: US Payment Processor Definition"
+description: "What is PayPal? Learn how it works for non-US founders, the differences from Stripe, and why using a US IP address is critical for account security."
+seoTitle: "PayPal Guide: Payment Processing for Non-US Founders"
+seoDescription: "PayPal definition for non-US founders. Learn how PayPal differs from Stripe, how rolling reserves work, and why US IP matters for verification."
+pubDate: 2026-05-09
+author: "Formation.Legal Editorial"
+originalityScore: 98
+humanGenerated: true
+aiAssisted: false
+category: "Glossary"
+tags: ["PayPal", "definition", "payment processor", "non-US founders", "rolling reserve"]
+draft: false
+noindex: false
+directAnswer: "PayPal is a payment processor popular for ecommerce and consumer transactions. For non-US founders, PayPal accepts US LLC with Registered Agent address as company address (unlike Stripe which rejects RA addresses). Key difference: PayPal may impose rolling reserves on new accounts, holding 5-10% of revenue for 30-90 days. Critical: Use a US IP address when accessing PayPal, as connecting from restricted-country IPs triggers address verification requests even with valid RA addresses."
+---
+
+## Definition
+
+**PayPal** is a payment processor founded in 1998 that enables individuals and businesses to send and receive payments online. Unlike Stripe (developer-focused), PayPal is more consumer-oriented and popular for ecommerce and peer-to-peer transactions.
+
+## PayPal vs Stripe for Non-US Founders
+
+| Feature | PayPal | Stripe |
+|---------|--------|--------|
+| **Best For** | Ecommerce, consumer payments | SaaS, subscriptions, B2B |
+| **Fees** | 3.49% + $0.30 (domestic) | 2.9% + $0.30 |
+| **RA Address** | ✅ Accepted as company address | ❌ Rejected (May 2025) |
+| **Rolling Reserve** | 5-10% for 30-90 days | 5-10% for first 30 days |
+| **Dispute Handling** | PayPal often sides with buyer | Full control |
+| **US IP Required** | Strongly recommended | Not required |
+
+## Key Requirements for Non-US Founders
+
+1. **US LLC**: Entity must be registered in Delaware, Wyoming, or similar
+2. **EIN**: Required for business verification
+3. **Registered Agent Address**: PayPal accepts this as company address (unlike Stripe)
+4. **US Bank Account**: Mercury, Relay, or Wise business account
+5. **US IP Address**: Using a US VPS or proxy significantly reduces verification requests
+
+## Rolling Reserve: The Hidden Cost
+
+PayPal holds a percentage of your processing volume as a reserve to cover chargebacks and disputes:
+
+| Reserve Type | How It Works |
+|--------------|--------------|
+| **Rolling Reserve** | 5-10% held for 30-90 days |
+| **Minimum Reserve** | Fixed amount held upfront |
+| **Jump Start Reserve** | High percentage until account history builds |
+
+## Critical: IP Address Matters
+
+**Using a restricted-country IP address to access PayPal triggers verification requests.**
+
+Even with valid RA address and complete documentation, PayPal may ask for:
+- Utility bill proof of address
+- Additional identity verification
+
+**Solution:** Use a US-based VPS or proxy when accessing your PayPal account.
+
+## Common Issues for Non-US Founders
+
+### 1. Previous Account Closures
+If your personal PayPal account was restricted or closed, opening a new Business account under a different LLC may not help; PayPal links accounts via personal identity and closure history persists.
+
+### 2. Chargeback Risk
+PayPal's dispute resolution often favors buyers, which can create cash flow issues for sellers with high chargeback rates.
+
+### 3. Country Restrictions
+PayPal operates differently based on your account country. Some features may be limited depending on where your account is registered.
+
+## Related Terms
+
+- [Stripe](/research/stripe): A developer-focused payment processor often compared to PayPal for US LLC operations.
+- [KYC](/research/kyc): Identity verification protocols that govern how payment processors verify non-US founders.
+- [Mercury](/research/mercury): A digital banking platform often used by US LLCs to link with PayPal accounts.
+
+---
+
+*This is a dictionary entry. For full PayPal guide, see [US LLC for PayPal](/payment-access/us-llc-for-paypal)*

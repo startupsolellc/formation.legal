@@ -137,69 +137,44 @@ export const LINK_DICTIONARY: LinkEntry[] = [
 
   {
     keyword: "stripe",
-    target: "/payment-access/us-llc-for-stripe",
+    target: "/research/stripe",
     priority: 50,
     maxOccurrences: 3,
   },
   {
     keyword: "paypal",
-    target: "/payment-access/us-llc-for-paypal",
+    target: "/research/paypal",
     priority: 50,
     maxOccurrences: 2,
   },
   {
     keyword: "llc",
-    target: "/research/what-is-llc-formation",
+    target: "/research/llc",
     priority: 40,
     maxOccurrences: 5,
   },
   {
     keyword: "registered agent",
-    target: "/address-banking/registered-agent-address-vs-business-address",
+    target: "/research/registered-agent",
     priority: 75,
     maxOccurrences: 3,
   },
-  // NO dedicated EIN page - EIN is covered in BOI reporting guide
+  // NEW dedicated EIN page
   {
     keyword: "ein",
-    target: "/compliance/boi-reporting-us-llc-2026",
+    target: "/research/ein",
     priority: 70,
     maxOccurrences: 3,
   },
-  // NO dedicated EIN page - EIN is covered in BOI reporting guide
-//   {
-//     keyword: "fein",
-//     target: "/compliance/boi-reporting-us-llc-2026",
-//     priority: 65,
-//     maxOccurrences: 2,
-//   },
-  // NO dedicated EIN page - EIN is covered in BOI reporting guide
-  {
-    keyword: "employer identification number",
-    target: "/compliance/boi-reporting-us-llc-2026",
-    priority: 60,
-  },
-  // NO dedicated EIN page - EIN is covered in BOI reporting guide
+  // NEW dedicated ITIN page
   {
     keyword: "itin",
-    target: "/compliance/boi-reporting-us-llc-2026",
+    target: "/research/itin",
     priority: 70,
-  },
-  // NO dedicated EIN page - EIN is covered in BOI reporting guide
-  {
-    keyword: "ssn",
-    target: "/compliance/boi-reporting-us-llc-2026",
-    priority: 60,
-  },
-  // NO dedicated EIN page - EIN is covered in BOI reporting guide
-  {
-    keyword: "form ss-4",
-    target: "/compliance/boi-reporting-us-llc-2026",
-    priority: 75,
   },
   {
     keyword: "kyc",
-    target: "/payment-access/us-llc-for-stripe",
+    target: "/research/kyc",
     priority: 70,
     maxOccurrences: 3,
   },
@@ -210,7 +185,7 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "fincen",
-    target: "/compliance/boi-reporting-us-llc-2026",
+    target: "/research/fincen",
     priority: 80,
   },
   {
@@ -220,7 +195,7 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "formation",
-    target: "/research/what-is-llc-formation",
+    target: "/research/formation",
     priority: 30,
     excludePillars: ["providers"],
   },
@@ -231,12 +206,12 @@ export const LINK_DICTIONARY: LinkEntry[] = [
   },
   {
     keyword: "compliance",
-    target: "/compliance",
+    target: "/research/compliance",
     priority: 20,
   },
   {
     keyword: "form 5472",
-    target: "/compliance/form-5472-foreign-owned-llc",
+    target: "/research/form-5472",
     priority: 85,
   },
   {
@@ -313,13 +288,13 @@ export const LINK_DICTIONARY: LinkEntry[] = [
 
   {
     keyword: "mercury",
-    target: "/payment-access/us-llc-for-stripe",
+    target: "/research/mercury",
     priority: 55,
     maxOccurrences: 2,
   },
   {
     keyword: "relay",
-    target: "/payment-access/us-llc-for-stripe",
+    target: "/address-banking/mercury-relay-banking-non-us-founders",
     priority: 50,
   },
   {
