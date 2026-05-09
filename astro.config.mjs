@@ -11,6 +11,9 @@ import { LINK_DICTIONARY } from './src/lib/link-dictionary.ts';
 export default defineConfig({
   site: 'https://formation.legal',
   output: 'static',
+  build: {
+    format: 'file'
+  },
   integrations: [
     preact(),
     mdx(),
