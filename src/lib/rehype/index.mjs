@@ -116,6 +116,7 @@ function transformAutoLinks(tree, entries, options) {
   const {
     skipTags = ['a', 'code', 'pre', 'script', 'style', 'head', 'title'],
     maxLinksPerArticle = 10,
+    currentSlug = '',
   } = options;
 
   const keywordRegex = buildKeywordRegex(entries);
@@ -181,6 +182,11 @@ function transformAutoLinks(tree, entries, options) {
 
     for (const m of matches) {
       if (totalLinks >= maxLinksPerArticle) break;
+
+      // Skip self-links (same page) - e.g., EIN page linking to /research/ein
+      const targetPath = m.entry.target.replace(/\/$/, '');
+      const selfPath = `/${currentSlug}`;
+      if (targetPath === selfPath) continue;
 
       const linkMatch = {
         keyword: m.keyword,
@@ -276,7 +282,20 @@ export function autoLinkPlugin(options) {
     const filePath = file.history?.[0] ?? file.path ?? file.filename ?? 'unknown';
 
     try {
-      const slug = filePath.split('/').pop()?.replace(/\.mdx?$/i, '') ?? 'unknown';
+      // Extract slug from file path: .../research/ein/index.mdx → research/ein
+      // If file is index.mdx, use parent directory (handles nested content)
+      // But normalize to remove /src/content/ prefix
+      const pathParts = filePath.split('/');
+      const filename = pathParts.pop()?.replace(/\.mdx?$/i, '') ?? '';
+      let slug;
+      if (filename === 'index') {
+        // Get parent directory and strip common prefixes like /src/content/
+        const parentDir = pathParts[pathParts.length - 1];
+        const grandParentDir = pathParts[pathParts.length - 2];
+        slug = `${grandParentDir}/${parentDir}`;
+      } else {
+        slug = filename;
+      }
 
       if (debug) {
         console.log(`[auto-link] Processing: ${slug}`);
@@ -287,6 +306,7 @@ export function autoLinkPlugin(options) {
         failQuietly,
         skipTags,
         maxLinksPerArticle,
+        currentSlug: slug,
       });
 
       if (debug && result.totalLinks > 0) {
