@@ -194,6 +194,13 @@ export function transformAutoLinks(
     // Skip if any ANCESTOR is in skip list (prevents nested links)
     if (hasExcludedAncestor(ancestors, skipTags)) return;
 
+    // Skip text inside heading elements (h1, h2, h3, h4, h5, h6)
+    for (const ancestor of ancestors) {
+      if ('tagName' in ancestor && ancestor.tagName && /^h[1-6]$/.test(ancestor.tagName)) {
+        return;
+      }
+    }
+
     const textNode = node as TextNode;
     const text = textNode.value;
 

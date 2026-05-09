@@ -69,6 +69,11 @@ export interface AutoLinkOptions {
   skipTags?: string[];
   /** Per-article max links (default: 10) */
   maxLinksPerArticle?: number;
+  /**
+   * Heading tags to skip (h1-h6). These are always skipped for auto-linking
+   * to avoid cluttering headings with links. (default: ['h1','h2','h3','h4','h5','h6'])
+   */
+  skipHeadings?: boolean;
 }
 
 // ---------- HAST Node Types (for reference) ----------

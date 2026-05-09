@@ -6,7 +6,7 @@
  * and exclusion patterns.
  */
 
-import { visit } from 'unist-util-visit';
+import { visitParents, SKIP } from 'unist-util-visit-parents';
 
 /**
  * Escape special regex characters in a string
@@ -129,15 +129,23 @@ function transformAutoLinks(tree, entries, options) {
   let totalLinks = 0;
   let skippedDuplicate = 0;
 
-  visit(tree, 'text', (node, index, parent) => {
+  visitParents(tree, 'text', (node, parents) => {
     if (node.type !== 'text') return;
     if (typeof node.value !== 'string') return;
     if (node.value.trim() === '') return;
 
+    const parent = parents[parents.length - 1];
     if (!parent || !parent.tagName) return;
     const parentElement = parent;
 
     if (skipTags.includes(parentElement.tagName)) return;
+
+    // Skip text inside heading elements (h1, h2, h3, h4, h5, h6)
+    for (const ancestor of parents) {
+      if (ancestor.tagName && /^h[1-6]$/.test(ancestor.tagName)) {
+        return;
+      }
+    }
 
     const text = node.value;
 
@@ -218,9 +226,11 @@ function transformAutoLinks(tree, entries, options) {
       });
     }
 
-    if (newNodes.length > 0 && index !== undefined && parent.children) {
-      parent.children.splice(index, 1, ...newNodes);
-      return index + newNodes.length;
+    if (newNodes.length > 0) {
+      const currentParent = parents[parents.length - 1];
+      const nodeIndex = currentParent.children.indexOf(node);
+      currentParent.children.splice(nodeIndex, 1, ...newNodes);
+      return [SKIP, nodeIndex + newNodes.length];
     }
   });
 
