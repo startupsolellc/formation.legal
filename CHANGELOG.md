@@ -11,6 +11,22 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-09] - Mercury/Relay Banking Guide
+
+### Added
+- Mercury/Relay Banking Guide — Content gap filled for non-US founders seeking payout accounts.
+- Added src/content/guides/mercury-relay-banking-non-us-founders.mdx.
+- Covers: Mercury vs Relay core differences, prohibited countries, required documents.
+- GEO-optimized with directAnswer, verdict matrices, AI Misses, and providerFit schema.
+- DataForSEO validation and search volume confirmation.
+- Addresses the highest priority gap in the content strategy.
+
+### Architecture Decisions
+- Adhered strictly to the docs/content-workflow-standards.md 5-step process.
+- Implemented GEO frontmatter components without importing them explicitly inside MDX.
+
+
+
 ## [2026-05-04] - Dark Mode Contrast Optimization & Semantic Token Refactor
 
 ### Changed
