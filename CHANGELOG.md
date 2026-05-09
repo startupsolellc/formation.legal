@@ -11,6 +11,19 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-09] - Foreign-Owned LLC Tax & Section 482 Guide
+
+### Added
+- High-authority guide on Foreign-Owned LLC tax compliance.
+- Covers Form 5472, Pro-forma 1120, Section 482 related party transactions, and the 5,000 penalty.
+- GEO-optimized with directAnswer, verdict matrices, AI Misses, and decisionTree.
+- Verified against 2026 IRS instructions and DataForSEO SERP analysis.
+
+### Architecture Decisions
+- Placed under the Compliance pillar to align with the Route Engine strategy.
+
+
+
 ## [2026-05-09] - Mercury/Relay Banking Guide
 
 ### Added
