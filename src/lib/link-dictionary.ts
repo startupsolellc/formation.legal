@@ -22,6 +22,40 @@
 import type { LinkEntry } from './rehype/types';
 
 export const LINK_DICTIONARY: LinkEntry[] = [
+  // ============ NEW GUIDES & TUTORIALS ============
+
+  {
+    keyword: "guides",
+    target: "/guides",
+    priority: 85,
+    maxOccurrences: 2,
+  },
+  {
+    keyword: "step-by-step guide",
+    target: "/guides",
+    priority: 85,
+  },
+  {
+    keyword: "stripe atlas alternative",
+    target: "/guides/stripe-atlas-alternative-non-resident",
+    priority: 95,
+  },
+  {
+    keyword: "doola alternative",
+    target: "/guides/stripe-atlas-alternative-non-resident",
+    priority: 90,
+  },
+  {
+    keyword: "diy llc formation",
+    target: "/guides/stripe-atlas-alternative-non-resident",
+    priority: 90,
+  },
+  {
+    keyword: "form an llc online",
+    target: "/guides/stripe-atlas-alternative-non-resident",
+    priority: 80,
+  },
+
   // ============ COMPOUND KEYWORDS (önce listelenmeli - longer first) ============
 
 //   {

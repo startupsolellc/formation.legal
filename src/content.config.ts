@@ -68,6 +68,7 @@ const pillarEnum = z.enum([
   'compliance',
   'providers',
   'playbooks',
+  'guides',
 ]);
 
 /* ------------------------------------------------------------------ */

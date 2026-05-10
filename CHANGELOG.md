@@ -11,6 +11,26 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-10] - Guides Pillar & Stripe Atlas Alternative Walkthrough
+
+### Added
+- **New `guides` Pillar**: Created a dedicated `guides` pillar for step-by-step, visual tutorials.
+- **`src/pages/guides/index.astro`**: A stylish hub for all guides using the existing brutalist and glassmorphism design language.
+- **`src/pages/guides/[slug].astro`**: Dynamic routing for the guides pillar utilizing `GuideLayout.astro`.
+- **Stripe Atlas Alternative Guide**: Added a comprehensive DIY LLC formation visual guide (`src/content/guides/stripe-atlas-alternative-non-resident.mdx`). Targets non-US residents looking to save $500 by using a registered agent directly.
+- **Images**: Integrated 9 optimized `.png` screenshots for the Northwest Registered Agent LLC formation process.
+- **Internal Links**: Added new entries to `src/lib/link-dictionary.ts` pointing to the new guides hub and the Stripe Atlas alternative guide to power the auto-linking system.
+
+### Changed
+- **Content Schema (`src/content.config.ts`)**: Updated the `pillarEnum` to officially support the `guides` category.
+- **Navigation (`src/lib/constants.ts` & `src/components/Header.astro`)**: Added the "Guides" pillar to the `NAV_ITEMS` and `PILLARS` lists, making it accessible from the main site header.
+
+### Architecture Decisions
+- Guides use the exact same Zod schema and `GuideLayout.astro` as existing pillar content, keeping the EEAT, GEO, and Trust Layer elements fully intact.
+- Conducted deep SERP analysis using DataForSEO scripts (e.g., `scripts/concept1-keyword-research.mjs`) to find low-competition, high-intent angles (Stripe Atlas alternatives, No-ITIN LLC formation) before writing the content.
+
+---
+
 ## [2026-05-09] - Foreign-Owned LLC Tax & Section 482 Guide
 
 ### Added

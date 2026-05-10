@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Stripe Atlas Alternatifi: Yabancılar İçin 500$ Ödemeden Kendi LLC&#x27;nizi Kurma Rehberi</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="35c5a91a-75a4-8084-95a1-de4e50274a62" class="page sans"><header><h1 class="page-title" dir="auto"><strong>Stripe Atlas Alternatifi: Yabancılar İçin 500$ Ödemeden Kendi LLC&#x27;nizi Kurma Rehberi</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="35c5a91a-75a4-8163-a306-ce823b5d0810" class="">Stripe Atlas Alternatifi: Yabancılar İçin 500$ Ödemeden Kendi LLC&#x27;nizi Kurma Rehberi</h1></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-81b9-9979-f71eea6eed5b" class="">Amerika&#x27;da bir LLC kurmak isteyen ABD vatandaşı olmayan girişimcilerin (non-US residents) karşısına ilk olarak Stripe Atlas, Firstbase veya Doola gibi popüler platformlar çıkar. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-801f-9d95-ca8c9af9b41f" class="">Ancak bu servisler, &quot;kolaylık&quot; adı altında genellikle 300$ ile 500$ arasında değişen yüksek hizmet ücretleri talep ederler.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-811f-9f94-df56fc366e20" class="">Gerçek şu ki: Bir Registered Agent (Kayıtlı Temsilci) kullanarak kendi LLC&#x27;nizi kurmak (DIY) sanıldığı kadar karmaşık değildir ve size yüzlerce dolar tasarruf ettirir. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8014-b7d2-c32349490b2f" class="">Bu rehberde, Stripe Atlas&#x27;a 500$ ödemek yerine, Northwest Registered Agent gibi bir platform üzerinden sadece 39$ (+ eyalet harcı) ödeyerek adım adım nasıl LLC kurabileceğinizi adım adım ekran görüntüleriyle anlatıyoruz.</p></div><div style="display:contents" dir="auto"><hr id="35c5a91a-75a4-8128-be19-e347334cd103"/></div><div style="display:contents" dir="auto"><h2 id="35c5a91a-75a4-8120-94c9-f64f8db1f452" class="">Hızlı Özet (Direct Answer)</h2></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8182-90d0-f1fea4bd9188" class="">Stripe Atlas, yabancı girişimciler için LLC kurulumunun tek yolu değildir. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8094-bdeb-d722253fd11c" class="">Atlas 500$ ücret alırken, süreci bir Registered Agent (örn. Northwest) üzerinden kendiniz yürüterek sadece 39$ acente ücreti ve zorunlu eyalet harcını ödersiniz. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8049-9393-d3c19023dabc" class="">Süreç tamamen online&#x27;dır, ABD vizesine veya ITIN/SSN&#x27;e ihtiyacınız yoktur. İşletme adresi, Registered Agent hizmeti ücretsiz olarak kurulum paketine dahil edilir.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-800d-9ca2-f63389d1566d" class="">Bu arada Stripe Atlas, LLC kurulum hizmetini kendisi bile sunmaz bunun yerine zaman zaman değişen hizmet sağlayıcılarla çalışırlar. Yani aslında siz Stripe Atlas üzerinden bir LLC kurduğunuzu düşünürsünüz ancak Atlas, arka planda yine 3. parti bir kayıtlı temsilci kullanır. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8060-99dc-f82407a128f9" class="">2026 itibari ile Stripe Atlas, LLC kurulum hizmetlerini Rocket Lawyer sağlayıcısı üzerinden vermektedir. Kaynak : <a href="https://www.rocketlawyer.com/legal-services-terms-of-service">https://www.rocketlawyer.com/legal-services-terms-of-service</a></p></div><div style="display:contents" dir="auto"><hr id="35c5a91a-75a4-8146-a080-d8ac9f638070"/></div><div style="display:contents" dir="auto"><h2 id="35c5a91a-75a4-81da-8a7f-d34c7f83065b" class="">Karşılaştırma: Stripe Atlas vs. Doola/ Firstbase vs. Kendin Yap (DIY)</h2></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8121-93c5-d26ec660c670" class="">Platformların arkasındaki maliyet kırılımlarını anladığınızda, neden kendi kurulumunuzu yapmanız gerektiği çok netleşir:</p></div><div style="display:contents" dir="ltr"><table id="35c5a91a-75a4-815e-9ab4-c2ca65779b85" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="35c5a91a-75a4-8169-978e-ddadeda237be"><th id="y}JD" class="simple-table-header-color simple-table-header">Platform / Yöntem</th><th id="eS]|" class="simple-table-header-color simple-table-header">Kurulum Maliyeti</th><th id="=N[M" class="simple-table-header-color simple-table-header">Yıllık Yenileme (Registered Agent)</th><th id=";|Cr" class="simple-table-header-color simple-table-header">Kimler İçin Uygun?</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="35c5a91a-75a4-81c6-b3b2-c53927c646f4"><td id="y}JD" class=""><strong>Stripe Atlas</strong></td><td id="eS]|" class="">500$</td><td id="=N[M" class="">100$</td><td id=";|Cr" class="">C-Corp kurup yatırım arayan girişimler. Solo LLC&#x27;ler için gereksiz pahalı.</td></tr></div><div style="display:contents" dir="ltr"><tr id="35c5a91a-75a4-815c-a411-c602c599744c"><td id="y}JD" class=""><strong>Doola / Firstbase</strong></td><td id="eS]|" class="">300$ - 399$</td><td id="=N[M" class="">~199$</td><td id=";|Cr" class="">&quot;Her şey dahil&quot; paket isteyen ama ekstra maliyeti ödemeyi dert etmeyenler. (Bazıları yıllık tekrarlanır)</td></tr></div><div style="display:contents" dir="ltr"><tr id="35c5a91a-75a4-81f1-a20d-cb32fb84bf38"><td id="y}JD" class=""><strong>DIY (Northwest vb.)</strong></td><td id="eS]|" class="">39$ + Eyalet Harcı</td><td id="=N[M" class="">125$</td><td id=";|Cr" class="">Bütçesini akıllıca kullanmak ve sürecin tam kontrolünü elinde tutmak isteyenler.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="35c5a91a-75a4-8113-bcaa-f38dc58eb64a"/></div><div style="display:contents" dir="auto"><h2 id="35c5a91a-75a4-81b9-aae7-eaa4d3715e73" class="">Yapay Zeka Asistanlarının (ve Çoğu Blogun) Size Söylemediği 3 Kritik Detay</h2></div><div style="display:contents" dir="auto"><ol type="1" id="35c5a91a-75a4-81df-bcea-df23e6acd48e" class="numbered-list" start="1"><li><strong>Kişisel Adres vs. İşletme Adresi Karışıklığı:</strong> Çoğu platform form doldururken size adres sorar. Kendi ülkenizdeki ev adresinizi yazarsanız, banka hesabı (Mercury/Relay) açılışında red yeme ihtimaliniz artar. Kayıt sırasında Registered Agent&#x27;ın size sağladığı adresi kullanmalısınız.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="35c5a91a-75a4-8160-a921-d90cfef50b83" class="numbered-list" start="2"><li><strong>SSN/ITIN Zorunlu Değildir:</strong> Online formlarda &quot;Sosyal Güvenlik Numarası (SSN)&quot; alanı karşınıza çıkacaktır. Yabancı kurucular bu adımı yasal olarak atlayabilir veya &quot;Foreign Citizen&quot; seçeneğini işaretleyebilir. (Aşağıdaki rehberde bunu nasıl atlayacağınızı gösteriyoruz).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="35c5a91a-75a4-81e9-b83e-c2b40b0aff92" class="numbered-list" start="3"><li><strong>Eyalet Seçimi Yanılgısı:</strong> Herkes Delaware veya Wyoming önerir. Ancak ödeme altyapınız ve iş modeliniz (Örn: Sadece Stripe kullanmak) hangi eyaletin sizin için daha uygun olduğunu değiştirir. (Karar veremediyseniz Route Planner aracımızı kullanın). Eğer sadece SAAS veya dijital ürün satmak amacıyla bir LLC kuracaksanız New Mexico en ucuz ve yıllık maliyetleri olmayan nadir eyaletlerdendir.</li></ol></div><div style="display:contents" dir="auto"><hr id="35c5a91a-75a4-8182-a751-fd33c0475c3d"/></div><div style="display:contents" dir="auto"><h2 id="35c5a91a-75a4-811d-9ff3-dddf18168bf4" class="">Adım Adım LLC Kurulum Rehberi (Ekran Görüntülü)</h2></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8184-ac12-c29ad97e4d0a" class=""><em>Not: Bu rehberde arayüzü en kullanıcı dostu ve şeffaf fiyatlandırmaya sahip olan platformlardan biri olan Northwest üzerinden ilerliyoruz. Ancak Bizee veya diğer acentelerde de mantık tamamen aynıdır.</em></p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-801e-a99f-e49e85a7c5f5" class="">LLC’nin kurulumunun yapılacağı eyaleti belirledikten sonra aşağıdaki rehberdeki adımları uygulayarak LLC’nizi kendiniz 5 dakikada kaydedebilirsiniz. Üstelik şirketinizi ve adresinize gelecek olan evrakları yönetebileceğiniz ücretsiz bir Dashboard da sunuluyor. Bunun yanında ücretsiz şirket adresi, dijital posta tarama ve online teslimat, ücretsiz Operating Agreement, ücretsiz yıllık hatırlatıcılar  dahil olmak üzere tam kapsamlı bir platforma sahip olursunuz. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-804c-acc0-e218bcf74cbf" class="">Not: Bu rehberde eyaletinizi kendiniz belirleyebilir veya seçebilirsiniz ancak biz bu rehberde SAAS ve dijital hizmetler için en uygun ve ekonomik olan New Mexico eyaletinde kurulumu detaylandıracağız.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8071-bbe5-ed24bf754ce0" class="">Hazırsanız başlayalım.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8049-9c58-d954bf534d09" class="">Öncelikle Northwest Registered Agent’ın LLC formation sayfasına erişin. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80e0-ba61-d0cdce953702" class="">northwest-llc-formation.png</p></div><div style="display:contents" dir="auto"><h3 id="35c5a91a-75a4-80ad-a04b-fe499d654bfa" class="">Adım 1: Eyalet Seçimi </h3></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8046-b14e-f081e7cda8f0" class="">Bu sayfada LLC oluşumunu başlatmanıza olanak tanıyan ilk adımdır ve burada ilk yapmanız gereken işlem, LLC’nin kurulumunun yaılacağı eyaleti seçmek olacak. Bu rehberde New Mexico eyaletini seçerek ilerliyoruz. Eğer farklı bir eyalet seçmek isterseniz buradaki 50 ayaletten herhangi birini seçin ancak her eyaletin ilk kurulum harç ücreti ve yıllık masrafları değişkenlik gösterir. New Mexico eyaleti bu dengeyi en iyi sağlayan nadir eyaletlerdendir.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8061-b91c-d9b91d8b4948" class="">northwest-llc-step-1-select-state.png</p></div><div style="display:contents" dir="auto"><h3 id="35c5a91a-75a4-80b1-95ae-c4b3d20d04d2" class="">Adım 2: Şirket Türü Seçimi</h3></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80f9-899e-f4c05484f1e8" class="">Bu adımda şirket türü seçimi yapabilirsiniz. Avantajlarından ve yönetim, bakım kolaylığından dolayı şirket türü olarak LLC seçin. Eyalet olarak (Jurisdiction) seçimi yime aynı New Mexico (veya tercih ettiğini z eyalet) kalmalıdır.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8020-a4e7-cf7b69ecb655" class="">Not: Bu adımda eyalet dosyalama bedelini sayfanın alt kısmında görebilirsiniz. Seçilen eyalete göre dosyalama ücretleri değişmektedir. New Mexico eyaleti için dosyalama bedeli (Filing Fee ) 52 dolardır. Seçiminizi yaptıktan sonra Continue butonuna tıklayarak sonraki aşamaya geçebilirsiniz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80d3-b403-f73a0127f7d0" class="">northwest-llc-step-2-select-entity-type.png</p></div><div style="display:contents" dir="auto"><h3 id="35c5a91a-75a4-8103-8c4e-e860038bac4c" class="">Adım 3: Şirket İsmi Belirleme</h3></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8173-98b3-dd1c095d667c" class="">Bu adımda şirket isminizi belirlemelisiniz. Şirket ismi seçerken bazı kurallar bulunmaktadır bunlara en başta dikkat edilemesi gerekiyor. Aksi durumda sipariş sonrasında Northwest Agent, size bir bilgilendirme ve değişiklik önerisi sunacaktır. Yanlış yapmak bu aşamada dünyanın sonu değil ancak düzeltme için bir kaç ekstra e-posta loop una girmek gerekebilir. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8013-9fb8-da9b0b321faa" class="">Bu aşamada e baştan doğru yaklaşımı uygularsanız bu tarz ek işlemlerle zaman kaybetmezsiniz.</p></div><div style="display:contents" dir="auto"><ol type="1" id="35c5a91a-75a4-80e1-baae-ca24a6773cd9" class="numbered-list" start="1"><li>İsim seçerken her zaman bir son ek kulanmanız şarttır ve bunlar şunlarla sınırlıdır. “Limited Liability Company,&quot; &quot;LLC&quot; veya &quot;L.L.C.&quot; gibi bir sonek bulunmalıdır.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="35c5a91a-75a4-80b4-8321-c21c202d63ea" class="numbered-list" start="2"><li>Çakışma olmamalıdır. Seçtiğiniz isim o eyalette daha önce hiç bir şekilde kaydedilmemiş ve boşta olmalıdır. Bunu anlayabilmek için eyalet web sitesi portalına erişip ücretsiz bir arama yapabilirsiniz. Eğer sonuç bulunamadı veya kayıt yok uyarısı alırsanız şanslısınız. Eyalette bu isim kaydedilmemiştir ve kullanıma müsait demektir. Eyalet web sitesini google dan şu şekilde aratın “[state name] entity search” yani New Mexico için “New Mexico Entity Search” araması yapın <a href="https://enterprise.sos.nm.gov/search/business">çıkan ilk sayfaya </a>erişip arama formunu kullanın. Not: Bazı eyaletler eyalet web sitelerine erişimde ABD tabanlı bir IP adresi ile bağlanmanızı isteyebilir bir VPN kullanabilirsiniz.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="35c5a91a-75a4-8067-abab-ded1a5c8de58" class="numbered-list" start="3"><li>Eğer hedeflediğiniz isim eyalet web sitesindeki kayıtlarda boşta ise bu ismi Northwest Registered Agent formuna yazarak bu adımı tammalayabilirsiniz.</li></ol></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8054-b592-c24c99e4122b" class="">northwest-llc-step-3-name-search.png</p></div><div style="display:contents" dir="auto"><h3 id="35c5a91a-75a4-8010-9069-e0c7316b8fdf" class="">Adım 4: İşletme Detaylarını Belirleme</h3></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-81dc-b6d5-c8d323eac756" class="">Bu adımda işlemeniz için bazı detayları belirleyebilirsiniz. Ancak bu aşamada pek fazla ek uğraş veya seçeneğe gerek bulunmuyor. Genellikle varsayılan seçeneklerle devam edebilirsiniz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-809b-8421-c24ecfd38afe" class=""><strong>Business Purpose </strong>olarak “Use Generic Business Purpose” kutucuğu işaretli kalabilir. Bu size ekstra bir kayıp ve işinizde bir sınırlama sunmaz. genel amaçlı bir işletme olarak kayıtlara geçer ve istediğiniz iş tipinde şirketinizi kullanabilirsiniz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8056-aad5-e2aabb93221d" class=""><strong>Address for State Records </strong>olarak belirlenmesi gereken iki seçenek var;</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-803e-b5cc-e3910d2f37d1" class=""><strong>Physical Address : </strong> Ana ofis adresi, çok önemli kurumsal evraklarla dolu dosya dolaplarınızın olduğu eski zamanlardan kalma bir kalıntıdır. Artık bilgisayarlar ve nerede olursanız olun saklanabilen dosyalar varken, &quot;ana adres&quot; gereksiz bir seçenektir ancak yine de belirlemek larttır. Burada “Our Registered Agent Address” seçeneği seçili kalmalıdır. Bu sayede Northwest’in adreslerine işaret eder ve sizin adresiniz gizli kalır.  ve hiç kimsenin kurumsal tüzüklerde bunu düzeltmek için zamanı veya isteği olmayacaktır.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-800f-b5b8-f517da4e08d0" class=""><strong>Mailing Address : </strong>Bu, işletmeniz için kalıcı kurumsal kayıt olarak kamuya açık şekilde listelenen adrestir.  Burada da “Our Registered Agent Address”  seçeneğini bırakın. Bu sayede kayıtlarda Agent ‘ın posta adresi kayıtlarda görünür ve eyaletten gelecek gelen tüm postaları aynı gün içinde çevrimiçi hesabınıza tarayıp pdf olarak size sunarlar, dashboard a yüklerler.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8005-ab9a-c411e568615b" class=""><strong>Attorney Contact : </strong>Bu kısmı “NO” olarak seçip Continue butonuna basarak devam edin.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-81cd-83ae-ff105f72d60a" class="">northwest-llc-step-4-business-address-entry.png</p></div><div style="display:contents" dir="auto"><h3 id="35c5a91a-75a4-817f-85e8-e54f58582412" class="">Adım 5: Northwest Şirket Yönetim Paneli Hesabı Oluşturma</h3></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8089-a908-c202e055d023" class="">Kurulum formunun bu aşamasında Northwest Registered Agent’ın size özel sunduğu Dashboard a erişim için ve ayrıca sizinle iletişim kurabilmeleri için iletişim bilgilerinizi ve bir şifre belirlemeniz isteniyor.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80ae-938a-f07e2e4da407" class="">Formun bu aşamasını doğru bir şekilde kendi bilgilerinizle doldurun ve sonraki aşamaya geçin.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-803b-a432-ec503822924b" class="">northwest-llc-step-5-account-creating.png</p></div><div style="display:contents" dir="auto"><h3 id="35c5a91a-75a4-81d7-a362-e5d4f67bb0a5" class="">Adım 6: Şirket Yönetimi (Üye / Kurucu Ekleme)</h3></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-81ad-bb3c-df2df83a02b9" class="">Bu aşamada şirket üyelerini belirleyebilirsiniz. Genellikle tek üyeli bir LLC önerilir. Eğer ortaklı bir yapı kuracaksanız “ADD MEMBER” butonu ile birden çok LLC üyesi ekleyebilirsiniz. Ancak LLC’nin tek sahibi ve üyesi siz olacaksanız bu kısma adınızı ve soyadınızı yazarak adımı tamamlayabilirsiniz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80cd-ab89-f212f1f29483" class="">Burada bazı detaylar var şimdi bunları açıklayalım;</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80e7-9a6f-dae26a482e43" class=""><strong>Management Type :</strong> Member Managed seçin. Bu sayede şirketin sahibi yani siz kendinizi yönetici olarak atamış olursunuz. Genellikle member managed en iyi seçimdir.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-800e-8dad-e362e72a72b6" class=""><strong>Manager Managed : </strong>Genelde çok büyük ortanizasyonlarda şirketin yönetimini bir müdür veya yetkiliye atanan durumlarda seçilmelidir. Bu seçenekte bir nevi bir müdüre şirket yönetim yetkisi vermiş olursunuz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80bd-a370-efca851f3afb" class="">List Members/Managers With State : Bu kısım önemli! Eyalet kayıtlarında halka açık olarak şirket üyelerinin isminin listelenip listelenmeyeceğini belirleyebiliyorsunuz. Eğer şirket sahibinin (yani siz) isminin eyalet kayıtlardında görünmesini istiyorsanız “List With the State“ seçin. Eğer anonim kalmak istiyorsanız yani kayıtlarda isim soyad görünmesin istiyorsanız “Omit From the State” seçin.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8034-9765-e7c6fd29bed4" class="">Burada özgürsünüz kimliğinizi saklamaktan çekinmiyorsanız “List With the State“  seçebilirsiniz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8093-aa05-dc14fe6d5a86" class=""> <strong>Member #1 : </strong>Bu kısmma şirket üyesinin adını ve soyadını yazın</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8004-a64c-e139d99e833e" class=""><strong>Address To Record With The State: </strong>Bu kısmı ise “Our Registered Agent Address” olarak default seçenekte bırakabilirsiniz. Böylece eyaletteki kayıtlarda özel iletişim ve adres bilgileriniz yerine kayıtlı temsilci adresi listelenir.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-809f-ba72-dd8577fc534d" class="">Bu adımdaki seçenekleri uyguladıktan sonra yeni adıma geçebilirsiniz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-808e-9ff1-eb86073150e8" class="">northwest-llc-step-6-company-management.png</p></div><div style="display:contents" dir="auto"><h3 id="35c5a91a-75a4-8172-8787-ceb6b4aeb921" class="">Adım 7: Ekstra Servisler (Optional Items)</h3></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-815b-8c62-fbaafb43db41" class="">Bu aşamda şirketiniz için isteğe bağlı olarak seçebileceğiniz ekstra seçimler bulunur. Ancak bunları seçmekte özgürsünüz ve seçim yapsanız da yapmasanızda şirketiniz doğru bir şekilde zaten kaydedilir.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8047-8d9e-db4af1ddc4df" class="">TAX ID : EIN numarasını kendiniz de alabilirsiniz. SS4 formunu doldurup IRS’e faxlayarak kendiniz ücretsiz alabilirsiniz. TAX ID seçeneğini eklediğinizde iki ayrı seçenek karşınıza çıkar. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8006-ae7e-dfcd4ae44361" class=""><strong>Have Social Security Number (50 Dolar) ve Do NOT Have Social Security Number (200 Dolar)</strong></p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80d9-95f1-d19fc891ff1c" class="">Sosyal güvenlik numaranız varsa 50 dolar karşılığında sizin için ek hizmet bedeli ile EIN numaranızı alırlar. Eğer SSN yoksa bu bedel 200 Dolar a yükselir. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80e1-bdb6-d361fe9b7ebe" class="">Özetle : Bir ABD SSN sahibi değilseniz 200 dolar ödersini ancak EIN başvurunuzu kendiniz yaparsanız kolaylıkla bunu başarabilir ve ekstra 200 dolar ödemekten kurtulursunuz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80f3-b376-c525ecdc810b" class=""><strong>S Corporation Election With The IRS : </strong>IRS’e LLC yi bir S Corp olarak bildirirler. Bu seçenek sadece ABD mukimleri için geçerlidir. Seçim yapmanız gerekmez.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80e7-a3dc-e5470c307dd4" class=""><strong>Premium Mail Service : </strong>Standart ve paylaşımlı adresler yerine özel suit numarası ihtiyacınız varsa (Amazon, Etsy gibi platformlar isteyebilir) aylık ekstra ödeme ile özel suit içeren şirket adresi alabilirsiniz. Burada önemli nokta aylık ödemeleri yapmazsanız suit numaranız iptal olur ve adrese gelen postalar sizin için teslim alınmaz. Standart adresler yeterlidir Stripe gibi platformlar ve bankalar bu adresleri kabul eder.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8015-b3b8-f93b8f75e45f" class=""><strong>Trademark Filing : </strong>Eğer şirket ismini tescil etme durumunuz varsa ekleyebilirsiniz. Ancak bu aşamada şart değil. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8106-b0e1-e7c03eecd72d" class="">northwest-llc-step-7-optional-items.png</p></div><div style="display:contents" dir="auto"><h3 id="35c5a91a-75a4-8007-bab5-d9a3e55dd5c3" class="">Adım 8: Sipariş ve Ödeme</h3></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80ba-af2d-ef7984b6c5a9" class="">Son aşama sipariş ve ödeme aşaması. Bu adımda forma kart bilgilerini ekleyerek ödemeyi gerçekleştirebilirsiniz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80a5-92ea-dcb560499b63" class="">northwest-llc-step-8-payment-order.png</p></div><div style="display:contents" dir="auto"><hr id="35c5a91a-75a4-8180-b9d3-cc12e3c8482b"/></div><div style="display:contents" dir="auto"><h2 id="35c5a91a-75a4-81f4-aa31-fd2007cc4df8" class="">LLC Kurulduktan Sonra Ne Olacak? (Sıradaki Adımlar)</h2></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8077-b45c-fd9051eb219f" class="">Sipariş sonrasında eyalet prosedürlerine göre kurulum 2-3 iş gününde tamamlanır.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-807e-8fae-f32e619f4f36" class="">İşlemler tamamlandığında Northwest Registered Agent size bir bilgilendime e-postası gönderir. Aynı zamanda kurulum süreçlerini Dashboard dan da takip edebilirsiniz..</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80c1-8470-f6e7b9ca46bc" class="">Kurulum aşamasında genellikle sorun yaşanmaz ancak bir kaç eksik varsa veya sizden daha fazla bilgi isterlerse , eposta yoluyla Northwest destek ekibi size ulaşır. Bu durum çok nadiren yaşanır.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80e2-aba5-d71b92bf4ccf" class="">Herşey yolunda gittiğinde ve kuurlum taamlandığında artık Dashboard a oturum açıp şirket kuruluş belgelerinizi PDF olarak ücretsiz indirebilirsiniz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80c4-a65c-dd302e7ce2a9" class="">Ayrıca ücretsiz bir Operating Agreement belgesi de size sağlarlar.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80c0-81be-f520dfb26a1a" class="">Bundan sonra şirketinize gelebilecek olan resmi belgeler veya tebligatlara aynı dashboard sayfasından “Documents” menüsünden erişebilirsiniz. Ayda 3 adet ücretsiz posta alma hakkınız var bu kota fazlasıyla yeterli olur.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80dd-9a88-d1b17835113e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-81af-9c1f-e97da2e85dda" class="">Şirketinizi kurdunuz, Eyalet onayınız (Articles of Organization) geldi. Tebrikler, ancak süreç henüz bitmedi. Ödeme almaya başlamak için şu adımları izlemelisiniz:</p></div><div style="display:contents" dir="auto"><ol type="1" id="35c5a91a-75a4-81c4-aeae-e70c038efe03" class="numbered-list" start="1"><li><strong>EIN Numarası Almak:</strong> IRS&#x27;e SS-4 formu faksı çekerek başvurunuzu tamamlayın. EIN onay belgeniz Dashboard unuza pdf olarak IRs tarafından 2-3 haftada gönderilir.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="35c5a91a-75a4-812f-bfaa-df0987153749" class="numbered-list" start="2"><li><strong>Banka Hesabı Açmak:</strong> EIN onayınız geldikten sonra Mercury veya Relay üzerinden ABD işletme banka hesabı açabilirsiniz.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="35c5a91a-75a4-816a-904b-feaf034188fe" class="numbered-list" start="3"><li><strong>Stripe veya PayPal Hesabı Açmak:</strong> Şirket evraklarınız, EIN numaranız ve ABD banka hesabınızla ödeme işlemcilerine başvurabilirsiniz.</li></ol></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-81f2-8713-e7b16cf7405a" class="">Tüm bu adımlarda doğru sırayı takip etmek ve hata yapmamak için <strong>Formation.Legal Route Planner</strong> aracını kullanarak kendi yol haritanızı çizebilirsiniz.</p></div><div style="display:contents" dir="auto"><hr id="35c5a91a-75a4-810d-b3eb-c9a05bd5c04d"/></div><div style="display:contents" dir="auto"><h2 id="35c5a91a-75a4-8131-9e3c-e904a467de9a" class="">Sonuç: 500$ Tasarruf Etmenin Ötesinde</h2></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-810d-8828-c78a6103af49" class="">Stripe Atlas, Firstbase veya Doola gibi platformlar, şüphesiz sürecin her adımını sizin için halleder. Ancak yüzlerce dolar komisyon karşılığında sunulan bu hizmetin, aslında siz kendiniz yaparak çok daha ucuza ve tam kontrolü elinizde tutarak tamamlayabileceğiniz bir süreç olduğunu unutmamalısınız. </p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80a3-89f1-e1548a081fa4" class="">Ayrıca Stripe Atlas, Doola, Firstbase üzerinde de hizmet alsanız her durumda bu rehberdeki kadar form doldurmanız gerekecek. Hatta EIN başvuru aşamasındaki süre bile aynı olacaktır.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-805c-bd87-c689a79d9d93" class="">Daha fazla ücret ödeyip daha hızlı olacak ve daha az form adımı uygulanacak diye bir durum söz konusu değildir. Sonuçta devlet yasaları ve IRS prosedürleri aynıdır Stripe ve Doola için özel süreler, prosedürler uygulanmaz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-81c5-a98d-ee1d09e6a536" class="">Bu rehberi takip ederek:</p></div><div style="display:contents" dir="auto"><ul id="35c5a91a-75a4-81ed-8205-f0b43f394c94" class="bulleted-list"><li style="list-style-type:disc">En az 300-400$ tasarruf edeceksiniz</li></ul></div><div style="display:contents" dir="auto"><ul id="35c5a91a-75a4-8114-bd3b-fce586972ca5" class="bulleted-list"><li style="list-style-type:disc">Şirket yapınızın her detayını bilerek ilerleyeceksiniz</li></ul></div><div style="display:contents" dir="auto"><ul id="35c5a91a-75a4-818b-8718-cd2fd93a621f" class="bulleted-list"><li style="list-style-type:disc">Gelecekteki değişikliklerde (ekleme/çıkarma, eyalet değişikliği vb.) dış yardıma ihtiyaç duymayacaksınız. Dashboard unuzdan aynı işlemleri yapabileceksiniz.</li></ul></div><div style="display:contents" dir="auto"><ul id="35c5a91a-75a4-811a-a4ab-d4424a6f2818" class="bulleted-list"><li style="list-style-type:disc">Formation sürecini gerçekten anlayarak, ileride başkalarına da danışmanlık yapabileceksiniz</li></ul></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-8103-8331-e49427148cd3" class="">Sorularınız için bizimle iletişime geçebilir veya LLC kurulum sürecinizi planlamak için Route Planner aracımızı kullanabilirsiniz.</p></div><div style="display:contents" dir="auto"><p id="35c5a91a-75a4-80ea-aa31-d63d5895ac6c" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

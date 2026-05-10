@@ -33,6 +33,7 @@ export const DEFAULT_AUTHOR = {
 
 export const NAV_ITEMS = [
   { label: 'Tools', href: '/tools' },
+  { label: 'Guides', href: '/guides' },
   { label: 'Payment Access', href: '/payment-access' },
   { label: 'Address & Banking', href: '/address-banking' },
   { label: 'Compliance', href: '/compliance' },
@@ -66,7 +67,8 @@ export type PillarId =
   | 'address-banking'
   | 'compliance'
   | 'providers'
-  | 'playbooks';
+  | 'playbooks'
+  | 'guides';
 
 export interface Pillar {
   id: PillarId;
@@ -78,6 +80,14 @@ export interface Pillar {
 }
 
 export const PILLARS: Pillar[] = [
+  {
+    id: 'guides',
+    label: 'Step-by-Step Guides',
+    shortLabel: 'Guides',
+    description: 'Visual, step-by-step walkthroughs to form your LLC, get an EIN, and open accounts.',
+    mainQuestion: 'How do I actually form my LLC and configure my setup step-by-step?',
+    href: '/guides',
+  },
   {
     id: 'payment-access',
     label: 'Payment Access Reality',
