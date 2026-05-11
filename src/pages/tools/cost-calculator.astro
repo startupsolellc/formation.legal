@@ -20,9 +20,9 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   description="Compare true 3-year LLC costs: formation fees, registered agent renewals, state filings, EIN handling, compliance, and tax prep. Updated 2026."
   schemas={[breadcrumbSchema]}
 >
-  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-    <nav class="mb-8 text-base text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
-      <ol class="flex flex-wrap items-center gap-1.5">
+  <section class="mx-auto min-w-0 max-w-6xl px-4 py-12 sm:px-6">
+    <nav class="mb-8 min-w-0 text-base text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
+      <ol class="flex min-w-0 flex-wrap items-center gap-1.5">
         <li><a href="/" class="hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
         <li aria-hidden="true">/</li>
         <li><a href="/tools" class="hover:text-[var(--color-text-primary)] transition-colors">Tools</a></li>
@@ -37,7 +37,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
         LLC provider costs
       </p>
-      <h1 class="mt-3 text-3xl font-bold text-[var(--color-text-primary)] sm:text-4xl">
+      <h1 class="mt-3 break-readable text-2xl font-bold text-[var(--color-text-primary)] sm:text-4xl">
         3-Year LLC Cost Calculator
       </h1>
       <p class="mt-4 text-lg leading-relaxed text-[var(--color-text-secondary)]">

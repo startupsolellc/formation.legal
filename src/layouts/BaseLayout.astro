@@ -5,6 +5,7 @@
  */
 
 import '../styles/global.css';
+import '../styles/components.css';
 import JsonLd from '../components/seo/JsonLd.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -111,8 +112,9 @@ const allSchemas = [
     <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col">
+    <a href="#main" class="skip-link">Skip to main content</a>
     <Header />
-    <main class="flex-1">
+    <main id="main" tabindex="-1" class="flex-1 min-w-0">
       <slot />
     </main>
     <Footer />

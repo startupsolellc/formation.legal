@@ -23,18 +23,18 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ]);
 ---
 <BaseLayout title={item.data.title} description={item.data.description} schemas={[articleSchema, breadcrumbSchema]} noindex={item.data.noindex}>
-  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-    <nav class="mb-8 text-base text-[var(--color-muted)]" aria-label="Breadcrumb">
-      <ol class="flex items-center gap-1.5">
-        <li><a href="/" class="hover:text-[var(--color-primary-900)] transition-colors">Home</a></li>
+  <article class="mx-auto min-w-0 max-w-3xl px-4 py-12 sm:px-6">
+    <nav class="mb-8 min-w-0 text-base text-[var(--color-muted)]" aria-label="Breadcrumb">
+      <ol class="flex min-w-0 flex-wrap items-center gap-1.5">
+        <li><a href="/" class="hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
         <li aria-hidden="true">/</li>
-        <li><a href="/research" class="hover:text-[var(--color-primary-900)] transition-colors">Research</a></li>
+        <li><a href="/research" class="hover:text-[var(--color-text-primary)] transition-colors">Research</a></li>
         <li aria-hidden="true">/</li>
-        <li aria-current="page" class="text-[var(--color-primary-900)] font-medium line-clamp-1">{item.data.title}</li>
+        <li aria-current="page" class="min-w-0 max-w-full truncate text-[var(--color-text-primary)] font-medium">{item.data.title}</li>
       </ol>
     </nav>
     <header class="mb-10">
-      <h1 class="text-3xl font-bold text-[var(--color-primary-950)] sm:text-4xl">{item.data.title}</h1>
+      <h1 class="break-readable text-2xl font-bold text-[var(--color-text-primary)] sm:text-4xl">{item.data.title}</h1>
       <p class="mt-4 text-lg text-[var(--color-muted)]">{item.data.description}</p>
     </header>
     <Prose><Content /></Prose>

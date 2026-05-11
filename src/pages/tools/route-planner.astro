@@ -20,9 +20,9 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   description="Answer 7 questions to get a directional route estimate: entity type, state, address risk, banking, Stripe/PayPal readiness, and compliance."
   schemas={[breadcrumbSchema]}
 >
-  <section class="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-    <nav class="mb-8 text-base text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
-      <ol class="flex flex-wrap items-center gap-1.5">
+  <section class="mx-auto min-w-0 max-w-2xl px-4 py-16 sm:px-6">
+    <nav class="mb-8 min-w-0 text-base text-[var(--color-text-secondary)]" aria-label="Breadcrumb">
+      <ol class="flex min-w-0 flex-wrap items-center gap-1.5">
         <li><a href="/" class="hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
         <li aria-hidden="true">/</li>
         <li><a href="/tools" class="hover:text-[var(--color-text-primary)] transition-colors">Tools</a></li>
@@ -38,10 +38,10 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
         Interactive tool
       </p>
-      <h1 class="mt-3 text-3xl font-bold text-[var(--color-text-primary)] sm:text-4xl">
+      <h1 class="mt-3 break-readable text-2xl font-bold text-[var(--color-text-primary)] sm:text-4xl">
         US Business Route Planner
       </h1>
-      <p class="mt-4 text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed">
+      <p class="mx-auto mt-4 max-w-full text-lg text-[var(--color-text-secondary)] leading-relaxed sm:max-w-xl">
         Get a directional route estimate based on your country, business model, payment goal, address proof, payout path, and compliance needs.
       </p>
     </div>

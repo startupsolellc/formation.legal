@@ -67,22 +67,22 @@ const totalCost3yr = pricing.year1 + pricing.year2 + pricing.year3;
   schemas={[articleSchema, breadcrumbSchema]}
   noindex={noindex}
 >
-  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+  <article class="mx-auto min-w-0 max-w-3xl px-4 py-12 sm:px-6">
     <!-- Breadcrumb -->
-    <nav class="mb-8 text-base text-[var(--color-muted)]" aria-label="Breadcrumb">
-      <ol class="flex items-center gap-1.5">
-        <li><a href="/" class="hover:text-[var(--color-primary-900)] transition-colors">Home</a></li>
+    <nav class="mb-8 min-w-0 text-base text-[var(--color-muted)]" aria-label="Breadcrumb">
+      <ol class="flex min-w-0 flex-wrap items-center gap-1.5">
+        <li><a href="/" class="hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
         <li aria-hidden="true">/</li>
-        <li><a href="/providers" class="hover:text-[var(--color-primary-900)] transition-colors">Providers</a></li>
+        <li><a href="/providers" class="hover:text-[var(--color-text-primary)] transition-colors">Providers</a></li>
         <li aria-hidden="true">/</li>
-        <li aria-current="page" class="text-[var(--color-primary-900)] font-medium line-clamp-1">{providerName}</li>
+        <li aria-current="page" class="min-w-0 max-w-full truncate text-[var(--color-text-primary)] font-medium">{providerName}</li>
       </ol>
     </nav>
 
     <!-- Header -->
     <header class="mb-10">
       <div class="mb-3 flex items-center gap-2 text-sm">
-        <span class="rounded-full bg-[var(--color-primary-50)] px-2.5 py-0.5 font-medium text-[var(--color-primary-700)]">
+        <span class="rounded-full bg-[var(--color-surface-dim)] px-2.5 py-0.5 font-medium text-[var(--color-action)]">
           Provider Review
         </span>
         {tested && (
@@ -92,7 +92,7 @@ const totalCost3yr = pricing.year1 + pricing.year2 + pricing.year3;
         )}
       </div>
 
-      <h1 class="text-3xl font-bold text-[var(--color-primary-950)] sm:text-4xl">
+      <h1 class="break-readable text-2xl font-bold text-[var(--color-text-primary)] sm:text-4xl">
         {title}
       </h1>
       <p class="mt-4 text-lg text-[var(--color-muted)]">{description}</p>
@@ -108,14 +108,14 @@ const totalCost3yr = pricing.year1 + pricing.year2 + pricing.year3;
     <div class="mb-10 grid gap-4 sm:grid-cols-2">
       <!-- Best For -->
       <div class="rounded-lg border border-[oklch(0.85_0.08_155)] bg-[oklch(0.97_0.02_155)] p-4">
-        <h3 class="text-base font-semibold text-[oklch(0.35_0.12_155)]">✓ Best for</h3>
+        <h2 class="text-base font-semibold text-[oklch(0.35_0.12_155)]">✓ Best for</h2>
         <ul class="mt-2 space-y-1 text-base text-[var(--color-primary-800)]">
           {bestFor.map((item) => <li>• {item}</li>)}
         </ul>
       </div>
       <!-- Not For -->
       <div class="rounded-lg border border-[oklch(0.85_0.08_25)] bg-[oklch(0.97_0.02_25)] p-4">
-        <h3 class="text-base font-semibold text-[oklch(0.40_0.15_25)]">✗ Not ideal for</h3>
+        <h2 class="text-base font-semibold text-[oklch(0.40_0.15_25)]">✗ Not ideal for</h2>
         <ul class="mt-2 space-y-1 text-base text-[var(--color-primary-800)]">
           {notFor.map((item) => <li>• {item}</li>)}
         </ul>
@@ -155,14 +155,14 @@ const totalCost3yr = pricing.year1 + pricing.year2 + pricing.year3;
 
     <!-- Affiliate CTA -->
     {affiliateUrl && (
-      <div class="mt-12 rounded-lg border border-[var(--color-accent-400)]/30 bg-[var(--color-primary-50)] p-6 text-center">
+      <div class="mt-12 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-container)] p-6 text-center">
         <p class="text-base text-[var(--color-muted)] mb-3">
           Start with the provider that fits your route.
         </p>
         <a
           href={affiliateUrl}
           target="_blank"
-          rel="noopener sponsored"
+          rel="noopener noreferrer sponsored"
           class="cta-primary"
         >
           Visit {providerName}

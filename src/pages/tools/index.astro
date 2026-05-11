@@ -48,19 +48,19 @@ const toolIcons: Record<string, string> = {
         >
           <div class="p-6">
             <div class="mb-4 flex items-center gap-3">
-              <div class="flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary-50)] text-[var(--color-action)]">
+              <div class="flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-surface-dim)] text-[var(--color-action)]">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5" set:html={toolIcons[tool.href] || ''} />
               </div>
               <div class="flex items-center gap-2">
-                <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">{tool.title}</h3>
+                <h2 class="text-lg font-semibold text-[var(--color-text-primary)]">{tool.title}</h2>
                 {tool.status === 'available' && (
-                  <span class="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-[var(--color-trust)]">
+                  <span class="flex items-center gap-1 rounded-full bg-[var(--color-surface-dim)] px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-[var(--color-trust)]">
                     <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-trust)]"></span>
                     Live
                   </span>
                 )}
                 {tool.status === 'coming-soon' && (
-                  <span class="rounded-full bg-stone-100 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-[var(--color-route-incomplete)]">
+                  <span class="rounded-full bg-[var(--color-surface-dim)] px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-[var(--color-route-incomplete)]">
                     Coming Soon
                   </span>
                 )}

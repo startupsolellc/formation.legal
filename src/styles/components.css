@@ -43,7 +43,7 @@
   border-radius: 0 0.5rem 0.5rem 0;
   font-size: 1.05rem;
   line-height: 1.7;
-  color: var(--color-primary-800);
+  color: var(--color-text-primary);
 }
 
 /* Verdict table row risk levels */
@@ -87,7 +87,7 @@
   padding: 1.5rem;
   border-radius: 0.75rem;
   border: 1px solid var(--color-border);
-  background: white;
+  background: var(--color-surface-container);
   transition: all var(--duration-normal) var(--ease-out);
 }
 
@@ -101,10 +101,12 @@
 .cta-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  min-height: 2.75rem;
   padding: 0.625rem 1.25rem;
-  background: var(--color-accent-600);
-  color: white;
+  background: var(--color-action);
+  color: var(--color-action-contrast);
   font-weight: 600;
   font-size: 0.875rem;
   border-radius: 0.5rem;
@@ -113,17 +115,19 @@
 }
 
 .cta-primary:hover {
-  background: var(--color-accent-500);
+  background: var(--color-action-hover);
   box-shadow: 0 4px 16px oklch(0.60 0.20 250 / 0.25);
 }
 
 .cta-secondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  min-height: 2.75rem;
   padding: 0.625rem 1.25rem;
-  background: white;
-  color: var(--color-primary-900);
+  background: var(--color-surface-container);
+  color: var(--color-text-primary);
   font-weight: 600;
   font-size: 0.875rem;
   border-radius: 0.5rem;

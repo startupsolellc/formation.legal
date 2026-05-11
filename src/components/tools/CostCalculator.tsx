@@ -113,7 +113,7 @@ function EinToggle({
               type="button"
               aria-pressed={selected}
               onClick={() => onChange(option.value)}
-              class={`rounded-[6px] border px-3 py-2.5 text-left transition-all ${
+              class={`min-h-11 rounded-[6px] border px-3 py-2.5 text-left transition-all ${
                 selected
                   ? 'border-[var(--color-action)] bg-[var(--color-surface-dim)] text-[var(--color-text-primary)] shadow-sm'
                   : 'border-[var(--color-border)] bg-[var(--color-surface-container)] text-[var(--color-text-secondary)] hover:border-[var(--color-action-hover)]'
@@ -167,7 +167,7 @@ function CostCell({ value, muted = false }: { value: number | null; muted?: bool
 function ProviderNotes({ item }: { item: ProviderCostBreakdown }) {
   return (
     <details class="mt-3">
-      <summary class="cursor-pointer font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors">
+      <summary class="inline-flex min-h-10 cursor-pointer items-center rounded-[6px] px-2 font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors">
         Notes & sources
       </summary>
       <div class="mt-3 space-y-3 border-l-2 border-[var(--color-primary-200)] pl-3">
@@ -194,8 +194,8 @@ function ProviderNotes({ item }: { item: ProviderCostBreakdown }) {
               key={source.url}
               href={source.url}
               target="_blank"
-              rel="noreferrer"
-              class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-10 items-center rounded-[6px] px-2 font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
             >
               {source.label}
             </a>
@@ -311,7 +311,7 @@ export default function CostCalculator() {
           <button
             type="button"
             onClick={reset}
-            class="self-start rounded-[6px] border border-[var(--color-border)] px-3 py-2 font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)] transition-all hover:border-[var(--color-action)] hover:text-[var(--color-action)]"
+            class="min-h-10 self-start rounded-[6px] border border-[var(--color-border)] px-3 py-2 font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)] transition-all hover:border-[var(--color-action)] hover:text-[var(--color-action)]"
           >
             Reset
           </button>
@@ -381,8 +381,8 @@ export default function CostCalculator() {
           <a
             href="https://www.irs.gov/businesses/employer-identification-number"
             target="_blank"
-            rel="noreferrer"
-            class="mt-3 inline-block font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
+            rel="noopener noreferrer"
+            class="mt-3 inline-flex min-h-10 items-center rounded-[6px] px-2 font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] hover:text-[var(--color-action-hover)] transition-colors"
           >
             IRS EIN information
           </a>

@@ -58,7 +58,7 @@ const currentPath = Astro.url.pathname;
       <button
         type="button"
         id="mobile-menu-toggle"
-        class="flex items-center justify-center w-10 h-10 rounded-md text-muted hover:bg-surface-dim hover:text-text-primary transition-all"
+        class="flex h-11 w-11 items-center justify-center rounded-md text-muted hover:bg-surface-dim hover:text-text-primary transition-all"
         aria-expanded="false"
         aria-controls="mobile-menu"
         aria-label="Toggle navigation menu"
@@ -91,7 +91,7 @@ const currentPath = Astro.url.pathname;
             <a
               href={item.href}
               class:list={[
-                'block rounded-md px-3 py-2.5 text-base font-medium transition-all',
+                'block rounded-md px-3 py-3 text-base font-medium transition-all',
                 isActive
                   ? 'bg-action/10 text-action'
                   : 'text-muted hover:bg-surface-dim hover:text-text-primary',

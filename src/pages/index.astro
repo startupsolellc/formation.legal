@@ -36,18 +36,18 @@ const pillarColors: Record<string, string> = {
     <div class="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
     <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-32 relative z-10">
       <div class="flex flex-col lg:flex-row items-center gap-12">
-        <div class="flex-1 text-center lg:text-left">
+        <div class="min-w-0 flex-1 text-center lg:text-left">
           <div class="reveal is-visible">
             <p class="inline-flex items-center gap-2 rounded-full bg-[var(--color-surface-dim)] border border-[var(--color-border)] px-4 py-1.5 text-sm font-bold tracking-wide text-[var(--color-text-primary)] mb-6 shadow-sm">
               <span class="flex size-2 rounded-full bg-[var(--color-trust)] animate-pulse"></span>
               Independent · Research-Driven
             </p>
           </div>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-text-primary)] reveal is-visible">
+          <h1 class="max-w-full break-readable text-3xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-text-primary)] reveal is-visible sm:text-4xl md:text-5xl lg:text-6xl">
             The US LLC Route
             <span class="block bg-gradient-to-r from-[var(--color-action)] to-[#818cf8] bg-clip-text text-transparent mt-1">Engineered for You.</span>
           </h1>
-          <p class="mt-6 text-lg md:text-xl leading-relaxed text-[var(--color-text-secondary)] reveal is-visible max-w-2xl mx-auto lg:mx-0">
+          <p class="mx-auto mt-6 max-w-full text-lg leading-relaxed text-[var(--color-text-secondary)] reveal is-visible md:max-w-2xl md:text-xl lg:mx-0">
             Compare payment access, banking risk, and 3-year compliance costs before you spend a dime. Stop following generic blogs; build the route that actually works.
           </p>
           <div class="mt-10 flex flex-col sm:flex-row items-center gap-4 reveal is-visible justify-center lg:justify-start">
@@ -92,16 +92,16 @@ const pillarColors: Record<string, string> = {
 
   <!-- Social Proof / Trust Bar -->
   <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-container)]">
-    <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-8 px-4 py-6 sm:gap-16 sm:px-6">
-      <div class="flex items-center gap-3 text-sm md:text-base font-semibold text-[var(--color-text-secondary)]">
+    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-4 px-4 py-6 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-16 sm:px-6">
+      <div class="flex items-center justify-center gap-3 text-sm font-semibold text-[var(--color-text-secondary)] md:text-base">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 text-[var(--color-text-muted)]"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         No Affiliate Bias
       </div>
-      <div class="flex items-center gap-3 text-sm md:text-base font-semibold text-[var(--color-text-secondary)]">
+      <div class="flex items-center justify-center gap-3 text-sm font-semibold text-[var(--color-text-secondary)] md:text-base">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 text-[var(--color-text-muted)]"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         Data-Driven Research
       </div>
-      <div class="flex items-center gap-3 text-sm md:text-base font-semibold text-[var(--color-text-secondary)]">
+      <div class="flex items-center justify-center gap-3 text-sm font-semibold text-[var(--color-text-secondary)] md:text-base">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 text-[var(--color-text-muted)]"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Human Written
       </div>
@@ -113,7 +113,7 @@ const pillarColors: Record<string, string> = {
     <div class="mx-auto max-w-5xl">
       <div class="mb-12 text-center md:text-left reveal">
         <p class="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-action)] mb-2">The Architecture</p>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
+        <h2 class="break-readable text-3xl font-extrabold tracking-tight text-[var(--color-text-primary)] md:text-4xl">
           Explore by Decision Pillar
         </h2>
         <p class="mt-3 text-lg text-[var(--color-text-secondary)] max-w-2xl">
