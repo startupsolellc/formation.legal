@@ -56,6 +56,13 @@ export const TOOL_ITEMS = [
     href: '/tools/cost-calculator',
     status: 'available',
   },
+  {
+    label: 'Annual Report Fees',
+    title: 'LLC Annual Fees by State',
+    description: 'Compare LLC formation fees, annual franchise taxes, and compliance costs across all 50 states. Data verified from official state portals.',
+    href: '/costs/annual-report-fees-by-state',
+    status: 'available',
+  },
 ] as const;
 
 /* ------------------------------------------------------------------ */

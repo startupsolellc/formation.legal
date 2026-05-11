@@ -11,6 +11,17 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-11] - Tools Hub Expansion & Dataset Footer Link
+
+### Added
+- **Annual Report Fees Card to Tools Hub**: Added a new "LLC Annual Fees by State" card to `TOOL_ITEMS` (`src/lib/constants.ts`) linking to `/costs/annual-report-fees-by-state`, visible on `/tools`.
+- **Footer Dataset Link**: Added "US LLC Fees Dataset" external link to the Footer "Tools & Data" column, pointing to `https://github.com/startupsolellc/us-llc-fees-dataset` with `target="_blank"`.
+
+### Changed
+- **Tools Index Icon**: Added grid/sheet SVG icon for the new Annual Report Fees tool in `toolIcons` record (`src/pages/tools/index.astro`).
+
+---
+
 ## [2026-05-11] - Public Dataset Integration & Cost Calculator MVP
 
 ### Added
