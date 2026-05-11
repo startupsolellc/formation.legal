@@ -11,6 +11,23 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-05-11] - Public Dataset Integration & Cost Calculator MVP
+
+### Added
+- **State Fees Public Dataset Connection**: Implemented automated fetching (`src/lib/state-fees.ts`) of the new open-source 50-state JSON dataset.
+- **Type Definitions**: Added TypeScript interfaces for the dataset in `src/types/state-fees.ts`.
+- **Annual Report Fees Index**: Created a new page (`src/pages/costs/annual-report-fees-by-state.astro`) to display a 2026 State Fee Matrix using the dynamic public data, styled with `Institutional Clarity` guidelines and inline SVGs.
+- **Footer Navigation**: Added a "Tools & Data" column to `src/components/Footer.astro` containing links to the Route Planner and State Fee Index.
+- **Agent Context Files**: Generated `docs/us-llc-fees-GEMINI.md` and `docs/us-llc-fees-AGENTS.md` to establish strict boundaries and roles for the public repository's AI agent.
+
+### Changed
+- **Cost Calculator MVP**: Refactored `src/components/tools/CostCalculator.tsx` to accept dynamic dataset props and introduced a "Formation State" dropdown. The tool now automatically updates "State filing fee" and "Compliance estimate" based on the selected state's official data.
+- **Cost Calculator Page**: Updated `src/pages/tools/cost-calculator.astro` to fetch the public dataset at build time and pass it to the React component.
+
+### Fixed
+- **JSON Parsing Resilience**: Added regex logic in `src/lib/state-fees.ts` to automatically strip trailing commas from the fetched JSON, preventing build failures from manual data entry errors.
+- **Material Symbols Issue**: Replaced broken text-based icons (`fact_check`, `info`, `warning`, etc.) with inline SVGs across the new State Fee Index to ensure perfect rendering without external font dependencies.
+
 ## [2026-05-10] - Guides Pillar & Stripe Atlas Alternative Walkthrough
 
 ### Added

@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchStateFees } from '../../lib/state-fees';
+import type { StateFeeData } from '../../types/state-fees';
+
+// SEO Meta
+const seoTitle = "LLC Annual Fees by State 2026: True Cost Index";
+const seoDescription = "Compare LLC formation fees, annual franchise taxes, and compliance costs across all 50 states. Data verified from official US state portals for 2026.";
+
+// Fetch Data
+const data = await fetchStateFees();
+const statesArray: StateFeeData[] = Object.values(data.states || {}).sort((a, b) => a.name.localeCompare(b.name));
+
+const updateDate = data.last_updated && data.last_updated !== 'error'
+  ? data.last_updated
+  : 'Dataset unavailable';
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <section class="mx-auto flex w-full min-w-0 max-w-6xl flex-col gap-12 px-4 py-10 sm:px-6">
+    
+    <!-- Guide Header -->
+    <header class="flex flex-col gap-4 border-b border-border pb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs font-bold bg-surface-dim text-text-secondary px-2 py-1 rounded uppercase tracking-wider">Cost Index</span>
+        <span class="text-xs text-muted font-mono">Last Updated: {updateDate}</span>
+      </div>
+      <h1 class="break-readable text-3xl font-bold tracking-tight text-text-primary md:text-5xl">LLC Annual Fees by State (2026)</h1>
+      <p class="text-lg text-text-secondary mt-2 max-w-3xl leading-relaxed">
+        A definitive index of US LLC formation fees and recurring annual franchise taxes. Avoid the "free LLC" trap by understanding your 3-year compliance costs before incorporating.
+      </p>
+
+      <!-- Reviewer Methodology -->
+      <div class="mt-4 flex items-start gap-4 p-5 bg-surface-container border border-border rounded-lg shadow-sm max-w-4xl">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-action shrink-0">
+          <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+        </svg>
+        <div>
+          <p class="text-sm font-bold uppercase tracking-wider text-text-primary mb-1">Source-Backed Data</p>
+          <p class="text-base text-text-secondary leading-relaxed">We do not rely on third-party affiliate blogs. Every fee in this index is pulled directly from official Secretary of State or Division of Corporations fee schedules through our open-source dataset.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Direct Answer Block -->
+    <section class="bg-surface-container border-l-4 border-action border-y border-r border-border p-6 flex flex-col gap-3 rounded-r-lg shadow-sm max-w-4xl">
+      <h2 class="text-xl font-bold text-text-primary flex items-center gap-2">
+        <span class="material-symbols-outlined text-action">info</span>
+        The Direct Answer
+      </h2>
+      <div class="text-base text-text-secondary space-y-4 leading-relaxed">
+        <p>The true cost of an LLC is not the formation fee; it is the <strong class="text-text-primary">annual report fee</strong> (or franchise tax). While forming an LLC might cost $50 to $300 upfront, maintaining it can cost anywhere from $0 (e.g., New Mexico) to $800+ annually (e.g., California).</p>
+        <p>For non-US residents, these state fees compound with Registered Agent renewals and Form 5472 tax preparation costs. Always calculate the 3-year operational cost, not just the Day 1 filing fee.</p>
+      </div>
+    </section>
+
+    <!-- Warning Block -->
+    <section class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-6 rounded-lg max-w-4xl">
+      <h3 class="text-lg font-bold text-amber-900 dark:text-amber-400 flex items-center gap-2 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 shrink-0">
+        <path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+      </svg>
+        The "Foreign LLC" Trap (Crucial for US Residents)
+      </h3>
+      <p class="text-sm text-amber-800 dark:text-amber-300 leading-relaxed">
+        If you live in California and form an LLC in Wyoming because the fees are lower, you are legally required to register that Wyoming LLC back in California as a "Foreign LLC." You will end up paying <strong class="font-bold">both</strong> state fees. Unless you are a non-US resident or operating a highly specific holding company structure, <strong class="font-bold">always form the LLC in your home state.</strong>
+      </p>
+    </section>
+
+    <!-- Data Table -->
+    <section class="flex flex-col gap-4 mt-4">
+      <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end border-b border-border pb-4 gap-4">
+        <h2 class="text-2xl font-bold text-text-primary">2026 State Fee Matrix</h2>
+        <a href="https://github.com/startupsolellc/us-llc-fees-dataset" target="_blank" rel="noopener noreferrer" class="flex min-h-10 items-center gap-1 rounded-full border border-border bg-surface-dim px-3 py-1.5 font-mono text-sm text-action transition-colors hover:bg-surface-container hover:underline">
+          <span class="material-symbols-outlined text-sm">api</span> View Open-Source Dataset
+        </a>
+      </div>
+      
+      <!-- Responsive Table Container -->
+      <div class="overflow-x-auto border border-border rounded-lg bg-surface-container shadow-sm">
+        <table class="w-full text-left border-collapse min-w-[800px]">
+          <thead>
+            <tr class="bg-surface-dim text-text-secondary text-xs uppercase tracking-wider border-b border-border">
+              <th class="p-4 border-r border-border font-semibold sticky left-0 bg-surface-dim z-10 w-1/4">State</th>
+              <th class="p-4 border-r border-border font-semibold text-right w-1/6">Formation Fee</th>
+              <th class="p-4 border-r border-border font-semibold text-right w-1/6">Annual Fee</th>
+              <th class="p-4 border-r border-border font-semibold w-1/4">Due Date</th>
+              <th class="p-4 font-semibold text-center w-1/6">Official Source</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm divide-y divide-border">
+            {statesArray.map((state) => (
+              <tr class="hover:bg-surface-dim transition-colors group bg-surface-container">
+                <td class="p-4 border-r border-border font-medium text-text-primary sticky left-0 bg-surface-container group-hover:bg-surface-dim transition-colors">
+                  {state.name}
+                </td>
+                <td class="p-4 border-r border-border font-mono text-right text-text-secondary">
+                  ${state.formation_fee.toLocaleString()}
+                </td>
+                <td class="p-4 border-r border-border font-mono text-right font-bold text-action">
+                  ${state.annual_report_fee.toLocaleString()}
+                </td>
+                <td class="p-4 border-r border-border text-text-secondary text-sm">
+                  {state.annual_report_due_date}
+                </td>
+                <td class="p-4 text-center">
+                  <a href={state.official_link} target="_blank" rel="nofollow noopener noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-surface-dim p-2 text-text-muted transition-colors hover:bg-border hover:text-action" title={`Verify ${state.name} fee`} aria-label={`Verify ${state.name} fee from official source`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 shrink-0">
+                    <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                  </svg>
+                  </a>
+                </td>
+              </tr>
+            ))}
+            {statesArray.length === 0 && (
+              <tr>
+                <td colspan="5" class="p-8 text-center text-text-secondary">
+                  <div class="flex flex-col items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-4xl text-muted">cloud_off</span>
+                    <span>No data available. Failed to fetch from the public repository.</span>
+                  </div>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+      <p class="font-mono text-xs text-muted mt-2 text-right">
+        * Fees are verified directly from state `.gov` portals. Subject to legislative changes.
+      </p>
+    </section>
+
+  </section>
+</BaseLayout>

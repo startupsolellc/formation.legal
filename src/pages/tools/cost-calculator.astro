@@ -7,12 +7,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CostCalculator from '../../components/tools/CostCalculator';
 import ToolNav from '../../components/tools/ToolNav.astro';
 import { buildBreadcrumbSchema } from '../../lib/schema';
+import { fetchStateFees } from '../../lib/state-fees';
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', href: '/' },
   { name: 'Tools', href: '/tools' },
   { name: '3-Year LLC Cost Calculator', href: '/tools/cost-calculator' },
 ]);
+
+const stateData = await fetchStateFees();
 ---
 
 <BaseLayout
@@ -59,6 +62,6 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       </div>
     </div>
 
-    <CostCalculator client:load />
+    <CostCalculator dataset={stateData} client:load />
   </section>
 </BaseLayout>

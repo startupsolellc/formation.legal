@@ -1,8 +1,9 @@
 /* Cost Calculator — Preact island component */
 import type { JSX } from 'preact';
-import { useMemo, useState } from 'preact/hooks';
+import { useMemo, useState, useEffect } from 'preact/hooks';
 import type { CostAssumptions, EinHandling, ProviderCostBreakdown } from '../../types/cost-calculator';
 import { calculateProviderCost, DEFAULT_COST_ASSUMPTIONS, PROVIDER_COSTS } from '../../data/provider-costs';
+import type { StateFeesDataset } from '../../types/state-fees';
 
 type AssumptionNumberField =
   | 'stateFilingFee'
@@ -271,8 +272,28 @@ function CostTable({ breakdowns }: { breakdowns: ProviderCostBreakdown[] }) {
   );
 }
 
-export default function CostCalculator() {
+export default function CostCalculator({ dataset }: { dataset?: StateFeesDataset }) {
   const [assumptions, setAssumptions] = useState<CostAssumptions>(DEFAULT_COST_ASSUMPTIONS);
+  const [selectedState, setSelectedState] = useState<string>('');
+
+  const statesArray = useMemo(() => {
+    if (!dataset?.states) return [];
+    return Object.values(dataset.states).sort((a, b) => a.name.localeCompare(b.name));
+  }, [dataset]);
+
+  useEffect(() => {
+    if (selectedState && dataset?.states) {
+      const stateKey = Object.keys(dataset.states).find(k => dataset.states[k].name === selectedState);
+      if (stateKey) {
+        const s = dataset.states[stateKey];
+        setAssumptions(current => ({
+          ...current,
+          stateFilingFee: s.formation_fee,
+          annualComplianceEstimate: s.annual_report_fee,
+        }));
+      }
+    }
+  }, [selectedState, dataset]);
 
   const breakdowns = useMemo(
     () => PROVIDER_COSTS.map((provider) => calculateProviderCost(provider, assumptions)),
@@ -294,6 +315,7 @@ export default function CostCalculator() {
 
   const reset = () => {
     setAssumptions(DEFAULT_COST_ASSUMPTIONS);
+    setSelectedState('');
     trackEvent('cost_reset');
   };
 
@@ -316,6 +338,32 @@ export default function CostCalculator() {
             Reset
           </button>
         </div>
+
+        {statesArray.length > 0 && (
+          <div class="mb-5">
+            <label htmlFor="state-selector" class="block text-base font-semibold text-[var(--color-text-primary)]">
+              Formation state
+            </label>
+            <div class="mt-2 flex items-center rounded-[6px] border border-[var(--color-border)] bg-[var(--color-surface-container)] focus-within:border-[var(--color-action)] transition-colors pr-2">
+              <select
+                id="state-selector"
+                value={selectedState}
+                onChange={(e) => setSelectedState((e.target as HTMLSelectElement).value)}
+                class="w-full border-0 bg-transparent px-3 py-2.5 text-base font-semibold text-[var(--color-text-primary)] outline-none cursor-pointer appearance-none"
+              >
+                <option value="" disabled>Select a state to auto-load official fees...</option>
+                {statesArray.map(s => (
+                  <option key={s.name} value={s.name}>
+                    {s.name} (Filing: ${s.formation_fee}, Annual: ${s.annual_report_fee})
+                  </option>
+                ))}
+              </select>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[var(--color-text-secondary)] pointer-events-none">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+              </svg>
+            </div>
+          </div>
+        )}
 
         <div class="grid gap-5 lg:grid-cols-3">
           <MoneyField
