@@ -18,7 +18,7 @@ import Disclaimer from '../components/trust/Disclaimer.astro';
 import AuthorBio from '../components/trust/AuthorBio.astro';
 import { Image } from 'astro:assets';
 import { buildArticleSchema, buildBreadcrumbSchema } from '../lib/schema';
-import { PILLARS } from '../lib/constants';
+import { PILLARS, SITE } from '../lib/constants';
 
 // Preload hero images for optimization
 const heroImages = import.meta.glob('../assets/images/guides/*.{png,jpg,jpeg,webp,avif}');
@@ -118,6 +118,8 @@ const {
 const pillarData = PILLARS.find((p) => p.id === pillar);
 const pillarLabel = pillarData?.shortLabel ?? pillar;
 const pillarHref = pillarData?.href ?? `/${pillar}`;
+const pageHref = `${pillarHref}/${slug}`;
+const pageUrl = `${SITE.url}${pageHref}`;
 
 const articleSchema = buildArticleSchema({
   title,
@@ -125,7 +127,7 @@ const articleSchema = buildArticleSchema({
   pubDate,
   updatedDate,
   author,
-  slug,
+  slug: pageHref,
   originalityScore,
   humanGenerated,
   aiAssisted,
@@ -134,7 +136,7 @@ const articleSchema = buildArticleSchema({
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', href: '/' },
   { name: pillarLabel, href: pillarHref },
-  { name: title, href: `${pillarHref}/${slug}` },
+  { name: title, href: pageHref },
 ]);
 
 const dateFormatted = pubDate.toLocaleDateString('en-US', {
@@ -147,6 +149,7 @@ const dateFormatted = pubDate.toLocaleDateString('en-US', {
 <BaseLayout
   title={seoTitle ?? title}
   description={seoDescription ?? description}
+  canonicalUrl={pageUrl}
   schemas={[articleSchema, breadcrumbSchema]}
   noindex={noindex}
 >

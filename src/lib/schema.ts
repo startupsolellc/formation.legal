@@ -68,9 +68,10 @@ export function buildWebSiteSchema() {
 /* ------------------------------------------------------------------ */
 
 export function buildArticleSchema(input: ArticleInput) {
+  const path = input.slug.startsWith('/') ? input.slug : `/${input.slug}`;
   const url = input.slug.startsWith('http')
     ? input.slug
-    : `${SITE.url}/${input.slug}`;
+    : `${SITE.url}${path}`;
 
   return {
     '@context': 'https://schema.org',
