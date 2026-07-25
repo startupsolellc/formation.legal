@@ -36,7 +36,11 @@ export const GET: APIRoute = () => {
     'Allow: /',
     '',
     '# Sitemaps',
+    // The child sitemap is listed alongside the index on purpose: Bing reads a
+    // sitemap index once and does not always fetch the children inside it.
+    // See docs/bing-indexnow-ops.md.
     `Sitemap: ${SITE.url}/sitemap-index.xml`,
+    `Sitemap: ${SITE.url}/sitemap-0.xml`,
     '',
     '# LLM-friendly index',
     `# See also: ${SITE.url}/llms.txt`,
