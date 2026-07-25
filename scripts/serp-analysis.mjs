@@ -25,8 +25,13 @@ envContent.split('\n').forEach(line => {
   }
 });
 
-const username = process.env.DATAFORSEO_LOGIN || 'hey@thequill.pub';
-const password = process.env.DATAFORSEO_PASSWORD || '3c7c7c2e4a763c55';
+const username = process.env.DATAFORSEO_LOGIN;
+const password = process.env.DATAFORSEO_PASSWORD;
+
+if (!username || !password) {
+  throw new Error('Set DATAFORSEO_LOGIN and DATAFORSEO_PASSWORD in .env');
+}
+
 const baseUrl = process.env.DATAFORSEO_API_URL || 'https://api.dataforseo.com';
 
 function createAuthenticatedFetch(username, password) {

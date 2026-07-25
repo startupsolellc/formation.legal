@@ -1,6 +1,13 @@
 import https from 'node:https';
 
-const auth = Buffer.from('hey@thequill.pub:3c7c7c2e4a763c55').toString('base64');
+const username = process.env.DATAFORSEO_LOGIN;
+const password = process.env.DATAFORSEO_PASSWORD;
+
+if (!username || !password) {
+  throw new Error('Set DATAFORSEO_LOGIN and DATAFORSEO_PASSWORD in .env');
+}
+
+const auth = Buffer.from(`${username}:${password}`).toString('base64');
 
 // Winning keyword - AI Overview YOK!
 const keyword = 'ein for foreign llc how to apply';

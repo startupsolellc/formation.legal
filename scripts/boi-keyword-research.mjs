@@ -1,8 +1,13 @@
 // BOI Reporting Keyword Research Script
 // Run: node scripts/boi-keyword-research.mjs
 
-const username = process.env.DATAFORSEO_LOGIN || 'hey@thequill.pub';
-const password = process.env.DATAFORSEO_PASSWORD || '3c7c7c2e4a763c55';
+const username = process.env.DATAFORSEO_LOGIN;
+const password = process.env.DATAFORSEO_PASSWORD;
+
+if (!username || !password) {
+  throw new Error('Set DATAFORSEO_LOGIN and DATAFORSEO_PASSWORD in .env');
+}
+
 const baseUrl = 'https://api.dataforseo.com';
 
 function createAuthenticatedFetch(username, password) {

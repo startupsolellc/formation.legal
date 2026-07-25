@@ -11,6 +11,27 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2026-07-25] - Bing Discovery Repair, IndexNow Setup & Credential Cleanup
+
+### Fixed
+- **Bing Child Sitemap Discovery Failure**: `sitemap-index.xml` was submitted to Bing on 2026-05-22; Bing read the index once, counted its single `<sitemap>` entry, and never fetched the child. `GetFeeds.UrlCount` sat at **1** for 64 days while the site served 42 URLs, and `LastCrawled` stayed frozen at the submission timestamp. Measured through the Bing Webmaster API, not inferred. Submitting `sitemap-0.xml` directly as a child feed moved `UrlCount` to **42** with `LastCrawled: 2026-07-25 14:06`.
+- **robots.txt Sitemap Exposure** (`src/pages/robots.txt.ts`): the child sitemap is now listed alongside the index, so crawlers that do not descend into a sitemap index still get a direct path to all URLs.
+
+### Added
+- **IndexNow Key** (`public/4e3d092ea5871686fc071df6facb1efa.txt`): project-specific 32-char key served from the site root, exactly 32 bytes with no trailing newline. Keys are per-host — a key on one domain cannot authorize submissions for another, so this one must never be copied to a sibling project.
+- **IndexNow Submission Script** (`scripts/indexnow-submit.mjs`): pulls URLs from the live sitemap (or accepts explicit paths) and posts them to `api.indexnow.org`. It refuses to submit unless the live key file returns 200, `text/plain`, and a body byte-identical to the key — a mismatched key silently turns every submission into a 403. First run submitted 42 URLs, `HTTP 202`.
+- **Ops Documentation** (`docs/bing-indexnow-ops.md`): recorded measurements, the deploy-then-submit ordering rule, and a pass-condition table so every submission step has a verifiable end state (a counter that moves, a date that fills) instead of a checklist tick. Portfolio-wide diagnosis lives in the knowledge-base wiki and is linked, not duplicated.
+
+### Security
+- **Removed Hardcoded DataForSEO Credentials** (22 files under `scripts/` and `docs/`): every research script carried the live API password as a fallback default (`process.env.DATAFORSEO_PASSWORD || '<literal>'`), and two scripts inlined it straight into the Basic-auth header. Scripts now read the credentials from the environment only and throw on startup when they are missing.
+- **⚠️ Rotation Required**: this repository is public and the credential is present in committed history across many past commits. Stripping the working tree does not unpublish it — the DataForSEO password must be rotated at the provider.
+
+### Changed
+- **Bing URL Submission**: 42 URLs submitted manually through Bing WMT; monthly quota dropped 700 → 658, confirming the submission actually registered.
+- **Untracked `docs/.DS_Store`**: removed from version control (already covered by `.gitignore`).
+
+---
+
 ## [2026-05-11] - Tools Hub Expansion & Dataset Footer Link
 
 ### Added

@@ -20,21 +20,21 @@ function createAuthenticatedFetch(username, password) {
 
 async function main() {
   const authFetch = createAuthenticatedFetch(username, password);
-  console.log("Searching for low-competition LLC formation keywords...");
+  console.log("Searching for specific business name / lookup keywords...");
 
   const seedKeywords = [
-    "how to use northwest registered agent",
-    "bizee llc formation guide",
-    "step by step llc formation non resident",
-    "form llc online for foreigners",
-    "northwest registered agent non resident",
-    "llc formation process for non us citizens",
-    "registered agent vs stripe atlas"
+    "llc lookup",
+    "business name search",
+    "entity lookup",
+    "check business name",
+    "business search",
+    "company lookup",
+    "business name availability"
   ];
 
   const payload = [{
     keywords: seedKeywords,
-    location_code: 2840,
+    location_code: 2840, // US
     language_code: "en",
     include_serp_info: false
   }];
@@ -50,23 +50,23 @@ async function main() {
     if(data.tasks && data.tasks.length > 0 && data.tasks[0].result) {
        const items = data.tasks[0].result[0].items || [];
        
-       console.log("\nTop Keyword Ideas (Filtering for lower competition):");
+       console.log("\nTop Keyword Ideas (Filtered & Sorted by Volume):");
        
        items
          .filter(item => {
-             const comp = item.keyword_info?.competition_level;
-             return comp === "LOW" || comp === "MEDIUM";
+            const kw = item.keyword.toLowerCase();
+            return !kw.includes("mayor") && !kw.includes("defense") && !kw.includes("state"); // filter out state-specific for a moment to find general terms
          })
          .sort((a,b) => (b.keyword_info?.search_volume || 0) - (a.keyword_info?.search_volume || 0))
-         .slice(0, 20)
+         .slice(0, 30)
          .forEach(item => {
             const info = item.keyword_info;
-            console.log("- Keyword: " + item.keyword);
-            console.log("  Volume: " + info?.search_volume + ", Competition: " + info?.competition_level + " (" + info?.competition + "), CPC: " + info?.cpc);
+            console.log(`- Keyword: "${item.keyword}"`);
+            console.log(`  Volume: ${info?.search_volume}, CPC: ${info?.cpc}`);
          });
 
     } else {
-        console.log("No data returned or error");
+        console.log("No data returned or error", JSON.stringify(data, null, 2));
     }
   } catch(e) {
     console.error("Error:", e);

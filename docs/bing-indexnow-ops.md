@@ -45,6 +45,7 @@ Kardeş projelerle karşılaştırma: businessnamesearch.us aynı arızada 0 ind
 | 3 | IndexNow anahtarı kuruldu (`public/4e3d092ea5871686fc071df6facb1efa.txt`) | kod | ✅ |
 | 4 | `robots.txt` artık child sitemap'i de listeliyor | kod | ✅ |
 | 5 | `scripts/indexnow-submit.mjs` eklendi | kod | ✅ |
+| 6 | İlk IndexNow gönderimi — 42 URL, `HTTP 202` | kod | ✅ 2026-07-25 |
 
 **Müdahale sonrası ölçüm (2026-07-25 14:0x):**
 
