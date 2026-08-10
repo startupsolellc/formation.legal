@@ -1,35 +1,24 @@
 import type { StateFeesDataset } from '../types/state-fees';
-
-const DATASET_URL = 'https://raw.githubusercontent.com/startupsolellc/us-llc-fees-dataset/main/states.json';
+import dataset from '../data/state-fees.json';
 
 /**
- * Fetches the open-source US LLC Fees dataset directly from the public GitHub repository.
- * In Astro, if called inside frontmatter, this happens at build time,
- * ensuring fast performance and static generation.
+ * Reads the US LLC fees dataset from the committed snapshot at
+ * src/data/state-fees.json, synced from the local clone of
+ * us-llc-fees-dataset at the commit pinned in data-pin.json
+ * (`npm run sync-data`). The dataset repo is private, so the build never
+ * touches the network.
+ *
+ * Throws on an empty snapshot: shipping the fee pages with no rows is worse
+ * than a failed build.
  */
 export async function fetchStateFees(): Promise<StateFeesDataset> {
-  try {
-    const response = await fetch(DATASET_URL);
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch state fees dataset: ${response.status} ${response.statusText}`);
-    }
+  const data = dataset as unknown as StateFeesDataset;
 
-    const text = await response.text();
-    // Strip trailing commas before parsing (common error in manual JSON editing)
-    const cleanText = text.replace(/,\s*([\]}])/g, '$1');
-    const data = JSON.parse(cleanText);
-    return data as StateFeesDataset;
-  } catch (error) {
-    console.error("Error fetching state fees from public repo:", error);
-    // Return an empty fallback so the build doesn't crash completely, 
-    // or you could choose to throw depending on your error strategy.
-    return {
-      schema_version: "error",
-      last_updated: "error",
-      maintained_by: "error",
-      license: "error",
-      states: {}
-    };
+  if (!data.states || Object.keys(data.states).length === 0) {
+    throw new Error(
+      'src/data/state-fees.json carries no states. Run `npm run sync-data` against the local us-llc-fees-dataset clone.',
+    );
   }
+
+  return data;
 }

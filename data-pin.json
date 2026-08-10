@@ -1,0 +1,7 @@
+{
+  "repo": "https://github.com/startupsolellc/us-llc-fees-dataset",
+  "localClone": "~/Projects/repos/us-llc-fees-dataset",
+  "commit": "1719b411fcc9483249cd431da6afab8c12d182fc",
+  "pinnedOn": "2026-08-10",
+  "note": "Reads go through `git show <commit>:states.json` on the local clone. The dataset repo is private; nothing in this project fetches it over the network. To update: git -C <localClone> fetch, bump commit, run `npm run sync-data`, review the diff in src/data/state-fees.json, commit."
+}
